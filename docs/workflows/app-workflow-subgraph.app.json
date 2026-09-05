@@ -1,0 +1,488 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "revision": 0,
+  "last_node_id": 5,
+  "last_link_id": 5,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [
+        40,
+        40
+      ],
+      "size": [
+        282.796875,
+        322
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            4
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "0001_outfit.png",
+        "image"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "PreviewImage",
+      "pos": [
+        1180,
+        40
+      ],
+      "size": [
+        225,
+        34
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 5,
+      "type": "434cbc5a-61a6-4a33-8db7-4c6e71c439e0",
+      "pos": [
+        675,
+        280
+      ],
+      "size": [
+        225,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "previewExposures": []
+      }
+    }
+  ],
+  "links": [
+    [
+      4,
+      1,
+      0,
+      5,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      5,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "definitions": {
+    "subgraphs": [
+      {
+        "id": "434cbc5a-61a6-4a33-8db7-4c6e71c439e0",
+        "version": 1,
+        "state": {
+          "lastGroupId": 0,
+          "lastNodeId": 5,
+          "lastLinkId": 5,
+          "lastRerouteId": 0
+        },
+        "revision": 0,
+        "config": {},
+        "name": "New Subgraph",
+        "inputNode": {
+          "id": -10,
+          "bounding": [
+            232,
+            244,
+            128,
+            68
+          ]
+        },
+        "outputNode": {
+          "id": -20,
+          "bounding": [
+            1130,
+            244,
+            128,
+            68
+          ]
+        },
+        "inputs": [
+          {
+            "id": "be4d9850-678d-4a14-af80-a6b5e5bb6dbc",
+            "name": "image",
+            "type": "IMAGE",
+            "linkIds": [
+              1
+            ],
+            "localized_name": "image",
+            "pos": [
+              51,
+              24
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "id": "0f54e845-e7fd-43c5-ba5f-496f38514d33",
+            "name": "IMAGE",
+            "type": "IMAGE",
+            "linkIds": [
+              3
+            ],
+            "localized_name": "IMAGE",
+            "pos": [
+              24,
+              24
+            ]
+          }
+        ],
+        "widgets": [],
+        "nodes": [
+          {
+            "id": 2,
+            "type": "Image Chromatic Aberration",
+            "pos": [
+              420,
+              40
+            ],
+            "size": [
+              286.078125,
+              349
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 1
+              },
+              {
+                "localized_name": "red_offset",
+                "name": "red_offset",
+                "type": "INT",
+                "widget": {
+                  "name": "red_offset"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "green_offset",
+                "name": "green_offset",
+                "type": "INT",
+                "widget": {
+                  "name": "green_offset"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "blue_offset",
+                "name": "blue_offset",
+                "type": "INT",
+                "widget": {
+                  "name": "blue_offset"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "intensity",
+                "name": "intensity",
+                "type": "FLOAT",
+                "widget": {
+                  "name": "intensity"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "fade_radius",
+                "name": "fade_radius",
+                "type": "INT",
+                "widget": {
+                  "name": "fade_radius"
+                },
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  2
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "Image Chromatic Aberration"
+            },
+            "widgets_values": [
+              2,
+              -1,
+              1,
+              1,
+              12
+            ]
+          },
+          {
+            "id": 3,
+            "type": "Image Filter Adjustments",
+            "pos": [
+              800,
+              40
+            ],
+            "size": [
+              270,
+              506
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "image",
+                "name": "image",
+                "type": "IMAGE",
+                "link": 2
+              },
+              {
+                "localized_name": "brightness",
+                "name": "brightness",
+                "type": "FLOAT",
+                "widget": {
+                  "name": "brightness"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "contrast",
+                "name": "contrast",
+                "type": "FLOAT",
+                "widget": {
+                  "name": "contrast"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "saturation",
+                "name": "saturation",
+                "type": "FLOAT",
+                "widget": {
+                  "name": "saturation"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "sharpness",
+                "name": "sharpness",
+                "type": "FLOAT",
+                "widget": {
+                  "name": "sharpness"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "blur",
+                "name": "blur",
+                "type": "INT",
+                "widget": {
+                  "name": "blur"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "gaussian_blur",
+                "name": "gaussian_blur",
+                "type": "FLOAT",
+                "widget": {
+                  "name": "gaussian_blur"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "edge_enhance",
+                "name": "edge_enhance",
+                "type": "FLOAT",
+                "widget": {
+                  "name": "edge_enhance"
+                },
+                "link": null
+              },
+              {
+                "localized_name": "detail_enhance",
+                "name": "detail_enhance",
+                "type": "BOOLEAN",
+                "widget": {
+                  "name": "detail_enhance"
+                },
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "IMAGE",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [
+                  3
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "Image Filter Adjustments"
+            },
+            "widgets_values": [
+              0,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              false
+            ]
+          }
+        ],
+        "groups": [],
+        "links": [
+          {
+            "id": 2,
+            "origin_id": 2,
+            "origin_slot": 0,
+            "target_id": 3,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 1,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 2,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 3,
+            "origin_id": 3,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 0,
+            "type": "IMAGE"
+          }
+        ],
+        "extra": {}
+      }
+    ]
+  },
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.0629366000000045,
+      "offset": [
+        1356.458926783256,
+        10.580152139528863
+      ]
+    },
+    "linearData": {
+      "inputs": [
+        [
+          "00000000-0000-0000-0000-000000000000:1:image",
+          "image"
+        ],
+        [
+          "434cbc5a-61a6-4a33-8db7-4c6e71c439e0:2:red_offset",
+          "red_offset"
+        ],
+        [
+          "434cbc5a-61a6-4a33-8db7-4c6e71c439e0:3:saturation",
+          "saturation"
+        ]
+      ],
+      "outputs": [
+        "4"
+      ]
+    }
+  },
+  "version": 0.4
+}

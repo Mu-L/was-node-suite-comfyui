@@ -1,0 +1,30 @@
+# Line endings are LF in the repository and in every working tree, on every platform.
+#
+# Without this the answer depends on each contributor's core.autocrlf: a file written by a
+# Windows editor arrives with CRLF, git rewrites it on the next commit that touches it, and
+# the diff shows every line as changed. Declaring it here settles it for everyone who
+# clones, rather than for whoever configured their client.
+* text=auto eol=lf
+
+# Binary assets. Never converted, never diffed as text.
+*.png   binary
+*.ttf   binary
+*.woff2 binary
+
+# Third-party payloads carried verbatim: the minified Markdown and syntax-highlighting
+# libraries the content viewer loads, the KaTeX fonts, and OpenCV's classifier cascades.
+# Marked vendored so GitHub's language statistics describe this pack rather than what it
+# bundles, and left out of diffs because none of it is edited here.
+web/viewer/views/markdown_scripts/** linguist-vendored -diff
+web/viewer/views/code_scripts/**     linguist-vendored -diff
+web/viewer/fonts/**                  linguist-vendored
+web/vendor/**                        linguist-vendored -diff
+modules/data/cascades/**             linguist-vendored -diff
+
+# The notes and licence indexes inside those trees are written and corrected here, not carried
+# in, so they are diffed. A change to what the pack claims about a third party's licence has to
+# be visible in review, and these are the files that carry the claim. The verbatim licence
+# texts beside them stay out of diffs with the payloads they cover.
+web/viewer/views/markdown_scripts/LICENSE diff
+web/viewer/views/code_scripts/LICENSE     diff
+web/vendor/hugerte/README.md              diff

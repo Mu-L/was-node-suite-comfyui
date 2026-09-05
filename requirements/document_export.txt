@@ -1,0 +1,3 @@
+python-docx  # .docx, written and read
+odfdo        # .odt, written and read
+xhtml2pdf    # .pdf, written only

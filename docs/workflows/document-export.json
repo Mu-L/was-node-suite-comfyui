@@ -1,0 +1,1310 @@
+{
+  "id": "document-export",
+  "revision": 0,
+  "last_node_id": 11,
+  "last_link_id": 9,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "Text Dictionary New",
+      "pos": [
+        60,
+        700
+      ],
+      "size": [
+        400,
+        320
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "key_1",
+          "name": "key_1",
+          "type": "STRING",
+          "widget": {
+            "name": "key_1"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "value_1",
+          "name": "value_1",
+          "type": "STRING,LIST,DICT",
+          "widget": {
+            "name": "value_1"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "key_2",
+          "name": "key_2",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "key_2"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "value_2",
+          "name": "value_2",
+          "shape": 7,
+          "type": "STRING,LIST,DICT",
+          "widget": {
+            "name": "value_2"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "key_3",
+          "name": "key_3",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "key_3"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "value_3",
+          "name": "value_3",
+          "shape": 7,
+          "type": "STRING,LIST,DICT",
+          "widget": {
+            "name": "value_3"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "key_4",
+          "name": "key_4",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "key_4"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "value_4",
+          "name": "value_4",
+          "shape": 7,
+          "type": "STRING,LIST,DICT",
+          "widget": {
+            "name": "value_4"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "key_5",
+          "name": "key_5",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "key_5"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "value_5",
+          "name": "value_5",
+          "shape": 7,
+          "type": "STRING,LIST,DICT",
+          "widget": {
+            "name": "value_5"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "key_6",
+          "name": "key_6",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "key_6"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "value_6",
+          "name": "value_6",
+          "shape": 7,
+          "type": "STRING,LIST,DICT",
+          "widget": {
+            "name": "value_6"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "key_7",
+          "name": "key_7",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "key_7"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "value_7",
+          "name": "value_7",
+          "shape": 7,
+          "type": "STRING,LIST,DICT",
+          "widget": {
+            "name": "value_7"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "key_8",
+          "name": "key_8",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "key_8"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "value_8",
+          "name": "value_8",
+          "shape": 7,
+          "type": "STRING,LIST,DICT",
+          "widget": {
+            "name": "value_8"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "list_values",
+          "name": "list_values",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "list_values"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "DICT",
+          "name": "DICT",
+          "type": "DICT",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Dictionary New"
+      },
+      "widgets_values": [
+        "licence",
+        "Not for redistribution",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "list literal"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "WASTextToDOC",
+      "pos": [
+        60,
+        80
+      ],
+      "size": [
+        560,
+        560
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "custom_metadata",
+          "name": "custom_metadata",
+          "shape": 7,
+          "type": "DICT",
+          "link": 1
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "text_format",
+          "name": "text_format",
+          "type": "COMBO",
+          "widget": {
+            "name": "text_format"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "title",
+          "name": "title",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "title"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "description",
+          "name": "description",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "description"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "author",
+          "name": "author",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "author"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "copyright",
+          "name": "copyright",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "copyright"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "language",
+          "name": "language",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "language"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "keywords",
+          "name": "keywords",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "keywords"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "DOC",
+          "name": "DOC",
+          "type": "DOC",
+          "links": [
+            2,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASTextToDOC"
+      },
+      "widgets_values": [
+        "<h1>Field Notes</h1>\n<p>A short document that carries one of <strong>everything</strong> the export formats\ncarry, so an export can be opened and checked against it.</p>\n<h2>A bulleted list</h2>\n<ul><li>Headings, from <code>h1</code> to <code>h6</code></li>\n<li>Bold, italic, <u>underline</u> and <s>strikethrough</s></li>\n<li>Colour: <span style=\"color:#b3541e\">a warm brown</span> and <mark>a highlight</mark></li></ul>\n<h2>A numbered list</h2>\n<ol><li>First</li><li>Second</li><li>Third</li></ol>\n<h2>A table with a merged cell</h2>\n<table><caption>Exposure per plate</caption>\n<tr><th>Plate</th><th>Seconds</th><th>Filter</th></tr>\n<tr><td>A</td><td>120</td><td rowspan=\"2\">Wratten 12</td></tr>\n<tr><td>B</td><td>240</td></tr>\n<tr><td colspan=\"2\">C and D together</td><td>none</td></tr></table>\n<h2>A quotation and a rule</h2>\n<blockquote>The plate is the record; the notebook is the argument.</blockquote>\n<hr>\n<pre>  two  spaces kept\n  and a second line</pre>\n<p>A link to <a href=\"https://github.com/WASasquatch/was-node-suite-comfyui\">the repository</a>.</p>",
+        "html",
+        "Field Notes",
+        "One of everything the fidelity table names.",
+        "A. Writer",
+        "(c) 2026 A. Writer, CC BY 4.0",
+        "en",
+        "notes, plates, exposure"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "WASViewDOCMetadata",
+      "pos": [
+        700,
+        700
+      ],
+      "size": [
+        380,
+        480
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "doc",
+          "name": "doc",
+          "type": "DOC",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "title",
+          "name": "title",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "description",
+          "name": "description",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "author",
+          "name": "author",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "copyright",
+          "name": "copyright",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "language",
+          "name": "language",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "keywords",
+          "name": "keywords",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "keywords_list",
+          "name": "keywords_list",
+          "type": "LIST",
+          "links": null
+        },
+        {
+          "localized_name": "created",
+          "name": "created",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "modified",
+          "name": "modified",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "generator",
+          "name": "generator",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "custom",
+          "name": "custom",
+          "type": "DICT",
+          "links": null
+        },
+        {
+          "localized_name": "word_count",
+          "name": "word_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "character_count",
+          "name": "character_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "asset_count",
+          "name": "asset_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "assets",
+          "name": "assets",
+          "type": "LIST",
+          "links": null
+        },
+        {
+          "localized_name": "has_metadata",
+          "name": "has_metadata",
+          "type": "BOOLEAN",
+          "links": null
+        },
+        {
+          "localized_name": "summary",
+          "name": "summary",
+          "type": "STRING",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASViewDOCMetadata"
+      }
+    },
+    {
+      "id": 4,
+      "type": "WASDisplayAny",
+      "pos": [
+        1120,
+        700
+      ],
+      "size": [
+        420,
+        480
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "*",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASDisplayAny"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 5,
+      "type": "WASSaveDOC",
+      "pos": [
+        700,
+        80
+      ],
+      "size": [
+        400,
+        540
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "doc",
+          "name": "doc",
+          "type": "DOC,STRING",
+          "link": 4
+        },
+        {
+          "localized_name": "file_format",
+          "name": "file_format",
+          "type": "COMBO",
+          "widget": {
+            "name": "file_format"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "type": "STRING",
+          "widget": {
+            "name": "path"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "filename_delimiter",
+          "name": "filename_delimiter",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_delimiter"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "filename_number_padding",
+          "name": "filename_number_padding",
+          "type": "INT",
+          "widget": {
+            "name": "filename_number_padding"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "filename_suffix",
+          "name": "filename_suffix",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "filename_suffix"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "page_size",
+          "name": "page_size",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "page_size"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "orientation",
+          "name": "orientation",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "orientation"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "margin_mm",
+          "name": "margin_mm",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "margin_mm"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "file_path",
+          "name": "file_path",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASSaveDOC"
+      },
+      "widgets_values": [
+        ".wasdoc",
+        "./ComfyUI/output/was_doc_demo",
+        "field-notes",
+        "_",
+        0,
+        "",
+        "A4",
+        "portrait",
+        20
+      ]
+    },
+    {
+      "id": 6,
+      "type": "WASSaveDOC",
+      "pos": [
+        1140,
+        80
+      ],
+      "size": [
+        400,
+        540
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "doc",
+          "name": "doc",
+          "type": "DOC,STRING",
+          "link": 5
+        },
+        {
+          "localized_name": "file_format",
+          "name": "file_format",
+          "type": "COMBO",
+          "widget": {
+            "name": "file_format"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "type": "STRING",
+          "widget": {
+            "name": "path"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "filename_delimiter",
+          "name": "filename_delimiter",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_delimiter"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "filename_number_padding",
+          "name": "filename_number_padding",
+          "type": "INT",
+          "widget": {
+            "name": "filename_number_padding"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "filename_suffix",
+          "name": "filename_suffix",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "filename_suffix"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "page_size",
+          "name": "page_size",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "page_size"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "orientation",
+          "name": "orientation",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "orientation"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "margin_mm",
+          "name": "margin_mm",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "margin_mm"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "file_path",
+          "name": "file_path",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASSaveDOC"
+      },
+      "widgets_values": [
+        ".docx",
+        "./ComfyUI/output/was_doc_demo",
+        "field-notes",
+        "_",
+        0,
+        "",
+        "A4",
+        "portrait",
+        20
+      ]
+    },
+    {
+      "id": 7,
+      "type": "WASSaveDOC",
+      "pos": [
+        1580,
+        80
+      ],
+      "size": [
+        400,
+        540
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "doc",
+          "name": "doc",
+          "type": "DOC,STRING",
+          "link": 6
+        },
+        {
+          "localized_name": "file_format",
+          "name": "file_format",
+          "type": "COMBO",
+          "widget": {
+            "name": "file_format"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "path",
+          "name": "path",
+          "type": "STRING",
+          "widget": {
+            "name": "path"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "filename_delimiter",
+          "name": "filename_delimiter",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_delimiter"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "filename_number_padding",
+          "name": "filename_number_padding",
+          "type": "INT",
+          "widget": {
+            "name": "filename_number_padding"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "filename_suffix",
+          "name": "filename_suffix",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "filename_suffix"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "page_size",
+          "name": "page_size",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "page_size"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "orientation",
+          "name": "orientation",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "orientation"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "margin_mm",
+          "name": "margin_mm",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "margin_mm"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "file_path",
+          "name": "file_path",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASSaveDOC"
+      },
+      "widgets_values": [
+        ".odt",
+        "./ComfyUI/output/was_doc_demo",
+        "field-notes",
+        "_",
+        0,
+        "",
+        "A4",
+        "portrait",
+        20
+      ]
+    },
+    {
+      "id": 8,
+      "type": "WASLoadDocument",
+      "pos": [
+        60,
+        1040
+      ],
+      "size": [
+        460,
+        160
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "file",
+          "name": "file",
+          "type": "COMBO",
+          "widget": {
+            "name": "file"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "file_path",
+          "name": "file_path",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "file_path"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "DOC",
+          "name": "DOC",
+          "type": "DOC",
+          "links": [
+            7,
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASLoadDocument"
+      },
+      "widgets_values": [
+        "was_doc_demo/field-notes.wasdoc [output]",
+        ""
+      ]
+    },
+    {
+      "id": 9,
+      "type": "WASViewDOCMetadata",
+      "pos": [
+        580,
+        1040
+      ],
+      "size": [
+        330,
+        480
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "doc",
+          "name": "doc",
+          "type": "DOC",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "title",
+          "name": "title",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "description",
+          "name": "description",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "author",
+          "name": "author",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "copyright",
+          "name": "copyright",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "language",
+          "name": "language",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "keywords",
+          "name": "keywords",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "keywords_list",
+          "name": "keywords_list",
+          "type": "LIST",
+          "links": null
+        },
+        {
+          "localized_name": "created",
+          "name": "created",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "modified",
+          "name": "modified",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "generator",
+          "name": "generator",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "localized_name": "custom",
+          "name": "custom",
+          "type": "DICT",
+          "links": null
+        },
+        {
+          "localized_name": "word_count",
+          "name": "word_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "character_count",
+          "name": "character_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "asset_count",
+          "name": "asset_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "assets",
+          "name": "assets",
+          "type": "LIST",
+          "links": null
+        },
+        {
+          "localized_name": "has_metadata",
+          "name": "has_metadata",
+          "type": "BOOLEAN",
+          "links": null
+        },
+        {
+          "localized_name": "summary",
+          "name": "summary",
+          "type": "STRING",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASViewDOCMetadata"
+      }
+    },
+    {
+      "id": 10,
+      "type": "WASDisplayAny",
+      "pos": [
+        580,
+        1580
+      ],
+      "size": [
+        330,
+        280
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "*",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASDisplayAny"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 11,
+      "type": "WASComfyViewer",
+      "pos": [
+        970,
+        1040
+      ],
+      "size": [
+        660,
+        620
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "content",
+          "name": "content",
+          "shape": 7,
+          "type": "*",
+          "link": 9
+        },
+        {
+          "localized_name": "manual_content",
+          "name": "manual_content",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "manual_content"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "viewer_meta",
+          "name": "viewer_meta",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "viewer_meta"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "view_state",
+          "name": "view_state",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "view_state"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "hold_for_edit",
+          "name": "hold_for_edit",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "hold_for_edit"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "hold_timeout",
+          "name": "hold_timeout",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "hold_timeout"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "content",
+          "name": "content",
+          "shape": 6,
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASComfyViewer"
+      },
+      "widgets_values": [
+        "",
+        "{\"lastInputHash\": \"\", \"excluded\": []}",
+        "{}",
+        false,
+        600
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "DICT"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      0,
+      "DOC"
+    ],
+    [
+      3,
+      3,
+      16,
+      4,
+      0,
+      "STRING"
+    ],
+    [
+      4,
+      2,
+      0,
+      5,
+      0,
+      "DOC"
+    ],
+    [
+      5,
+      2,
+      0,
+      6,
+      0,
+      "DOC"
+    ],
+    [
+      6,
+      2,
+      0,
+      7,
+      0,
+      "DOC"
+    ],
+    [
+      7,
+      8,
+      0,
+      9,
+      0,
+      "DOC"
+    ],
+    [
+      8,
+      9,
+      16,
+      10,
+      0,
+      "STRING"
+    ],
+    [
+      9,
+      8,
+      0,
+      11,
+      0,
+      "DOC"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.0132275132275133,
+      "offset": [
+        677.5456919060052,
+        3.3472584856397134
+      ]
+    }
+  },
+  "version": 0.4
+}

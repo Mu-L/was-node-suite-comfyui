@@ -1,0 +1,6115 @@
+{
+  "id": "30dda1b8-ea28-44ec-8377-583060b037a7",
+  "revision": 0,
+  "last_node_id": 123,
+  "last_link_id": 120,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [
+        40,
+        100
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1,
+            3,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15,
+            17,
+            19,
+            21,
+            23,
+            25,
+            27,
+            29,
+            31,
+            33,
+            35,
+            45,
+            47,
+            49,
+            51,
+            53,
+            55,
+            57,
+            59,
+            63,
+            65,
+            67,
+            69,
+            71,
+            73,
+            75,
+            77,
+            79,
+            81,
+            83,
+            85,
+            99,
+            101,
+            103,
+            105,
+            107,
+            109,
+            111,
+            113,
+            115
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "0001_outfit.png",
+        "image"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "LoadImage",
+      "pos": [
+        40,
+        500
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            37,
+            86
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "orange_tabby_cat.png",
+        "image"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "LoadImage",
+      "pos": [
+        40,
+        900
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            39,
+            41,
+            43,
+            61,
+            89,
+            91,
+            93,
+            95,
+            97,
+            117,
+            119
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "house.png",
+        "image"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "Note",
+      "pos": [
+        40,
+        1320
+      ],
+      "size": [
+        560,
+        300
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Power Preprocessor test suite.\n\nEvery preprocessor and every model it accepts, plus control sweeps, a batch and a resolution pair. Every model named here has weights on this machine.\n\nThe seed control is fixed on purpose. Left on randomize it changes every run, which changes every node's inputs, so nothing is ever reused and the whole graph recomputes even when nothing changed.\n\nWhat to look for: no node should answer a flat black or flat white frame except where that is the point, such as the confidence sweep at 0.95. In each sweep group every row should differ visibly from the row above it."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 5,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        700,
+        100
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "canny_pyramid",
+        "Depth Anything V2 Small",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 6,
+      "type": "PreviewImage",
+      "pos": [
+        1030,
+        100
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 58,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 7,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        700,
+        340
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "lineart_simple",
+        "Depth Anything V2 Small",
+        512,
+        8,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 8,
+      "type": "PreviewImage",
+      "pos": [
+        1030,
+        340
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 59,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 9,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        700,
+        580
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "scribble_xdog",
+        "Depth Anything V2 Small",
+        512,
+        32,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 10,
+      "type": "PreviewImage",
+      "pos": [
+        1030,
+        580
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 60,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 11,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        700,
+        820
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "binary",
+        "Depth Anything V2 Small",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 12,
+      "type": "PreviewImage",
+      "pos": [
+        1030,
+        820
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 61,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 13,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        700,
+        1060
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "shuffle",
+        "Depth Anything V2 Small",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 14,
+      "type": "PreviewImage",
+      "pos": [
+        1030,
+        1060
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 62,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 15,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        1460,
+        100
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "depth_map",
+        "Depth Anything V2 Small",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 16,
+      "type": "PreviewImage",
+      "pos": [
+        1790,
+        100
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 63,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 17,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        1460,
+        340
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "depth_map",
+        "DPT SwinV2 Tiny",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 18,
+      "type": "PreviewImage",
+      "pos": [
+        1790,
+        340
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 64,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 19,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        1460,
+        580
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "depth_map",
+        "Depth Anything V2 Base",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 20,
+      "type": "PreviewImage",
+      "pos": [
+        1790,
+        580
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 65,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 21,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        1460,
+        820
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            18
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "depth_map",
+        "Depth Anything V2 Large",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 22,
+      "type": "PreviewImage",
+      "pos": [
+        1790,
+        820
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 66,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 18
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 23,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        1460,
+        1060
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            20
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "depth_map",
+        "DPT Large",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 24,
+      "type": "PreviewImage",
+      "pos": [
+        1790,
+        1060
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 67,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 20
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 25,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        2220,
+        100
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "normal_map",
+        "Depth Anything V2 Small",
+        512,
+        100,
+        200,
+        3,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 26,
+      "type": "PreviewImage",
+      "pos": [
+        2550,
+        100
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 68,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 27,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        2220,
+        340
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            24
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "normal_map",
+        "DPT SwinV2 Tiny",
+        512,
+        100,
+        200,
+        3,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 28,
+      "type": "PreviewImage",
+      "pos": [
+        2550,
+        340
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 69,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 24
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 29,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        2220,
+        580
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            26
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "normal_map",
+        "Depth Anything V2 Base",
+        512,
+        100,
+        200,
+        3,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 30,
+      "type": "PreviewImage",
+      "pos": [
+        2550,
+        580
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 70,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 31,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        2220,
+        820
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 27
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            28
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "normal_map",
+        "Depth Anything V2 Large",
+        512,
+        100,
+        200,
+        3,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 32,
+      "type": "PreviewImage",
+      "pos": [
+        2550,
+        820
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 71,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 28
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 33,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        2220,
+        1060
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            30
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "normal_map",
+        "DPT Large",
+        512,
+        100,
+        200,
+        3,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 34,
+      "type": "PreviewImage",
+      "pos": [
+        2550,
+        1060
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 72,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 30
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 35,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        2980,
+        100
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 31
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            32
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "openpose",
+        "ViTPose Base",
+        512,
+        0.3,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 36,
+      "type": "PreviewImage",
+      "pos": [
+        3310,
+        100
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 73,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 37,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        2980,
+        340
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 33
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            34
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "openpose",
+        "ViTPose Small",
+        512,
+        0.3,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 38,
+      "type": "PreviewImage",
+      "pos": [
+        3310,
+        340
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 74,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 34
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 39,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        2980,
+        580
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 35
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            36
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "openpose",
+        "ViTPose Wholebody",
+        512,
+        0.3,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 40,
+      "type": "PreviewImage",
+      "pos": [
+        3310,
+        580
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 75,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 36
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 41,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        2980,
+        820
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 47,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 37
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            38
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "animal_pose",
+        "ViTPose Animal",
+        512,
+        0.3,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 42,
+      "type": "PreviewImage",
+      "pos": [
+        3310,
+        820
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 101,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 38
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 43,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        3740,
+        100
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 49,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 39
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            40
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "ade20k_segments",
+        "SegFormer B0 ADE20K",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 44,
+      "type": "PreviewImage",
+      "pos": [
+        4070,
+        100
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 103,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 40
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 45,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        3740,
+        340
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 50,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 41
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            42
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "ade20k_segments",
+        "SegFormer B2 ADE20K",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 46,
+      "type": "PreviewImage",
+      "pos": [
+        4070,
+        340
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 104,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 42
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 47,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        3740,
+        580
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 51,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 43
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            44
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "ade20k_segments",
+        "SegFormer B4 ADE20K",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 48,
+      "type": "PreviewImage",
+      "pos": [
+        4070,
+        580
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 105,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 44
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 49,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        4500,
+        100
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 45
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            46
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "soft_edge",
+        "HED Soft Edge",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 50,
+      "type": "PreviewImage",
+      "pos": [
+        4830,
+        100
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 76,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 46
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 51,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        4500,
+        340
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 47
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            48
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "soft_edge",
+        "PiDiNet Soft Edge",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 52,
+      "type": "PreviewImage",
+      "pos": [
+        4830,
+        340
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 77,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 48
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 53,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        4500,
+        580
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 49
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            50
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "soft_edge",
+        "TEED Soft Edge",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 54,
+      "type": "PreviewImage",
+      "pos": [
+        4830,
+        580
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 78,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 50
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 55,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        4500,
+        820
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 51
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            52
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "lineart_model",
+        "Lineart",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 56,
+      "type": "PreviewImage",
+      "pos": [
+        4830,
+        820
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 79,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 52
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 57,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        4500,
+        1060
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 53
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            54
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "lineart_model",
+        "Lineart Coarse",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 58,
+      "type": "PreviewImage",
+      "pos": [
+        4830,
+        1060
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 80,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 54
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 59,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        4500,
+        1300
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 55
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            56
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "lineart_model",
+        "Lineart Anime",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 60,
+      "type": "PreviewImage",
+      "pos": [
+        4830,
+        1300
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 81,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 56
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 61,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        4500,
+        1540
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 57
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            58
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "lineart_model",
+        "Manga Line",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 62,
+      "type": "PreviewImage",
+      "pos": [
+        4830,
+        1540
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 82,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 58
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 63,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        4500,
+        1780
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 59
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            60
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "anyline",
+        "AnyLine",
+        512,
+        36,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 64,
+      "type": "PreviewImage",
+      "pos": [
+        4830,
+        1780
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 83,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 60
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 65,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        4500,
+        2020
+      ],
+      "size": [
+        270,
+        154
+      ],
+      "flags": {},
+      "order": 52,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 61
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            62
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "line_segments",
+        "MLSD Line Segments",
+        512,
+        0.1,
+        20,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 66,
+      "type": "PreviewImage",
+      "pos": [
+        4830,
+        2020
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 106,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 62
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 67,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        5260,
+        100
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 63
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            64
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "normal_map",
+        "Depth Anything V2 Small",
+        512,
+        100,
+        200,
+        3,
+        0.5,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 68,
+      "type": "PreviewImage",
+      "pos": [
+        5590,
+        100
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 84,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 64
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 69,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        5260,
+        340
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 65
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            66
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "normal_map",
+        "Depth Anything V2 Small",
+        512,
+        100,
+        200,
+        3,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 70,
+      "type": "PreviewImage",
+      "pos": [
+        5590,
+        340
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 85,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 66
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 71,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        5260,
+        580
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 67
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            68
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "normal_map",
+        "Depth Anything V2 Small",
+        512,
+        100,
+        200,
+        3,
+        64,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 72,
+      "type": "PreviewImage",
+      "pos": [
+        5590,
+        580
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 86,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 68
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 73,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        6020,
+        100
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 69
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            70
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "canny_pyramid",
+        "Depth Anything V2 Small",
+        512,
+        1,
+        255,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 74,
+      "type": "PreviewImage",
+      "pos": [
+        6350,
+        100
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 87,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 70
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 75,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        6020,
+        340
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 71
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            72
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "canny_pyramid",
+        "Depth Anything V2 Small",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 76,
+      "type": "PreviewImage",
+      "pos": [
+        6350,
+        340
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 88,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 72
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 77,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        6020,
+        580
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 73
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            74
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "canny_pyramid",
+        "Depth Anything V2 Small",
+        512,
+        255,
+        255,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 78,
+      "type": "PreviewImage",
+      "pos": [
+        6350,
+        580
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 89,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 74
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 79,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        6780,
+        100
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 75
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            76
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "openpose",
+        "ViTPose Base",
+        512,
+        0.05,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 80,
+      "type": "PreviewImage",
+      "pos": [
+        7110,
+        100
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 90,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 76
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 81,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        6780,
+        340
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 77
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            78
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "openpose",
+        "ViTPose Base",
+        512,
+        0.3,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 82,
+      "type": "PreviewImage",
+      "pos": [
+        7110,
+        340
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 91,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 78
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 83,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        6780,
+        580
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 79
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            80
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "openpose",
+        "ViTPose Base",
+        512,
+        0.95,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 84,
+      "type": "PreviewImage",
+      "pos": [
+        7110,
+        580
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 92,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 80
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 85,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        7540,
+        100
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 81
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            82
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "canny_pyramid",
+        "Depth Anything V2 Small",
+        64,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 86,
+      "type": "PreviewImage",
+      "pos": [
+        7870,
+        100
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 93,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 82
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 87,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        7540,
+        340
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 83
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            84
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "canny_pyramid",
+        "Depth Anything V2 Small",
+        1024,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 88,
+      "type": "PreviewImage",
+      "pos": [
+        7870,
+        340
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 94,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 84
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 89,
+      "type": "ImageBatch",
+      "pos": [
+        8300,
+        100
+      ],
+      "size": [
+        234.61484375,
+        46
+      ],
+      "flags": {},
+      "order": 48,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 85
+        },
+        {
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 86
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            87
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageBatch"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 90,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        8300,
+        340
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 102,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 87
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            88
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "depth_map",
+        "Depth Anything V2 Small",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 91,
+      "type": "PreviewImage",
+      "pos": [
+        8630,
+        340
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 112,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 88
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 92,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        9020,
+        100
+      ],
+      "size": [
+        270,
+        178
+      ],
+      "flags": {},
+      "order": 53,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 89
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            90
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "albedo",
+        "Marigold IID Appearance",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 93,
+      "type": "PreviewImage",
+      "pos": [
+        9350,
+        100
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 107,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 90
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 94,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        9020,
+        340
+      ],
+      "size": [
+        270,
+        178
+      ],
+      "flags": {},
+      "order": 54,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 91
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            92
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "material",
+        "Marigold IID Appearance",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 95,
+      "type": "PreviewImage",
+      "pos": [
+        9350,
+        340
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 108,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 92
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 96,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        9020,
+        580
+      ],
+      "size": [
+        270,
+        178
+      ],
+      "flags": {},
+      "order": 55,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 93
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            94
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "albedo",
+        "Marigold IID Lighting",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 97,
+      "type": "PreviewImage",
+      "pos": [
+        9350,
+        580
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 109,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 94
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 98,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        9020,
+        820
+      ],
+      "size": [
+        270,
+        178
+      ],
+      "flags": {},
+      "order": 56,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 95
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            96
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "shading",
+        "Marigold IID Lighting",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 99,
+      "type": "PreviewImage",
+      "pos": [
+        9350,
+        820
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 110,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 96
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 100,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        9020,
+        1060
+      ],
+      "size": [
+        270,
+        178
+      ],
+      "flags": {},
+      "order": 57,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 97
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            98
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "residual",
+        "Marigold IID Lighting",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 101,
+      "type": "PreviewImage",
+      "pos": [
+        9350,
+        1060
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 111,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 98
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 102,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        9780,
+        100
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 99
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            100
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "denoise",
+        "SCUNet",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 103,
+      "type": "PreviewImage",
+      "pos": [
+        10110,
+        100
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 95,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 100
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 104,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        9780,
+        340
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 101
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            102
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "denoise",
+        "NAFNet SIDD width32",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 105,
+      "type": "PreviewImage",
+      "pos": [
+        10110,
+        340
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 96,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 102
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 106,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        9780,
+        580
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 43,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 103
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            104
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "denoise",
+        "NAFNet SIDD width64",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 107,
+      "type": "PreviewImage",
+      "pos": [
+        10110,
+        580
+      ],
+      "size": [
+        140,
+        26
+      ],
+      "flags": {},
+      "order": 97,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 104
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 108,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        9780,
+        820
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 44,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 105
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            106
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "low_light",
+        "Retinexformer NTIRE",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 109,
+      "type": "PreviewImage",
+      "pos": [
+        10110,
+        820
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 98,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 106
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 110,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        9780,
+        1060
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 45,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 107
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            108
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "low_light",
+        "Retinexformer Extreme Dark",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 111,
+      "type": "PreviewImage",
+      "pos": [
+        10110,
+        1060
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 99,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 108
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 112,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        9780,
+        1300
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 46,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 109
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            110
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "low_light",
+        "HVI-CIDNet Generalization",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 113,
+      "type": "PreviewImage",
+      "pos": [
+        10110,
+        1300
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 100,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 110
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 114,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        10540,
+        100
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 113,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 111
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            112
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "normal_map",
+        "Depth Anything V2 Small",
+        512,
+        100,
+        200,
+        0,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 115,
+      "type": "PreviewImage",
+      "pos": [
+        10870,
+        100
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 313,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 112
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 116,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        10540,
+        340
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 114,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 113
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            114
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "normal_map",
+        "Depth Anything V2 Small",
+        512,
+        100,
+        200,
+        3,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 117,
+      "type": "PreviewImage",
+      "pos": [
+        10870,
+        340
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 314,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 114
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 118,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        10540,
+        580
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 115,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 115
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            116
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "normal_map",
+        "Depth Anything V2 Small",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 119,
+      "type": "PreviewImage",
+      "pos": [
+        10870,
+        580
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 315,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 116
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 120,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        9020,
+        1300
+      ],
+      "size": [
+        270,
+        178
+      ],
+      "flags": {},
+      "order": 316,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 117
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            118
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "roughness",
+        "Marigold IID Appearance",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 121,
+      "type": "PreviewImage",
+      "pos": [
+        9350,
+        1300
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 317,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 118
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 122,
+      "type": "WASPowerPreprocessor",
+      "pos": [
+        9020,
+        1540
+      ],
+      "size": [
+        270,
+        178
+      ],
+      "flags": {},
+      "order": 318,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 119
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            120
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASPowerPreprocessor"
+      },
+      "widgets_values": [
+        "metallicity",
+        "Marigold IID Appearance",
+        512,
+        100,
+        200,
+        6,
+        16,
+        0,
+        "fixed",
+        0,
+        4
+      ]
+    },
+    {
+      "id": 123,
+      "type": "PreviewImage",
+      "pos": [
+        9350,
+        1540
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 319,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 120
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      5,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      5,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      3,
+      1,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      4,
+      7,
+      0,
+      8,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      1,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      6,
+      9,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      7,
+      1,
+      0,
+      11,
+      0,
+      "IMAGE"
+    ],
+    [
+      8,
+      11,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      9,
+      1,
+      0,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      13,
+      0,
+      14,
+      0,
+      "IMAGE"
+    ],
+    [
+      11,
+      1,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      12,
+      15,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ],
+    [
+      13,
+      1,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ],
+    [
+      14,
+      17,
+      0,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      15,
+      1,
+      0,
+      19,
+      0,
+      "IMAGE"
+    ],
+    [
+      16,
+      19,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      17,
+      1,
+      0,
+      21,
+      0,
+      "IMAGE"
+    ],
+    [
+      18,
+      21,
+      0,
+      22,
+      0,
+      "IMAGE"
+    ],
+    [
+      19,
+      1,
+      0,
+      23,
+      0,
+      "IMAGE"
+    ],
+    [
+      20,
+      23,
+      0,
+      24,
+      0,
+      "IMAGE"
+    ],
+    [
+      21,
+      1,
+      0,
+      25,
+      0,
+      "IMAGE"
+    ],
+    [
+      22,
+      25,
+      0,
+      26,
+      0,
+      "IMAGE"
+    ],
+    [
+      23,
+      1,
+      0,
+      27,
+      0,
+      "IMAGE"
+    ],
+    [
+      24,
+      27,
+      0,
+      28,
+      0,
+      "IMAGE"
+    ],
+    [
+      25,
+      1,
+      0,
+      29,
+      0,
+      "IMAGE"
+    ],
+    [
+      26,
+      29,
+      0,
+      30,
+      0,
+      "IMAGE"
+    ],
+    [
+      27,
+      1,
+      0,
+      31,
+      0,
+      "IMAGE"
+    ],
+    [
+      28,
+      31,
+      0,
+      32,
+      0,
+      "IMAGE"
+    ],
+    [
+      29,
+      1,
+      0,
+      33,
+      0,
+      "IMAGE"
+    ],
+    [
+      30,
+      33,
+      0,
+      34,
+      0,
+      "IMAGE"
+    ],
+    [
+      31,
+      1,
+      0,
+      35,
+      0,
+      "IMAGE"
+    ],
+    [
+      32,
+      35,
+      0,
+      36,
+      0,
+      "IMAGE"
+    ],
+    [
+      33,
+      1,
+      0,
+      37,
+      0,
+      "IMAGE"
+    ],
+    [
+      34,
+      37,
+      0,
+      38,
+      0,
+      "IMAGE"
+    ],
+    [
+      35,
+      1,
+      0,
+      39,
+      0,
+      "IMAGE"
+    ],
+    [
+      36,
+      39,
+      0,
+      40,
+      0,
+      "IMAGE"
+    ],
+    [
+      37,
+      2,
+      0,
+      41,
+      0,
+      "IMAGE"
+    ],
+    [
+      38,
+      41,
+      0,
+      42,
+      0,
+      "IMAGE"
+    ],
+    [
+      39,
+      3,
+      0,
+      43,
+      0,
+      "IMAGE"
+    ],
+    [
+      40,
+      43,
+      0,
+      44,
+      0,
+      "IMAGE"
+    ],
+    [
+      41,
+      3,
+      0,
+      45,
+      0,
+      "IMAGE"
+    ],
+    [
+      42,
+      45,
+      0,
+      46,
+      0,
+      "IMAGE"
+    ],
+    [
+      43,
+      3,
+      0,
+      47,
+      0,
+      "IMAGE"
+    ],
+    [
+      44,
+      47,
+      0,
+      48,
+      0,
+      "IMAGE"
+    ],
+    [
+      45,
+      1,
+      0,
+      49,
+      0,
+      "IMAGE"
+    ],
+    [
+      46,
+      49,
+      0,
+      50,
+      0,
+      "IMAGE"
+    ],
+    [
+      47,
+      1,
+      0,
+      51,
+      0,
+      "IMAGE"
+    ],
+    [
+      48,
+      51,
+      0,
+      52,
+      0,
+      "IMAGE"
+    ],
+    [
+      49,
+      1,
+      0,
+      53,
+      0,
+      "IMAGE"
+    ],
+    [
+      50,
+      53,
+      0,
+      54,
+      0,
+      "IMAGE"
+    ],
+    [
+      51,
+      1,
+      0,
+      55,
+      0,
+      "IMAGE"
+    ],
+    [
+      52,
+      55,
+      0,
+      56,
+      0,
+      "IMAGE"
+    ],
+    [
+      53,
+      1,
+      0,
+      57,
+      0,
+      "IMAGE"
+    ],
+    [
+      54,
+      57,
+      0,
+      58,
+      0,
+      "IMAGE"
+    ],
+    [
+      55,
+      1,
+      0,
+      59,
+      0,
+      "IMAGE"
+    ],
+    [
+      56,
+      59,
+      0,
+      60,
+      0,
+      "IMAGE"
+    ],
+    [
+      57,
+      1,
+      0,
+      61,
+      0,
+      "IMAGE"
+    ],
+    [
+      58,
+      61,
+      0,
+      62,
+      0,
+      "IMAGE"
+    ],
+    [
+      59,
+      1,
+      0,
+      63,
+      0,
+      "IMAGE"
+    ],
+    [
+      60,
+      63,
+      0,
+      64,
+      0,
+      "IMAGE"
+    ],
+    [
+      61,
+      3,
+      0,
+      65,
+      0,
+      "IMAGE"
+    ],
+    [
+      62,
+      65,
+      0,
+      66,
+      0,
+      "IMAGE"
+    ],
+    [
+      63,
+      1,
+      0,
+      67,
+      0,
+      "IMAGE"
+    ],
+    [
+      64,
+      67,
+      0,
+      68,
+      0,
+      "IMAGE"
+    ],
+    [
+      65,
+      1,
+      0,
+      69,
+      0,
+      "IMAGE"
+    ],
+    [
+      66,
+      69,
+      0,
+      70,
+      0,
+      "IMAGE"
+    ],
+    [
+      67,
+      1,
+      0,
+      71,
+      0,
+      "IMAGE"
+    ],
+    [
+      68,
+      71,
+      0,
+      72,
+      0,
+      "IMAGE"
+    ],
+    [
+      69,
+      1,
+      0,
+      73,
+      0,
+      "IMAGE"
+    ],
+    [
+      70,
+      73,
+      0,
+      74,
+      0,
+      "IMAGE"
+    ],
+    [
+      71,
+      1,
+      0,
+      75,
+      0,
+      "IMAGE"
+    ],
+    [
+      72,
+      75,
+      0,
+      76,
+      0,
+      "IMAGE"
+    ],
+    [
+      73,
+      1,
+      0,
+      77,
+      0,
+      "IMAGE"
+    ],
+    [
+      74,
+      77,
+      0,
+      78,
+      0,
+      "IMAGE"
+    ],
+    [
+      75,
+      1,
+      0,
+      79,
+      0,
+      "IMAGE"
+    ],
+    [
+      76,
+      79,
+      0,
+      80,
+      0,
+      "IMAGE"
+    ],
+    [
+      77,
+      1,
+      0,
+      81,
+      0,
+      "IMAGE"
+    ],
+    [
+      78,
+      81,
+      0,
+      82,
+      0,
+      "IMAGE"
+    ],
+    [
+      79,
+      1,
+      0,
+      83,
+      0,
+      "IMAGE"
+    ],
+    [
+      80,
+      83,
+      0,
+      84,
+      0,
+      "IMAGE"
+    ],
+    [
+      81,
+      1,
+      0,
+      85,
+      0,
+      "IMAGE"
+    ],
+    [
+      82,
+      85,
+      0,
+      86,
+      0,
+      "IMAGE"
+    ],
+    [
+      83,
+      1,
+      0,
+      87,
+      0,
+      "IMAGE"
+    ],
+    [
+      84,
+      87,
+      0,
+      88,
+      0,
+      "IMAGE"
+    ],
+    [
+      85,
+      1,
+      0,
+      89,
+      0,
+      "IMAGE"
+    ],
+    [
+      86,
+      2,
+      0,
+      89,
+      1,
+      "IMAGE"
+    ],
+    [
+      87,
+      89,
+      0,
+      90,
+      0,
+      "IMAGE"
+    ],
+    [
+      88,
+      90,
+      0,
+      91,
+      0,
+      "IMAGE"
+    ],
+    [
+      89,
+      3,
+      0,
+      92,
+      0,
+      "IMAGE"
+    ],
+    [
+      90,
+      92,
+      0,
+      93,
+      0,
+      "IMAGE"
+    ],
+    [
+      91,
+      3,
+      0,
+      94,
+      0,
+      "IMAGE"
+    ],
+    [
+      92,
+      94,
+      0,
+      95,
+      0,
+      "IMAGE"
+    ],
+    [
+      93,
+      3,
+      0,
+      96,
+      0,
+      "IMAGE"
+    ],
+    [
+      94,
+      96,
+      0,
+      97,
+      0,
+      "IMAGE"
+    ],
+    [
+      95,
+      3,
+      0,
+      98,
+      0,
+      "IMAGE"
+    ],
+    [
+      96,
+      98,
+      0,
+      99,
+      0,
+      "IMAGE"
+    ],
+    [
+      97,
+      3,
+      0,
+      100,
+      0,
+      "IMAGE"
+    ],
+    [
+      98,
+      100,
+      0,
+      101,
+      0,
+      "IMAGE"
+    ],
+    [
+      99,
+      1,
+      0,
+      102,
+      0,
+      "IMAGE"
+    ],
+    [
+      100,
+      102,
+      0,
+      103,
+      0,
+      "IMAGE"
+    ],
+    [
+      101,
+      1,
+      0,
+      104,
+      0,
+      "IMAGE"
+    ],
+    [
+      102,
+      104,
+      0,
+      105,
+      0,
+      "IMAGE"
+    ],
+    [
+      103,
+      1,
+      0,
+      106,
+      0,
+      "IMAGE"
+    ],
+    [
+      104,
+      106,
+      0,
+      107,
+      0,
+      "IMAGE"
+    ],
+    [
+      105,
+      1,
+      0,
+      108,
+      0,
+      "IMAGE"
+    ],
+    [
+      106,
+      108,
+      0,
+      109,
+      0,
+      "IMAGE"
+    ],
+    [
+      107,
+      1,
+      0,
+      110,
+      0,
+      "IMAGE"
+    ],
+    [
+      108,
+      110,
+      0,
+      111,
+      0,
+      "IMAGE"
+    ],
+    [
+      109,
+      1,
+      0,
+      112,
+      0,
+      "IMAGE"
+    ],
+    [
+      110,
+      112,
+      0,
+      113,
+      0,
+      "IMAGE"
+    ],
+    [
+      111,
+      1,
+      0,
+      114,
+      0,
+      "IMAGE"
+    ],
+    [
+      112,
+      114,
+      0,
+      115,
+      0,
+      "IMAGE"
+    ],
+    [
+      113,
+      1,
+      0,
+      116,
+      0,
+      "IMAGE"
+    ],
+    [
+      114,
+      116,
+      0,
+      117,
+      0,
+      "IMAGE"
+    ],
+    [
+      115,
+      1,
+      0,
+      118,
+      0,
+      "IMAGE"
+    ],
+    [
+      116,
+      118,
+      0,
+      119,
+      0,
+      "IMAGE"
+    ],
+    [
+      117,
+      3,
+      0,
+      120,
+      0,
+      "IMAGE"
+    ],
+    [
+      118,
+      120,
+      0,
+      121,
+      0,
+      "IMAGE"
+    ],
+    [
+      119,
+      3,
+      0,
+      122,
+      0,
+      "IMAGE"
+    ],
+    [
+      120,
+      122,
+      0,
+      123,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Sources and what to look for",
+      "bounding": [
+        0,
+        40,
+        620,
+        1660
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "No model needed",
+      "bounding": [
+        660,
+        40,
+        700,
+        1300
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Depth",
+      "bounding": [
+        1420,
+        40,
+        700,
+        1300
+      ],
+      "color": "#88A",
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Normals",
+      "bounding": [
+        2180,
+        40,
+        700,
+        1300
+      ],
+      "color": "#88A",
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "Pose",
+      "bounding": [
+        2940,
+        40,
+        700,
+        1060
+      ],
+      "color": "#8A8",
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "Segments",
+      "bounding": [
+        3700,
+        40,
+        700,
+        820
+      ],
+      "color": "#8A8",
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "Soft edges and lines",
+      "bounding": [
+        4460,
+        40,
+        700,
+        2260
+      ],
+      "color": "#A88",
+      "flags": {}
+    },
+    {
+      "id": 8,
+      "title": "Sweep: relief must keep rising",
+      "bounding": [
+        5220,
+        40,
+        700,
+        820
+      ],
+      "color": "#b58b2a",
+      "flags": {}
+    },
+    {
+      "id": 9,
+      "title": "Sweep: edges must thin out",
+      "bounding": [
+        5980,
+        40,
+        700,
+        820
+      ],
+      "color": "#b58b2a",
+      "flags": {}
+    },
+    {
+      "id": 10,
+      "title": "Sweep: confidence, blank at 0.95 is correct",
+      "bounding": [
+        6740,
+        40,
+        700,
+        820
+      ],
+      "color": "#b58b2a",
+      "flags": {}
+    },
+    {
+      "id": 11,
+      "title": "Resolution",
+      "bounding": [
+        7500,
+        40,
+        700,
+        580
+      ],
+      "color": "#b58b2a",
+      "flags": {}
+    },
+    {
+      "id": 12,
+      "title": "Batch of two, frames must differ",
+      "bounding": [
+        8260,
+        40,
+        700,
+        560
+      ],
+      "color": "#b58b2a",
+      "flags": {}
+    },
+    {
+      "id": 13,
+      "title": "Intrinsics, a decomposition",
+      "bounding": [
+        8980,
+        40,
+        700,
+        1780
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 14,
+      "title": "Restoration, the picture repaired",
+      "bounding": [
+        9740,
+        40,
+        700,
+        1540
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "title": "Sweep: smoothing must reduce grain",
+      "bounding": [
+        10500,
+        40,
+        700,
+        820
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.4509428000000002,
+      "offset": [
+        -2144.757255243906,
+        1113.4443348469042
+      ]
+    },
+    "frontendVersion": "1.48.7"
+  },
+  "version": 0.4
+}

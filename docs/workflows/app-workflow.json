@@ -1,0 +1,633 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "revision": 0,
+  "last_node_id": 7,
+  "last_link_id": 6,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "WASAppWorkflow",
+      "pos": [
+        430,
+        80
+      ],
+      "size": [
+        223.912109375,
+        666
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "image",
+          "localized_name": "image",
+          "name": "input_1",
+          "shape": 7,
+          "type": "IMAGE,MASK",
+          "link": 1
+        },
+        {
+          "localized_name": "app",
+          "name": "app",
+          "type": "COMBO",
+          "widget": {
+            "name": "app"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "overrides",
+          "name": "overrides",
+          "type": "STRING",
+          "widget": {
+            "name": "overrides"
+          },
+          "link": null
+        },
+        {
+          "name": "red_offset",
+          "type": "INT",
+          "widget": {
+            "name": "red_offset"
+          },
+          "link": null
+        },
+        {
+          "name": "green_offset",
+          "type": "INT",
+          "widget": {
+            "name": "green_offset"
+          },
+          "link": null
+        },
+        {
+          "name": "blue_offset",
+          "type": "INT",
+          "widget": {
+            "name": "blue_offset"
+          },
+          "link": null
+        },
+        {
+          "name": "intensity",
+          "type": "FLOAT",
+          "widget": {
+            "name": "intensity"
+          },
+          "link": null
+        },
+        {
+          "name": "fade_radius",
+          "type": "INT",
+          "widget": {
+            "name": "fade_radius"
+          },
+          "link": null
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": null
+        },
+        {
+          "name": "font_size",
+          "type": "INT",
+          "widget": {
+            "name": "font_size"
+          },
+          "link": 2
+        },
+        {
+          "name": "text_color",
+          "type": "STRING",
+          "widget": {
+            "name": "text_color"
+          },
+          "link": null
+        },
+        {
+          "name": "position",
+          "type": "COMBO",
+          "widget": {
+            "name": "position"
+          },
+          "link": null
+        },
+        {
+          "name": "offset_x",
+          "type": "INT",
+          "widget": {
+            "name": "offset_x"
+          },
+          "link": null
+        },
+        {
+          "name": "align",
+          "type": "COMBO",
+          "widget": {
+            "name": "align"
+          },
+          "link": null
+        },
+        {
+          "name": "offset_y",
+          "type": "INT",
+          "widget": {
+            "name": "offset_y"
+          },
+          "link": null
+        },
+        {
+          "name": "margin",
+          "type": "INT",
+          "widget": {
+            "name": "margin"
+          },
+          "link": null
+        },
+        {
+          "name": "line_spacing",
+          "type": "FLOAT",
+          "widget": {
+            "name": "line_spacing"
+          },
+          "link": null
+        },
+        {
+          "name": "wrap_width",
+          "type": "INT",
+          "widget": {
+            "name": "wrap_width"
+          },
+          "link": null
+        },
+        {
+          "name": "stroke_width",
+          "type": "INT",
+          "widget": {
+            "name": "stroke_width"
+          },
+          "link": null
+        },
+        {
+          "name": "stroke_color",
+          "type": "STRING",
+          "widget": {
+            "name": "stroke_color"
+          },
+          "link": null
+        },
+        {
+          "name": "background_color",
+          "type": "STRING",
+          "widget": {
+            "name": "background_color"
+          },
+          "link": null
+        },
+        {
+          "name": "background_padding",
+          "type": "INT",
+          "widget": {
+            "name": "background_padding"
+          },
+          "link": null
+        },
+        {
+          "name": "opacity",
+          "type": "FLOAT",
+          "widget": {
+            "name": "opacity"
+          },
+          "link": null
+        },
+        {
+          "name": "font",
+          "type": "COMBO",
+          "widget": {
+            "name": "font"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "exposed",
+          "name": "exposed",
+          "type": "DICT",
+          "links": [
+            6
+          ]
+        },
+        {
+          "label": "IMAGE",
+          "localized_name": "IMAGE",
+          "name": "output_1",
+          "type": "IMAGE",
+          "links": [
+            3,
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASAppWorkflow"
+      },
+      "widgets_values": [
+        "was-app-demo.app.json",
+        "{\n  \"text\": \"App Workflow\",\n  \"red_offset\": 10,\n  \"green_offset\": -1,\n  \"blue_offset\": -10,\n  \"intensity\": 0.6,\n  \"fade_radius\": 12,\n  \"font_size\": 32,\n  \"text_color\": \"#FFFFFF\",\n  \"position\": \"middle center\",\n  \"offset_x\": 0,\n  \"align\": \"left\",\n  \"offset_y\": 0,\n  \"margin\": 16,\n  \"line_spacing\": 1,\n  \"wrap_width\": 0,\n  \"stroke_width\": 0,\n  \"stroke_color\": \"#000000\",\n  \"background_color\": \"\",\n  \"background_padding\": 8,\n  \"opacity\": 1,\n  \"font\": \"DejaVu Sans\"\n}"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "LoadImage",
+      "pos": [
+        40,
+        80
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "0001_outfit.png",
+        "image"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "PrimitiveInt",
+      "pos": [
+        40,
+        700
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "INT",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "INT",
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PrimitiveInt"
+      },
+      "widgets_values": [
+        140,
+        "fixed"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "PreviewImage",
+      "pos": [
+        1000,
+        80
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 5,
+      "type": "Image Filter Adjustments",
+      "pos": [
+        1000,
+        520
+      ],
+      "size": [
+        270,
+        458
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 4
+        },
+        {
+          "localized_name": "brightness",
+          "name": "brightness",
+          "type": "FLOAT",
+          "widget": {
+            "name": "brightness"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "contrast",
+          "name": "contrast",
+          "type": "FLOAT",
+          "widget": {
+            "name": "contrast"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "saturation",
+          "name": "saturation",
+          "type": "FLOAT",
+          "widget": {
+            "name": "saturation"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "sharpness",
+          "name": "sharpness",
+          "type": "FLOAT",
+          "widget": {
+            "name": "sharpness"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "blur",
+          "name": "blur",
+          "type": "INT",
+          "widget": {
+            "name": "blur"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "gaussian_blur",
+          "name": "gaussian_blur",
+          "type": "FLOAT",
+          "widget": {
+            "name": "gaussian_blur"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "edge_enhance",
+          "name": "edge_enhance",
+          "type": "FLOAT",
+          "widget": {
+            "name": "edge_enhance"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "detail_enhance",
+          "name": "detail_enhance",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "detail_enhance"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image Filter Adjustments"
+      },
+      "widgets_values": [
+        0.06,
+        1.25,
+        1.7,
+        1,
+        0,
+        0,
+        0,
+        false
+      ]
+    },
+    {
+      "id": 6,
+      "type": "PreviewImage",
+      "pos": [
+        1450,
+        520
+      ],
+      "size": [
+        140,
+        246
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 7,
+      "type": "WASDisplayAny",
+      "pos": [
+        1000,
+        1010
+      ],
+      "size": [
+        140,
+        158
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "*",
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "shape": 6,
+          "type": "DICT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASDisplayAny"
+      },
+      "widgets_values": []
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      1,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      3,
+      0,
+      1,
+      9,
+      "INT"
+    ],
+    [
+      3,
+      1,
+      1,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      4,
+      1,
+      1,
+      5,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      5,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      6,
+      1,
+      0,
+      7,
+      0,
+      "DICT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.3310000000000004,
+      "offset": [
+        117.61431924621121,
+        130.5503724791688
+      ]
+    }
+  },
+  "version": 0.4
+}

@@ -1,0 +1,149 @@
+This directory contains third-party libraries with their respective licenses.
+
+The MIT text appears below twice, once for each copyright line here that needs its own,
+and two more licenses are in the files beside this one:
+
+    LICENSE-APACHE-2.0.txt    Apache License, Version 2.0
+    LICENSE-MPL-2.0.txt       Mozilla Public License, Version 2.0
+
+Those two cover DOMPurify, which mermaid.min.txt bundles. mermaid.min.txt carries
+other MIT code as well, listed in the Mermaid section below, each piece with its own
+notice intact in the file. All of these licenses permit redistribution. MIT and
+Apache-2.0 are permissive; MPL-2.0 is copyleft at file level, and DOMPurify may be
+taken under Apache-2.0 instead. See the DOMPurify section below.
+
+================================================================================
+KaTeX
+================================================================================
+https://katex.org/
+Version: 0.16.9
+Files: katex.min.txt, katex-auto-render.min.txt, katex-with-fonts.min.css.txt
+
+MIT License
+
+Copyright (c) 2013-2020 Khan Academy and other contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+Mermaid
+================================================================================
+https://mermaid.js.org/
+Version: 10.9.5
+Files: mermaid.min.txt
+
+Mermaid's own code is MIT. The file is its whole dependency tree compiled into one
+bundle, so other projects' code travels inside it. Everything in there is MIT except
+DOMPurify:
+
+    DOMPurify 3.2.4          MPL-2.0 or Apache-2.0. See the section below.
+    js-yaml 4.1.0            MIT, in a banner in the file.
+    A Promises/A+ 1.1.1      MIT, in a banner, copyright Ralf S. Engelschall.
+      thenable
+    An event object based    MIT, in a banner naming jQuery's license.
+      on jQuery's events
+    A Bezier curve           MIT, in a banner, copyright Gaetan Renaudeau.
+      generator
+    A Runge-Kutta spring     MIT, in a banner, adapted from Framer.js, copyright
+      generator                Koen Bok.
+    KaTeX 0.16.11            MIT, and the KaTeX text above is that license. A second
+                             copy of KaTeX, later than the 0.16.9 files above. It
+                             carries no banner, so the license is upstream's, and the
+                             version string is in the bundle.
+    cytoscape.js, with       MIT per upstream, github.com/cytoscape/cytoscape.js and
+      its cose-bilkent         github.com/cytoscape/cytoscape.js-cose-bilkent.
+      layout                   Neither states a license or a version in this build.
+
+Reading those for yourself: every banner, then the two versions that are only in a
+string. The tr joins the file's few line breaks so that a banner written over several
+lines still prints as one. Two of the eight banners it finds are comments of Mermaid's
+own, "Check if previously processed" and "Wait for document loaded", and carry no
+license; the other six are the notices listed above.
+
+    tr '\n' ' ' < mermaid.min.txt | grep -o '/\*!.\{0,160\}'
+    grep -o 'version:"0\.16\.[0-9]*"' mermaid.min.txt
+    grep -o 'Mje="10\.9\.[0-9]*"' mermaid.min.txt
+
+MIT License
+
+Copyright (c) 2014 - 2022 Knut Sveidqvist
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+DOMPurify
+================================================================================
+https://github.com/cure53/DOMPurify
+Version: 3.2.4
+Bundled inside: mermaid.min.txt
+
+Copyright 2025 Dr.-Ing. Mario Heiderich, Cure53 and other contributors
+
+DOMPurify is dual-licensed. It may be used under EITHER the Mozilla Public
+License, Version 2.0, OR the Apache License, Version 2.0. Satisfying one is
+enough; you do not have to satisfy both. The upstream package declares this as:
+
+    "license": "(MPL-2.0 OR Apache-2.0)"
+
+Both licenses permit redistribution. Apache-2.0 is permissive; MPL-2.0 is
+copyleft at file level, reaching only the file DOMPurify is compiled into.
+
+The full text of each is in a file of its own next to this one, unmodified:
+
+    LICENSE-APACHE-2.0.txt
+      Taken from https://raw.githubusercontent.com/cure53/DOMPurify/3.4.11/LICENSE
+      which is byte for byte the text published at
+      https://www.apache.org/licenses/LICENSE-2.0.txt
+      SHA-256 cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30
+
+    LICENSE-MPL-2.0.txt
+      Taken from https://raw.githubusercontent.com/cure53/DOMPurify/3.4.11/LICENSE-MPL
+      SHA-256 fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85
+
+Neither file has a header added to it, because a license reproduced inexactly is
+not the license. The MPL text is taken from DOMPurify rather than from
+mozilla.org because the two differ in two characters: what mozilla.org currently
+serves at /media/MPL/2.0/index.txt has dropped a trailing space on one line and
+changed the scheme in the Exhibit A URL from http to https.
+
+The two texts are the ones DOMPurify ships as separate files at tag 3.4.11. At
+tag 3.2.4, the version bundled here, DOMPurify shipped the same dual grant in a
+single LICENSE file: a preamble naming the choice, then both texts in full. The
+grant is identical either way, and taking the texts from 3.4.11 keeps one copy
+of each in the pack rather than two near-identical ones.
+
+Confirming the version yourself:
+
+    grep -o '@license DOMPurify [0-9.]*' mermaid.min.txt

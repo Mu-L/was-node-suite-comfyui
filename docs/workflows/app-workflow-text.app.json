@@ -1,0 +1,379 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "revision": 0,
+  "last_node_id": 3,
+  "last_link_id": 2,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "Text Multiline",
+      "pos": [
+        40,
+        40
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "dynamic_prompts",
+          "name": "dynamic_prompts",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "dynamic_prompts"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Multiline"
+      },
+      "widgets_values": [
+        "the quick brown fox jumps over the lazy dog",
+        true
+      ]
+    },
+    {
+      "id": 2,
+      "type": "Text Find and Replace",
+      "pos": [
+        420,
+        40
+      ],
+      "size": [
+        400,
+        1518
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 1
+        },
+        {
+          "localized_name": "find",
+          "name": "find",
+          "type": "STRING,ARRAY",
+          "widget": {
+            "name": "find"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "replace",
+          "name": "replace",
+          "type": "STRING,ARRAY",
+          "widget": {
+            "name": "replace"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "find_2",
+          "name": "find_2",
+          "shape": 7,
+          "type": "STRING,ARRAY",
+          "widget": {
+            "name": "find_2"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "replace_2",
+          "name": "replace_2",
+          "shape": 7,
+          "type": "STRING,ARRAY",
+          "widget": {
+            "name": "replace_2"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "find_3",
+          "name": "find_3",
+          "shape": 7,
+          "type": "STRING,ARRAY",
+          "widget": {
+            "name": "find_3"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "replace_3",
+          "name": "replace_3",
+          "shape": 7,
+          "type": "STRING,ARRAY",
+          "widget": {
+            "name": "replace_3"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "find_4",
+          "name": "find_4",
+          "shape": 7,
+          "type": "STRING,ARRAY",
+          "widget": {
+            "name": "find_4"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "replace_4",
+          "name": "replace_4",
+          "shape": 7,
+          "type": "STRING,ARRAY",
+          "widget": {
+            "name": "replace_4"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "find_5",
+          "name": "find_5",
+          "shape": 7,
+          "type": "STRING,ARRAY",
+          "widget": {
+            "name": "find_5"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "replace_5",
+          "name": "replace_5",
+          "shape": 7,
+          "type": "STRING,ARRAY",
+          "widget": {
+            "name": "replace_5"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "find_6",
+          "name": "find_6",
+          "shape": 7,
+          "type": "STRING,ARRAY",
+          "widget": {
+            "name": "find_6"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "replace_6",
+          "name": "replace_6",
+          "shape": 7,
+          "type": "STRING,ARRAY",
+          "widget": {
+            "name": "replace_6"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "find_7",
+          "name": "find_7",
+          "shape": 7,
+          "type": "STRING,ARRAY",
+          "widget": {
+            "name": "find_7"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "replace_7",
+          "name": "replace_7",
+          "shape": 7,
+          "type": "STRING,ARRAY",
+          "widget": {
+            "name": "replace_7"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "find_8",
+          "name": "find_8",
+          "shape": 7,
+          "type": "STRING,ARRAY",
+          "widget": {
+            "name": "find_8"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "replace_8",
+          "name": "replace_8",
+          "shape": 7,
+          "type": "STRING,ARRAY",
+          "widget": {
+            "name": "replace_8"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "result_text",
+          "name": "result_text",
+          "type": "STRING",
+          "links": [
+            2
+          ]
+        },
+        {
+          "localized_name": "replacement_count_number",
+          "name": "replacement_count_number",
+          "type": "NUMBER",
+          "links": null
+        },
+        {
+          "localized_name": "replacement_count_float",
+          "name": "replacement_count_float",
+          "type": "FLOAT",
+          "links": null
+        },
+        {
+          "localized_name": "replacement_count_int",
+          "name": "replacement_count_int",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Find and Replace"
+      },
+      "widgets_values": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 3,
+      "type": "WASDisplayAny",
+      "pos": [
+        800,
+        40
+      ],
+      "size": [
+        225,
+        119.390625
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "*",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WASDisplayAny"
+      },
+      "widgets_values": []
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "STRING"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.0629366000000045,
+      "offset": [
+        1356.458926783256,
+        10.580152139528863
+      ]
+    },
+    "linearData": {
+      "inputs": [
+        [
+          "00000000-0000-0000-0000-000000000000:1:text",
+          "text"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000000:2:find",
+          "find"
+        ],
+        [
+          "00000000-0000-0000-0000-000000000000:2:replace",
+          "replace"
+        ]
+      ],
+      "outputs": [
+        "3"
+      ]
+    }
+  },
+  "version": 0.4
+}

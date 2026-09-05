@@ -1,0 +1,24 @@
+# Every optional package the pack can use, installed in one go.
+#
+# THIS FILE INSTALLS ALL OF THEM, including groups that are off in config.yaml and packages
+# a given workflow will never load. Installing one group on its own is the better route,
+# and it is one file per group:
+#
+#     pip install -r requirements/document_export.txt
+#
+# The file name is the config key. features.<group> is requirements/<group>.txt, spelled
+# exactly the same way, so features.document_export is requirements/document_export.txt
+# and there is nothing to look up. Only the groups that need a package have a file; ls
+# requirements/ is the whole list.
+#
+# Nothing in any of these is needed to load the pack's default nodes. The features table in
+# docs/CONFIG.md lists what each group gates and where its model weights go.
+#
+# The other twelve feature groups install nothing from this directory. blip, clipseg, sam
+# and midas run on transformers; diffusers goes through ComfyUI's own loader and imports no
+# diffusers package; yunet and preprocessors run their networks in torch on weights the pack
+# publishes; extras, viewer and threejs use packages the pack already requires; network is a
+# consent setting rather than an install; and pssr needs diffsynth and a 22 GB checkout
+# placed by hand, both in docs/MODELS.md.
+#
+-r requirements/document_export.txt
