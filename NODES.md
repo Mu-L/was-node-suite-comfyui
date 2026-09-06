@@ -1,98 +1,92 @@
 # Node reference
 
-Every node in WAS Node Suite: **457** of them, grouped the way they appear in the Add Node menu. Click a node to see what it takes and what it gives back.
+Every node in WAS Node Suite: **457** of them, grouped by the `config.yaml` switch that gates them and then, inside each group, by the category they appear under in the Add Node menu. Click a node to see what it takes and what it gives back.
 
-403 of them load with no configuration. The other 54 wait behind a switch in `config.yaml`, and each one says which switch.
+446 of them load in a fresh install. The other 11 wait behind a switch that starts off.
 
 This page is generated from the nodes themselves, so it cannot drift from what is installed.
 
-## Categories
+## Feature gates
 
-- [WAS Suite/Animation](#was-suiteanimation) (10)
+A gate is one key in `config.yaml`. While it is off, its nodes stay out of the Add Node menu, and a workflow that names one opens with that node missing. What each group needs, and where its models go: [`docs/CONFIG.md`](docs/CONFIG.md).
+
+| Section | In a fresh install | Nodes |
+|---|---|---:|
+| [Always loaded](#always-loaded) | always on | 333 |
+| [`features.network`](#featuresnetwork) | off | 4 |
+| [`features.pssr`](#featurespssr) | off | 1 |
+| [`legacy.cache`](#legacycache) | off | 2 |
+| [`legacy.debug`](#legacydebug) | off | 2 |
+| [`legacy.dupes`](#legacydupes) | off | 1 |
+| [`legacy.superseded`](#legacysuperseded) | off | 1 |
+| [`features.blip`](#featuresblip) | on | 2 |
+| [`features.clipseg`](#featuresclipseg) | on | 3 |
+| [`features.diffusers`](#featuresdiffusers) | on | 2 |
+| [`features.extras`](#featuresextras) | on | 27 |
+| [`features.midas`](#featuresmidas) | on | 2 |
+| [`features.preprocessors`](#featurespreprocessors) | on | 4 |
+| [`features.sam`](#featuressam) | on | 4 |
+| [`features.threejs`](#featuresthreejs) | on | 43 |
+| [`features.viewer`](#featuresviewer) | on | 2 |
+| [`features.yunet`](#featuresyunet) | on | 2 |
+| [`legacy.core_dupes`](#legacycore_dupes) | on | 3 |
+| [`legacy.loaders`](#legacyloaders) | on | 5 |
+| [`legacy.sampling`](#legacysampling) | on | 1 |
+| [`legacy.switches`](#legacyswitches) | on | 11 |
+| [`legacy.text_type`](#legacytext_type) | on | 2 |
+
+---
+
+## Always loaded
+
+333 nodes that answer to no key in `config.yaml`. They are here whatever else is turned off.
+
+- [WAS Suite/Animation](#was-suiteanimation) (9)
 - [WAS Suite/Archive](#was-suitearchive) (9)
-- [WAS Suite/Conditioning](#was-suiteconditioning) (4)
-- [WAS Suite/Debug](#was-suitedebug) (7)
+- [WAS Suite/Conditioning](#was-suiteconditioning) (1)
+- [WAS Suite/Debug](#was-suitedebug) (4)
 - [WAS Suite/Document](#was-suitedocument) (6)
 - [WAS Suite/History](#was-suitehistory) (2)
-- [WAS Suite/IO](#was-suiteio) (19)
+- [WAS Suite/IO](#was-suiteio) (15)
 - [WAS Suite/Image](#was-suiteimage) (12)
-- [WAS Suite/Image/AI](#was-suiteimageai) (4)
 - [WAS Suite/Image/Adjustment](#was-suiteimageadjustment) (10)
-- [WAS Suite/Image/Analyze](#was-suiteimageanalyze) (5)
+- [WAS Suite/Image/Analyze](#was-suiteimageanalyze) (4)
 - [WAS Suite/Image/Bound](#was-suiteimagebound) (16)
-- [WAS Suite/Image/Filter](#was-suiteimagefilter) (23)
+- [WAS Suite/Image/Filter](#was-suiteimagefilter) (21)
 - [WAS Suite/Image/Generate](#was-suiteimagegenerate) (6)
-- [WAS Suite/Image/HDR](#was-suiteimagehdr) (9)
-- [WAS Suite/Image/LUT](#was-suiteimagelut) (5)
+- [WAS Suite/Image/HDR](#was-suiteimagehdr) (8)
+- [WAS Suite/Image/LUT](#was-suiteimagelut) (1)
 - [WAS Suite/Image/Layers](#was-suiteimagelayers) (20)
-- [WAS Suite/Image/Masking](#was-suiteimagemasking) (37)
-- [WAS Suite/Image/Preprocess](#was-suiteimagepreprocess) (1)
-- [WAS Suite/Image/Process](#was-suiteimageprocess) (26)
-- [WAS Suite/Image/Transform](#was-suiteimagetransform) (12)
-- [WAS Suite/Image/Upscaling](#was-suiteimageupscaling) (1)
-- [WAS Suite/Latent](#was-suitelatent) (7)
+- [WAS Suite/Image/Masking](#was-suiteimagemasking) (29)
+- [WAS Suite/Image/Process](#was-suiteimageprocess) (24)
+- [WAS Suite/Image/Transform](#was-suiteimagetransform) (9)
+- [WAS Suite/Latent](#was-suitelatent) (4)
 - [WAS Suite/Latent/Generate](#was-suitelatentgenerate) (1)
-- [WAS Suite/Latent/Transform](#was-suitelatenttransform) (4)
-- [WAS Suite/LoRA](#was-suitelora) (4)
-- [WAS Suite/Loaders](#was-suiteloaders) (14)
+- [WAS Suite/Latent/Transform](#was-suitelatenttransform) (1)
+- [WAS Suite/LoRA](#was-suitelora) (1)
+- [WAS Suite/Loaders](#was-suiteloaders) (1)
 - [WAS Suite/Logic](#was-suitelogic) (3)
 - [WAS Suite/Logic/Boolean](#was-suitelogicboolean) (16)
 - [WAS Suite/Logic/Loop](#was-suitelogicloop) (6)
-- [WAS Suite/Logic/Switch](#was-suitelogicswitch) (20)
-- [WAS Suite/Number](#was-suitenumber) (7)
+- [WAS Suite/Logic/Switch](#was-suitelogicswitch) (9)
+- [WAS Suite/Number](#was-suitenumber) (5)
 - [WAS Suite/Number/Operations](#was-suitenumberoperations) (17)
-- [WAS Suite/Sampling](#was-suitesampling) (5)
-- [WAS Suite/Text](#was-suitetext) (8)
+- [WAS Suite/Sampling](#was-suitesampling) (2)
+- [WAS Suite/Text](#was-suitetext) (7)
 - [WAS Suite/Text/Dictionary](#was-suitetextdictionary) (7)
 - [WAS Suite/Text/List](#was-suitetextlist) (9)
-- [WAS Suite/Text/Operations](#was-suitetextoperations) (8)
+- [WAS Suite/Text/Operations](#was-suitetextoperations) (6)
 - [WAS Suite/Text/Parse](#was-suitetextparse) (3)
 - [WAS Suite/Text/Search](#was-suitetextsearch) (5)
 - [WAS Suite/Text/Styles](#was-suitetextstyles) (5)
 - [WAS Suite/Text/Terminology](#was-suitetextterminology) (5)
 - [WAS Suite/Text/Tokens](#was-suitetexttokens) (3)
-- [WAS Suite/Three](#was-suitethree) (43)
 - [WAS Suite/Utilities](#was-suiteutilities) (10)
-- [WAS Suite/View](#was-suiteview) (2)
 - [WAS Suite/Workflow](#was-suiteworkflow) (1)
 
----
+### WAS Suite/Animation
 
-## WAS Suite/Animation
-
-<details>
-<summary><b>Camera Motion Trajectory from Images</b></summary>
-
-Move a virtual camera over a still picture and emit the result as a frame sequence: zoom, rotate, pan, tilt, dolly and fisheye, keyframed in JSON with easing between keys. Feed it a depth map and near parts of the scene move more than far ones, which turns a single image into a parallax shot ready for a video encoder or an image-to-video model. A keyframe takes any of zoom, center, angle, pan, tilt, dolly_strength, sphereize_strength and depth_strength, 'ease' on it shapes the run to the next keyframe, and 'loop': true wraps the last keyframe back round to the first. A property a later keyframe leaves out keeps moving at the '<name>_speed' the earlier one gave it.
-
-| | |
-|---|---|
-| Node id | `WASCameraMotionTrajectory` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `image` | `IMAGE` | Yes |  |  | The picture the camera moves over. A batch is read as source frames: when it holds exactly num_frames images each output frame uses its own, otherwise the batch is cycled. |
-| `num_frames` | `INT` | Yes | 60 |  | How many frames to render. At 24 frames per second, 60 frames is two and a half seconds. Keyframe numbers in the spec are held inside this range. |
-| `trajectory_spec` | `STRING` | Yes | {   "loop": false,   "default_ease": "linear",   "keyframes": [     {       "frame": 0,       "zoom": 1.0,       "center": [0.5, 0.5],       "angle": 0.0,       "pan": [0.0, 0.0],       "tilt": [0.0, 0.0],       "dolly_strength": 0.0,       "dolly_radius": [0.3, 0.3],       "dolly_feather": 0.5,       "dolly_mode": "radial",       "sphereize_strength": 0.0,       "sphereize_radius": [0.4, 0.4],       "sphereize_feather": 0.5,       "depth_strength": 0.0,       "ease": "ease_in_out"     },     {       "frame": 30,       "zoom": 1.5,       "center": [0.5, 0.5],       "angle": 90.0,       "pan": [0.0, 0.0],       "tilt": [0.0, 0.15],       "dolly_strength": 0.3,       "dolly_radius": [0.35, 0.35],       "dolly_feather": 0.5,       "dolly_mode": "radial",       "sphereize_strength": 0.0,       "sphereize_radius": [0.4, 0.4],       "sphereize_feather": 0.5,       "depth_strength": 0.0,       "ease": "ease_in_out"     },     {       "frame": 59,       "zoom": 2.0,       "center": [0.6, 0.4],       "angle": 360.0,       "pan": [0.1, 0.0],       "tilt": [0.0, 0.3],       "dolly_strength": 0.6,       "dolly_radius": [0.4, 0.4],       "dolly_feather": 0.5,       "dolly_mode": "radial",       "sphereize_strength": 0.0,       "sphereize_radius": [0.4, 0.4],       "sphereize_feather": 0.5,       "depth_strength": 0.0,       "ease": "linear"     }   ] } |  | The move, as JSON: a 'keyframes' list, each entry carrying a 'frame' number and the camera properties it sets there. Empty text holds the picture still. |
-| `edge_mode` | `COMBO` | Yes | mirror | `border`, `mirror`, `wrap` | What fills the frame when the camera looks past the edge of the picture. `mirror` reflects the picture back, which is the least visible; `border` smears the edge pixels; `wrap` brings the opposite edge round, which suits a seamless texture. |
-| `enable_camera_shake` | `BOOLEAN` | Yes | False |  | Whether to add a handheld wobble on top of the keyframed move. Off gives a locked-off, tripod-steady result; on makes the shot feel operated by a person. |
-| `shake_position_amplitude` | `FLOAT` | Yes | 0.03 |  | How far the wobble drifts, as a share of the frame. 0.01 is a barely visible breath, 0.03 a natural handheld hold, 0.2 a running shot. Ignored while enable_camera_shake is off. |
-| `shake_rotation_amplitude` | `FLOAT` | Yes | 1.5 |  | How far the wobble rolls, in degrees. 1.5 reads as a steady hand, 10 as an unsteady one. Set to 0 for drift without any roll. Ignored while enable_camera_shake is off. |
-| `shake_seed` | `INT` | Yes | 0 |  | Seed for the wobble. The same seed always produces the same wobble, so a shot can be re-rendered identically; change it to try another take. |
-| `depth_map` | `IMAGE` | No |  |  | Optional depth map, white near and black far, at any size. With one connected, 'depth_strength' in the spec holds the far parts of the scene back while the near parts move fully, which is what makes the shot read as parallax. Leave it unconnected for a flat move. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `video` | `IMAGE` | The rendered frames in order, all at the input's size, ready for a video writer or an image-to-video model. |
-| `frame_count` | `INT` | How many frames were rendered, for wiring straight into a video writer's frame count or a duration calculation. |
-
-</details>
-
+<a id="node-create-morph-image"></a>
 <details>
 <summary><b>Create Morph Image</b></summary>
 
@@ -131,6 +125,7 @@ Fade one image into another and save the result as an animated GIF or APNG. A fe
 
 </details>
 
+<a id="node-create-morph-image-from-path"></a>
 <details>
 <summary><b>Create Morph Image from Path</b></summary>
 
@@ -169,6 +164,7 @@ Fade through every image in a folder and save the result as an animated GIF or A
 
 </details>
 
+<a id="node-create-video-from-path"></a>
 <details>
 <summary><b>Create Video from Path</b></summary>
 
@@ -202,6 +198,7 @@ Turn a folder of images into a video, holding each image and cross-fading into t
 
 </details>
 
+<a id="node-wasemavfiframeinterpolation"></a>
 <details>
 <summary><b>EMA-VFI Frame Interpolation</b></summary>
 
@@ -228,6 +225,7 @@ Raise a sequence's frame rate by inventing frames between the ones it has, using
 
 </details>
 
+<a id="node-wasimageframesample"></a>
 <details>
 <summary><b>Image Frame Sample</b></summary>
 
@@ -257,6 +255,7 @@ Keep a smaller set of frames from an image batch: evenly spaced, the first, midd
 
 </details>
 
+<a id="node-video-dump-frames"></a>
 <details>
 <summary><b>Video Dump Frames</b></summary>
 
@@ -288,6 +287,7 @@ Save every frame of a video file as a numbered image.
 
 </details>
 
+<a id="node-wasvideoframesample"></a>
 <details>
 <summary><b>Video Frame Sample (Advanced)</b></summary>
 
@@ -317,6 +317,7 @@ Keep a smaller set of frames from a video: evenly spaced, the first, middle or l
 
 </details>
 
+<a id="node-write-to-gif"></a>
 <details>
 <summary><b>Write to GIF</b></summary>
 
@@ -349,6 +350,7 @@ Append the images to an animated GIF that keeps growing across prompts, fading i
 
 </details>
 
+<a id="node-write-to-video"></a>
 <details>
 <summary><b>Write to Video</b></summary>
 
@@ -381,10 +383,9 @@ Append the images to a video that keeps growing across prompts, fading in from t
 
 </details>
 
----
+### WAS Suite/Archive
 
-## WAS Suite/Archive
-
+<a id="node-wasloaddocumentsfromzip"></a>
 <details>
 <summary><b>Load Documents from ZIP</b></summary>
 
@@ -415,6 +416,7 @@ Read the documents inside a zip archive. Every document comes out twice: as one 
 
 </details>
 
+<a id="node-wasloadimagesfromzip"></a>
 <details>
 <summary><b>Load Images from ZIP</b></summary>
 
@@ -452,6 +454,7 @@ Read the images inside a zip archive as one batch. A batch is a single tensor, s
 
 </details>
 
+<a id="node-wasloadtextfilesfromzip"></a>
 <details>
 <summary><b>Load Text Files from ZIP</b></summary>
 
@@ -482,6 +485,7 @@ Read the text files inside a zip archive. Every file comes out twice: as one LIS
 
 </details>
 
+<a id="node-waszipopen"></a>
 <details>
 <summary><b>Open ZIP</b></summary>
 
@@ -511,6 +515,7 @@ Open a zip archive and report what is in it: a line per file with its kind and s
 
 </details>
 
+<a id="node-wassavezip"></a>
 <details>
 <summary><b>Save ZIP</b></summary>
 
@@ -541,6 +546,7 @@ Write an archive to a folder under ComfyUI's output, and answer where it landed.
 
 </details>
 
+<a id="node-waszipadd"></a>
 <details>
 <summary><b>ZIP Add</b></summary>
 
@@ -570,6 +576,7 @@ Add a picture, mask, string or DOC to an archive held on a wire. A picture or ma
 
 </details>
 
+<a id="node-waszipextract"></a>
 <details>
 <summary><b>Zip Extract</b></summary>
 
@@ -604,6 +611,7 @@ Unpack the files an archive holds into a folder, picking them with a glob. Wire 
 
 </details>
 
+<a id="node-waszipmanage"></a>
 <details>
 <summary><b>ZIP Manage</b></summary>
 
@@ -634,6 +642,7 @@ Choose which of an archive's entries carry on, and answer a new archive holding 
 
 </details>
 
+<a id="node-waszipsave"></a>
 <details>
 <summary><b>Zip Save</b></summary>
 
@@ -667,68 +676,9 @@ Put files from ComfyUI's input, output and temp folders into one zip archive. Pi
 
 </details>
 
----
+### WAS Suite/Conditioning
 
-## WAS Suite/Conditioning
-
-<details>
-<summary><b>CLIP Text Encode Sequence (Advanced)</b></summary>
-
-Encode one prompt per line, each tagged with the frame it takes effect on, into a schedule for KSamplerSeq. Write '0:a rosebud' and '10:a rose' and the run opens on the first prompt and switches to the second at frame 10.
-
-| | |
-|---|---|
-| Node id | `CLIPTextEncodeList` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `clip` | `CLIP` | Yes |  |  | The CLIP model the prompts are encoded with. Use the one belonging to the checkpoint that will sample them. |
-| `token_normalization` | `COMBO` | Yes |  | `none`, `mean`, `length`, `length+mean` | How token weights are evened out before encoding. Read only when a pack registering BNK_CLIPTextEncodeAdvanced is installed; without one this setting has no effect at all. 'none' leaves the weights alone, 'mean' recentres them, 'length' scales by prompt length, 'length+mean' does both. |
-| `weight_interpretation` | `COMBO` | Yes |  | `comfy`, `A1111`, `compel`, `comfy++` | Which prompt weighting dialect the '(word:1.2)' syntax is read in. Read only when a pack registering BNK_CLIPTextEncodeAdvanced is installed; without one this setting has no effect and the prompt is read the way ComfyUI's own CLIP Text Encode reads it. |
-| `text` | `STRING` | Yes | 0:A portrait of a rosebud 5:A portrait of a blooming rosebud 10:A portrait of a blooming rose 15:A portrait of a rose |  | One prompt per line, each written as 'frame:prompt', for example '0:a rosebud'. The number is the loop the prompt takes over on, counting from zero, and it stays in force until the next numbered line. A line with no number in front of a colon is ignored. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `conditioning_sequence` | `CONDITIONING_SEQ` | The frame-tagged prompts, for the positive_seq or negative_seq input of KSamplerSeq. It is not an ordinary conditioning and does not fit a plain sampler. |
-
-</details>
-
-<details>
-<summary><b>CLIP Text Encode Sequence (v2)</b></summary>
-
-Encode one prompt per line and work out the frame each one takes over on, spread across the length of the run. The three outputs plug straight into KSamplerSeq2's positive_seq or negative_seq, cond_keyframes and frame_count, so a prompt list becomes an animation schedule with no numbers typed by hand.
-
-| | |
-|---|---|
-| Node id | `CLIPTextEncodeSequence2` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `clip` | `CLIP` | Yes |  |  | The CLIP model the prompts are encoded with. Use the one belonging to the checkpoint that will sample them. |
-| `token_normalization` | `COMBO` | Yes |  | `none`, `mean`, `length`, `length+mean` | How token weights are evened out before encoding. Read only when a pack registering BNK_CLIPTextEncodeAdvanced is installed; without one this setting has no effect at all. 'none' leaves the weights alone, 'mean' recentres them, 'length' scales by prompt length, 'length+mean' does both. |
-| `weight_interpretation` | `COMBO` | Yes |  | `comfy`, `A1111`, `compel`, `comfy++` | Which prompt weighting dialect the '(word:1.2)' syntax is read in. Read only when a pack registering BNK_CLIPTextEncodeAdvanced is installed; without one this setting has no effect and the prompt is read the way ComfyUI's own CLIP Text Encode reads it. |
-| `cond_keyframes_type` | `COMBO` | Yes |  | `linear`, `sinus`, `sinus_inverted`, `half_sinus`, `half_sinus_inverted` | How the changeovers are spaced. `linear` gives every prompt an equal share of the run. The sinus shapes bunch them up at one end or the other, so the sequence lingers on the opening prompts and races through the rest, or the reverse, useful when the first shot needs to be held and the last few are only a flourish. |
-| `frame_count` | `INT` | Yes | 100 |  | How long the whole run is, in frames. The changeovers are spread across this many, so at 100 frames and four prompts each one holds for about 25. |
-| `text` | `STRING` | Yes | A portrait of a rosebud A portrait of a blooming rosebud A portrait of a blooming rose A portrait of a rose |  | One prompt per line, in the order the run works through them. No frame numbers: cond_keyframes_type and frame_count decide when each one takes over. A blank line is encoded as an empty prompt and takes its turn like any other. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `conditioning_sequence` | `CONDITIONING` | Every prompt, encoded, in the order they were written. Wire it into KSamplerSeq2's positive_seq or negative_seq. |
-| `cond_keyframes` | `INT` | The frames at which the run steps to the next prompt. Wire it into KSamplerSeq2's cond_keyframes. |
-| `frame_count` | `INT` | The frame count as it was given, passed straight through so one wire carries it to KSamplerSeq2 rather than the number being typed twice. |
-
-</details>
-
+<a id="node-cliptextencode-nsp"></a>
 <details>
 <summary><b>CLIPTextEncode (NSP)</b></summary>
 
@@ -759,81 +709,9 @@ Encode a prompt with CLIP after substituting Noodle Soup Prompts terminology or 
 
 </details>
 
-<details>
-<summary><b>Conditioning (Blend)</b></summary>
+### WAS Suite/Debug
 
-Mix encoded prompts into one, by a choice of twelve formulas rather than a single average. Blending prompts produces a subject that is genuinely between them instead of a picture containing both, which is what the concatenating nodes give. Each further slot is blended onto the result of the ones before it. Every prompt must come from a text encoder that produces a pooled output, such as SDXL's or Flux's. `lerp`, `bislerp` and `slerp` are the same straight mix, `cosine interp` and `cuberp` are that mix with the ends held longer, `add` balances the pair, `inject` layers the newer prompt on top, `difference` and `exclusion` keep only what the pair disagree on and so push the result away from both, and `random` varies the mix per element and is the only mode the seed changes.
-
-| | |
-|---|---|
-| Node id | `ConditioningBlend` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `conditioning_a` | `CONDITIONING` | Yes |  |  | The prompt blended away from. Only its first entry is read, so feed it a plain text encode rather than a combined or scheduled conditioning. |
-| `conditioning_b` | `CONDITIONING` | Yes |  |  | The prompt blended towards. Only its first entry is read, as with conditioning_a. |
-| `blending_mode` | `COMBO` | Yes |  | `add`, `bislerp`, `cosine interp`, `cuberp`, `difference`, `exclusion`, `hslerp`, `inject`, `lerp`, `random`, `slerp`, `subtract` | Which formula combines a prompt with the result so far. `lerp` is the straight mix to reach for first; other modes layer, balance or subtract the pair instead. |
-| `blending_strength` | `FLOAT` | Yes | 0.5 |  | How strongly each blend leans, which every mode reads its own way. 0.5 is an even mix. With `lerp` and the other straight mixes, 0.0 takes the next prompt and 1.0 keeps the result so far; `add` and `cosine interp` run the other way round. Values outside 0 to 1 push past either prompt. |
-| `seed` | `INT` | Yes | 0 |  | Seed for the `random` blending mode, so a run can be repeated. 0 leaves the random source as it was, which makes `random` differ from run to run. Every other mode ignores this. |
-| `conditioning_c` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_d` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_e` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_f` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_g` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_h` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_i` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_j` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_k` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_l` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_m` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_n` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_o` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_p` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_q` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_r` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_s` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_t` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_u` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_v` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_w` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_x` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_y` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-| `conditioning_z` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `conditioning` | `CONDITIONING` | The blended prompt, as a one-entry conditioning carrying the mixed embedding and pooled output. Anything else the inputs carried, an area, a mask, a control hint, is not passed on. |
-
-</details>
-
----
-
-## WAS Suite/Debug
-
-<details>
-<summary><b>Debug Input</b></summary>
-
-Print whatever is connected to it to the console, and for anything that is not a plain value, list its members as well. Connect it to a wire you want to understand; it produces no output of its own.
-
-| | |
-|---|---|
-| Node id | `DebugInput` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `input` | `*` | Yes |  |  | Anything at all: an image, a model, a number, a conditioning. Text and numbers are printed as they are, and anything else is printed along with the names of everything it carries. |
-
-</details>
-
+<a id="node-debug-number-to-console"></a>
 <details>
 <summary><b>Debug Number to Console</b></summary>
 
@@ -859,6 +737,7 @@ Print a number to the console and pass it through unchanged.
 
 </details>
 
+<a id="node-dictionary-to-console"></a>
 <details>
 <summary><b>Dictionary to Console</b></summary>
 
@@ -884,30 +763,7 @@ Pretty-print a dictionary to the console and pass it through unchanged.
 
 </details>
 
-<details>
-<summary><b>Export API</b></summary>
-
-Deprecated: use ComfyUI's own Workflow > Export (API) menu item instead, which saves the same document without a node in the graph. Writes the prompt API JSON of the running workflow to a numbered file. The folder has to be one this pack may write to: ComfyUI's output and temp folders, the pack's own folder, or a folder listed under paths.allow_write in config.yaml.
-
-| | |
-|---|---|
-| Node id | `Export API` |
-| Enable with | `legacy.debug: true` in `config.yaml` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `save_prompt_api` | `COMBO` | Yes |  | `true`, `true` | Whether to write the file. Both entries of this menu read `true`, so there is no way to turn writing off; the JSON is always written and always printed to the console. |
-| `root` | `COMBO` | Yes |  |  | Which folder the JSON lands in: ComfyUI's own 'output' or 'temp', or any folder added under paths.allow_write in config.yaml, listed by its own name. filename_prefix names the part below it, so '[time(%Y-%m-%d)]/prompt' files each day's under a dated folder. |
-| `filename_prefix` | `STRING` | Yes | ComfyUI_Prompt |  | The name part of the file, before the number. |
-| `filename_delimiter` | `STRING` | Yes | _ |  | What sits between the name and the number: 'ComfyUI_Prompt_0001.json' with the default. |
-| `filename_number_padding` | `INT` | Yes | 4 |  | How many digits the number is padded to with leading zeros: 4 gives '_0001', 2 gives '_01'. |
-| `parse_text_tokens` | `BOOLEAN` | Yes | False |  | Whether to expand '[token]' patterns in every string of the saved document, so a prompt containing '[time(%Y-%m-%d)]' is recorded as the date it ran. Off, the widget values are saved exactly as typed, which is what a reloadable workflow needs. |
-
-</details>
-
+<a id="node-image-bounds-to-console"></a>
 <details>
 <summary><b>Image Bounds to Console</b></summary>
 
@@ -933,30 +789,7 @@ Print image bounds to the console and pass them through unchanged.
 
 </details>
 
-<details>
-<summary><b>Samples Passthrough (Stat System)</b></summary>
-
-Deprecated: use ComfyUI's system stats endpoint instead, which reports the same RAM, VRAM and disk figures. Logs those figures to the console and passes the latent through unchanged.
-
-| | |
-|---|---|
-| Node id | `Samples Passthrough (Stat System)` |
-| Enable with | `legacy.debug: true` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `samples` | `LATENT` | Yes |  |  | A latent to pass along. It is not read or altered; it only gives the node somewhere to sit in the graph so the figures are logged at that point in the run. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `samples` | `LATENT` | The same latent that came in, unchanged. |
-
-</details>
-
+<a id="node-text-to-console"></a>
 <details>
 <summary><b>Text to Console</b></summary>
 
@@ -982,10 +815,9 @@ Print connected text to the console and pass it through unchanged.
 
 </details>
 
----
+### WAS Suite/Document
 
-## WAS Suite/Document
-
+<a id="node-wasconvertdoctohtml"></a>
 <details>
 <summary><b>Convert DOC to HTML</b></summary>
 
@@ -1011,6 +843,7 @@ Put a document's markup on a string socket, as the fragment the document stores 
 
 </details>
 
+<a id="node-wasconvertdoctoplaintext"></a>
 <details>
 <summary><b>Convert DOC to Plaintext</b></summary>
 
@@ -1039,6 +872,7 @@ Turn a document into plain text, keeping the shape a reader needs: a blank line 
 
 </details>
 
+<a id="node-wasloaddocument"></a>
 <details>
 <summary><b>Load Document</b></summary>
 
@@ -1062,6 +896,7 @@ Open one document from disk and put it on a DOC wire, with its markup, its metad
 
 </details>
 
+<a id="node-wassavedoc"></a>
 <details>
 <summary><b>Save DOC</b></summary>
 
@@ -1095,6 +930,7 @@ Write a document to a file. `doc` takes a DOC or plain text from any string outp
 
 </details>
 
+<a id="node-wastexttodoc"></a>
 <details>
 <summary><b>Text to DOC</b></summary>
 
@@ -1126,6 +962,7 @@ Turn a string into a document carrying the title, description, copyright and the
 
 </details>
 
+<a id="node-wasviewdocmetadata"></a>
 <details>
 <summary><b>View DOC Metadata</b></summary>
 
@@ -1166,10 +1003,9 @@ Read what a document says about itself and put every field on its own socket: th
 
 </details>
 
----
+### WAS Suite/History
 
-## WAS Suite/History
-
+<a id="node-image-history-loader"></a>
 <details>
 <summary><b>Image History Loader</b></summary>
 
@@ -1194,6 +1030,7 @@ Reload one of the images the suite has recently loaded or saved. The menu holds 
 
 </details>
 
+<a id="node-text-file-history-loader"></a>
 <details>
 <summary><b>Text File History Loader</b></summary>
 
@@ -1219,10 +1056,9 @@ Reload one of the text files the suite has recently read or written. The menu ho
 
 </details>
 
----
+### WAS Suite/IO
 
-## WAS Suite/IO
-
+<a id="node-wasaudiometadata"></a>
 <details>
 <summary><b>Audio Metadata</b></summary>
 
@@ -1256,40 +1092,7 @@ Read what an AUDIO is carrying: how long it plays for, the rate it was sampled a
 
 </details>
 
-<details>
-<summary><b>Cache Node</b></summary>
-
-Deprecated. Nothing replaces it directly: it writes a latent, image batch or conditioning to a file between prompts, and Load Cache reads it back. Off by default: enable legacy.cache to load it. Each suffix defaults to a fresh random number followed by '_cache', so two Cache Nodes do not overwrite each other; set one by hand to write a predictable name a Load Cache node can be pointed at.
-
-| | |
-|---|---|
-| Node id | `Cache Node` |
-| Enable with | `legacy.cache: true` in `config.yaml` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `latent_suffix` | `STRING` | Yes |  |  | Name for the latent's file, without an extension, '.latent' is added. It has to be a plain file name with no folders in it. |
-| `image_suffix` | `STRING` | Yes |  |  | Name for the image batch's file, without an extension, '.image' is added. Otherwise as latent_suffix. |
-| `conditioning_suffix` | `STRING` | Yes |  |  | Name for the conditioning's file, without an extension, '.conditioning' is added. Otherwise as latent_suffix. |
-| `root` | `COMBO` | No |  |  | Which folder the files land in: 'cache', the pack's own cache directory, ComfyUI's 'output' or 'temp', or any folder added under paths.allow_write in config.yaml. folder names the part below it. |
-| `folder` | `STRING` | No |  |  | Folder below the root the files land in, created if it is not there. Tokens expand, so '[time(%Y-%m-%d)]' files each day's cache under a dated folder. Empty writes into the root itself. |
-| `latent` | `LATENT` | No |  |  | A latent to write out. Disconnected, no latent file is written and latent_filename comes back empty. |
-| `image` | `IMAGE` | No |  |  | An image batch to write out. Disconnected, no image file is written and image_filename comes back empty. |
-| `conditioning` | `CONDITIONING` | No |  |  | Conditioning to write out. Disconnected, no conditioning file is written and conditioning_filename comes back empty. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `latent_filename` | `STRING` | Name of the latent file that was written, to paste into a Load Cache node. Empty when no latent was connected. |
-| `image_filename` | `STRING` | Name of the image file that was written. Empty when no image was connected. |
-| `conditioning_filename` | `STRING` | Name of the conditioning file that was written. Empty when no conditioning was connected. |
-
-</details>
-
+<a id="node-wasdirectorylisting"></a>
 <details>
 <summary><b>Directory Listing</b></summary>
 
@@ -1322,37 +1125,7 @@ List what is in a folder: every full path on one wire, every name on another, an
 
 </details>
 
-<details>
-<summary><b>Download Image</b></summary>
-
-Fetch an image from an http or https address and hand it on as a picture, a mask, its name and its colour profile, the same four things Image Load answers with. A file tagged with a colour profile is converted to sRGB as it is read, or kept in its own space. This node is in the network group, so it only appears with features.network on in config.yaml, and it is the only node in the pack that fetches a picture.
-
-| | |
-|---|---|
-| Node id | `WASDownloadImage` |
-| Enable with | `features.network: true` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `url` | `STRING` | Yes |  |  | The address to fetch, such as 'https://example.com/photo.jpg'. It is read on every run, since nothing on the wire says whether it has changed. |
-| `RGBA` | `BOOLEAN` | Yes | False |  | `off` discards any transparency and hands on a plain colour image, which is what samplers and most nodes expect; `on` keeps the transparency channel in the image itself. The mask output is produced either way. |
-| `filename_text_extension` | `BOOLEAN` | No | True |  | Whether the filename_text output keeps the extension. On = 'cat.png', off = 'cat'. The name is the last part of the address. |
-| `colour_space` | `COMBO` | No | sRGB |  | Which colour space the picture comes out in. "the file's own" leaves a tagged file exactly as it was written. 'sRGB' is what a sampler, a filter and a LUT expect. The rest, such as 'Adobe RGB (1998)' and 'Display P3', are for a photograph that goes back out in its own space. |
-| `icc_mode` | `COMBO` | No |  | `convert`, `assign` | What to do with the space above. 'convert' changes the numbers so the colour stays put, which is what a photograph wants. 'assign' leaves the numbers alone and says they were in that space all along, which is how an untagged file that is really Display P3 is put right. Ignored for "the file's own". |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `image` | `IMAGE` | The picture that was fetched, as a batch of one. |
-| `mask` | `MASK` | The image's transparency as a mask, with the transparent parts white and the opaque parts black. An image with no transparency gives an empty 64x64 mask. |
-| `filename_text` | `STRING` | The last part of the address, for reuse as a caption or a save prefix. |
-| `profile` | `WAS_COLOUR_PROFILE` | The colour profile the file was tagged with, such as Adobe RGB (1998). Wire it into Image Save to write the result back in that space rather than in sRGB. Empty for a file carrying no profile. |
-
-</details>
-
+<a id="node-image-load"></a>
 <details>
 <summary><b>Image Load</b></summary>
 
@@ -1383,6 +1156,7 @@ Load an image chosen from a menu of every picture in ComfyUI's input, output and
 
 </details>
 
+<a id="node-image-save"></a>
 <details>
 <summary><b>Image Save</b></summary>
 
@@ -1425,64 +1199,7 @@ Save images with a token-expanded path, a numbered filename and a choice of form
 
 </details>
 
-<details>
-<summary><b>Image Send HTTP</b></summary>
-
-Send the images to an HTTP endpoint as a multipart upload. This node makes an outbound request with the image data, so it is only loaded when features.network is enabled.
-
-| | |
-|---|---|
-| Node id | `Image Send HTTP` |
-| Enable with | `features.network: true` in `config.yaml` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `images` | `IMAGE` | Yes |  |  | The images to upload. Every image in the batch is encoded as a PNG and sent in the same request, named 'image_0.png', 'image_1.png' and so on. |
-| `url` | `STRING` | Yes | example.com |  | Full address the images are sent to, e.g. 'https://example.com/api/upload'. The default is a placeholder and has to be replaced. |
-| `method_type` | `COMBO` | Yes | post | `post`, `put`, `patch` | Which HTTP verb the request uses. `post` is the usual choice for an upload; pick `put` or `patch` if the receiving endpoint asks for one of those. |
-| `request_field_name` | `STRING` | Yes | image |  | Name of the form field the files are attached under. It has to match whatever the receiving endpoint expects, often 'image' or 'file'. |
-| `additional_request_headers` | `DICT` | No |  |  | Extra HTTP headers to send, as a dictionary of names to values, an 'Authorization' entry for an endpoint that needs a token, for instance. Disconnected, only the default headers are sent. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `status_code` | `INT` | The HTTP status the endpoint answered with: 200 or 201 for success, 401 for a rejected token, 404 for a wrong address, 500 for a fault at the far end. |
-| `result_text` | `STRING` | The body of the endpoint's reply, as text, often JSON holding an id or a link for the uploaded image. |
-
-</details>
-
-<details>
-<summary><b>Load Cache</b></summary>
-
-Deprecated. Nothing replaces it directly: it reads back a latent, image batch or conditioning that Cache Node wrote to a file in an earlier prompt. Off by default: enable legacy.cache to load it. A cache file holds tensor data only, and one holding anything else is refused.
-
-| | |
-|---|---|
-| Node id | `Load Cache` |
-| Enable with | `legacy.cache: true` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `latent` | `COMBO` | No |  |  | Which '.latent' file to read, as Cache Node named it. The menu lists the pack's cache directory, tagged '[cache]', beside ComfyUI's own folders. Left on the empty entry, the LATENT output is nothing at all. |
-| `image` | `COMBO` | No |  |  | Which '.image' file to read, as Cache Node named it. The menu lists the pack's cache directory, tagged '[cache]', beside ComfyUI's own folders. Left on the empty entry, the IMAGE output is nothing at all. |
-| `conditioning` | `COMBO` | No |  |  | Which '.conditioning' file to read, as Cache Node named it. The menu lists the pack's cache directory, tagged '[cache]', beside ComfyUI's own folders. Left on the empty entry, the CONDITIONING output is nothing at all. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `LATENT` | `LATENT` | The latent read from latent_path. Nothing at all when the widget is empty or the file is missing, which will fail whatever it is connected to. |
-| `IMAGE` | `IMAGE` | The image batch read from image_path. Nothing at all when the widget is empty or the file is missing. |
-| `CONDITIONING` | `CONDITIONING` | The conditioning read from conditioning_path. Nothing at all when the widget is empty or the file is missing. |
-
-</details>
-
+<a id="node-load-image-batch"></a>
 <details>
 <summary><b>Load Image Batch</b></summary>
 
@@ -1515,6 +1232,7 @@ Load one image from a folder by index, in sequence, or at random, or read the wh
 
 </details>
 
+<a id="node-wasloadimagesequence"></a>
 <details>
 <summary><b>Load Image Sequence</b></summary>
 
@@ -1557,6 +1275,7 @@ Load a numbered sequence from a folder as one batch, in filename order, with the
 
 </details>
 
+<a id="node-load-text-file"></a>
 <details>
 <summary><b>Load Text File</b></summary>
 
@@ -1582,6 +1301,7 @@ Read a text file, dropping comment lines, as text and as a dictionary. Nowhere b
 
 </details>
 
+<a id="node-wasloadtextline"></a>
 <details>
 <summary><b>Load Text Line</b></summary>
 
@@ -1614,6 +1334,7 @@ Pick a text file from a menu of ComfyUI's input and output folders and read it: 
 
 </details>
 
+<a id="node-wasloadvideo"></a>
 <details>
 <summary><b>Load Video (Advanced)</b></summary>
 
@@ -1655,6 +1376,7 @@ Load a video from ComfyUI's input folder and hand on everything in it at once: t
 
 </details>
 
+<a id="node-wasloadvideoupload"></a>
 <details>
 <summary><b>Load Video (Upload)</b></summary>
 
@@ -1697,6 +1419,7 @@ Load a video and hand on everything in it at once: the video itself, its frames 
 
 </details>
 
+<a id="node-waspathexists"></a>
 <details>
 <summary><b>Path Exists</b></summary>
 
@@ -1726,6 +1449,7 @@ Ask whether a file or folder is already on disk before anything reads or writes 
 
 </details>
 
+<a id="node-save-text-file"></a>
 <details>
 <summary><b>Save Text File</b></summary>
 
@@ -1751,6 +1475,7 @@ Write text to a numbered file in a folder the pack may write to. A relative path
 
 </details>
 
+<a id="node-wassavevideo"></a>
 <details>
 <summary><b>Save Video (Advanced)</b></summary>
 
@@ -1788,6 +1513,7 @@ Write a video file from an image batch, from a video, or from either with a soun
 
 </details>
 
+<a id="node-wasvideoinfo"></a>
 <details>
 <summary><b>Video Info</b></summary>
 
@@ -1818,6 +1544,7 @@ Measure a video and read its figures as numbers: how wide and tall the frames ar
 
 </details>
 
+<a id="node-wasvideometadata"></a>
 <details>
 <summary><b>Video Metadata</b></summary>
 
@@ -1853,10 +1580,9 @@ Read what a video load measured: the rate, the frame count, the duration and the
 
 </details>
 
----
+### WAS Suite/Image
 
-## WAS Suite/Image
-
+<a id="node-image-batch"></a>
 <details>
 <summary><b>Image Batch</b></summary>
 
@@ -1906,6 +1632,7 @@ Join any number of images into one batch that later nodes process in a single pa
 
 </details>
 
+<a id="node-wasimagebatchadvanced"></a>
 <details>
 <summary><b>Image Batch Advanced</b></summary>
 
@@ -1932,6 +1659,7 @@ Join any number of images into one batch, on a slot list that grows a socket eac
 
 </details>
 
+<a id="node-wasimagebatchends"></a>
 <details>
 <summary><b>Image Batch Ends</b></summary>
 
@@ -1962,6 +1690,7 @@ Take the ends off an image batch. It answers the opening frame, the closing fram
 
 </details>
 
+<a id="node-wasimagebatchrepeat"></a>
 <details>
 <summary><b>Image Batch Repeat</b></summary>
 
@@ -1990,6 +1719,7 @@ Repeat an image batch into a longer one: a set number of times, or up to an exac
 
 </details>
 
+<a id="node-wasimagebatchreverse"></a>
 <details>
 <summary><b>Image Batch Reverse</b></summary>
 
@@ -2015,6 +1745,7 @@ Play a batch of frames backwards, or append the reverse so a short clip runs out
 
 </details>
 
+<a id="node-wasimagebatchsplit"></a>
 <details>
 <summary><b>Image Batch Split</b></summary>
 
@@ -2043,6 +1774,7 @@ Cut an image batch in two at a frame number: the frames before the cut come out 
 
 </details>
 
+<a id="node-image-blend"></a>
 <details>
 <summary><b>Image Blend</b></summary>
 
@@ -2068,6 +1800,7 @@ Fade evenly between two images. When the two are the same size the result is tha
 
 </details>
 
+<a id="node-image-blend-by-mask"></a>
 <details>
 <summary><b>Image Blend by Mask</b></summary>
 
@@ -2094,6 +1827,7 @@ Blend two images using a mask to say where, then fade the whole result back towa
 
 </details>
 
+<a id="node-image-blending-mode"></a>
 <details>
 <summary><b>Image Blending Mode</b></summary>
 
@@ -2120,6 +1854,7 @@ Combine two images with any of the 26 blending modes a layer stack names, then f
 
 </details>
 
+<a id="node-images-to-linear"></a>
 <details>
 <summary><b>Images to Linear</b></summary>
 
@@ -2143,6 +1878,7 @@ Flatten every image in the batch to one greyscale channel, weighted the way the 
 
 </details>
 
+<a id="node-images-to-rgb"></a>
 <details>
 <summary><b>Images to RGB</b></summary>
 
@@ -2166,6 +1902,7 @@ Convert every image in the batch to three colour channels. A greyscale image gai
 
 </details>
 
+<a id="node-tensor-batch-to-image"></a>
 <details>
 <summary><b>Tensor Batch to Image</b></summary>
 
@@ -2190,145 +1927,9 @@ Return one image from a batched IMAGE tensor. An index beyond the batch returns 
 
 </details>
 
----
+### WAS Suite/Image/Adjustment
 
-## WAS Suite/Image/AI
-
-<details>
-<summary><b>BLIP Analyze Image</b></summary>
-
-Turn an image into text: either a caption describing it, or an answer to a question about it. Enable features.blip to load this node.
-
-| | |
-|---|---|
-| Node id | `BLIP Analyze Image` |
-| Turn off with | `features.blip: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `images` | `IMAGE` | Yes |  |  | The images to describe. Every image in the batch gets its own caption or answer. |
-| `mode` | `COMBO` | Yes |  | `caption`, `interrogate` | `caption` writes a description of the image and ignores the question widget. `interrogate` answers the question instead, so 'What colour is the car?' gives back a colour. |
-| `question` | `STRING` | Yes | What does the background consist of? |  | The question to answer in `interrogate` mode. Plain language works best and short answers are the norm: 'How many people are there?' answers with a number. Ignored in `caption` mode. |
-| `blip_model` | `BLIP_MODEL` | Yes |  |  | Both models from BLIP Model Loader. |
-| `min_length` | `INT` | No | 24 |  | Shortest answer the model may stop at, in tokens, which are roughly words. Raise it to force a wordier caption; a question answer is usually padded out rather than improved by it. |
-| `max_length` | `INT` | No | 64 |  | Longest answer the model may produce, in tokens. The answer is cut off here, so raise it if captions end mid-sentence. |
-| `num_beams` | `INT` | No | 5 |  | How many candidate wordings are explored before the best is picked. 1 is fastest and takes the first thing that comes; 5 is the usual trade; 12 is slower and a little more considered. |
-| `no_repeat_ngram_size` | `INT` | No | 3 |  | Blocks any run of this many words from appearing twice, which stops 'a man on a man on a man'. 3 is a good default; 1 forbids repeating even single words, including 'the'. |
-| `early_stopping` | `BOOLEAN` | No | False |  | Stop searching as soon as enough finished candidates exist rather than exploring to the end. Faster, and it tends to give shorter answers. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `FULL_CAPTIONS` | `STRING` | Every caption in one string, separated by blank lines, for saving to a text file or feeding a prompt box. |
-| `CAPTIONS` | `STRING` | One caption per image, as a list, so downstream nodes run once per image. |
-
-</details>
-
-<details>
-<summary><b>Image Remove Background</b></summary>
-
-Remove the background from an image, leaving the subject on transparency or on a flat colour. The cutout network comes from Image Remove Background Model Loader.
-
-| | |
-|---|---|
-| Node id | `Image Rembg (Remove Background)` |
-| Turn off with | `features.preprocessors: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `images` | `IMAGE` | Yes |  |  | The images to cut out. Every image in the batch is processed. |
-| `rembg_model` | `REMBG_MODEL` | Yes |  |  | The cutout network, from Image Remove Background Model Loader, which is where the choice of model is made. One loader can feed several nodes so the network is built once. |
-| `transparency` | `BOOLEAN` | Yes | True |  | On, the background becomes transparent and the result carries an alpha channel. Off, the result is a plain colour image and the background is whatever background_color says, or black when that is `none`. |
-| `post_processing` | `BOOLEAN` | Yes | False |  | Tidy the cutout by removing stray specks and filling pinholes. Helps on a busy background and can nibble at thin details such as stray hairs. |
-| `only_mask` | `BOOLEAN` | Yes | False |  | Return the cutout shape itself as a greyscale image, white where the subject is, instead of the subject's pixels. Useful as a mask for another node. The result is always three channels, so transparency and background_color do nothing while this is on. |
-| `alpha_matting` | `BOOLEAN` | Yes | False |  | Refine the edge with alpha matting, which recovers soft detail such as hair and fur. Noticeably slower, and it is what the three alpha_matting values below control. |
-| `alpha_matting_foreground_threshold` | `INT` | Yes | 240 |  | How certain a pixel has to be to count as definitely the subject, from 0 to 255. Lower takes in more of the edge as subject; the default 240 keeps only the most confident core. |
-| `alpha_matting_background_threshold` | `INT` | Yes | 10 |  | How certain a pixel has to be to count as definitely background, from 0 to 255. Higher discards more of the edge; the default 10 leaves everything between the two thresholds for the matting to decide. |
-| `alpha_matting_erode_size` | `INT` | Yes | 10 |  | How far in from the edge, in pixels, the uncertain band is grown before matting. Larger values give the matting more room to work and soften the edge; 0 leaves the band as the thresholds drew it. |
-| `background_color` | `COMBO` | Yes | none | `none`, `black`, `white`, `magenta`, `chroma green`, `chroma blue` | What to put behind the subject. `none` leaves it empty. The rest fill it: `chroma green` and `chroma blue` are the two standard keying colours, and `magenta` is an easy colour to spot leftovers against. With transparency on, the fill is written fully transparent, so it only shows once the alpha channel is discarded. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `images` | `IMAGE` | The cut-out images, as a batch the same length as the input. Four channels when transparency is on, three when it is off or when only_mask is on. |
-
-</details>
-
-<details>
-<summary><b>MiDaS Depth Approximation</b></summary>
-
-Estimate how far away each part of an image is and return it as a greyscale depth map, for a depth ControlNet or a displacement effect. Enable features.midas to load this node.
-
-| | |
-|---|---|
-| Node id | `MiDaS Depth Approximation` |
-| Turn off with | `features.midas: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `image` | `IMAGE` | Yes |  |  | The images to estimate depth for. A whole batch is processed. |
-| `midas_model` | `MIDAS_MODEL` | Yes |  |  | The depth model, from MiDaS Model Loader, which is where the DPT_Large, DPT_Hybrid or DPT_Small choice is made. One loader can feed several nodes so the weights are built once. |
-| `use_cpu` | `BOOLEAN` | Yes | False |  | `off` = the graphics card, which is much faster and costs VRAM; `on` = the processor instead, for a machine with no room left on the card. |
-| `invert_depth` | `BOOLEAN` | Yes | False |  | `off` = near things white and far things black, which is what depth ControlNets expect; `on` = flipped, for a model or effect that wants near things dark. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `images` | `IMAGE` | The depth maps, as a greyscale batch the same length and size as the input. |
-
-</details>
-
-<details>
-<summary><b>MiDaS Mask Image</b></summary>
-
-Deprecated: use Image Remove Background, CLIPSeg Masking or SAM Image Mask instead. Splits an image by distance from the camera using a MiDaS depth map, keeping the near or the far half on transparency or on a flat colour, with the same split on a mask. Depth knows nothing about objects, so anything level with the kept half is kept with it and the edge comes out as a gradient rather than a cutline until threshold is on, which is why those three suit a cutout better. It still fits fading a background by distance, matting in fog or driving a depth composite. Enable features.midas to load this node.
-
-| | |
-|---|---|
-| Node id | `MiDaS Mask Image` |
-| Enable with | `legacy.superseded: true` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `image` | `IMAGE` | Yes |  |  | The image to split. A batch is depth-mapped one image at a time and comes back as a batch of the same length. |
-| `midas_model` | `MIDAS_MODEL` | Yes |  |  | The depth model, from MiDaS Model Loader, which is where the DPT_Large, DPT_Hybrid or DPT_Small choice is made. One loader can feed several nodes so the weights are built once. |
-| `use_cpu` | `BOOLEAN` | Yes | False |  | `off` = the graphics card, which is much faster and costs VRAM; `on` = the processor instead. |
-| `remove` | `COMBO` | Yes |  | `background`, `foregroud` | Which half to replace with the background colour: `background` keeps what is near the camera, `foregroud` keeps what is far away. The second option is spelled as it was in the workflows that store it. |
-| `threshold` | `BOOLEAN` | Yes | False |  | `on` pushes the depth map towards black and white using the three threshold values below, which gives a harder edge; `off` composites with the smooth depth map and leaves a gradual fade. |
-| `threshold_low` | `FLOAT` | Yes | 10 |  | Depth value that becomes fully background, 0-255. Raise it to pull more of the middle distance into the background. Only used when threshold is on. |
-| `threshold_mid` | `FLOAT` | Yes | 200 |  | Depth value that becomes mid grey, 0-255. Below threshold_low it is skipped; between the two it bends the falloff, so 150 keeps more of the near half and 230 keeps less. Only used when threshold is on. |
-| `threshold_high` | `FLOAT` | Yes | 210 |  | Depth value that becomes fully foreground, 0-255. Lower it to keep more of the middle distance. Only used when threshold is on, and it must not equal threshold_low. |
-| `smoothing` | `FLOAT` | Yes | 0.25 |  | Blur applied to the depth map before compositing, in pixels. Softens the edge between the two halves; 0 turns it off and leaves the edge as the depth map drew it. |
-| `background_red` | `INT` | Yes | 0 |  | Red channel of the replacement colour, 0-255. |
-| `background_green` | `INT` | Yes | 0 |  | Green channel of the replacement colour, 0-255. 255 with the other two at 0 gives a green screen. |
-| `background_blue` | `INT` | Yes | 0 |  | Blue channel of the replacement colour, 0-255. |
-| `transparency` | `BOOLEAN` | Yes | True |  | `on` = the removed half is transparent and RESULT carries four channels, ready to composite over anything; `off` = RESULT is three channels and the removed half is filled with the background colour above. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `RESULT` | `IMAGE` | The kept half of the image. Four channels with the removed half transparent when transparency is on, three with it filled by the background colour when off. |
-| `DEPTH` | `IMAGE` | The depth map used to make the split, after levelling and blurring, as a greyscale image. White is the half that was kept. |
-| `MASK` | `MASK` | The same split as a mask, white over the half that was kept. Wire it into Image Paste Crop, a mask input or Mask Dilate Region without converting DEPTH first. |
-
-</details>
-
----
-
-## WAS Suite/Image/Adjustment
-
+<a id="node-wasimageautolevels"></a>
 <details>
 <summary><b>Image Auto Levels</b></summary>
 
@@ -2358,6 +1959,7 @@ Find where a frame's tones actually start and stop and stretch them to fill the 
 
 </details>
 
+<a id="node-wasimagecolorbalance"></a>
 <details>
 <summary><b>Image Color Balance</b></summary>
 
@@ -2391,6 +1993,7 @@ Move colour in the dark, middle and bright parts of a frame on their own, the wa
 
 </details>
 
+<a id="node-image-color-match"></a>
 <details>
 <summary><b>Image Color Match</b></summary>
 
@@ -2420,6 +2023,7 @@ Match a batch's colour to one reference, in one fixed transform applied to every
 
 </details>
 
+<a id="node-wasimagecurves"></a>
 <details>
 <summary><b>Image Curves</b></summary>
 
@@ -2446,6 +2050,7 @@ Photoshop-style curves. Drag control points on the node to bend the tonal respon
 
 </details>
 
+<a id="node-image-levels-adjustment"></a>
 <details>
 <summary><b>Image Levels Adjustment</b></summary>
 
@@ -2472,6 +2077,7 @@ Photoshop-style levels. Choose which input brightness becomes black, which becom
 
 </details>
 
+<a id="node-wasimagepalettemap"></a>
 <details>
 <summary><b>Image Palette Map</b></summary>
 
@@ -2503,6 +2109,7 @@ Repaint an image in a palette's colours, either by matching each pixel to its cl
 
 </details>
 
+<a id="node-image-rotate-hue"></a>
 <details>
 <summary><b>Image Rotate Hue</b></summary>
 
@@ -2527,6 +2134,7 @@ Shift every colour around the hue wheel by the same amount, keeping brightness a
 
 </details>
 
+<a id="node-image-shadows-and-highlights"></a>
 <details>
 <summary><b>Image Shadows and Highlights</b></summary>
 
@@ -2559,6 +2167,7 @@ Lift or crush the dark parts of an image and the bright parts independently, the
 
 </details>
 
+<a id="node-wasimagetemporalequalize"></a>
 <details>
 <summary><b>Image Temporal Equalize</b></summary>
 
@@ -2585,6 +2194,7 @@ Even out brightness and colour drift across the frames of a batch, for footage t
 
 </details>
 
+<a id="node-wasimagewhitebalance"></a>
 <details>
 <summary><b>Image White Balance</b></summary>
 
@@ -2611,10 +2221,9 @@ Remove a colour cast by working out what colour the light was and dividing it ba
 
 </details>
 
----
+### WAS Suite/Image/Analyze
 
-## WAS Suite/Image/Analyze
-
+<a id="node-image-color-palette"></a>
 <details>
 <summary><b>Image Color Palette</b></summary>
 
@@ -2641,6 +2250,7 @@ Find an image's dominant colours and return them both as a chart of swatches and
 
 </details>
 
+<a id="node-wasimagecompare"></a>
 <details>
 <summary><b>Image Compare (Advanced)</b></summary>
 
@@ -2668,6 +2278,7 @@ Compare two images on the node, with a divider you drag across to reveal one und
 
 </details>
 
+<a id="node-image-analyze"></a>
 <details>
 <summary><b>Image Histogram Chart</b></summary>
 
@@ -2697,6 +2308,7 @@ Render a histogram of an image's tones as a chart image, either overall brightne
 
 </details>
 
+<a id="node-wasimagestatistics"></a>
 <details>
 <summary><b>Image Statistics</b></summary>
 
@@ -2732,39 +2344,9 @@ Measure brightness, contrast, sharpness, saturation, clipping and entropy for ev
 
 </details>
 
-<details>
-<summary><b>Image Waveform</b></summary>
+### WAS Suite/Image/Bound
 
-Plot the red, green and blue channels of each picture as broadcast waveform scopes, and the three together as an RGB parade. Each column of the plot is a column of the picture, so it shows where in the frame the brightness sits and whether the channels agree: a colour cast reads as three traces at different heights, clipping as a trace pinned to the top of the grid. Min, max, mean, deviation and median are printed underneath.
-
-| | |
-|---|---|
-| Node id | `WASChannelWaveform` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `image` | `IMAGE` | Yes |  |  | The pictures to measure. Each frame of a batch gets its own set of plots, so a sequence can be checked for drift frame by frame. |
-| `waveform_height` | `INT` | Yes | 512 |  | Height of the plots in pixels, which is how finely the brightness scale is divided. 512 separates levels that a 256-step scale would merge; raise it to 1024 to see fine banding, lower it for a compact on-screen scope. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `red_waveform` | `IMAGE` | The red channel's scope, with its own IRE grid and statistics line. |
-| `green_waveform` | `IMAGE` | The green channel's scope, with its own IRE grid and statistics line. |
-| `blue_waveform` | `IMAGE` | The blue channel's scope, with its own IRE grid and statistics line. |
-| `rgb_parade` | `IMAGE` | All three scopes side by side under one grid, which is the view a colour cast or a channel clipping early shows up in. This is also what the node previews. |
-
-</details>
-
----
-
-## WAS Suite/Image/Bound
-
+<a id="node-bounded-image-blend"></a>
 <details>
 <summary><b>Bounded Image Blend</b></summary>
 
@@ -2792,6 +2374,7 @@ Put a source image back into the region of a target image its bounds describe, s
 
 </details>
 
+<a id="node-bounded-image-blend-with-mask"></a>
 <details>
 <summary><b>Bounded Image Blend with Mask</b></summary>
 
@@ -2820,6 +2403,7 @@ Put a source image back into the region of a target image its bounds describe, l
 
 </details>
 
+<a id="node-bounded-image-crop"></a>
 <details>
 <summary><b>Bounded Image Crop</b></summary>
 
@@ -2844,6 +2428,7 @@ Cut out the part of each image its bounds covers, so a detail can be worked on a
 
 </details>
 
+<a id="node-bounded-image-crop-with-mask"></a>
 <details>
 <summary><b>Bounded Image Crop with Mask</b></summary>
 
@@ -2874,6 +2459,7 @@ Find the smallest box holding everything the mask marks, grow it by the padding 
 
 </details>
 
+<a id="node-wasboundingboxesfilter"></a>
 <details>
 <summary><b>Bounding Boxes Filter</b></summary>
 
@@ -2906,6 +2492,7 @@ Reduce a detector's regions to the ones worth acting on: drop the ones too small
 
 </details>
 
+<a id="node-wasboundingboxestobounds"></a>
 <details>
 <summary><b>Bounding Boxes to Bounds</b></summary>
 
@@ -2930,6 +2517,7 @@ Turn bounding boxes into bounds, so a region found by a detector reaches the cro
 
 </details>
 
+<a id="node-wasboundstoboundingboxes"></a>
 <details>
 <summary><b>Bounds to Bounding Boxes</b></summary>
 
@@ -2955,6 +2543,7 @@ Turn bounds into bounding boxes, so a region measured in this pack reaches Comfy
 
 </details>
 
+<a id="node-wasboundstocropdata"></a>
 <details>
 <summary><b>Bounds to Crop Data</b></summary>
 
@@ -2979,6 +2568,7 @@ Turn a rectangle measured by the bounds nodes into the crop window the paste nod
 
 </details>
 
+<a id="node-wasboundstomask"></a>
 <details>
 <summary><b>Bounds to Mask</b></summary>
 
@@ -3006,6 +2596,7 @@ Paint every bounds rectangle as a white block on a black mask, which is how a me
 
 </details>
 
+<a id="node-wasboundstonumbers"></a>
 <details>
 <summary><b>Bounds to Numbers</b></summary>
 
@@ -3038,6 +2629,7 @@ Open a bounds rectangle into the numbers a graph can wire: the top left corner, 
 
 </details>
 
+<a id="node-wascropdatatobounds"></a>
 <details>
 <summary><b>Crop Data to Bounds</b></summary>
 
@@ -3063,6 +2655,7 @@ Turn the crop window a crop node recorded into a bounds row, so a region found b
 
 </details>
 
+<a id="node-wascropdatatonumbers"></a>
 <details>
 <summary><b>Crop Data to Numbers</b></summary>
 
@@ -3092,6 +2685,7 @@ Open the crop window a crop node recorded into plain numbers: the size the crop 
 
 </details>
 
+<a id="node-wasdrawimagebounds"></a>
 <details>
 <summary><b>Draw Image Bounds</b></summary>
 
@@ -3123,6 +2717,7 @@ Draw a bounds value as rectangles on the image, with an optional fill and label,
 
 </details>
 
+<a id="node-image-bounds"></a>
 <details>
 <summary><b>Image Bounds</b></summary>
 
@@ -3146,6 +2741,7 @@ Describe each image's whole area as a bounds value, which is the starting point 
 
 </details>
 
+<a id="node-inset-image-bounds"></a>
 <details>
 <summary><b>Inset Image Bounds</b></summary>
 
@@ -3173,6 +2769,7 @@ Move every edge of a bounds inwards by a set number of pixels, which turns a who
 
 </details>
 
+<a id="node-wasmasktobounds"></a>
 <details>
 <summary><b>Mask to Bounds</b></summary>
 
@@ -3198,10 +2795,9 @@ Measure the tightest rectangle around everything a mask marks and answer it as b
 
 </details>
 
----
+### WAS Suite/Image/Filter
 
-## WAS Suite/Image/Filter
-
+<a id="node-image-bloom-filter"></a>
 <details>
 <summary><b>Image Bloom Filter</b></summary>
 
@@ -3227,6 +2823,7 @@ Add a soft halo of light around the bright, detailed parts of an image, the way 
 
 </details>
 
+<a id="node-image-canny-filter"></a>
 <details>
 <summary><b>Image Canny Filter</b></summary>
 
@@ -3253,6 +2850,7 @@ Trace the edges in an image as thin bright lines on a black background, the usua
 
 </details>
 
+<a id="node-image-chromatic-aberration"></a>
 <details>
 <summary><b>Image Chromatic Aberration</b></summary>
 
@@ -3281,6 +2879,7 @@ Nudge the red, green and blue channels apart so edges pick up coloured fringes, 
 
 </details>
 
+<a id="node-wasimagedirectionalblur"></a>
 <details>
 <summary><b>Image Directional Blur</b></summary>
 
@@ -3311,6 +2910,7 @@ Smear the frame along a path instead of spreading it evenly. `linear` is the str
 
 </details>
 
+<a id="node-image-dragan-photography-filter"></a>
 <details>
 <summary><b>Image Dragan Photography Filter</b></summary>
 
@@ -3342,6 +2942,7 @@ The Dragan portrait look: hard contrast with every pore and wrinkle pulled out b
 
 </details>
 
+<a id="node-image-edge-detection-filter"></a>
 <details>
 <summary><b>Image Edge Detection Filter</b></summary>
 
@@ -3366,6 +2967,7 @@ Turn an image into an outline drawing: black where the picture is flat, bright w
 
 </details>
 
+<a id="node-image-fdof-filter"></a>
 <details>
 <summary><b>Image fDOF Filter</b></summary>
 
@@ -3393,6 +2995,7 @@ Fake a shallow depth of field: keep the image sharp where a depth map is bright 
 
 </details>
 
+<a id="node-image-film-grain"></a>
 <details>
 <summary><b>Image Film Grain</b></summary>
 
@@ -3420,6 +3023,7 @@ Lay photographic grain over an image, the speckle a film negative has. The grain
 
 </details>
 
+<a id="node-image-filter-adjustments"></a>
 <details>
 <summary><b>Image Filter Adjustments</b></summary>
 
@@ -3451,6 +3055,7 @@ The everyday image controls in one node: brightness, contrast, saturation, sharp
 
 </details>
 
+<a id="node-wasimagegradientmapnative"></a>
 <details>
 <summary><b>Image Gradient Map</b></summary>
 
@@ -3477,6 +3082,7 @@ Recolour an image by brightness: the darkest pixels take the first colour of a g
 
 </details>
 
+<a id="node-wasimageguidedfilter"></a>
 <details>
 <summary><b>Image Guided Filter</b></summary>
 
@@ -3503,6 +3109,7 @@ Smooth an image while keeping its edges crisp, the way a bilateral filter is mea
 
 </details>
 
+<a id="node-image-high-pass-filter"></a>
 <details>
 <summary><b>Image High Pass Filter</b></summary>
 
@@ -3530,6 +3137,7 @@ Keep only the fine detail of an image and throw away the broad shapes and tones.
 
 </details>
 
+<a id="node-image-lucy-sharpen"></a>
 <details>
 <summary><b>Image Lucy Sharpen</b></summary>
 
@@ -3555,6 +3163,7 @@ Sharpen an image by working out what it looked like before it was blurred, rathe
 
 </details>
 
+<a id="node-image-median-filter"></a>
 <details>
 <summary><b>Image Median Filter</b></summary>
 
@@ -3581,6 +3190,7 @@ Even out flat areas of an image while keeping its outlines crisp. Good for smoot
 
 </details>
 
+<a id="node-image-monitor-effects-filter"></a>
 <details>
 <summary><b>Image Monitor Effects Filter</b></summary>
 
@@ -3607,6 +3217,7 @@ Break an image up the way a bad screen or a worn tape does: torn rows, scan line
 
 </details>
 
+<a id="node-image-nova-filter"></a>
 <details>
 <summary><b>Image Nova Filter</b></summary>
 
@@ -3632,6 +3243,7 @@ Push an image's brightness through a sine wave, which turns smooth gradients int
 
 </details>
 
+<a id="node-image-ssao-ambient-occlusion"></a>
 <details>
 <summary><b>Image SSAO (Ambient Occlusion)</b></summary>
 
@@ -3664,6 +3276,7 @@ Add contact shadows to an image using a depth map: wherever the depth jumps, the
 
 </details>
 
+<a id="node-image-ssdo-direct-occlusion"></a>
 <details>
 <summary><b>Image SSDO (Direct Occlusion)</b></summary>
 
@@ -3695,6 +3308,7 @@ Relight an image from the brightest thing in it, using a depth map to work out w
 
 </details>
 
+<a id="node-image-style-filter"></a>
 <details>
 <summary><b>Image Style Filter</b></summary>
 
@@ -3722,6 +3336,7 @@ Recolour an image with one of the familiar photo-app looks or one of the ten mod
 
 </details>
 
+<a id="node-image-to-noise"></a>
 <details>
 <summary><b>Image to Noise</b></summary>
 
@@ -3751,6 +3366,7 @@ Shuffle an image's pixels into noise that keeps its palette. Handy as a starting
 
 </details>
 
+<a id="node-wasimagevignette"></a>
 <details>
 <summary><b>Image Vignette</b></summary>
 
@@ -3780,68 +3396,9 @@ Fall the frame off towards its corners, the way a wide lens does, or the other w
 
 </details>
 
-<details>
-<summary><b>Vivid Sharpen</b></summary>
+### WAS Suite/Image/Generate
 
-Sharpen images by blending an inverted, blurred copy back over them in vivid light. Edges gain local contrast and flat areas are left alone, which reads as detail rather than as the halo an ordinary sharpen leaves. Good on renders and upscales that came out soft.
-
-| | |
-|---|---|
-| Node id | `VividSharpen` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `images` | `IMAGE` | Yes |  |  | The pictures to sharpen. A batch is handled one frame at a time, so a whole video's worth of frames can go through at once. |
-| `radius` | `FLOAT` | Yes | 1.5 |  | Size in pixels of the detail the sharpening picks out. Around 1.0 accents fine texture such as skin and fabric; 5.0 and above accents broad shapes and starts to look like added contrast rather than added detail. |
-| `strength` | `FLOAT` | Yes | 1.0 |  | How much of the sharpened version is mixed back over the original. 0.0 returns the picture untouched, 1.0 uses the sharpened version outright, and 0.3 to 0.6 is the usual range for a subtle pass. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `images` | `IMAGE` | The sharpened pictures, same size and batch order as the input. |
-
-</details>
-
-<details>
-<summary><b>Vivid Sharpen (V2)</b></summary>
-
-Sharpen images by blending an inverted, blurred copy back over them in vivid light, with each stage of the stack adjustable: two blur radii, a brightness and contrast trim on the high-pass layer, and separate opacities for the two blends. Runs on the whole batch at once on the GPU, so it suits long video sequences.
-
-| | |
-|---|---|
-| Node id | `VividSharpenV2` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `images` | `IMAGE` | Yes |  |  | The pictures to sharpen. The whole batch is processed in one pass, so a long sequence costs little more than a single frame. |
-| `radius_highpass` | `FLOAT` | Yes | 5.0 |  | Size in pixels of the blur that builds the high-pass layer. This sets which detail is accented: 1.0 to 2.0 for fine texture, 5.0 and above for broad shapes and general punch. |
-| `radius_blur` | `FLOAT` | Yes | 2.5 |  | Size in pixels of a second blur applied to the high-pass layer. Raising it softens the accent and suppresses the halo that appears along hard edges; lowering it keeps the result crisp. |
-| `blur_mode` | `COMBO` | Yes | gaussian | `gaussian`, `box` | Shape of both blurs. `gaussian` falls off smoothly and is the natural-looking choice; `box` weights every pixel in the window equally, which is faster and gives a harder, more graphic accent. |
-| `hp_brightness` | `FLOAT` | Yes | 1.0 |  | Brightness of the high-pass layer before it is blended. Above 1.0 pushes the result lighter overall, below 1.0 darker. Use it to correct the slight lift or drop sharpening leaves behind; 1.0 changes nothing. |
-| `hp_contrast` | `FLOAT` | Yes | 1.0 |  | Contrast of the high-pass layer before it is blended. Above 1.0 makes the accent bite harder, below 1.0 softens it. This is the control to reach for when the sharpening is right but too strong. |
-| `vivid_opacity` | `FLOAT` | Yes | 1.0 |  | How much of the vivid-light blend is kept. This is the stage that creates the edge accent, so 0.0 disables the sharpening and leaves only the overlay pass. |
-| `overlay_opacity` | `FLOAT` | Yes | 1.0 |  | How much of the overlay pass is kept. Overlay restores the contrast the vivid-light stage flattens, so lowering it gives a flatter, more filmic result. |
-| `strength` | `FLOAT` | Yes | 1.0 |  | How much of the finished result is mixed back over the original. 0.0 returns the picture untouched, 1.0 uses the result outright, and values above 1.0 push past it for an exaggerated accent. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `images` | `IMAGE` | The sharpened pictures, same size and batch order as the input. |
-
-</details>
-
----
-
-## WAS Suite/Image/Generate
-
+<a id="node-image-blank"></a>
 <details>
 <summary><b>Image Blank</b></summary>
 
@@ -3870,6 +3427,7 @@ Make a new image filled with a single colour, for use as a background, a matte, 
 
 </details>
 
+<a id="node-image-generate-gradient"></a>
 <details>
 <summary><b>Image Generate Gradient</b></summary>
 
@@ -3897,6 +3455,7 @@ Generate a horizontal or vertical colour gradient from a list of colour stops, f
 
 </details>
 
+<a id="node-image-perlin-noise"></a>
 <details>
 <summary><b>Image Perlin Noise</b></summary>
 
@@ -3925,6 +3484,7 @@ Generate a greyscale Perlin noise image, the soft cloud-like pattern used for cl
 
 </details>
 
+<a id="node-image-perlin-power-fractal"></a>
 <details>
 <summary><b>Image Perlin Power Fractal</b></summary>
 
@@ -3955,6 +3515,7 @@ Generate a greyscale fractal noise image with control over how quickly the detai
 
 </details>
 
+<a id="node-image-power-noise"></a>
 <details>
 <summary><b>Image Power Noise</b></summary>
 
@@ -3983,6 +3544,7 @@ Generate a noise image with a chosen grain size: flat white noise, soft pink noi
 
 </details>
 
+<a id="node-image-voronoi-noise-filter"></a>
 <details>
 <summary><b>Image Voronoi Noise Filter</b></summary>
 
@@ -4012,10 +3574,9 @@ Generate Voronoi (Worley) cellular noise: scattered points shaded by how far eac
 
 </details>
 
----
+### WAS Suite/Image/HDR
 
-## WAS Suite/Image/HDR
-
+<a id="node-wasdngsave"></a>
 <details>
 <summary><b>DNG Save</b></summary>
 
@@ -4044,6 +3605,7 @@ Write every image in the batch as a DNG, the raw file Lightroom, Camera Raw, dar
 
 </details>
 
+<a id="node-wasexrload"></a>
 <details>
 <summary><b>EXR Load</b></summary>
 
@@ -4069,6 +3631,7 @@ Read an OpenEXR file as linear light, with everything above one kept, so a plate
 
 </details>
 
+<a id="node-wasexrsave"></a>
 <details>
 <summary><b>EXR Save</b></summary>
 
@@ -4097,32 +3660,7 @@ Write every image in the batch as an OpenEXR file of linear light, one file per 
 
 </details>
 
-<details>
-<summary><b>HDR Reconstruct</b></summary>
-
-Rebuild the light a clipped highlight lost, answering linear light with everything above one kept. A blown sky, a lamp or a specular hit comes back as a gradient rather than one flat white, so a sun and its glow stay apart under a grade or in a 32-bit EXR. Every frame of a batch is reconstructed, and the largest value reached is answered beside the image.
-
-| | |
-|---|---|
-| Node id | `WASHDRReconstruct` |
-| Turn off with | `features.preprocessors: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `images` | `IMAGE` | Yes |  |  | The frames to reconstruct. Each one is run on its own and comes back at the size it went in at. |
-| `dequantise` | `BOOLEAN` | Yes | True |  | 'true' = rebuild the levels an 8-bit file threw away first; 'false' = run the frames as they arrived. Leave it on for a PNG or a JPEG, off for footage already in float. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `images` | `IMAGE` | The reconstruction, as linear light on a 0 to 1 scale with the recovered highlights above it. A preview clips it back to white, so tone map it or write it to EXR to see the range. |
-| `peak` | `FLOAT` | The largest value anywhere in the result. 40.07 = a clipped disc rebuilt to 40 times white; 1.0 = nothing above white was recovered. Divide by it to scale the frame back into range. |
-
-</details>
-
+<a id="node-washdrvaedecode"></a>
 <details>
 <summary><b>HDR VAE Decode</b></summary>
 
@@ -4151,6 +3689,7 @@ Decode a latent to an image and keep the values the decoder put above white and 
 
 </details>
 
+<a id="node-wasimagedequantise"></a>
 <details>
 <summary><b>Image Dequantise</b></summary>
 
@@ -4177,6 +3716,7 @@ Rebuild the levels an 8-bit file threw away. A band stored as one flat value com
 
 </details>
 
+<a id="node-wasimagepreview"></a>
 <details>
 <summary><b>Image Preview</b></summary>
 
@@ -4205,6 +3745,7 @@ Show a batch the way it will really look, and hand it on unchanged. A preview re
 
 </details>
 
+<a id="node-wasimagetonemap"></a>
 <details>
 <summary><b>Image Tone Map</b></summary>
 
@@ -4235,6 +3776,7 @@ Roll highlights above white down into a range a screen can show, instead of clip
 
 </details>
 
+<a id="node-waslinearlight"></a>
 <details>
 <summary><b>Linear Light</b></summary>
 
@@ -4260,101 +3802,9 @@ Convert between the sRGB curve a picture is stored with and the light it stands 
 
 </details>
 
----
+### WAS Suite/Image/LUT
 
-## WAS Suite/Image/LUT
-
-<details>
-<summary><b>Apply LUT</b></summary>
-
-Grade pictures through a colour lookup table from Load LUT or LUT Blender. Each pixel's colour is looked up in the table and blended between the eight nearest entries, which is how a film look, a camera profile or a corrective grade is applied. Blend the result back over the original to use the look at partial strength.
-
-| | |
-|---|---|
-| Node id | `WASApplyLUT` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `image` | `IMAGE` | Yes |  |  | The pictures to grade. The whole batch is graded at once, so a video sequence gets exactly the same treatment frame to frame. |
-| `lut` | `LUT` | Yes |  |  | The colour lookup table to apply, from Load LUT or LUT Blender. A table stored as curves rather than a cube is converted first. |
-| `strength` | `FLOAT` | Yes | 1.0 |  | How far the graded result is mixed over the original. 0.0 returns the pictures untouched, 1.0 applies the look outright, 0.5 applies it at half strength. |
-| `use_threads` | `BOOLEAN` | Yes | False |  | Whether to grade the frames of a batch on several CPU threads at once. Leave it off on a GPU, where one pass over the whole batch is already fastest; turn it on for a long CPU-bound sequence. |
-| `threads` | `INT` | Yes | 0 |  | How many worker threads to use. 0 picks one per CPU core, up to the number of frames. Ignored while use_threads is off. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `image` | `IMAGE` | The graded pictures, same size and batch order as the input. |
-
-</details>
-
-<details>
-<summary><b>Load LUT</b></summary>
-
-Produce a colour lookup table to grade images with. Pick a .cube file from a models/LUT directory, one of the built-in looks, or 'Custom' to build a table from the exposure, contrast, saturation and white-balance controls below. Feed the result to Apply LUT, or to LUT Blender to mix two looks.
-
-| | |
-|---|---|
-| Node id | `WASLoadLUT` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `look` | `COMBO` | Yes |  |  | Which table to produce. 'Custom' builds one from the controls below and ignores any file; the named looks are built in and need no file; entries starting 'LUT: ' are .cube files found in a models/LUT directory or in the pack's own luts directory. |
-| `builtin_size` | `INT` | Yes | 33 |  | Edge length of the cube built for a named look or for 'Custom', in samples. 33 is the industry-standard size and is plenty; 65 is finer and eight times the memory. Ignored when a .cube file is chosen, since the file sets its own size. |
-| `custom_ev` | `FLOAT` | Yes | 0.0 |  | Exposure in photographic stops, for the 'Custom' look. +1.0 doubles the brightness, -1.0 halves it, 0.0 changes nothing. |
-| `custom_contrast` | `FLOAT` | Yes | 1.0 |  | Contrast for the 'Custom' look, around mid grey. Above 1.0 deepens shadows and brightens highlights, below 1.0 flattens the picture towards grey, 1.0 changes nothing. |
-| `custom_saturation` | `FLOAT` | Yes | 1.0 |  | Colour intensity for the 'Custom' look. 0.0 gives black and white, 1.0 changes nothing, 2.0 doubles the distance of every colour from grey. |
-| `custom_vibrance` | `FLOAT` | Yes | 0.0 |  | Colour intensity for the 'Custom' look, weighted towards the muted colours. Positive lifts pale colour without pushing already-strong colour further, which is the gentler way to add life to skin tones; 0.0 changes nothing. |
-| `custom_gamma` | `FLOAT` | Yes | 1.0 |  | Midtone brightness for the 'Custom' look, leaving black and white where they are. Above 1.0 opens up shadow detail, below 1.0 deepens it, 1.0 changes nothing. |
-| `custom_temperature` | `FLOAT` | Yes | 0.0 |  | Warmth for the 'Custom' look. Positive shifts towards orange, as though shot under tungsten light; negative shifts towards blue, as though shot in shade; 0.0 changes nothing. |
-| `custom_tint` | `FLOAT` | Yes | 0.0 |  | Green-magenta balance for the 'Custom' look, the second half of white balance. Positive adds green, negative adds magenta, which is what corrects a fluorescent cast. 0.0 changes nothing. |
-| `custom_red_balance` | `FLOAT` | Yes | 0.0 |  | Red channel gain for the 'Custom' look, applied on its own. +0.1 raises red by a tenth, -0.1 lowers it, 0.0 changes nothing. |
-| `custom_green_balance` | `FLOAT` | Yes | 0.0 |  | Green channel gain for the 'Custom' look, applied on its own. Use the three balance controls together to match a reference render channel by channel. 0.0 changes nothing. |
-| `custom_blue_balance` | `FLOAT` | Yes | 0.0 |  | Blue channel gain for the 'Custom' look, applied on its own. +0.1 raises blue by a tenth, -0.1 lowers it, 0.0 changes nothing. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `lut` | `LUT` | The colour lookup table, for Apply LUT, LUT Blender or Save LUT. |
-
-</details>
-
-<details>
-<summary><b>LUT Blender</b></summary>
-
-Mix two colour lookup tables into one, in whichever colour space suits the pair. Use it to dial a strong film look back towards neutral, to cross-fade between two grades, or to stack a corrective table under a creative one. Both tables are resampled to a common size first, so a 17-point table and a 65-point one mix without trouble. 'linear' is a straight average, 'cosine' and 'smoothstep' ease that mix, 'slerp' turns hue the short way round the wheel instead of through grey, 'lab' and 'oklab' mix in a perceptual space which keeps midway grades believable, 'hsv' mixes hue, saturation and brightness separately, 'auto' picks 'slerp' where the two colours differ a lot and 'linear' where they agree, and 'multiply' darkens, 'screen' brightens and 'overlay' does both.
-
-| | |
-|---|---|
-| Node id | `WASCombineLUT` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `lut_a` | `LUT` | Yes |  |  | The base table. At a strength of 0.0 this is what comes out unchanged. |
-| `lut_b` | `LUT` | Yes |  |  | The table mixed in. At a strength of 1.0 this is what comes out, except in the multiply, screen and overlay modes, which combine the two rather than replace one with the other. |
-| `mode` | `COMBO` | Yes |  | `linear`, `cosine`, `smoothstep`, `slerp`, `hsv`, `lab`, `oklab`, `auto`, `multiply`, `screen`, `overlay` | How the two tables are mixed. 'linear' is a straight average and the place to start; other modes ease it, mix perceptually, or combine the tables like layers. |
-| `strength` | `FLOAT` | Yes | 0.5 |  | How far the mix travels from lut_a to lut_b. 0.0 keeps lut_a, 0.5 is an even mix, 1.0 reaches lut_b. |
-| `output_size` | `INT` | Yes | 33 |  | Edge length of the resulting cube, in samples. Both inputs are resampled to it before mixing. 33 is the industry-standard size; raise it towards 65 only when banding shows on a steep grade. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `lut` | `LUT` | The mixed table, for Apply LUT or Save LUT. |
-
-</details>
-
+<a id="node-waslutfromreference"></a>
 <details>
 <summary><b>LUT from Reference</b></summary>
 
@@ -4384,38 +3834,9 @@ Work out the colour grade that takes one image to another and bake it into a LUT
 
 </details>
 
-<details>
-<summary><b>Save LUT (.cube)</b></summary>
+### WAS Suite/Image/Layers
 
-Write a colour lookup table to a .cube file, the format DaVinci Resolve, Premiere and most grading tools read. Files land in the pack's own luts directory under ComfyUI's user folder, which Load LUT also reads, so a look built once here can be reused everywhere. The table is passed straight through as well, so the node can sit mid-chain.
-
-| | |
-|---|---|
-| Node id | `WASSaveLUT` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `lut` | `LUT` | Yes |  |  | The table to write, from Load LUT or LUT Blender. A table stored as curves is converted to a cube first, since .cube files hold cubes. |
-| `filename` | `STRING` | Yes | CustomLUT |  | Name of the file to write, such as 'WarmFilm'. The .cube extension is added when it is missing. This is a name, not a path: it may name a subfolder, but it cannot step outside the luts directory. |
-| `output_size` | `INT` | Yes | 33 |  | Edge length of the cube written to the file, in samples. 33 is the industry-standard size and is what most grading tools expect; 65 is finer and produces a file eight times the size. |
-| `overwrite` | `BOOLEAN` | Yes | True |  | Whether an existing file of the same name may be replaced. Turn it off to have the node stop rather than overwrite a look already saved under that name. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `lut` | `LUT` | The table as it was written, resampled to output_size, so the downstream grade matches the file exactly. |
-
-</details>
-
----
-
-## WAS Suite/Image/Layers
-
+<a id="node-waslayeralign"></a>
 <details>
 <summary><b>Layer Align</b></summary>
 
@@ -4450,6 +3871,7 @@ Put a layer where you want it by naming a corner rather than working out coordin
 
 </details>
 
+<a id="node-waslayerbevel"></a>
 <details>
 <summary><b>Layer Bevel</b></summary>
 
@@ -4488,6 +3910,7 @@ Build a slope from the edge of one layer in a stack and light it, so the layer r
 
 </details>
 
+<a id="node-waslayerduplicate"></a>
 <details>
 <summary><b>Layer Duplicate</b></summary>
 
@@ -4517,6 +3940,7 @@ Copy one layer and stack the copy directly above the original, offset by dx and 
 
 </details>
 
+<a id="node-waslayeredit"></a>
 <details>
 <summary><b>Layer Edit</b></summary>
 
@@ -4557,6 +3981,7 @@ Change one layer of a stack: where it sits, the size and angle it is drawn at, i
 
 </details>
 
+<a id="node-waslayerfit"></a>
 <details>
 <summary><b>Layer Fit</b></summary>
 
@@ -4592,6 +4017,7 @@ Scale a layer to reach the canvas, a size you type, or another layer, and put it
 
 </details>
 
+<a id="node-waslayerglow"></a>
 <details>
 <summary><b>Layer Glow</b></summary>
 
@@ -4623,6 +4049,7 @@ Spread light off one layer in a stack. An outer glow sits behind the layer's own
 
 </details>
 
+<a id="node-waslayermask"></a>
 <details>
 <summary><b>Layer Mask</b></summary>
 
@@ -4653,6 +4080,7 @@ Give one layer a mask, combine one with the mask it already has, soften its edge
 
 </details>
 
+<a id="node-waslayerorder"></a>
 <details>
 <summary><b>Layer Order</b></summary>
 
@@ -4681,6 +4109,7 @@ Move one layer through the stack, to the front, to the back, one step either way
 
 </details>
 
+<a id="node-waslayeroverlay"></a>
 <details>
 <summary><b>Layer Overlay</b></summary>
 
@@ -4712,6 +4141,7 @@ Paint one layer in a stack with a flat colour or a two-stop linear gradient, hel
 
 </details>
 
+<a id="node-waslayerremove"></a>
 <details>
 <summary><b>Layer Remove</b></summary>
 
@@ -4742,6 +4172,7 @@ Drop the layers that match and keep the rest: a run of the stack by index, a nam
 
 </details>
 
+<a id="node-waslayerreplaceimage"></a>
 <details>
 <summary><b>Layer Replace Image</b></summary>
 
@@ -4772,6 +4203,7 @@ Replace one layer's picture with another, leaving its placement, angle, opacity,
 
 </details>
 
+<a id="node-waslayerselect"></a>
 <details>
 <summary><b>Layer Select</b></summary>
 
@@ -4802,6 +4234,7 @@ Keep only the layers that match, and drop the rest: a run of the stack by index,
 
 </details>
 
+<a id="node-waslayershadow"></a>
 <details>
 <summary><b>Layer Shadow</b></summary>
 
@@ -4835,6 +4268,7 @@ Cast a shadow off one layer in a stack. A drop shadow sits behind the layer's ow
 
 </details>
 
+<a id="node-waslayerstroke"></a>
 <details>
 <summary><b>Layer Stroke</b></summary>
 
@@ -4865,6 +4299,7 @@ Draw an outline along the edge of one layer in a stack. The band follows what th
 
 </details>
 
+<a id="node-waslayertrim"></a>
 <details>
 <summary><b>Layer Trim</b></summary>
 
@@ -4895,6 +4330,7 @@ Cut the empty band off a layer's picture and move x and y in by the same amount,
 
 </details>
 
+<a id="node-waslayersarrange"></a>
 <details>
 <summary><b>Layers Arrange</b></summary>
 
@@ -4919,6 +4355,7 @@ Move, resize, reorder, hide and fade the layers of a stack, and pass the stack o
 
 </details>
 
+<a id="node-waslayerscanvas"></a>
 <details>
 <summary><b>Layers Canvas</b></summary>
 
@@ -4948,6 +4385,7 @@ Give a layer stack a canvas of its own size rather than letting it take the size
 
 </details>
 
+<a id="node-waslayersfromimagebatch"></a>
 <details>
 <summary><b>Layers from Image Batch</b></summary>
 
@@ -4982,6 +4420,7 @@ Build a layer stack from a batch: one layer per frame, lowest first. Wire bounds
 
 </details>
 
+<a id="node-waslayersinfo"></a>
 <details>
 <summary><b>Layers Info</b></summary>
 
@@ -5010,6 +4449,7 @@ Read a layer stack out as plain data: the canvas it is drawn on, how many layers
 
 </details>
 
+<a id="node-waslayersmerge"></a>
 <details>
 <summary><b>Layers Merge</b></summary>
 
@@ -5039,163 +4479,9 @@ Flatten a run of layers into one, drawn with each layer's own opacity, blend mod
 
 </details>
 
----
+### WAS Suite/Image/Masking
 
-## WAS Suite/Image/Masking
-
-<details>
-<summary><b>CLIPSeg Batch Masking</b></summary>
-
-Mask several images at once, each against its own description, and return the images, the masks and the masks as images as three matching batches. Enable features.clipseg to load this node.
-
-| | |
-|---|---|
-| Node id | `CLIPSeg Batch Masking` |
-| Turn off with | `features.clipseg: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `image_a` | `IMAGE` | Yes |  |  | First image. Its size decides the size of every output, and the other images have to match it. A batch here is masked image by image, all against text_a. |
-| `image_b` | `IMAGE` | Yes |  |  | Second image. Masked against text_b, and a batch here is masked image by image against it. |
-| `text_a` | `STRING` | Yes |  |  | What to select in image_a, in plain words: 'the sky', 'a red car'. Short noun phrases work best. This box and text_b are always used, empty or not. |
-| `text_b` | `STRING` | Yes |  |  | What to select in image_b. |
-| `clipseg_model` | `CLIPSEG_MODEL` | Yes |  |  | The segmentation model, from CLIPSeg Model Loader. One loader can feed several nodes so the weights are built once. |
-| `image_c` | `IMAGE` | No |  |  | Third image, if there is one. Same size as image_a. |
-| `image_d` | `IMAGE` | No |  |  | Fourth image, if there is one. Same size as image_a. |
-| `image_e` | `IMAGE` | No |  |  | Fifth image, if there is one. Same size as image_a. |
-| `image_f` | `IMAGE` | No |  |  | Sixth image, if there is one. Same size as image_a. |
-| `image_g` | `IMAGE` | No |  |  | Picture 7, segmented by text_g. Unconnected is skipped. |
-| `image_h` | `IMAGE` | No |  |  | Picture 8, segmented by text_h. Unconnected is skipped. |
-| `image_i` | `IMAGE` | No |  |  | Picture 9, segmented by text_i. Unconnected is skipped. |
-| `image_j` | `IMAGE` | No |  |  | Picture 10, segmented by text_j. Unconnected is skipped. |
-| `image_k` | `IMAGE` | No |  |  | Picture 11, segmented by text_k. Unconnected is skipped. |
-| `image_l` | `IMAGE` | No |  |  | Picture 12, segmented by text_l. Unconnected is skipped. |
-| `image_m` | `IMAGE` | No |  |  | Picture 13, segmented by text_m. Unconnected is skipped. |
-| `image_n` | `IMAGE` | No |  |  | Picture 14, segmented by text_n. Unconnected is skipped. |
-| `image_o` | `IMAGE` | No |  |  | Picture 15, segmented by text_o. Unconnected is skipped. |
-| `image_p` | `IMAGE` | No |  |  | Picture 16, segmented by text_p. Unconnected is skipped. |
-| `image_q` | `IMAGE` | No |  |  | Picture 17, segmented by text_q. Unconnected is skipped. |
-| `image_r` | `IMAGE` | No |  |  | Picture 18, segmented by text_r. Unconnected is skipped. |
-| `image_s` | `IMAGE` | No |  |  | Picture 19, segmented by text_s. Unconnected is skipped. |
-| `image_t` | `IMAGE` | No |  |  | Picture 20, segmented by text_t. Unconnected is skipped. |
-| `image_u` | `IMAGE` | No |  |  | Picture 21, segmented by text_u. Unconnected is skipped. |
-| `image_v` | `IMAGE` | No |  |  | Picture 22, segmented by text_v. Unconnected is skipped. |
-| `image_w` | `IMAGE` | No |  |  | Picture 23, segmented by text_w. Unconnected is skipped. |
-| `image_x` | `IMAGE` | No |  |  | Picture 24, segmented by text_x. Unconnected is skipped. |
-| `text_c` | `STRING` | No |  |  | What to select in image_c. An empty box is left out of the list. |
-| `text_d` | `STRING` | No |  |  | What to select in image_d. An empty box is left out of the list. |
-| `text_e` | `STRING` | No |  |  | What to select in image_e. An empty box is left out of the list. |
-| `text_f` | `STRING` | No |  |  | What to select in image_f. An empty box is left out of the list. |
-| `text_g` | `STRING` | No |  |  | What to find in image_g. Empty is skipped. |
-| `text_h` | `STRING` | No |  |  | What to find in image_h. Empty is skipped. |
-| `text_i` | `STRING` | No |  |  | What to find in image_i. Empty is skipped. |
-| `text_j` | `STRING` | No |  |  | What to find in image_j. Empty is skipped. |
-| `text_k` | `STRING` | No |  |  | What to find in image_k. Empty is skipped. |
-| `text_l` | `STRING` | No |  |  | What to find in image_l. Empty is skipped. |
-| `text_m` | `STRING` | No |  |  | What to find in image_m. Empty is skipped. |
-| `text_n` | `STRING` | No |  |  | What to find in image_n. Empty is skipped. |
-| `text_o` | `STRING` | No |  |  | What to find in image_o. Empty is skipped. |
-| `text_p` | `STRING` | No |  |  | What to find in image_p. Empty is skipped. |
-| `text_q` | `STRING` | No |  |  | What to find in image_q. Empty is skipped. |
-| `text_r` | `STRING` | No |  |  | What to find in image_r. Empty is skipped. |
-| `text_s` | `STRING` | No |  |  | What to find in image_s. Empty is skipped. |
-| `text_t` | `STRING` | No |  |  | What to find in image_t. Empty is skipped. |
-| `text_u` | `STRING` | No |  |  | What to find in image_u. Empty is skipped. |
-| `text_v` | `STRING` | No |  |  | What to find in image_v. Empty is skipped. |
-| `text_w` | `STRING` | No |  |  | What to find in image_w. Empty is skipped. |
-| `text_x` | `STRING` | No |  |  | What to find in image_x. Empty is skipped. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `IMAGES_BATCH` | `IMAGE` | Every image that was given, as one batch in input order, so the masks line up with the pictures they came from. |
-| `MASKS_BATCH` | `MASK` | One mask per image, brighter where the phrase matched, for an inpainting or compositing node. |
-| `MASK_IMAGES_BATCH` | `IMAGE` | The same masks as black and white images, to preview or to feed a node that takes an image rather than a mask. |
-| `count` | `INT` | How many frames each batch holds, which is the total across the slots rather than the number of slots. |
-
-</details>
-
-<details>
-<summary><b>CLIPSeg Masking</b></summary>
-
-Make a mask from a word for what to select, such as `person`, `sky` or `the red car`. Enable features.clipseg to load this node.
-
-| | |
-|---|---|
-| Node id | `CLIPSeg Masking` |
-| Turn off with | `features.clipseg: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `image` | `IMAGE` | Yes |  |  | The image to search. A batch is handled as a batch, one mask per image, all against the same text. |
-| `text` | `STRING` | Yes |  |  | What to select, in plain words: 'the sky', 'a red car', 'hair'. Short noun phrases work best. An empty string still runs and matches nothing in particular. |
-| `clipseg_model` | `CLIPSEG_MODEL` | Yes |  |  | The segmentation model, from CLIPSeg Model Loader. One loader can feed several nodes so the weights are built once. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `MASK` | `MASK` | The match as a mask, for an inpainting or compositing node. Brighter means a stronger match. |
-| `MASK_IMAGE` | `IMAGE` | The same match as a black and white image, to preview or to feed a node that takes an image rather than a mask. |
-
-</details>
-
-<details>
-<summary><b>CLIPSeg Tiled Masking</b></summary>
-
-Deprecated: use CLIPSeg Masking, which does the same job in one pass and also returns a MASK. This one scores the image in overlapping tiles and returns a hard black and white result. Enable legacy.dupes to load it.
-
-| | |
-|---|---|
-| Node id | `CLIPSEG2` |
-| Enable with | `legacy.dupes: true` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `image` | `IMAGE` | Yes |  |  | The image to search. One image at a time; a batch of more than one is refused. |
-| `text` | `STRING` | Yes |  |  | What to select, in plain words: 'the sky', 'a red car', 'hair'. Short noun phrases work best. |
-| `use_cuda` | `BOOLEAN` | Yes | False |  | On, the model runs on the graphics card, which is much faster on a large image because every tile is a separate pass. Off, it runs on the processor. A machine with no graphics card runs on the processor either way. |
-| `clipseg_model` | `CLIPSEG_MODEL` | No |  |  | An already-loaded model from CLIPSeg Model Loader. Wire one in to load the weights once and share them between several nodes; leave it empty to load the default model here. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `IMAGE` | The match as a pure black and white image: white where the phrase was found, black everywhere else, with no soft edge. |
-
-</details>
-
-<details>
-<summary><b>Convert Masks to Images</b></summary>
-
-Deprecated: use core MaskToImage instead. Converts a batch of masks to greyscale images, one image per mask, with fully masked areas white and unmasked areas black.
-
-| | |
-|---|---|
-| Node id | `Convert Masks to Images` |
-| Turn off with | `legacy.core_dupes: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `masks` | `MASK` | Yes |  |  | The masks to render as pictures, so they can be previewed, saved or fed to a node that only takes images. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `IMAGES` | `IMAGE` | The masks as grey images, one per mask. Fully masked areas come out white and unmasked areas black, with partial strengths in between. |
-
-</details>
-
+<a id="node-wasimagecropbymask"></a>
 <details>
 <summary><b>Image Crop by Mask</b></summary>
 
@@ -5227,31 +4513,7 @@ Crop each image to the area its mask marks, padded and clamped to the picture, a
 
 </details>
 
-<details>
-<summary><b>Image to Latent Mask</b></summary>
-
-Deprecated: use core ImageToMask instead, or ImageColorToMask to key on a colour. Takes one channel of an image as a mask, one mask per image in the batch. `alpha` uses transparency, which is fully opaque everywhere for an image that has none and so gives a solid white mask; `red`, `green` and `blue` each use one colour channel, which is how a mask painted in a single colour is picked up.
-
-| | |
-|---|---|
-| Node id | `Image to Latent Mask` |
-| Turn off with | `legacy.core_dupes: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `images` | `IMAGE` | Yes |  |  | The images to read a channel out of. Each image in the batch produces one mask. |
-| `channel` | `COMBO` | Yes |  | `alpha`, `red`, `green`, `blue` | Which channel supplies the mask, taken at its own brightness so a half-lit channel gives a half-strength mask. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `MASKS` | `MASK` | One mask per input image, taken from the chosen channel, as a batch the same length as the images that came in. |
-
-</details>
-
+<a id="node-mask-arbitrary-region"></a>
 <details>
 <summary><b>Mask Arbitrary Region</b></summary>
 
@@ -5277,6 +4539,7 @@ Clear the smallest connected region that is still at least size big and set ever
 
 </details>
 
+<a id="node-mask-batch"></a>
 <details>
 <summary><b>Mask Batch</b></summary>
 
@@ -5326,6 +4589,7 @@ Join any number of masks into one batch, so a single downstream node processes a
 
 </details>
 
+<a id="node-mask-batch-to-mask"></a>
 <details>
 <summary><b>Mask Batch to Mask</b></summary>
 
@@ -5350,6 +4614,7 @@ Pick one mask out of a batch. An index past the end of the batch falls back to t
 
 </details>
 
+<a id="node-mask-ceiling-region"></a>
 <details>
 <summary><b>Mask Ceiling Region</b></summary>
 
@@ -5373,6 +4638,7 @@ Send every level below 225 to black and every level at or above 250 to white, le
 
 </details>
 
+<a id="node-mask-crop-dominant-region"></a>
 <details>
 <summary><b>Mask Crop Dominant Region</b></summary>
 
@@ -5397,6 +4663,7 @@ Crop the largest connected white region of a mask and centre it on a square canv
 
 </details>
 
+<a id="node-mask-crop-minority-region"></a>
 <details>
 <summary><b>Mask Crop Minority Region</b></summary>
 
@@ -5421,6 +4688,7 @@ Crop the smallest connected white region of a mask and centre it on a square can
 
 </details>
 
+<a id="node-mask-crop-region"></a>
 <details>
 <summary><b>Mask Crop Region</b></summary>
 
@@ -5453,6 +4721,7 @@ Crop a mask to a square window centred on its bounding box, padded on every side
 
 </details>
 
+<a id="node-mask-dilate-region"></a>
 <details>
 <summary><b>Mask Dilate Region</b></summary>
 
@@ -5478,6 +4747,7 @@ Grow the set area of a mask by binary dilation. Any non-zero pixel counts as set
 
 </details>
 
+<a id="node-mask-dominant-region"></a>
 <details>
 <summary><b>Mask Dominant Region</b></summary>
 
@@ -5504,6 +4774,7 @@ Clear the largest connected region of a mask's unset area and set everything els
 
 </details>
 
+<a id="node-mask-erode-region"></a>
 <details>
 <summary><b>Mask Erode Region</b></summary>
 
@@ -5529,6 +4800,7 @@ Shrink the set area of a mask by binary erosion. Any non-zero pixel counts as se
 
 </details>
 
+<a id="node-wasmaskfeather"></a>
 <details>
 <summary><b>Mask Feather</b></summary>
 
@@ -5556,6 +4828,7 @@ Fade a mask to black over a run of pixels at each of its four edges, one distanc
 
 </details>
 
+<a id="node-mask-fill-holes"></a>
 <details>
 <summary><b>Mask Fill Holes</b></summary>
 
@@ -5581,6 +4854,7 @@ Fill the enclosed holes of a mask. A hole touching the image border is open rath
 
 </details>
 
+<a id="node-mask-floor-region"></a>
 <details>
 <summary><b>Mask Floor Region</b></summary>
 
@@ -5604,6 +4878,7 @@ Binarize a mask at the smallest non-zero level present in it, so a mask holding 
 
 </details>
 
+<a id="node-mask-gaussian-region"></a>
 <details>
 <summary><b>Mask Gaussian Region</b></summary>
 
@@ -5628,6 +4903,7 @@ Feather a mask with a Gaussian blur. The radius is truncated to an integer, so 5
 
 </details>
 
+<a id="node-wasmaskgrow"></a>
 <details>
 <summary><b>Mask Grow</b></summary>
 
@@ -5653,6 +4929,7 @@ Move a mask's edge out or in by a number of pixels, keeping every grey level it 
 
 </details>
 
+<a id="node-wasmaskguidedfilter"></a>
 <details>
 <summary><b>Mask Guided Filter</b></summary>
 
@@ -5679,6 +4956,7 @@ Refine a mask against the image it belongs to, so its edge follows the subject i
 
 </details>
 
+<a id="node-mask-invert"></a>
 <details>
 <summary><b>Mask Invert</b></summary>
 
@@ -5702,6 +4980,7 @@ Invert a mask, so what was masked becomes unmasked.
 
 </details>
 
+<a id="node-mask-minority-region"></a>
 <details>
 <summary><b>Mask Minority Region</b></summary>
 
@@ -5728,6 +5007,7 @@ Clear the smallest connected region of a mask and set everything else. The regio
 
 </details>
 
+<a id="node-mask-paste-region"></a>
 <details>
 <summary><b>Mask Paste Region</b></summary>
 
@@ -5756,6 +5036,7 @@ Paste crop_mask back into mask at the window crop_data records. The seam is feat
 
 </details>
 
+<a id="node-mask-rect-area"></a>
 <details>
 <summary><b>Mask Rect Area</b></summary>
 
@@ -5785,6 +5066,7 @@ Draw a rectangle on a 512x512 mask. Every coordinate is a percentage of that can
 
 </details>
 
+<a id="node-mask-rect-area-advanced"></a>
 <details>
 <summary><b>Mask Rect Area (Advanced)</b></summary>
 
@@ -5816,6 +5098,7 @@ Draw a rectangle on a mask of image_width by image_height. Every coordinate is i
 
 </details>
 
+<a id="node-mask-smooth-region"></a>
 <details>
 <summary><b>Mask Smooth Region</b></summary>
 
@@ -5840,6 +5123,7 @@ Blur a mask and re-threshold it at half the blurred maximum, which rounds off it
 
 </details>
 
+<a id="node-wasmaskstatistics"></a>
 <details>
 <summary><b>Mask Statistics</b></summary>
 
@@ -5878,6 +5162,7 @@ Measure what a mask covers rather than change it: the fraction of pixels above t
 
 </details>
 
+<a id="node-mask-threshold-region"></a>
 <details>
 <summary><b>Mask Threshold Region</b></summary>
 
@@ -5905,6 +5190,7 @@ Send every level below black_threshold to black and every level above white_thre
 
 </details>
 
+<a id="node-masks-add"></a>
 <details>
 <summary><b>Masks Add</b></summary>
 
@@ -5929,6 +5215,7 @@ Add masks_b to masks_a and hold the result to the 0 to 1 a mask carries, so an a
 
 </details>
 
+<a id="node-masks-combine-batch"></a>
 <details>
 <summary><b>Masks Combine Batch</b></summary>
 
@@ -5952,6 +5239,7 @@ Sum every mask in the batch and clamp the total to 0-1.
 
 </details>
 
+<a id="node-masks-combine-regions"></a>
 <details>
 <summary><b>Masks Combine Regions</b></summary>
 
@@ -5998,6 +5286,7 @@ Sum every connected mask and clamp the total to 0-1. An empty 64x64 mask, which 
 
 </details>
 
+<a id="node-masks-subtract"></a>
 <details>
 <summary><b>Masks Subtract</b></summary>
 
@@ -6022,125 +5311,9 @@ Subtract masks_b from masks_a and clamp the result at zero.
 
 </details>
 
-<details>
-<summary><b>SAM Image Mask</b></summary>
+### WAS Suite/Image/Process
 
-Select part of an image by pointing at it: Segment Anything works out where the object under each point begins and ends and returns it as a mask. Enable features.sam to load this node.
-
-| | |
-|---|---|
-| Node id | `SAM Image Mask` |
-| Turn off with | `features.sam: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `sam_model` | `SAM_MODEL` | Yes |  |  | The model from SAM Model Loader. |
-| `sam_parameters` | `SAM_PARAMETERS` | Yes |  |  | The points to segment from, out of SAM Parameters or SAM Parameters Combine. Their coordinates are read against this image, so they have to be inside it. |
-| `image` | `IMAGE` | Yes |  |  | The image to segment. Every image of a batch is segmented against the same points, so the points have to be inside all of them. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `IMAGE` | The selection as a black and white image, white where the object is. Ready to preview, or to use as a matte. |
-| `<output1>` | `MASK` | The same selection as a mask, for an inpainting or compositing node. 1.0 inside the object and 0.0 outside it. |
-
-</details>
-
-<details>
-<summary><b>SAM Parameters</b></summary>
-
-Describe which parts of an image Segment Anything should select, as a list of points and a matching list of keep/drop labels. Enable features.sam to load this node.
-
-| | |
-|---|---|
-| Node id | `SAM Parameters` |
-| Turn off with | `features.sam: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `points` | `STRING` | Yes | [128, 128]; [0, 0] |  | The points to segment from, written as x and y pixel coordinates and separated by semicolons: '[128, 128]; [0, 0]' is two points, one 128 pixels in from the top left corner and one on the corner itself. Coordinates count from the top left of the image. |
-| `labels` | `STRING` | Yes | [1, 0] |  | One number per point, in the same order: 1 means 'the thing I want is here', 0 means 'this is background, leave it out'. '[1, 0]' keeps whatever sits under the first point and pushes the mask away from the second. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `SAM_PARAMETERS` | The points and labels, for the sam_parameters input of SAM Image Mask or either input of SAM Parameters Combine. |
-
-</details>
-
-<details>
-<summary><b>SAM Parameters Combine</b></summary>
-
-Merge two sets of Segment Anything points into a single set, so several SAM Parameters nodes can describe one selection. Enable features.sam to load this node.
-
-| | |
-|---|---|
-| Node id | `SAM Parameters Combine` |
-| Turn off with | `features.sam: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `sam_parameters_a` | `SAM_PARAMETERS` | Yes |  |  | The points and labels that come first in the merged set. |
-| `sam_parameters_b` | `SAM_PARAMETERS` | Yes |  |  | The points and labels appended after the first set. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `SAM_PARAMETERS` | Every point of both inputs, for the sam_parameters input of SAM Image Mask or a further SAM Parameters Combine. |
-
-</details>
-
----
-
-## WAS Suite/Image/Preprocess
-
-<details>
-<summary><b>Power Preprocessor</b></summary>
-
-Measure an image and answer what it found: depth, surface direction, body pose, what every pixel is, edges, drawn lines, straight runs, the paint and the light it was lit by, or the frame with its noise or its darkness taken out. Feeding a ControlNet is the usual reason, and the same answers drive relighting, defocus, parallax, masking and stylising. Pick the question and the node draws only what that question reads, including which models can answer it. Five of them need no model and download nothing; the rest fetch a checkpoint on first use, or read one another pack already has.
-
-| | |
-|---|---|
-| Node id | `WASPowerPreprocessor` |
-| Turn off with | `features.preprocessors: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `image` | `IMAGE` | Yes |  |  | The images to measure. A whole batch is processed. |
-| `preprocessor` | `COMBO` | Yes | canny_pyramid |  | What to work out. `canny_pyramid`, `lineart_simple`, `scribble_xdog`, `binary` and `shuffle` need no model. `depth_map`, `normal_map`, `openpose`, `animal_pose`, `ade20k_segments`, `soft_edge`, `lineart_model`, `line_segments`, `anyline`, `albedo`, `roughness`, `metallicity`, `material`, `shading`, `residual`, `denoise` and `low_light` each run a model, chosen below. |
-| `model` | `COMBO` | Yes | Depth Anything V2 Small |  | Which model answers the question, listing only the ones that can. Within a family the smaller is quicker and the larger more accurate: `Depth Anything V2 Small` is 99 MB against `Large` at 1.3 GB. Ignored by the five that need no model. |
-| `resolution` | `INT` | Yes | 512 |  | Longest edge the work is done at before the answer is scaled back to the image's own size. 512 is a sensible start; 1024 resolves finer detail and costs more. Anything above the image's own longest edge is held to it. `openpose`, `animal_pose`, `line_segments`, `denoise` and `low_light` ignore it. |
-| `threshold_low` | `FLOAT` | Yes | 100.0 |  | The lower cut-off, or the only one where a question takes one. Each preprocessor reads it over a range of its own, which the widget shows: `canny_pyramid` 1 to 255, `lineart_simple` 0 to 64, `openpose` 0.05 to 0.95, `line_segments` 0.01 to 0.40, `anyline` 1 to 256. Switching preprocessor moves it to that one's start. |
-| `threshold_high` | `FLOAT` | Yes | 200.0 |  | The upper cut-off, for a question that takes a pair. `canny_pyramid` reads 0 to 255 as the strength an edge must reach to start at all; `line_segments` reads 1 to 60 as the shortest run it keeps. |
-| `radius` | `FLOAT` | Yes | 6.0 |  | A distance in pixels. `lineart_simple` reads 0.5 to 32.0 as the blur each pixel is compared against: 6.0 gives normal line weight, 2.0 fine lines and 16.0 heavy ones. `normal_map` reads 0 to 8 as how far the surface slope is measured across: 3 suits a depth model, 0 is the sharpest and 6 flattens fine grain. |
-| `strength` | `FLOAT` | Yes | 16.0 |  | How hard the answer is shaped. `normal_map` reads 0.5 to 64.0 as relief: 16.0 shows the folds in a coat, 2.0 is nearly flat and 48.0 exaggerates every slope. |
-| `seed` | `INT` | Yes | 0 |  | Chooses between equally good random answers. `shuffle` reads it as the displacement: `0` and `1` scramble the same picture two different ways, and one seed always gives one scramble. `albedo`, `roughness`, `metallicity`, `material`, `shading` and `residual` read it as the noise their first step starts from, and every frame of a batch starts from the same one. |
-| `tile` | `INT` | Yes | 0 |  | Work a square at a time instead of the whole frame, which holds VRAM down on a large picture. 0 reads the whole frame. 512 reads a 512 pixel square at a time, overlapping a quarter and faded together, so no join shows. A larger square is closer to the whole frame. Read only by `denoise` and `low_light`. |
-| `steps` | `INT` | Yes | 4 |  | How many passes a question that denoises takes. `albedo`, `roughness`, `metallicity`, `material`, `shading` and `residual` read 1 to 20: 4 is what Marigold was tuned for, 1 is roughly twice as quick and coarser, and above 8 the answer stops changing much. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `image` | `IMAGE` | The answer, the same size and batch length as the input. An Apply ControlNet image input is the usual destination, and it is an ordinary image that any node taking one will read. |
-
-</details>
-
----
-
-## WAS Suite/Image/Process
-
+<a id="node-create-grid-image"></a>
 <details>
 <summary><b>Create Grid Image</b></summary>
 
@@ -6172,6 +5345,7 @@ Build one grid image from the pictures in a folder, for reviewing a whole output
 
 </details>
 
+<a id="node-create-grid-image-from-batch"></a>
 <details>
 <summary><b>Create Grid Image from Batch</b></summary>
 
@@ -6201,6 +5375,7 @@ Lay a batch of images out as a single grid image, for comparing a run of results
 
 </details>
 
+<a id="node-wasimagecompositemasked"></a>
 <details>
 <summary><b>Image Composite Masked</b></summary>
 
@@ -6229,6 +5404,7 @@ Lay one picture over another at a pixel position, showing it only where a mask a
 
 </details>
 
+<a id="node-wasimagecropfacenative"></a>
 <details>
 <summary><b>Image Crop Face</b></summary>
 
@@ -6255,37 +5431,7 @@ Find a face in the image and crop a square around it, together with the crop win
 
 </details>
 
-<details>
-<summary><b>Image Crop Face (YuNet)</b></summary>
-
-Find a face with YuNet and crop a square around it, together with the crop window Image Paste Face needs to put it back. The detector ships with the pack and runs in torch on whatever device ComfyUI is using, so there is nothing to install. Set features.yunet to false to leave this node out.
-
-| | |
-|---|---|
-| Node id | `WASImageCropFaceYuNet` |
-| Turn off with | `features.yunet: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `image` | `IMAGE` | Yes |  |  | The image to search for a face in. A batch is searched on its first image and every image is then cut to that same window. |
-| `yunet_model` | `YUNET_MODEL` | Yes |  |  | The detector, from YuNet Model Loader. |
-| `crop_padding_factor` | `FLOAT` | Yes | 0.25 |  | How much room to leave around the detected face, as a fraction of its size. 0.0 crops tight to the detection, 0.25 leaves a quarter of the face size as margin, and 2.0 pulls back far enough to include the shoulders. |
-| `confidence` | `FLOAT` | Yes | 0.6 |  | How sure the detector has to be before a region counts as a face. Lower finds more faces and more false positives: drop towards 0.3 for a small, blurred or heavily stylised face, raise towards 0.9 when a busy background is producing detections that are not faces. |
-| `select` | `COMBO` | Yes |  | `largest`, `highest confidence`, `leftmost`, `rightmost` | Which face to crop when several are found. `largest` takes the one filling the most pixels, which is usually the subject. `highest confidence` takes the one the detector is surest of, which suits a crowd where the subject is not the nearest. `leftmost` and `rightmost` pick by position, for a framing you already know. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `IMAGE` | The square face crop, at least 64 pixels on a side. A black 512x512 image when no face was found. |
-| `<output1>` | `CROP_DATA` | The crop window, for Image Paste Face to put the reworked face back in the right place. One window covers a whole batch. False when no face was found. |
-| `faces_found` | `INT` | How many faces the detector reported before one was chosen. 0 means the crop is the black placeholder. |
-| `confidence_score` | `FLOAT` | How sure the detector was about the face it cropped, 0.0 to 1.0. Wire it into a condition node to route a doubtful detection somewhere else. 0.0 when no face was found. |
-
-</details>
-
+<a id="node-image-crop-location"></a>
 <details>
 <summary><b>Image Crop Location</b></summary>
 
@@ -6315,6 +5461,7 @@ Crop a rectangle given by its four edges, and pass on the crop window so the res
 
 </details>
 
+<a id="node-wasimagecropregion"></a>
 <details>
 <summary><b>Image Crop Region</b></summary>
 
@@ -6342,6 +5489,7 @@ Cut a rectangle out of a picture, given its width, its height and the corner it 
 
 </details>
 
+<a id="node-image-crop-square-location"></a>
 <details>
 <summary><b>Image Crop Square Location</b></summary>
 
@@ -6370,6 +5518,7 @@ Crop a square region centred on a point, and pass on the crop window so the resu
 
 </details>
 
+<a id="node-wasimagedrawtext"></a>
 <details>
 <summary><b>Image Draw Text</b></summary>
 
@@ -6410,6 +5559,7 @@ Draw text over an image, with wrapping, alignment, an outline and a background p
 
 </details>
 
+<a id="node-wasimagefrequencyblend"></a>
 <details>
 <summary><b>Image Frequency Blend</b></summary>
 
@@ -6438,6 +5588,7 @@ Split two pictures into low and high frequencies and keep the low ones from the 
 
 </details>
 
+<a id="node-wasimagematte"></a>
 <details>
 <summary><b>Image Matte</b></summary>
 
@@ -6468,6 +5619,7 @@ Turn a rough mask into a matte that holds hair, fur, smoke and motion blur. The 
 
 </details>
 
+<a id="node-image-mix-rgb-channels"></a>
 <details>
 <summary><b>Image Mix RGB Channels</b></summary>
 
@@ -6493,6 +5645,7 @@ Combine three greyscale images into one colour image, using their brightness as 
 
 </details>
 
+<a id="node-wasimagepadforoutpaint"></a>
 <details>
 <summary><b>Image Pad for Outpaint</b></summary>
 
@@ -6522,6 +5675,7 @@ Set a picture on a larger canvas of mid grey and answer the mask covering everyt
 
 </details>
 
+<a id="node-image-paste-crop"></a>
 <details>
 <summary><b>Image Paste Crop</b></summary>
 
@@ -6550,6 +5704,7 @@ Paste a cropped image back into the picture it was taken from, at the window a c
 
 </details>
 
+<a id="node-image-paste-crop-by-location"></a>
 <details>
 <summary><b>Image Paste Crop by Location</b></summary>
 
@@ -6581,6 +5736,7 @@ Paste one image into a rectangle of another, stretching it to fit and softening 
 
 </details>
 
+<a id="node-image-paste-face"></a>
 <details>
 <summary><b>Image Paste Face</b></summary>
 
@@ -6609,6 +5765,7 @@ Paste a face crop back into the picture Image Crop Face took it from, with a sof
 
 </details>
 
+<a id="node-image-pixelate"></a>
 <details>
 <summary><b>Image Pixelate</b></summary>
 
@@ -6645,6 +5802,7 @@ Turn an image into pixel art with large blocky pixels and a small number of colo
 
 </details>
 
+<a id="node-image-remove-background-alpha"></a>
 <details>
 <summary><b>Image Remove Background (Threshold)</b></summary>
 
@@ -6671,6 +5829,7 @@ Make the brightest or darkest part of an image transparent, judged on brightness
 
 </details>
 
+<a id="node-image-remove-color"></a>
 <details>
 <summary><b>Image Remove Color</b></summary>
 
@@ -6701,6 +5860,7 @@ Find every pixel close to one colour and repaint it in another, turning a white 
 
 </details>
 
+<a id="node-image-seamless-texture"></a>
 <details>
 <summary><b>Image Seamless Texture</b></summary>
 
@@ -6727,6 +5887,7 @@ Turn an image into a seamlessly tiling texture by blending its opposite edges in
 
 </details>
 
+<a id="node-image-select-channel"></a>
 <details>
 <summary><b>Image Select Channel</b></summary>
 
@@ -6751,6 +5912,7 @@ Extract one colour channel and return it as a greyscale image, where white means
 
 </details>
 
+<a id="node-image-select-color"></a>
 <details>
 <summary><b>Image Select Color</b></summary>
 
@@ -6778,6 +5940,7 @@ Keep only the pixels close to one colour and turn the rest black, for isolating 
 
 </details>
 
+<a id="node-image-threshold"></a>
 <details>
 <summary><b>Image Threshold</b></summary>
 
@@ -6802,6 +5965,7 @@ Turn an image into flat black and white: anything brighter than the threshold be
 
 </details>
 
+<a id="node-image-tiled"></a>
 <details>
 <summary><b>Image Tiled</b></summary>
 
@@ -6826,6 +5990,7 @@ Cut an image into a grid of smaller tiles and hand them on as a batch, for proce
 
 </details>
 
+<a id="node-waslayerstoimagebatch"></a>
 <details>
 <summary><b>Layers to Image Batch</b></summary>
 
@@ -6855,45 +6020,9 @@ Take a layer stack apart: one frame per layer, its coverage as a mask, where it 
 
 </details>
 
-<details>
-<summary><b>Video Super Resolution (PS-SR)</b></summary>
+### WAS Suite/Image/Transform
 
-Raise a video's resolution with PS-SR, which resamples to the target size and then puts detail back with a diffusion pass, twice: once for a steady result and once for a sharp one, blended by frequency. Weights are placed by hand and never downloaded. Long clips are covered by sliding windows, so memory depends on the window rather than the length.
-
-| | |
-|---|---|
-| Node id | `WASPSSRSuperResolution` |
-| Enable with | `features.pssr: true` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `model` | `MODEL` | Yes |  |  | Wan 2.1 T2V-1.3B, from Load Diffusion Model. Finetunes of it work; 14B and other families are refused, since the restoration weights are 1.3B. |
-| `positive` | `CONDITIONING` | Yes |  |  | What to restore towards, from CLIP Text Encode on a wan CLIP Loader. Name the subject and the finish, eg 'a red car, sharp, fine detail'. |
-| `negative` | `CONDITIONING` | Yes |  |  | What to avoid, eg 'blurry, jpeg artifacts, over-smooth'. Carried but not read at this method's guidance; wire Conditioning Zero Out if unused. |
-| `images` | `IMAGE` | Yes |  |  | The frames to raise, in order. Treated as one continuous shot, so a cut inside the batch is blended across rather than respected. |
-| `scale` | `FLOAT` | Yes | 1.5 |  | Size multiplier. 1.5 = half again as large; 1.0 = restore at the current size. Cost rises with the square of it. |
-| `interpolation` | `COMBO` | Yes | lanczos | `lanczos`, `bicubic`, `bilinear` | How the frames reach the target size first. `lanczos` keeps the most detail for the model to build on, `bicubic` is smoother over flat areas, and `bilinear` is the cheapest. |
-| `seed` | `INT` | Yes | 1 |  | Seeds the diffusion noise, so the same seed restores the same way. Any whole number; `0` is as good a seed as any. |
-| `window_frames` | `INT` | Yes | 33 |  | Frames per pass, eg 33. Larger is steadier over time and costs more memory. This, not the clip length, sets peak VRAM. |
-| `overlap_frames` | `INT` | Yes | 8 |  | Frames shared between passes, eg 8. More hides the joins and costs proportionally more; 0 = no sharing. |
-| `tile_size` | `INT` | Yes | 0 |  | 0 = whole frame, halving only if it will not fit; 1280 = 1280px patches. Tiling is for memory, not speed: overlaps average two passes and band against the edges. |
-| `tile_overlap` | `INT` | Yes | 128 |  | How much neighbouring patches share. The shared band is feathered between them, so more hides the seams at proportionally more cost. |
-| `detail_strength` | `FLOAT` | Yes | 1.0 |  | How much sharp pass to blend in. 0 = steady only; 1 = intended; 2 = exaggerated. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `images` | `IMAGE` | The frames at the new size, detail restored. |
-
-</details>
-
----
-
-## WAS Suite/Image/Transform
-
+<a id="node-image-displacement-warp"></a>
 <details>
 <summary><b>Image Displacement Warp</b></summary>
 
@@ -6919,6 +6048,7 @@ Bend an image by a second, greyscale image. Bright areas of the map pull pixels 
 
 </details>
 
+<a id="node-image-flip"></a>
 <details>
 <summary><b>Image Flip</b></summary>
 
@@ -6943,6 +6073,7 @@ Mirror every image in the batch. The size does not change and no pixels are resa
 
 </details>
 
+<a id="node-wasimagelensdistortion"></a>
 <details>
 <summary><b>Image Lens Distortion</b></summary>
 
@@ -6971,6 +6102,7 @@ Bow the frame outwards or pinch it inwards, and split the colour channels apart 
 
 </details>
 
+<a id="node-image-padding"></a>
 <details>
 <summary><b>Image Padding</b></summary>
 
@@ -7003,6 +6135,7 @@ Put an image on a larger empty canvas and fade its edges out, then return the ca
 
 </details>
 
+<a id="node-wasimageperspective"></a>
 <details>
 <summary><b>Image Perspective</b></summary>
 
@@ -7038,6 +6171,7 @@ Drag each corner of the frame somewhere else and let the picture follow. That ma
 
 </details>
 
+<a id="node-image-resize"></a>
 <details>
 <summary><b>Image Resize</b></summary>
 
@@ -7073,6 +6207,7 @@ Scale every image in the batch, either by a multiplier or to an exact width and 
 
 </details>
 
+<a id="node-image-rotate"></a>
 <details>
 <summary><b>Image Rotate (Advanced)</b></summary>
 
@@ -7099,6 +6234,7 @@ Turn every image in the batch counter-clockwise by a multiple of 90 degrees. Any
 
 </details>
 
+<a id="node-image-stitch"></a>
 <details>
 <summary><b>Image Stitch (Advanced)</b></summary>
 
@@ -7149,106 +6285,7 @@ Put image_b against one edge of image_a on a single canvas, fading the two toget
 
 </details>
 
-<details>
-<summary><b>Image Tile Extract (Grid)</b></summary>
-
-Cut each picture into a grid of tiles and send each tile to its own output, reading left to right then top to bottom. Outputs appear as the grid grows. For many tiles on one wire rather than one each, use Image Tiled.
-
-| | |
-|---|---|
-| Node id | `WASImageTileExtractGrid` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `images` | `IMAGE` | Yes |  |  | The pictures to cut up. Every frame of a batch is cut the same way, so each output carries the same tile of every frame. |
-| `columns` | `INT` | Yes | 2 |  | Tiles across. Together with rows this decides how many outputs appear, up to 16. |
-| `rows` | `INT` | Yes | 2 |  | Tiles down. A grid of 2 by 2 gives the four quadrants, which is what Image Tile Extract (Quadrants) does with fixed outputs. |
-| `border_width` | `INT` | Yes | 0 |  | Border in pixels drawn around each tile, in border_color. The tile is shrunk to fit inside it, so the output stays the same size. 0 leaves the tile at its own resolution with no resampling at all. |
-| `border_color` | `STRING` | Yes | #FFFFFF |  | Colour of the border, as a hex string such as #FFFFFF for white or #000000 for black. The leading # is optional, and an unreadable value falls back to white. Ignored when border_width is 0. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `tile_1` | `IMAGE` | The first tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
-| `tile_2` | `IMAGE` | The second tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
-| `tile_3` | `IMAGE` | The third tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
-| `tile_4` | `IMAGE` | The fourth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
-| `tile_5` | `IMAGE` | The fifth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
-| `tile_6` | `IMAGE` | The sixth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
-| `tile_7` | `IMAGE` | The seventh tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
-| `tile_8` | `IMAGE` | The eighth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
-| `tile_9` | `IMAGE` | The ninth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
-| `tile_10` | `IMAGE` | The tenth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
-| `tile_11` | `IMAGE` | The eleventh tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
-| `tile_12` | `IMAGE` | The twelfth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
-| `tile_13` | `IMAGE` | The thirteenth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
-| `tile_14` | `IMAGE` | The fourteenth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
-| `tile_15` | `IMAGE` | The fifteenth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
-| `tile_16` | `IMAGE` | The sixteenth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
-
-</details>
-
-<details>
-<summary><b>Image Tile Extract (Quadrants)</b></summary>
-
-Split each picture into its four quadrants and send each one to its own output. Handy for upscaling or re-rendering a large frame in four pieces, and for feeding four separate crops into a comparison grid.
-
-| | |
-|---|---|
-| Node id | `WASImageTileExtract` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `images` | `IMAGE` | Yes |  |  | The pictures to split. Every frame of a batch is split the same way, so each output carries one quadrant of every frame. |
-| `border_width` | `INT` | Yes | 0 |  | Border in pixels drawn around each quadrant, in border_color. The quadrant is shrunk to fit inside it, so the output tile stays the same size. 0 leaves the quadrant at its own resolution with no resampling at all. |
-| `border_color` | `STRING` | Yes | #FFFFFF |  | Colour of the border, as a hex string such as #FFFFFF for white or #000000 for black. The leading # is optional, and an unreadable value falls back to white. Ignored when border_width is 0. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `top_left` | `IMAGE` | The upper-left quarter of each picture. |
-| `top_right` | `IMAGE` | The upper-right quarter of each picture. |
-| `bottom_left` | `IMAGE` | The lower-left quarter of each picture. |
-| `bottom_right` | `IMAGE` | The lower-right quarter of each picture. |
-
-</details>
-
-<details>
-<summary><b>Image Tile Shuffle</b></summary>
-
-Cut each picture into a grid of equal tiles and lay them back down in a shuffled order, optionally with a coloured gap between them. Useful for puzzle and collage looks, and for building a scrambled reference that a model cannot read as a coherent scene.
-
-| | |
-|---|---|
-| Node id | `WASImageTileShuffle` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `images` | `IMAGE` | Yes |  |  | The pictures to cut up. Every frame of a batch is cut the same way and shuffled with the same seed, so a sequence stays consistent. |
-| `max_tiles` | `INT` | Yes | 4 |  | How many tiles the picture is cut into. The grid is the squarest arrangement of that many: 4 gives 2 by 2, 12 gives 3 by 4. Rows and columns divide the picture exactly, so any leftover pixels on the right and bottom edges are dropped. |
-| `seed` | `INT` | Yes | 0 |  | Seed for the shuffle. The same seed always produces the same tile order; change it to get a different arrangement of the same tiles. Any whole number; `0` is as good a seed as any. |
-| `border_width` | `INT` | Yes | 0 |  | Gap in pixels drawn between neighbouring tiles, in border_color. 0 butts the tiles together with no gap, which keeps the output the same size as the input. |
-| `border_color` | `STRING` | Yes | #FFFFFF |  | Colour of the gap between tiles, as a hex string such as #FFFFFF for white or #000000 for black. The leading # is optional, and an unreadable value falls back to white. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `images` | `IMAGE` | The reassembled pictures. Larger than the input when border_width is above 0, since the gaps are added between the tiles. |
-
-</details>
-
+<a id="node-image-transpose"></a>
 <details>
 <summary><b>Image Transpose</b></summary>
 
@@ -7279,45 +6316,9 @@ Scale, rotate and paste image_overlay onto image, with an optional soft edge. Th
 
 </details>
 
----
+### WAS Suite/Latent
 
-## WAS Suite/Image/Upscaling
-
-<details>
-<summary><b>Tiled Image Upscale (With Model)</b></summary>
-
-Upscale pictures with a loaded upscale model, one overlapping tile at a time, so a large frame fits in the memory a single pass would not. The overlaps are cross-faded, so no tile seams show, and the result is resampled to whatever magnification is asked for rather than the model's own fixed scale.
-
-| | |
-|---|---|
-| Node id | `WASTiledImageUpscaleWithModel` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `upscale_model` | `UPSCALE_MODEL` | Yes |  |  | The upscale model to run, from a Load Upscale Model node. Its own scale does not have to match upscale_factor: a 4x model can produce a 2x result. |
-| `image` | `IMAGE` | Yes |  |  | The pictures to enlarge. Each frame of a batch is upscaled in turn, so memory use is set by the tile size rather than by the batch. |
-| `upscale_factor` | `FLOAT` | Yes | 4.0 |  | Final size relative to the input. 2.0 doubles both sides, 4.0 quadruples them, 1.0 keeps the original size while still passing the picture through the model. |
-| `tile_size` | `INT` | Yes | 512 |  | Tile edge in input pixels. Larger tiles are faster and need more video memory; if the card runs out, the tile is halved and the run retried automatically. 512 suits most 8 GB cards. |
-| `overlap` | `INT` | Yes | 32 |  | How far neighbouring tiles overlap, in input pixels. This is the material the cross-fade is made from, so 0 puts a hard join between tiles; 32 to 64 hides it on most models. |
-| `feather` | `INT` | Yes | 0 |  | Width of the cross-fade in output pixels. 0 works it out from the overlap, which is the right answer almost always; raise it only when a faint grid still shows on flat areas such as sky. |
-| `resample_method` | `COMBO` | Yes | lanczos | `nearest-exact`, `bilinear`, `area`, `bicubic`, `lanczos` | How a tile is resized when the model's own scale does not match upscale_factor. `lanczos` keeps the most detail, `area` is the gentlest when shrinking, `nearest-exact` keeps hard pixel edges for pixel art. |
-| `clear_comfy_memory` | `BOOLEAN` | Yes | False |  | Whether to unload every other model and empty the caches before upscaling. Turn this on when a large upscale runs out of memory next to a checkpoint that is still resident; it costs the time to reload those models afterwards. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `IMAGE` | The enlarged pictures, at roughly the input size times upscale_factor, clamped to the displayable range. |
-
-</details>
-
----
-
-## WAS Suite/Latent
-
+<a id="node-blend-latents"></a>
 <details>
 <summary><b>Blend Latents</b></summary>
 
@@ -7344,33 +6345,7 @@ Blend two latents with an arithmetic or photographic mix operation. The result i
 
 </details>
 
-<details>
-<summary><b>Inpainting VAE Encode</b></summary>
-
-Encode an image into a latent for inpainting, with control over how far the mask grows or shrinks first. The masked pixels are flattened to mid grey before encoding so the sampler is not led by what was there, and the adjusted mask travels with the latent as its noise mask, which is what tells a KSampler which part to repaint. A positive mask_offset grows the painted area, so 6 reaches six pixels past what was drawn and hides the seam where new and old meet, which suits removing an object. A negative offset shrinks it, keeping more of the original, which suits touching up the middle of a region without disturbing its outline.
-
-| | |
-|---|---|
-| Node id | `VAEEncodeForInpaint (WAS)` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `pixels` | `IMAGE` | Yes |  |  | The image to inpaint. Its width and height are cropped to the nearest multiple of 8, taking the trim evenly from both sides. A latent addresses the image 8 pixels at a time. |
-| `vae` | `VAE` | Yes |  |  | The VAE that turns the prepared image into a latent. Use the one that belongs to the checkpoint the sampler runs, or the colours shift. |
-| `mask` | `MASK` | Yes |  |  | Which part is repainted. White is repainted, black is kept, and grey is rounded to one or the other. It is stretched to the image's size first, so a mask drawn at another resolution still lines up. |
-| `mask_offset` | `INT` | Yes | 6 |  | How far the painted area grows or shrinks before encoding, in pixels of the input image. 0 uses the mask exactly as drawn. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `LATENT` | The encoded latent with the adjusted mask attached as its noise mask. Feed it to a KSampler, which will only replace the masked part. |
-
-</details>
-
+<a id="node-latent-batch"></a>
 <details>
 <summary><b>Latent Batch (Advanced)</b></summary>
 
@@ -7420,6 +6395,7 @@ Join any number of latents into one batch, so a single sampler run covers all of
 
 </details>
 
+<a id="node-waslatentpowerspectrum"></a>
 <details>
 <summary><b>Latent Power Spectrum</b></summary>
 
@@ -7447,6 +6423,7 @@ Measure the amplitude and falloff of a latent's radial power spectrum, the two v
 
 </details>
 
+<a id="node-waslatentstatistics"></a>
 <details>
 <summary><b>Latent Statistics</b></summary>
 
@@ -7484,78 +6461,9 @@ Measure the values inside a latent rather than its size: the mean, the spread, t
 
 </details>
 
-<details>
-<summary><b>VAEEncode (Bundle Latent)</b></summary>
+### WAS Suite/Latent/Generate
 
-Encode an image to a latent and, if asked, keep a copy of that latent inside the workflow itself. A workflow saved with a bundled latent can be shared or reopened without the source image and still start from the same point, which is how a starting latent travels in one file instead of two.
-
-| | |
-|---|---|
-| Node id | `BLVAEEncode` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `vae` | `VAE` | Yes |  |  | The VAE that turns the image into a latent. Use the one belonging to the checkpoint that will sample it. |
-| `tiled` | `BOOLEAN` | Yes | False |  | Whether the image is encoded a tile at a time instead of all at once. Tiling holds far less in VRAM, which is what makes a very large image encodable on a small card, at the cost of being slower and of faint seams where tiles meet. |
-| `tile_size` | `INT` | Yes | 512 |  | Edge of one tile in pixels, read only when tiled is on. Smaller tiles use less VRAM and take longer: 512 is a safe starting point, and 1024 or more is worth trying if the card has room. |
-| `store_or_load_latent` | `BOOLEAN` | Yes | True |  | Whether the workflow is used as the latent's home. On, the node reads a latent already bundled in the workflow rather than encoding, and writes the one it encodes back into it so the next save carries it. Off, the node is an ordinary VAE encode and touches nothing. |
-| `remove_latent_on_load` | `BOOLEAN` | Yes | True |  | Whether a bundled latent is taken out of the workflow once it has been read. On, it is used once and the saved file is left clean, which suits carrying a starting point into a run. Off, it stays in the workflow and every later save keeps carrying it. |
-| `delete_workflow_latent` | `BOOLEAN` | Yes | False |  | Turn on for one run to throw away whatever this node has bundled and encode the image again. That is the way out when the stored latent no longer matches the image, or when a shared workflow arrived with one that is not wanted. |
-| `image` | `IMAGE` | No |  |  | The image to encode. It can be left unconnected when the workflow already carries a bundled latent, which is what lets a workflow be reopened and run without the picture it started from. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `latent` | `LATENT` | The encoded latent, or the one that was bundled in the workflow when there was one to read. |
-
-</details>
-
-<details>
-<summary><b>WAS Latent Detail Boost</b></summary>
-
-Bring out fine detail in a latent by isolating one band of detail, levelling it against the local amount of contrast and adding it back. The added detail is normalised and limited before it lands: a busy area and a smooth one gain the same amount, and the dark outlines and embossed look that come from sharpening a latent directly do not appear. Handles video latents as well as single images.
-
-| | |
-|---|---|
-| Node id | `WASLatentContrastLimitedDetailBoost` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `latent` | `LATENT` | Yes |  |  | The latent to enhance. A video latent with a time axis is handled frame by frame. |
-| `sigma_small` | `FLOAT` | Yes | 0.6 |  | The fine end of the detail that is boosted, in latent blocks. Together with sigma_large it picks which size of feature is affected: 0.6 keeps the treatment on the smallest structures. Set to 0.0 to reach the very finest detail, including noise. |
-| `sigma_large` | `FLOAT` | Yes | 1.4 |  | The coarse end of the detail that is boosted, in latent blocks. Widening the gap between it and sigma_small treats larger features as well; 1.4 against 0.6 gives a narrow band that reads as texture. The two are swapped if entered the wrong way round. |
-| `gain` | `FLOAT` | Yes | 0.35 |  | How much of the isolated detail is added back. 0.0 leaves the latent alone, 0.35 is a gentle lift, and above about 1.0 the texture starts to dominate the picture. |
-| `limit` | `FLOAT` | Yes | 1.25 |  | How hard the detail is squashed before it is added, which is what stops a strong edge ringing. High values such as 4.0 flatten the strongest detail to a uniform level; 1.25 keeps most of the variation; 0.1 barely limits at all. |
-| `rms_sigma` | `FLOAT` | Yes | 1.2 |  | How large an area the local amount of contrast is measured over, in latent blocks. It is what lets a smooth sky gain as much texture as a busy tree instead of being left behind. 0.0 measures over the whole frame instead, which restores the plain behaviour of sharpening everything by the same amount. |
-| `rms_floor` | `FLOAT` | Yes | 0.06 |  | A floor under that local measurement, which keeps genuinely flat areas from being amplified into noise. Raise it towards 0.2 if a clear sky or a plain wall comes out grainy; lower it towards 0.0 to treat flat areas as hard as everything else. |
-| `edge_protect` | `FLOAT` | Yes | 0.45 |  | How much the enhancement is held back on strong boundaries, which is what prevents dark outlines around objects. 0.0 turns the protection off and skips finding edges at all; 1.0 leaves boundaries completely untouched; 0.45 halves the effect there. |
-| `edge_sigma` | `FLOAT` | Yes | 0.8 |  | Blur applied before boundaries are looked for, in latent blocks. Raise it so that fine texture is not counted as an edge and protected from the very treatment it wants; 0.0 finds the finest boundaries. |
-| `edge_threshold` | `FLOAT` | Yes | 0.25 |  | How strong a boundary has to be to be protected, measured against the strongest one in the picture. 0.25 covers the clear outlines; lower values protect more and enhance less. |
-| `edge_softness` | `FLOAT` | Yes | 0.1 |  | How gradually the protection fades in around that threshold. Small values give a hard-edged protected strip that can be seen; 0.10 fades over a comfortable range. |
-| `preview_mask_scale` | `INT` | Yes | 8 |  | How many preview pixels each latent block becomes. 8 matches the size the latent decodes to on most VAEs, so the preview lines up with the finished picture; 1 gives the small raw map. This affects the preview image only, never the mask output. |
-| `preview_mode` | `COMBO` | Yes | detail_mask | `edge_mask`, `detail_mask` | Which map leaves the node. `detail_mask` shows where detail was added and how much, which is what to watch while setting gain. `edge_mask` shows the boundaries that were protected, which is what to watch while setting edge_threshold. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `latent` | `LATENT` | The enhanced latent, ready for a sampler or a decode. |
-| `mask` | `MASK` | The chosen map at latent resolution, useful for driving another node from the same areas this one treated. |
-| `mask_preview` | `IMAGE` | The same map as a viewable image, enlarged by preview_mask_scale. |
-
-</details>
-
----
-
-## WAS Suite/Latent/Generate
-
+<a id="node-latent-noise-injection"></a>
 <details>
 <summary><b>Latent Noise Injection</b></summary>
 
@@ -7580,53 +6488,9 @@ A copy of the latent with random noise mixed in, so that resampling it brings ou
 
 </details>
 
----
+### WAS Suite/Latent/Transform
 
-## WAS Suite/Latent/Transform
-
-<details>
-<summary><b>Latent Hybrid Upscale</b></summary>
-
-Enlarge a latent and decide where to be smooth by looking at the picture it decodes to. Edges found in that picture are grown and feathered into a mask; where the mask is white the enlargement is interpolated, and everywhere else it keeps the crisp block-copied version. Flat areas therefore stay sharp while outlines avoid the stair-stepping that a plain enlargement leaves. Handles video latents, with tiled decoding to keep VRAM in check.
-
-| | |
-|---|---|
-| Node id | `WASLatentUpscaleHybrid` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `latent` | `LATENT` | Yes |  |  | The latent to enlarge. A video latent with a time axis is handled frame by frame. |
-| `vae` | `VAE` | Yes |  |  | The VAE used to decode the latent so its edges can be found. It must be the one that matches the latent, or the edges will be found in the wrong places. It only reads the latent; the result is still built in latent space. |
-| `scale` | `FLOAT` | Yes | 2.0 |  | How much larger the result is. 2.0 doubles both sides, 1.5 adds half again. Sizes are rounded to whole latent blocks. |
-| `pre_blur_sigma_px` | `FLOAT` | Yes | 1.0 |  | Blur applied to the decoded picture before edges are looked for, in pixels. It keeps film grain and fine texture from registering as edges; 0.0 finds every last one, 2.0 or more keeps only the major outlines. |
-| `canny_threshold1` | `INT` | Yes | 25 |  | The lower of the two edge-detection levels, on a 0-255 scale. A faint edge is kept only when it joins a strong one, and this is how faint it may be. Lower values trace more of an outline; raise it if speckles appear in flat areas. |
-| `canny_threshold2` | `INT` | Yes | 155 |  | The upper of the two edge-detection levels, on a 0-255 scale. Anything this strong starts an edge on its own. Raise it to keep only bold outlines, lower it to catch soft ones. |
-| `canny_l2gradient` | `BOOLEAN` | Yes | True |  | How edge strength is measured. On, the true length of the gradient is used, which is slightly slower and more accurate on diagonals. Off, a cheaper approximation is used that reads diagonal edges as stronger than they are. |
-| `dilate_radius_px` | `INT` | Yes | 8 |  | How far the found edges are grown, in pixels. Edges are hairline by themselves, so growing them is what gives the smooth enlargement a band to work in: 8 covers a typical outline, 0 leaves the raw one-pixel lines. |
-| `feather_sigma_px` | `FLOAT` | Yes | 6.0 |  | How far the grown edge fades out, in pixels. Without it the band would have a visible border of its own; 6.0 gives a soft changeover, 0.0 leaves a hard-edged band. |
-| `mask_min` | `FLOAT` | Yes | 0.0 |  | Floor under the finished mask. Raise it above 0.0 to let a little of the smooth enlargement into areas with no edges at all, which takes the hard blockiness off the whole picture. |
-| `mask_max` | `FLOAT` | Yes | 1.0 |  | Ceiling over the finished mask. Lower it below 1.0 to keep some of the crisp enlargement even on the strongest edges, which is the way back when outlines come out too soft. |
-| `use_nearest_exact` | `BOOLEAN` | Yes | True |  | How the crisp half of the blend is enlarged. On, each output block takes the value of the source block whose centre is nearest, which keeps the picture from drifting half a block sideways. Off uses the older nearest-neighbour rule. |
-| `output_mask_resolution` | `COMBO` | Yes | image | `image`, `latent` | Which size the mask output comes out at. `image` gives it at the size the enlarged latent decodes to, ready to view or reuse against the finished picture. `latent` gives the small version that actually drove the blend. |
-| `video_decode_horizontal_tiles` | `INT` | Yes | 2 |  | How many columns a video latent is split into for the decode that finds edges. More tiles means less VRAM and more time. Ignored on an image latent. |
-| `video_decode_vertical_tiles` | `INT` | Yes | 2 |  | How many rows a video latent is split into for that decode. 2 rows and 2 columns is four tiles, each a quarter of the frame. Ignored on an image latent. |
-| `video_decode_overlap_latent` | `INT` | Yes | 4 |  | How far neighbouring tiles overlap, in latent units. The overlap is cross-faded, so raise it if seams show along the tile boundaries; 0 turns the fade off entirely. |
-| `video_decode_last_frame_fix` | `BOOLEAN` | Yes | False |  | Whether the final frame is duplicated before decoding and the extra output dropped afterwards. Turn it on when the last frames of a clip decode to something corrupt, which some video VAEs do. |
-| `video_decode_enable_cudnn` | `BOOLEAN` | Yes | True |  | Whether cuDNN is left on for the video decode. Turning it off is slower and avoids the large workspace allocations that make some cards run out of memory part way through a clip. |
-| `donor_latent` | `LATENT` | No |  |  | Where the smooth half of the blend comes from. Leave it unconnected and the node interpolates the input latent. Connect a second latent of the same batch and channel shape, a version sampled at a higher resolution, say, and its detail is what gets laid into the edges. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `latent` | `LATENT` | The enlarged latent, ready for a sampler or a decode. |
-| `edge_mask` | `MASK` | Where the smooth enlargement was used: white along the edges the node found, black elsewhere. Watch it while setting the two Canny levels, or reuse it to treat the same areas downstream. |
-
-</details>
-
+<a id="node-latent-upscale-by-factor-was"></a>
 <details>
 <summary><b>Latent Upscale by Factor</b></summary>
 
@@ -7653,128 +6517,9 @@ A latent resized by a multiplier, with a choice of how the values in between are
 
 </details>
 
-<details>
-<summary><b>Scale Latent to Max Dimension</b></summary>
+### WAS Suite/LoRA
 
-Resize a latent so that the picture it decodes to has its longest side at a chosen number of pixels, with the aspect ratio kept. The size is worked out in latent space, so nothing is decoded and re-encoded and no detail is lost on the way. The resulting pixel width and height come out alongside the latent, ready to drive whatever needs to know the size.
-
-| | |
-|---|---|
-| Node id | `WASLatentScaleToMaxDimension` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `samples` | `LATENT` | Yes |  |  | The latent to resize. A video latent with a time axis is resized on its height and width only, and keeps every frame. |
-| `upscale_method` | `COMBO` | Yes | bislerp | `nearest-exact`, `bilinear`, `area`, `bicubic`, `bislerp` | How values in between the existing ones are worked out. `bislerp` interpolates along the shape of the latent rather than straight through it and is the safest choice for a latent; `bilinear` and `bicubic` are the ordinary smooth options; `area` averages the source region and suits shrinking; `nearest-exact` copies the closest value and stays blocky. |
-| `largest_size` | `INT` | Yes | 2048 |  | How long the longest side should be, in pixels of the decoded picture rather than in latent units. 2048 on a 3:2 latent gives 2048x1360. The target is rounded down to whole latent units, so the result never comes out larger than asked for. |
-| `scale_mode` | `COMBO` | Yes | always | `always`, `downscale_only`, `upscale_only` | Which direction the resize is allowed to go. `always` hits the target from either side. `downscale_only` treats largest_size as a ceiling and leaves anything already smaller alone, which is what suits capping mixed input sizes. `upscale_only` is the reverse: it brings small latents up and leaves large ones untouched. |
-| `spatial_compression` | `INT` | Yes | 8 |  | How many pixels one latent unit becomes on the VAE that will decode this: 8 for SD, SDXL, Flux and Wan 2.1, 16 for Wan 2.2 TI2V, 32 for Hunyuan Image. Getting it wrong scales the result by the ratio of the two numbers. Ignored when a vae is connected. |
-| `vae` | `VAE` | No |  |  | The VAE this latent will be decoded with. Connect it and the compression ratio is read straight off it, which removes the need to know the right spatial_compression for the model in use. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `samples` | `LATENT` | The resized latent. It is passed through untouched when scale_mode rules the resize out, or when it is already the right size. |
-| `width` | `INT` | Width the latent now decodes to, in pixels. Feed it to anything that has to be built at the same size, such as an empty image or a second resize. |
-| `height` | `INT` | Height the latent now decodes to, in pixels. |
-
-</details>
-
-<details>
-<summary><b>WAS Adaptive Difference Latent Upscale (Damped)</b></summary>
-
-Enlarge a latent twice, once by copying the nearest block, once by interpolating, and take the smooth version only where the two disagree. Flat areas keep the crispness of the blocky enlargement while edges and texture get the smooth one, which is what stops a plain latent upscale either going soft everywhere or ringing along every boundary. Works on video latents as well as single images, and reports the maps it used so the settings can be seen rather than guessed at.
-
-| | |
-|---|---|
-| Node id | `WAS_AdaptiveDifferenceLatentUpscale` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `latent` | `LATENT` | Yes |  |  | The latent to enlarge. A video latent with a time axis is handled frame by frame. |
-| `scale` | `FLOAT` | Yes | 2.0 |  | How much larger the result is. 2.0 doubles both sides, 1.5 adds half again, 1.0 leaves the size alone and only applies the damping. Sizes are rounded to whole latent blocks. |
-| `smooth_mode` | `COMBO` | Yes | bilinear | `bilinear`, `bicubic`, `area` | How the smooth half of the blend is enlarged. `bilinear` is the safe default; `bicubic` is sharper and can overshoot slightly at a hard edge; `area` averages the source region and is the softest of the three. |
-| `diff_blur_sigma` | `FLOAT` | Yes | 0.6 |  | How far the disagreement between the two enlargements is spread before it decides anything, in latent blocks. A little blur keeps the blend from switching on and off block by block; 0.0 uses the raw per-block difference and gives the busiest map. |
-| `threshold` | `FLOAT` | Yes | 0.12 |  | How much disagreement counts as detail. Below this the blocky enlargement is kept, above it the smooth one takes over. Lower values smooth more of the picture; 0.12 leaves flat areas crisp and treats edges. |
-| `softness` | `FLOAT` | Yes | 0.05 |  | How gradual the changeover at the threshold is. Small values such as 0.005 give a hard switch that can be seen as a rim; 0.05 fades between the two enlargements over a comfortable range. |
-| `weight_power` | `FLOAT` | Yes | 1.0 |  | Bends the blend map after it is built. Above 1.0 pulls it towards the blocky enlargement everywhere but the strongest edges; below 1.0 spreads the smooth enlargement into weaker detail. 1.0 leaves the map as measured. |
-| `weight_blur_sigma` | `FLOAT` | Yes | 0.0 |  | Softens the finished blend map, in latent blocks. Raise it when the treated areas have visible outlines of their own; 0.0 leaves the map alone. |
-| `temporal_ema` | `FLOAT` | Yes | 0.0 |  | How much each frame of a video latent carries over from the frames before it, which stops the blend map flickering. 0.0 treats every frame on its own; 0.5 is a light smoothing; 0.9 is heavy and can smear the map behind fast motion. Ignored on a single image. |
-| `enable_directional_damping` | `BOOLEAN` | Yes | True |  | Whether the second pass runs, which takes fine detail back out along strong boundaries. It is what removes the halo that an upscale leaves around hard edges. Turn it off to see the blend on its own, or when the source is already soft. |
-| `damping_strength` | `FLOAT` | Yes | 0.35 |  | How much fine detail is removed where the damping mask is fully on. 0.0 removes none and turns the pass off; 0.35 takes the edge off a halo; 1.0 flattens the detail there completely. |
-| `damping_gate_mode` | `COMBO` | Yes | weight_sqrt | `none`, `weight`, `weight_sqrt` | Where the damping is allowed to act. `none` lets it act on every boundary it finds. `weight` confines it to the areas the blend already treated. `weight_sqrt` is in between, allowing some damping in areas the blend touched only lightly. |
-| `damping_grad_blur_sigma` | `FLOAT` | Yes | 0.0 |  | Blur applied before boundaries are looked for, in latent blocks. Raise it so that texture is not mistaken for an edge; 0.0 finds the finest boundaries. |
-| `damping_threshold` | `FLOAT` | Yes | 0.25 |  | How strong a boundary has to be to be damped, measured against the strongest one in the picture. 0.25 catches the clear outlines; lower values reach into texture as well. |
-| `damping_softness` | `FLOAT` | Yes | 0.08 |  | How gradually the damping fades in around that threshold. Small values give a hard-edged mask; 0.08 fades over a comfortable range. |
-| `damping_power` | `FLOAT` | Yes | 1.0 |  | Bends the damping mask. Above 1.0 confines the damping to the very strongest boundaries; below 1.0 spreads it over more of the picture. 1.0 leaves the mask as measured. |
-| `damping_mask_blur_sigma` | `FLOAT` | Yes | 0.6 |  | Softens the damping mask before it is used, in latent blocks. A little blur keeps the damped strip from having a visible border of its own; 0.0 uses the mask as found. |
-| `damping_highpass_sigma` | `FLOAT` | Yes | 1.0 |  | Which detail counts as fine enough to be removed, in latent blocks. 1.0 takes out ringing while leaving the shapes; larger values reach into broader structure and start to blur. 0.0 removes the whole signal under the mask instead. |
-| `damping_temporal_ema` | `FLOAT` | Yes | 0.25 |  | How much of the damping mask each frame of a video latent carries over from the frames before it, so damped areas do not shimmer. 0.0 treats every frame on its own. Ignored on a single image. |
-| `preview_mode` | `COMBO` | Yes | both | `weight`, `damp`, `both` | Which map leaves the node. `weight` shows where the smooth enlargement was used, `damp` shows where fine detail was removed, `both` puts the two side by side in the preview and sends the damping map to the mask output. |
-| `output_mask_pixel_scale` | `INT` | Yes | 8 |  | How many preview pixels each latent block becomes. 8 matches the size the latent decodes to on most VAEs, so the preview lines up with the finished picture; 1 gives the small raw map. This affects the preview image only, never the mask output. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `latent` | `LATENT` | The enlarged latent, ready for a sampler or a decode. |
-| `mask` | `MASK` | The map the node worked from, at latent resolution: the damping map on `damp` and `both`, the blend map on `weight`. Useful for driving another node from the same areas this one treated. |
-| `mask_preview` | `IMAGE` | The same map as a viewable image, enlarged by output_mask_pixel_scale. On `both` the blend map is on the left and the damping map on the right. |
-
-</details>
-
----
-
-## WAS Suite/LoRA
-
-<details>
-<summary><b>Apply Reweighted LoRA</b></summary>
-
-Load a LoRA, scale its blocks by where they sit in the model, front, middle, back and the very last block, and apply the result to a model and clip. The reweighted LoRA is also saved under output/loras so a setting that works can be reused.
-
-| | |
-|---|---|
-| Node id | `WASApplyReweightedLoRA` |
-| Turn off with | `features.extras: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `model` | `MODEL` | Yes |  |  | The model the reweighted LoRA is applied to. |
-| `clip` | `CLIP` | Yes |  |  | The clip the LoRA's text-encoder half is applied to. A LoRA with no text-encoder tensors leaves it untouched. |
-| `lora_name` | `COMBO` | Yes |  |  | The LoRA file to reweight, from your LoRA folder. It is read from disk on every run, so the original file is never modified. |
-| `strength_model` | `FLOAT` | Yes | 0.8 |  | How strongly the reweighted LoRA is applied to the model, before any block scaling. 1.0 is full strength; a negative value pushes away from what the LoRA learned. |
-| `strength_clip` | `FLOAT` | Yes | 0.8 |  | The same for the clip. Lowering it while leaving strength_model alone keeps the LoRA's look without its trigger words dominating the prompt. |
-| `global_scale` | `FLOAT` | Yes | 1.0 |  | Multiplier applied to every block before the three below. 1.0 changes nothing; use it to turn the whole reweighting up or down once the balance between the thirds is right. |
-| `front_scale` | `FLOAT` | Yes | 1.0 |  | Extra multiplier for the first third of the blocks, which carry composition and overall shape. Lower it to keep a LoRA's style while letting the prompt decide the layout. |
-| `mid_scale` | `FLOAT` | Yes | 1.0 |  | Extra multiplier for the middle third, which carries subject and structure. This is the third to lower when a character LoRA is overriding the face you asked for. |
-| `back_scale` | `FLOAT` | Yes | 1.0 |  | Extra multiplier for the last third, which carries detail, texture and surface style. Raise it to keep a LoRA's look while its subject influence is turned down. |
-| `last_block_scale` | `FLOAT` | Yes | 1.0 |  | A further multiplier for the final block alone, on top of its third's. That block sits closest to the output, so small changes here show up strongly in fine detail. |
-| `scale_target` | `COMBO` | Yes | up_only | `up_only`, `down_only`, `both` | Which half of each LoRA pair is scaled. `up_only` is the usual choice and scales the result linearly. `both` scales the two halves and so squares the effect, which is much stronger for the same numbers. `down_only` is there for comparison. |
-| `block_preset` | `COMBO` | Yes | auto | `auto`, `wan`, `qwen`, `flux`, `zimg-turbo`, `sd`, `sdxl`, `generic` | Which model family's block naming is read to find each block's number. `auto` works it out from the LoRA's own keys and is right almost always; name the family if the stats output reports 0 blocks detected. |
-| `filter_by_block_range` | `BOOLEAN` | Yes | True |  | Drop tensors for blocks the connected model does not have. This is what lets a LoRA trained on a larger version of a model be applied to a smaller one instead of failing. |
-| `save_reweighted` | `BOOLEAN` | Yes | True |  | Write the reweighted LoRA to output/loras. Switch it off while hunting for the right numbers, then on for the run worth keeping. |
-| `output_filename` | `STRING` | Yes |  |  | Name for the saved copy. Left empty, a name is built from the source file and every scale, such as 'style.reweighted.up_only.g1.00.f1.0.m1.0.b1.0.L1.0.safetensors', so two settings never overwrite each other. |
-| `verify_roundtrip` | `BOOLEAN` | Yes | True |  | Read the saved file back and compare it tensor by tensor with what was applied, reporting the answer in the stats output. Costs a second read of the file; it is what proves the saved copy behaves the same as this run. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `model` | `MODEL` | The model with the reweighted LoRA applied. |
-| `clip` | `CLIP` | The clip with the reweighted LoRA applied. |
-| `stats` | `DICT` | What the run did: which naming scheme was detected, how many blocks were found, how many tensors were scaled, dropped and kept, where the copy was saved with its SHA-256, and whether the round-trip check passed. Feed it to a debug node to see why a reweighting had no effect. |
-
-</details>
-
+<a id="node-waspowerloraloader"></a>
 <details>
 <summary><b>Power LoRA Loader</b></summary>
 
@@ -7907,6 +6652,5310 @@ Apply any number of LoRAs in one node. Each row names a file, carries its own st
 
 </details>
 
+### WAS Suite/Loaders
+
+<a id="node-wasemavfimodelloader"></a>
+<details>
+<summary><b>EMA-VFI Model Loader</b></summary>
+
+Build an EMA-VFI network for EMA-VFI Frame Interpolation. The network is kept for the life of the process, so one loader can feed several nodes without building it again. The weights are not bundled: with features.network on the checkpoint is fetched on first use, and with it off put one in ComfyUI/models/EMA-VFI and restart so it appears in the list.
+
+| | |
+|---|---|
+| Node id | `WASEMAVFIModelLoader` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `checkpoint` | `COMBO` | Yes |  |  | Which EMA-VFI weights to build. The 'small' files are faster and less accurate; the '_t' files can land anywhere between two frames and are the ones a multiplier above 2 needs. A name not yet on disk is fetched on the first run that needs it. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `ema_vfi_model` | `EMA_VFI_MODEL` | The built network, for the ema_vfi_model input of EMA-VFI Frame Interpolation. |
+
+</details>
+
+### WAS Suite/Logic
+
+<a id="node-wascomboselector"></a>
+<details>
+<summary><b>Combo Selector</b></summary>
+
+Pick a checkpoint, LoRA, VAE, ControlNet, upscale model, sampler or scheduler from one node, and send it to another node's dropdown. Choose the kind first and the list below it fills with what is installed. Convert the target node's dropdown to an input and connect combo to it. Also answers the choice as text.
+
+| | |
+|---|---|
+| Node id | `WASComboSelector` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `source` | `COMFY_DYNAMICCOMBO_V3` | Yes |  |  | What to pick from: checkpoints, loras, vae, clip, text_encoders, diffusion_models, controlnet, style_models, hypernetworks, upscale_models, embeddings, gligen, samplers, schedulers. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `combo` | `*` | The choice, on a wire a dropdown accepts. Connect it to a converted dropdown such as ckpt_name, lora_name or sampler_name. |
+| `name` | `STRING` | The choice as text: sd_xl_base_1.0.safetensors, euler, karras. |
+| `source` | `STRING` | Which list it came from: checkpoints, loras, samplers. |
+
+</details>
+
+<a id="node-waspause"></a>
+<details>
+<summary><b>Pause</b></summary>
+
+Stop a run at this node and wait for Resume on the node itself. Everything above it has already run and stays cached, so change a widget while it waits and queue again: only the changed node and what depends on it run a second time. Whatever is connected passes through untouched.
+
+| | |
+|---|---|
+| Node id | `WASPause` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `message` | `STRING` | Yes |  |  | Text drawn beside Resume: `check the mask before sampling`. Empty draws the node name alone. |
+| `timeout` | `FLOAT` | Yes | 600.0 |  | Seconds to wait before carrying on by itself. 600 is 10 minutes, 0 waits with no limit. The queue holds still the whole time. |
+| `value` | `COMFY_MATCHTYPE_V3` | No |  |  | Anything to hold and pass on: IMAGE, LATENT, MODEL, STRING. Leave it unconnected to stop the run without carrying anything. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `value` | `COMFY_MATCHTYPE_V3` | What arrived, unchanged. |
+| `outcome` | `STRING` | How the wait ended: resumed, timed out. |
+| `resumed` | `BOOLEAN` | true where Resume was pressed, false where the wait ran out. |
+
+</details>
+
+<a id="node-wastexttocombo"></a>
+<details>
+<summary><b>Text to Combo</b></summary>
+
+Answer text on a wire any dropdown takes, so a choice normally picked by hand can be worked out while the graph runs. Convert a node's dropdown to an input and connect this to it, and the checkpoint, LoRA, sampler or scheduler it uses can come from a loop, a switch or a text node. A plain STRING is refused by a dropdown; this is the wire that is not.
+
+| | |
+|---|---|
+| Node id | `WASTextToCombo` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text` | `STRING` | Yes |  |  | The option to choose, spelled exactly as the dropdown lists it, such as sd_xl_base_1.0.safetensors or euler_ancestral. |
+| `strip` | `BOOLEAN` | No | True |  | Drop spaces and line ends from both ends: ` euler ` becomes `euler`. Off sends the text exactly as typed. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `combo` | `*` | The text, on a wire a dropdown accepts. A name the dropdown does not list is refused by the node receiving it, not by this one. |
+
+</details>
+
+### WAS Suite/Logic/Boolean
+
+<a id="node-wasanygate"></a>
+<details>
+<summary><b>Any Gate</b></summary>
+
+Pass a value on only when a condition holds. When it does not, everything downstream is skipped, which is the one way to stop a save or a preview from running. A switch chooses between two branches; this one stops a branch outright.
+
+| | |
+|---|---|
+| Node id | `WASAnyGate` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `value` | `COMFY_MATCHTYPE_V3` | Yes |  |  | What to pass on. It is only worked out when the gate opens, so a closed gate also skips the work behind it. |
+| `open` | `BOOLEAN` | Yes | True |  | true lets the value through; false stops every node downstream. Wire it from Compare, Boolean Reduce or any test. |
+| `message` | `STRING` | No |  |  | Shown on the blocked nodes as `Execution Blocked: <message>`. Left empty the branch stops quietly, which is what a routine skip wants. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `value` | `COMFY_MATCHTYPE_V3` | The value when the gate is open. Nothing runs downstream when it is not. |
+
+</details>
+
+<a id="node-wasanyisempty"></a>
+<details>
+<summary><b>Any Is Empty</b></summary>
+
+Answer whether a wire is carrying nothing, whatever type it is, and pass the value straight through. An empty mask, a blank line of text, an empty list and a batch of no frames all read as empty, so a graph can branch on a stage that produced nothing.
+
+| | |
+|---|---|
+| Node id | `WASAnyIsEmpty` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `value` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Anything. The wire is read and passed on unchanged. |
+| `zero_is_empty` | `BOOLEAN` | No | False |  | Count a mask or an image that is entirely black as empty. Off, only a batch of no frames counts. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `is_empty` | `BOOLEAN` | true when nothing is being carried. Wire it to a switch. |
+| `value` | `COMFY_MATCHTYPE_V3` | The same value, unchanged, so the node sits in the middle of a chain. |
+| `reason` | `STRING` | Why it reads as empty, or what it holds when it does not. |
+
+</details>
+
+<a id="node-wasbooleanreduce"></a>
+<details>
+<summary><b>Boolean Reduce</b></summary>
+
+Combine any number of conditions into one answer: all of them, any of them, none of them, exactly one, or a majority. Logic Comparison AND and OR take two, so four conditions need three of them chained; this takes them all at once.
+
+| | |
+|---|---|
+| Node id | `WASBooleanReduce` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `reduction` | `COMBO` | Yes | all | `all`, `any`, `none`, `exactly one`, `majority` | How the conditions combine. With 3 wired and 2 true: `all` = false, `any` = true, `none` = false, `exactly one` = false, `majority` = true. |
+| `condition_a` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_b` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_c` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_d` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_e` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_f` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_g` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_h` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_i` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_j` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_k` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_l` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_m` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_n` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_o` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_p` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_q` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_r` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_s` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_t` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_u` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_v` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_w` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_x` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_y` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+| `condition_z` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `boolean` | `BOOLEAN` | The combined answer. Wire it to any switch's boolean. |
+| `true_count` | `INT` | How many connected conditions are true. |
+| `count` | `INT` | Connected conditions. |
+
+</details>
+
+<a id="node-boolean-to-text"></a>
+<details>
+<summary><b>Boolean To Text</b></summary>
+
+Spell a true/false value out as the text "True" or "False", so it can go into a prompt, a file name or a debug string.
+
+| | |
+|---|---|
+| Node id | `Boolean To Text` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `boolean` | `BOOLEAN` | Yes | False |  | The value to spell out. Usually linked from a comparison node such as Logic Comparison AND or Text Contains. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `STRING` | The words "True" or "False", capitalised, with no surrounding spaces or quotes. |
+
+</details>
+
+<a id="node-wascompareany"></a>
+<details>
+<summary><b>Compare</b></summary>
+
+Compare two values and answer true or false, whatever they are. Numbers compare as numbers and everything else as text, so '10' is greater than '9' rather than sorting before it. Feed the answer to any switch.
+
+| | |
+|---|---|
+| Node id | `WASCompareAny` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `value_a` | `STRING,INT,FLOAT,NUMBER,BOOLEAN` | Yes |  |  | Left-hand value. Text, a number or a switch. |
+| `comparison` | `COMBO` | Yes | equals | `equals`, `does not equal`, `less than`, `less than or equals`, `greater than`, `greater than or equals`, `contains`, `does not contain`, `starts with`, `ends with`, `matches regex`, `is empty` | The test. `equals` and the four orderings read both sides as numbers where they can: 10 > 9. `contains`, `starts with`, `ends with` and `matches regex` read them as text. `is empty` ignores value_b. |
+| `value_b` | `STRING,INT,FLOAT,NUMBER,BOOLEAN` | Yes |  |  | Right-hand value. Ignored by `is empty`. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `boolean` | `BOOLEAN` | true when the test holds. Wire it to any switch's boolean. |
+| `comparison_text` | `STRING` | The test written out, as `10 greater than 9 = true`. |
+
+</details>
+
+<a id="node-wasconditionchain"></a>
+<details>
+<summary><b>Condition Chain</b></summary>
+
+Test conditions in order and answer the position of the first one that holds. Wire that into an index switch and the pair reads as if, else if, else: condition_a picks input_a, condition_b picks input_b, and nothing matching picks whichever slot the fallback names.
+
+| | |
+|---|---|
+| Node id | `WASConditionChain` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `fallback` | `INT` | Yes | 0 |  | Answer when no condition holds; this is the `else`. -1 answers -1 and sets matched to false, which an index switch reads as its last slot. |
+| `condition_a` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_b` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_c` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_d` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_e` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_f` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_g` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_h` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_i` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_j` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_k` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_l` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_m` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_n` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_o` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_p` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_q` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_r` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_s` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_t` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_u` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_v` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_w` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_x` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_y` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+| `condition_z` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `index` | `INT` | Position of the first true condition, counting connected slots from 0, or the fallback when none held. |
+| `matched` | `BOOLEAN` | true when a condition held, false when the fallback answered. |
+| `count` | `INT` | Connected conditions. The index runs 0..count-1. |
+
+</details>
+
+<a id="node-logic-boolean"></a>
+<details>
+<summary><b>Logic Boolean</b></summary>
+
+Turn a value between 0.0 and 1.0 into a true/false switch and the numbers that stand for it, which is how the Input Switch nodes and any node with a reset or toggle input get fed from one control.
+
+| | |
+|---|---|
+| Node id | `Logic Boolean` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `boolean` | `FLOAT` | Yes | 1 |  | The value to decide on, between 0.0 and 1.0. Anything above 0.5 counts as true and anything at or below 0.5 as false, so 0.5 itself is false. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `BOOLEAN` | True or false, for the boolean input of an Input Switch node. |
+| `<output1>` | `NUMBER` | The same decision as 1 or 0, for a NUMBER input such as a reset. |
+| `<output2>` | `INT` | The same decision as 1 or 0, on an INT socket. |
+| `<output3>` | `FLOAT` | The widget value itself, not rounded, so 0.35 leaves here as 0.35 while the other three outputs read false. |
+
+</details>
+
+<a id="node-logic-boolean-primitive"></a>
+<details>
+<summary><b>Logic Boolean Primitive</b></summary>
+
+A single true/false checkbox on a node of its own, so one switch can drive the boolean input of several nodes at once.
+
+| | |
+|---|---|
+| Node id | `Logic Boolean Primitive` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `boolean` | `BOOLEAN` | Yes | False |  | The value to send on: ticked is true, unticked is false. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `BOOLEAN` | The state of the checkbox, true or false. |
+
+</details>
+
+<a id="node-waslogiccomparenumbers"></a>
+<details>
+<summary><b>Logic Compare Numbers</b></summary>
+
+Compare two numbers and report whether the test holds as a true or false value. Wire the result into While Loop Close to end a loop on a count, or into any node taking a boolean.
+
+| | |
+|---|---|
+| Node id | `WASLogicCompareNumbers` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `number_a` | `FLOAT,INT,NUMBER` | Yes | 0.0 |  | The number on the left of the test; FLOAT, INT or NUMBER. Type it, or wire it from a counter or a measurement. |
+| `number_b` | `FLOAT,INT,NUMBER` | Yes | 0.0 |  | The number on the right of the test; FLOAT, INT or NUMBER. Type it, or wire it from a counter or a measurement. |
+| `comparison` | `COMBO` | Yes |  |  | Which test to apply; COMBO. 'a' is number_a and 'b' is number_b, so 'a > b' is true while number_a is the larger of the two. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `boolean` | `BOOLEAN` | Whether the test holds; BOOLEAN. Equality allows a millionth of a millionth either way, so a computed float still matches. |
+| `comparison_text` | `STRING` | The test and its outcome in words; STRING, such as '3 > 2 is true'. For a readout or a filename. |
+
+</details>
+
+<a id="node-logic-comparison-and"></a>
+<details>
+<summary><b>Logic Comparison AND</b></summary>
+
+Combine two true/false values so the result is true only when both of them are, which is how two conditions are required at once.
+
+| | |
+|---|---|
+| Node id | `Logic Comparison AND` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `boolean_a` | `BOOLEAN` | Yes | False |  | The first condition. Usually linked from another logic node. |
+| `boolean_b` | `BOOLEAN` | Yes | False |  | The second condition, which also has to hold for a true result. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `BOOLEAN` | True when both inputs are true, false if either one is false. |
+
+</details>
+
+<a id="node-logic-comparison-or"></a>
+<details>
+<summary><b>Logic Comparison OR</b></summary>
+
+Combine two true/false values so the result is true when at least one of them is, which is how either of two conditions is accepted.
+
+| | |
+|---|---|
+| Node id | `Logic Comparison OR` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `boolean_a` | `BOOLEAN` | Yes | False |  | The first condition. Usually linked from another logic node. |
+| `boolean_b` | `BOOLEAN` | Yes | False |  | The second condition, which can carry the result on its own. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `BOOLEAN` | True when either input is true, or both are; false only when neither is. |
+
+</details>
+
+<a id="node-logic-comparison-xor"></a>
+<details>
+<summary><b>Logic Comparison XOR</b></summary>
+
+Compare two true/false values and report whether they disagree: true when exactly one of them is true, false when they match.
+
+| | |
+|---|---|
+| Node id | `Logic Comparison XOR` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `boolean_a` | `BOOLEAN` | Yes | False |  | The first condition. Usually linked from another logic node. |
+| `boolean_b` | `BOOLEAN` | Yes | False |  | The second condition, compared against the first. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `BOOLEAN` | True when exactly one input is true; false when both are true or both are false. |
+
+</details>
+
+<a id="node-logic-not"></a>
+<details>
+<summary><b>Logic NOT</b></summary>
+
+Flip a true/false value over, which turns one condition into its opposite without a second comparison node.
+
+| | |
+|---|---|
+| Node id | `Logic NOT` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `boolean` | `BOOLEAN` | Yes | False |  | The value to invert. True comes out false, false comes out true. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `BOOLEAN` | The opposite of the input value. |
+
+</details>
+
+<a id="node-text-contains"></a>
+<details>
+<summary><b>Text Contains</b></summary>
+
+Search one piece of text for another and report whether it is in there, which is how a prompt can be tested for a word before a branch is taken.
+
+| | |
+|---|---|
+| Node id | `Text Contains` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text` | `STRING` | Yes |  |  | The text to search through, such as a prompt or a file name, as `a tabby cat`. |
+| `sub_text` | `STRING` | Yes |  |  | The word or phrase to look for. It has to appear as written, spaces included, and it can sit anywhere in the text rather than only at the start. Left empty, it matches everything. |
+| `case_insensitive` | `BOOLEAN` | No | True |  | Whether capitals are ignored. On, 'Cat' finds 'cat'; off, only an exact match of upper and lower case counts. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `BOOLEAN` | True when the phrase was found somewhere in the text. |
+
+</details>
+
+<a id="node-wastoboolean"></a>
+<details>
+<summary><b>To Boolean</b></summary>
+
+Read any value as true or false, so a count, a size or a line of text can drive a switch. Every switch in this pack keys on a boolean, and only one other node answers one from a number, so this is usually what stands between a measurement and a branch.
+
+| | |
+|---|---|
+| Node id | `WASToBoolean` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `value` | `STRING,INT,FLOAT,NUMBER,BOOLEAN` | Yes |  |  | What to read. A number is true when it is not 0. Text is read as a word first, so `true`, `yes`, `on` and `1` are true and `false`, `no`, `off`, `0` and empty are false. |
+| `unreadable` | `BOOLEAN` | Yes | False |  | Answer for text that is neither, such as `maybe`. false treats it as false; true treats any unrecognised word as true. |
+| `invert` | `BOOLEAN` | Yes | False |  | Flip the answer, saving a Logic NOT after it. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `boolean` | `BOOLEAN` | The value as true or false. Wire it to any switch's boolean. |
+| `int` | `INT` | The same answer as 1 or 0, for arithmetic that counts branches. |
+
+</details>
+
+<a id="node-wastypeof"></a>
+<details>
+<summary><b>Type Of</b></summary>
+
+Name what is on a wire, so a graph can branch on it. Answers `IMAGE`, `MASK`, `LATENT`, `MODEL`, `STRING` and so on, with the batch size and shape beside it. Feed the name to Compare and the answer to a switch to handle each kind differently.
+
+| | |
+|---|---|
+| Node id | `WASTypeOf` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `value` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Anything. The wire is read, not changed. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `type_name` | `STRING` | The socket type in capitals: `IMAGE`, `MASK`, `LATENT`, `MODEL`, `STRING`, `INT`. Compare it to branch on the kind. |
+| `python_type` | `STRING` | The class behind it, as `Tensor`, `dict`, `str`. |
+| `shape` | `STRING` | Sizes of a tensor, as `4x512x512x3`, or the entry count of a list or dictionary. Empty for a value with neither. |
+| `batch_size` | `INT` | Frames a batched value carries, from the first axis of an image, mask or latent. 1 for a single value and 0 where there is no batch. |
+| `is_empty` | `BOOLEAN` | true for nothing connected, empty text, an empty list or a tensor with no elements. |
+
+</details>
+
+### WAS Suite/Logic/Loop
+
+<a id="node-wascollecttolist"></a>
+<details>
+<summary><b>Collect to List</b></summary>
+
+Gather everything a fan-out produced back onto one wire. A node that emits a list, Load Text Files From Zip, Zip Open, Number Range or Number Easing, makes every node after it run once per entry, and nothing further down can see more than one of those runs at a time. Wire the last node of the series in here and the whole run arrives as one value: images, masks and latents join into a single batch ready for a video encoder or one save, and anything else arrives as a list. count says how many were gathered, and joined writes them out as one string.
+
+| | |
+|---|---|
+| Node id | `WASCollectToList` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `value` | `COMFY_MATCHTYPE_V3` | Yes |  |  | The last node of the fan-out, wired here once. Whatever connects, IMAGE, LATENT, STRING or a model, decides the type of the node, and the value output carries that same type. A source that ran only once gathers into a collection of one rather than failing. |
+| `delimiter` | `STRING` | Yes | , |  | Placed between the entries in joined. ', ' builds a comma-separated caption; \n puts each entry on its own line; empty runs them together with nothing between. It changes neither value nor count. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `value` | `COMFY_MATCHTYPE_V3` | Everything gathered, as one value. Images, masks and latents join into a single batch, so 5 runs of one image give a 5 image batch; anything else arrives as a list of 5. The socket carries the type that was wired into value. |
+| `count` | `INT` | How many are in value; INT. 5 runs of one image = 5; 5 runs of a 4 frame batch = 20, since those joined into one 20 frame batch; 5 runs of text = 5. Feed it to a batch index or an iteration count. |
+| `joined` | `STRING` | Every gathered value written out as text, separated by delimiter. Text and numbers appear as they are, an image, mask or latent as its kind and size, 'IMAGE 1x512x512x3'. Save it to log what a run gathered. |
+
+</details>
+
+<a id="node-wasforloopclose"></a>
+<details>
+<summary><b>For Loop Close</b></summary>
+
+Finish one iteration of a For Loop and run the next, until the iteration count or the frame target is reached. Only nodes wired back to here, directly or through others, run again each iteration.
+
+| | |
+|---|---|
+| Node id | `WASForLoopClose` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `iterator` | `WAS_LOOP` | Yes |  |  | Identifies the loop and where it is up to; WAS_LOOP. Wired straight from For Loop Open's iterator output, and nothing else. |
+| `accumulate` | `BOOLEAN` | Yes | False |  | Collect every iteration's values; BOOLEAN. On, each value output carries everything that slot received, batched where images, masks or latents batch and a LIST where they do not. |
+| `value_1` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot 1's value at the end of this iteration; any type. It goes back to For Loop Open's value_1 for the next one. |
+| `value_2` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
+| `value_3` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
+| `value_4` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
+| `value_5` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
+| `value_6` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
+| `value_7` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
+| `value_8` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
+| `stop` | `BOOLEAN` | No | False |  | Stop after this iteration; BOOLEAN. Read once the body has run, so it ends the loop early whatever iterations or total_frames ask for. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `metadata` | `DICT` | What the finished loop did, as one value; DICT. Read it with Loop Metadata: iterations completed, frames collected, and why it stopped. |
+| `value_1` | `COMFY_MATCHTYPE_V3` | Slot 1's result; any type. The last value it held, or every value it held once accumulate is on, batched where they batch and a LIST where they do not. |
+| `value_2` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
+| `value_3` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
+| `value_4` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
+| `value_5` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
+| `value_6` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
+| `value_7` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
+| `value_8` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
+
+</details>
+
+<a id="node-wasforloopopen"></a>
+<details>
+<summary><b>For Loop Open</b></summary>
+
+Open a loop that runs a fixed number of iterations, or until For Loop Close has collected a target number of frames. Wire the carried values into what should repeat, and their results into For Loop Close.
+
+| | |
+|---|---|
+| Node id | `WASForLoopOpen` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `mode` | `COMBO` | Yes |  | `iterations`, `total_frames` | How the loop decides when to stop; COMBO. 'iterations' runs a fixed count; 'total_frames' runs until For Loop Close has collected total_frames frames. |
+| `iterations` | `INT` | Yes | 10 |  | Iterations to run in 'iterations' mode; INT, 1 to 10000. Ignored in 'total_frames' mode. |
+| `total_frames` | `INT` | Yes | 100 |  | Frames to collect before stopping in 'total_frames' mode; INT. Counted from what For Loop Close collects, which needs accumulate on. |
+| `max_iterations` | `INT` | Yes | 100 |  | Safety limit for 'total_frames' mode; INT, 1 to 10000. Stops the loop even when the frame target is never reached. |
+| `start` | `INT` | Yes | 0 |  | First value of index; INT. index counts up by 1 from here each iteration, for reading a position in a list. |
+| `value_1` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot 1 starts with; any type. Read it back out of value_1 and hand the changed one to For Loop Close's value_1. |
+| `value_2` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
+| `value_3` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
+| `value_4` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
+| `value_5` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
+| `value_6` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
+| `value_7` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
+| `value_8` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `iterator` | `WAS_LOOP` | Identifies the loop and where it is up to; WAS_LOOP. Wire it straight to For Loop Close's iterator input, and nothing else. |
+| `index` | `INT` | The loop's counter; INT. Starts at start and counts up by 1 each iteration, for reading a position in a list. |
+| `metadata` | `DICT` | This iteration's counters as one value; DICT. Read them with Loop Metadata: current_iteration, index, and the frames collected so far. |
+| `value_1` | `COMFY_MATCHTYPE_V3` | Slot 1 as this iteration receives it; any type. The starting value on iteration 1, then whatever For Loop Close was given last iteration. |
+| `value_2` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
+| `value_3` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
+| `value_4` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
+| `value_5` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
+| `value_6` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
+| `value_7` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
+| `value_8` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
+
+</details>
+
+<a id="node-wasloopmetadata"></a>
+<details>
+<summary><b>Loop Metadata</b></summary>
+
+Read a loop's metadata output apart into separate values: which iteration is running, how many finished, how many frames were collected, and why the loop stopped. Works with both the For and While pairs, from either end.
+
+| | |
+|---|---|
+| Node id | `WASLoopMetadata` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `metadata` | `DICT` | Yes |  |  | The metadata output of a loop's Open or Close node; DICT. An Open node describes the iteration about to run, a Close node the finished loop. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `current_iteration` | `INT` | Which iteration this is; INT, counting from 1. |
+| `index` | `INT` | The loop's counter; INT. Counts from start_index on a For Loop and from 0 on a While Loop, for reading a position in a list. |
+| `iterations_completed` | `INT` | How many iterations have finished; INT. |
+| `limit` | `INT` | What the loop is counting towards; INT. The iteration count, the frame target, or the safety limit, whichever the loop is set to. |
+| `accumulated_count` | `INT` | Frames collected so far; INT, read from the first slot holding frames. 0 while accumulate is off. |
+| `accumulated_as` | `STRING` | How the values left the loop; STRING. 'final' for the last value alone, 'batch' for one joined batch, 'list' for every value. |
+| `mode` | `STRING` | What ends the loop; STRING. 'iterations', 'total_frames', or 'condition' for a While Loop. |
+| `stopped_reason` | `STRING` | Why the loop stopped; STRING. Never empty: it reads 'Still running' with the iteration while the loop is going, and 'Not started' before anything has run. |
+
+</details>
+
+<a id="node-waswhileloopclose"></a>
+<details>
+<summary><b>While Loop Close</b></summary>
+
+Finish one iteration of a While Loop and run another while continue_loop is true, up to max_iterations. Only nodes wired back to here run again.
+
+| | |
+|---|---|
+| Node id | `WASWhileLoopClose` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `iterator` | `WAS_LOOP` | Yes |  |  | Identifies the loop and where it is up to; WAS_LOOP. Wired straight from While Loop Open's iterator output, and nothing else. |
+| `continue_loop` | `BOOLEAN,NUMBER,INT,FLOAT` | Yes | False |  | Slot 1's value at the end of this iteration; any type. It goes back to While Loop Open's value_1 for the next one. |
+| `accumulate` | `BOOLEAN` | Yes | False |  | Collect every iteration's values; BOOLEAN. On, each value output carries everything that slot received, batched where images, masks or latents batch and a LIST where they do not. |
+| `value_1` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot 1's value at the end of this iteration; any type. It goes back to While Loop Open's value_1 for the next one. |
+| `value_2` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
+| `value_3` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
+| `value_4` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
+| `value_5` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
+| `value_6` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
+| `value_7` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
+| `value_8` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `metadata` | `DICT` | What the finished loop did, as one value; DICT. Read it with Loop Metadata: iterations completed, frames collected, and why it stopped. |
+| `value_1` | `COMFY_MATCHTYPE_V3` | Slot 1's result; any type. The last value it held, or every value it held once accumulate is on, batched where they batch and a LIST where they do not. |
+| `value_2` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
+| `value_3` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
+| `value_4` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
+| `value_5` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
+| `value_6` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
+| `value_7` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
+| `value_8` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
+
+</details>
+
+<a id="node-waswhileloopopen"></a>
+<details>
+<summary><b>While Loop Open</b></summary>
+
+Open a loop that runs until a condition says stop. The body runs at least once; While Loop Close reads the condition after each iteration.
+
+| | |
+|---|---|
+| Node id | `WASWhileLoopOpen` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `max_iterations` | `INT` | Yes | 100 |  | Safety limit; INT, 1 to 10000. Stops the loop even if the condition stays true, so a mistake cannot run forever. |
+| `value_1` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot 1 starts with; any type. Read it back out of value_1 and hand the changed one to While Loop Close's value_1. |
+| `value_2` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
+| `value_3` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
+| `value_4` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
+| `value_5` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
+| `value_6` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
+| `value_7` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
+| `value_8` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `iterator` | `WAS_LOOP` | Identifies the loop and where it is up to; WAS_LOOP. Wire it straight to While Loop Close's iterator input, and nothing else. |
+| `index` | `INT` | The loop's counter; INT. Starts at 0 and counts up by 1 each iteration, for reading a position in a list. |
+| `metadata` | `DICT` | This iteration's counters as one value; DICT. Read them with Loop Metadata: current_iteration, index, and the frames collected so far. |
+| `value_1` | `COMFY_MATCHTYPE_V3` | Slot 1 as this iteration receives it; any type. The starting value on iteration 1, then whatever While Loop Close was given last iteration. |
+| `value_2` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
+| `value_3` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
+| `value_4` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
+| `value_5` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
+| `value_6` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
+| `value_7` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
+| `value_8` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
+
+</details>
+
+### WAS Suite/Logic/Switch
+
+<a id="node-wasanyindexswitch"></a>
+<details>
+<summary><b>Any Index Switch</b></summary>
+
+Pass one of any number of values on, chosen by a number rather than a boolean, whatever type they are. Wire a Number Counter or a loop's index in to step through the inputs one per run. Only the chosen input is evaluated, so the work behind the rest is skipped.
+
+| | |
+|---|---|
+| Node id | `WASAnyIndexSwitch` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `index` | `INT,NUMBER,FLOAT` | Yes | 0 |  | Slot to pass on, from 0. Negative counts from the end: -1 = last. A decimal is truncated: 2.7 = 2. |
+| `out_of_range` | `COMBO` | Yes | wrap | `wrap`, `clamp`, `error` | Index outside 0..count-1. With 3 slots and index 4: `wrap` = slot 1, `clamp` = slot 2, `error` stops the prompt. |
+| `input_a` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_b` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_c` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_d` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_e` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_f` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_g` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_h` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_i` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_j` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_k` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_l` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_m` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_n` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_o` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_p` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_q` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_r` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_s` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_t` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_u` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_v` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_w` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_x` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_y` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_z` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `output` | `COMFY_MATCHTYPE_V3` | The selected input, typed to whatever was connected. |
+| `resolved_index` | `INT` | Slot actually read, from 0, after wrap or clamp. |
+| `count` | `INT` | Connected slots. The index runs 0..count-1. |
+
+</details>
+
+<a id="node-wasanyinputswitch"></a>
+<details>
+<summary><b>Any Input Switch</b></summary>
+
+Pass one of two values on, chosen by a boolean, whatever type they are. The unselected input is not evaluated, so the work behind it is skipped.
+
+| | |
+|---|---|
+| Node id | `WASAnyInputSwitch` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `input_a` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Passed on when boolean is true. Any type. The first connection fixes the type; input_b and output then take that type only. |
+| `input_b` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Passed on when boolean is false. Must match input_a's type. |
+| `boolean` | `BOOLEAN` | Yes | True |  | Selects the input. true = input_a, false = input_b. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `output` | `COMFY_MATCHTYPE_V3` | The selected input, typed to whatever was connected. |
+
+</details>
+
+<a id="node-wasanyfirstswitch"></a>
+<details>
+<summary><b>Any Switch (First Connected)</b></summary>
+
+Pass the first connected input on, whatever type it is. Slots are tried in order, input_a to input_z, and the earliest one still connected is the one that leaves, so muting a branch falls through to the next without any rewiring. Only that branch is evaluated, so the work behind the rest is skipped.
+
+| | |
+|---|---|
+| Node id | `WASAnyFirstSwitch` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `input_a` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_b` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_c` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_d` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_e` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_f` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_g` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_h` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_i` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_j` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_k` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_l` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_m` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_n` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_o` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_p` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_q` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_r` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_s` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_t` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_u` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_v` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_w` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_x` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_y` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+| `input_z` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `output` | `COMFY_MATCHTYPE_V3` | The branch that answered, typed to whatever was connected. |
+| `resolved_index` | `INT` | Which slot answered, counting the slots on the node from 0: input_a = 0, input_c = 2. With input_a and input_b muted, this reads 2. |
+| `count` | `INT` | How many slots are still connected. Muting the node feeding a slot drops it by one: 3 wired with 1 muted reads 2. |
+
+</details>
+
+<a id="node-lora-input-switch"></a>
+<details>
+<summary><b>Lora Input Switch</b></summary>
+
+Pass one model and CLIP pair of two on, chosen by a boolean, which switches a whole LoRA branch with a single control. The model_a and clip_a pair is sent when the boolean is true, the model_b and clip_b pair when it is false.
+
+| | |
+|---|---|
+| Node id | `Lora Input Switch` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `model_a` | `MODEL` | Yes |  |  | The diffusion model sent on when boolean is true, with clip_a. |
+| `clip_a` | `CLIP` | Yes |  |  | The text encoder sent on when boolean is true. Wire it from the same LoRA loader as model_a, so a patched model keeps the CLIP it was patched with. |
+| `model_b` | `MODEL` | Yes |  |  | The diffusion model sent on when boolean is false, with clip_b. |
+| `clip_b` | `CLIP` | Yes |  |  | The text encoder sent on when boolean is false. Wire it from the same LoRA loader as model_b. |
+| `boolean` | `BOOLEAN` | Yes | True |  | Which pair passes; BOOLEAN. true = model_a and clip_a, false = model_b and clip_b. Toggle it, or wire it from Logic Boolean. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `MODEL` | The model half of the selected pair. |
+| `<output1>` | `CLIP` | The text encoder half of the same selected pair. |
+
+</details>
+
+<a id="node-wasmodelindexswitch"></a>
+<details>
+<summary><b>Model Index Switch</b></summary>
+
+Pass one of any number of loaded models on, chosen by a number. A model here is anything a loader answers: a diffusion model, a VAE, a text encoder, a ControlNet, an upscale model and the rest. Only the chosen input is evaluated, so no other model is loaded and its memory is never spent.
+
+| | |
+|---|---|
+| Node id | `WASModelIndexSwitch` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `index` | `INT,NUMBER,FLOAT` | Yes | 0 |  | Slot to pass on, from 0. Negative counts from the end: -1 = last. A decimal is truncated: 2.7 = 2. |
+| `out_of_range` | `COMBO` | Yes | wrap | `wrap`, `clamp`, `error` | Index outside 0..count-1. With 3 slots and index 4: `wrap` = slot 1, `clamp` = slot 2, `error` stops the prompt. |
+| `input_a` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_b` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_c` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_d` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_e` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_f` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_g` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_h` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_i` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_j` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_k` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_l` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_m` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_n` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_o` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_p` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_q` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_r` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_s` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_t` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_u` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_v` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_w` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_x` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_y` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_z` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `output` | `COMFY_MATCHTYPE_V3` | The selected input, typed to whatever was connected. |
+| `resolved_index` | `INT` | Slot actually read, from 0, after wrap or clamp. |
+| `count` | `INT` | Connected slots. The index runs 0..count-1. |
+
+</details>
+
+<a id="node-wasmodelswitch"></a>
+<details>
+<summary><b>Model Switch</b></summary>
+
+Pass one of two loaded models on, chosen by a boolean. A model here is anything a loader answers: a diffusion model, a VAE, a text encoder, a CLIP vision model, a ControlNet, an upscale model, a style model and the rest. The socket refuses anything that is not one, and the branch it does not pick is never loaded.
+
+| | |
+|---|---|
+| Node id | `WASModelSwitch` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `input_a` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Passed on when boolean is true. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; input_b and output then take that type only. |
+| `input_b` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Passed on when boolean is false. Must match input_a's type. |
+| `boolean` | `BOOLEAN` | Yes | True |  | Selects the input. true = input_a, false = input_b. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `output` | `COMFY_MATCHTYPE_V3` | The selected input, typed to whatever was connected. |
+
+</details>
+
+<a id="node-number-input-condition"></a>
+<details>
+<summary><b>Number Input Condition</b></summary>
+
+Test two numbers against each other and emit either 1/0 for the outcome or the number that won the test, so a value can be picked without a separate switch node. 'divisible by' and 'factor of' are the same test, whether B divides evenly by A, so an A of 0 stops with a division error. 'if A odd', 'if A even' and 'if A prime' look at number_a alone, and 1 and everything below it counts as not prime.
+
+| | |
+|---|---|
+| Node id | `Number Input Condition` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `number_a` | `NUMBER,INT,FLOAT` | Yes |  |  | The left-hand value, and the only one the 'if A' tests look at. When return_boolean is 'false' this is what comes out if the test holds. |
+| `number_b` | `NUMBER,INT,FLOAT` | Yes |  |  | The right-hand value. When return_boolean is 'false' this is what comes out if the test fails. The 'if A odd', 'if A even' and 'if A prime' tests ignore it. |
+| `return_boolean` | `COMBO` | Yes |  | `false`, `true` | What the outputs carry. 'false' passes number_a through when the test holds and number_b when it does not; 'true' reports the outcome itself as 1 or 0. |
+| `comparison` | `COMBO` | Yes |  | `and`, `or`, `greater-than`, `greater-than or equals`, `less-than`, `less-than or equals`, `equals`, `does not equal`, `divisible by`, `if A odd`, `if A even`, `if A prime` and 1 more | The test to apply. 'and' holds when neither number is 0, 'or' when at least one is not. The ordering tests compare A against B. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `NUMBER` | The outcome: 1 or 0 when return_boolean is 'true', otherwise whichever of the two numbers the test picked. |
+| `<output1>` | `FLOAT` | The same result as a float, so 1 leaves here as 1.0. |
+| `<output2>` | `INT` | The same result as a whole number, cut off rather than rounded, so 2.9 leaves here as 2. |
+
+</details>
+
+<a id="node-wastensorimageindexswitch"></a>
+<details>
+<summary><b>Tensor Image Index Switch</b></summary>
+
+Pass one of any number of pictures on, chosen by a number, where a picture is an image, a mask or a latent. Wire a Number Counter or a loop's index in to step through them one per run. The sockets take those three types only, and just the chosen input is evaluated, so the rest is skipped.
+
+| | |
+|---|---|
+| Node id | `WASTensorImageIndexSwitch` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `index` | `INT,NUMBER,FLOAT` | Yes | 0 |  | Slot to pass on, from 0. Negative counts from the end: -1 = last. A decimal is truncated: 2.7 = 2. |
+| `out_of_range` | `COMBO` | Yes | wrap | `wrap`, `clamp`, `error` | Index outside 0..count-1. With 3 slots and index 4: `wrap` = slot 1, `clamp` = slot 2, `error` stops the prompt. |
+| `input_a` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_b` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_c` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_d` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_e` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_f` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_g` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_h` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_i` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_j` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_k` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_l` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_m` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_n` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_o` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_p` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_q` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_r` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_s` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_t` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_u` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_v` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_w` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_x` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_y` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+| `input_z` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `output` | `COMFY_MATCHTYPE_V3` | The selected input, typed to whatever was connected. |
+| `resolved_index` | `INT` | Slot actually read, from 0, after wrap or clamp. |
+| `count` | `INT` | Connected slots. The index runs 0..count-1. |
+
+</details>
+
+<a id="node-wastensorimageswitch"></a>
+<details>
+<summary><b>Tensor Image Switch</b></summary>
+
+Pass one of two pictures on, chosen by a boolean, where a picture is an image, a mask or a latent. The socket takes those three and refuses anything else, so a wrong wire is caught as it is drawn. The unselected input is not evaluated, so the work behind it is skipped.
+
+| | |
+|---|---|
+| Node id | `WASTensorImageSwitch` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `input_a` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Passed on when boolean is true. Takes IMAGE, MASK or LATENT. The first connection fixes the type; input_b and output then take that type only. |
+| `input_b` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Passed on when boolean is false. Must match input_a's type. |
+| `boolean` | `BOOLEAN` | Yes | True |  | Selects the input. true = input_a, false = input_b. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `output` | `COMFY_MATCHTYPE_V3` | The selected input, typed to whatever was connected. |
+
+</details>
+
+### WAS Suite/Number
+
+<a id="node-constant-number"></a>
+<details>
+<summary><b>Constant Number</b></summary>
+
+Emit a constant number. `integer` truncates the widget value, `float` keeps it, and `bool` emits 1 when it is greater than 0.5 and 0 otherwise. A number_as_text holding anything is parsed in place of the widget.
+
+| | |
+|---|---|
+| Node id | `Constant Number` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `number_type` | `COMBO` | Yes |  | `integer`, `float`, `bool` | How the value is read. `integer` cuts off any fraction, so 8.7 becomes 8; `float` keeps it as typed; `bool` collapses it to 1 when it is above 0.5 and to 0 otherwise. |
+| `number` | `FLOAT` | Yes | 0 |  | The value to send on, before number_type is applied: 8.7 leaves as 8 in `integer` and 8.7 in `float`. Ignored while number_as_text holds anything. |
+| `number_as_text` | `STRING` | No |  |  | The number in digits, used instead of the widget above. `integer` keeps every digit, past what the widget holds: 9007199254740993. `float` also takes a point or an exponent: -12.5, .5, 1e6. `bool` takes a word: true, 1, yes, on, or false, 0, no, off. Digits, not a sum: 2^53+1 is refused. Use Number Expression for a sum. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `NUMBER` | The value in the chosen type: whole in `integer` and `bool` mode, decimal in `float` mode. |
+| `<output1>` | `FLOAT` | The same value as a float, so 8 leaves here as 8.0. |
+| `<output2>` | `INT` | The same value as a whole number, cut off rather than rounded, so 8.7 leaves here as 8. |
+
+</details>
+
+<a id="node-number-counter"></a>
+<details>
+<summary><b>Number Counter</b></summary>
+
+Emit a number that moves on every prompt, which is how a batch gets numbered or a setting gets swept over a run of images. Each copy of the node counts on its own, and every count starts over when ComfyUI does. `increment` and `decrement` ignore stop. The '_to_stop' modes freeze on the first value that reaches stop, so start 0, step 3, stop 10 counts 3, 6, 9, 12 and then holds at 12; `reset_after_stop` jumps back to start + step instead of freezing.
+
+| | |
+|---|---|
+| Node id | `Number Counter` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `number_type` | `COMBO` | Yes |  | `integer`, `float` | Whether the count is kept whole. `integer` begins at a whole start and emits whole numbers; `float` allows fractions, so a step of 0.25 counts 0.25, 0.5, 0.75. |
+| `mode` | `COMBO` | Yes |  | `increment`, `decrement`, `increment_to_stop`, `decrement_to_stop`, `reset_after_stop` | Which way the count moves, and whether it ends. `increment` and `decrement` run on forever; the '_to_stop' modes freeze at stop, and `reset_after_stop` loops back instead. |
+| `start` | `FLOAT` | Yes | 0 |  | Where the count begins, and where a reset sends it back to. The first prompt already applies one step, so an incrementing counter from a start of 0 with a step of 1 first emits 1 rather than 0. |
+| `stop` | `FLOAT` | Yes | 0 |  | The limit the '_to_stop' and `reset_after_stop` modes watch for; `increment` and `decrement` ignore it. Left at 0, an `increment_to_stop` counter is already at its limit and never moves. |
+| `step` | `FLOAT` | Yes | 1 |  | How far the count moves each prompt. 1 counts 1, 2, 3; 10 counts 10, 20, 30; 0 holds the count still. Always positive, `decrement` is what subtracts it. |
+| `reset_bool` | `NUMBER,INT,FLOAT` | No |  |  | Send 1 or more here to put the count back to start before this prompt's step; 0, or nothing connected, leaves it running. The value is rounded first, so 0.6 also resets. The NUMBER output of Logic Boolean fits this socket. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `number` | `NUMBER` | The count after this prompt's step, whole when number_type is `integer`. |
+| `float` | `FLOAT` | The count as a float. This one keeps a fraction even when number_type is `integer`, which a fractional step can produce. |
+| `int` | `INT` | The count as a whole number, cut off rather than rounded, so 2.9 leaves here as 2. |
+
+</details>
+
+<a id="node-number-pi"></a>
+<details>
+<summary><b>Number PI</b></summary>
+
+Emit the constant pi, 3.141592653589793, for maths built out of the Number Operation nodes. It has no settings.
+
+| | |
+|---|---|
+| Node id | `Number PI` |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `NUMBER` | Pi on a NUMBER socket, for a Number Operation input. |
+| `<output1>` | `FLOAT` | The same value on a FLOAT socket, for a core node's float widget. |
+
+</details>
+
+<a id="node-random-number"></a>
+<details>
+<summary><b>Random Number</b></summary>
+
+Draw a random number from a seed, for a value that should vary from run to run such as a strength, a step count or a seed of its own. The same seed and the same bounds always draw the same number, so a result can be reproduced.
+
+| | |
+|---|---|
+| Node id | `Random Number` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `number_type` | `COMBO` | Yes |  | `integer`, `float`, `bool` | What kind of number to draw. `integer` picks a whole number, both bounds included, cutting any fraction off the bounds first. `float` picks a decimal anywhere between them. `bool` ignores both bounds and picks a decimal from 0 up to 1, which the INT output rounds to 0 or 1 for a coin flip. |
+| `minimum` | `FLOAT` | Yes | 0 |  | The lowest value that can come out, itself included. Ignored in `bool` mode. Both bounds default to 0, which draws 0 every time until they are changed. |
+| `maximum` | `FLOAT` | Yes | 0 |  | The highest value that can come out, itself included. Ignored in `bool` mode, and in `integer` mode a maximum below minimum stops with an error. |
+| `seed` | `INT` | Yes | 0 |  | Seed for the draw. The same seed always gives the same number; change it for a different one. Only this node's draw is affected, sampling noise elsewhere in the prompt is left alone. Any whole number; `0` is as good a seed as any. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `NUMBER` | The drawn value: whole in `integer` mode, decimal in `float` and `bool` mode. |
+| `<output1>` | `FLOAT` | The same value as a decimal. |
+| `<output2>` | `INT` | The same value rounded to the nearest whole number, which is where the 0 or 1 of `bool` mode comes from. |
+
+</details>
+
+<a id="node-wasresolutionselector"></a>
+<details>
+<summary><b>Resolution Selector (Advanced)</b></summary>
+
+Pick a shape and one measurement, and get the width and height that match. Size by an edge in pixels when you know the resolution you want, such as 1024 across, and by megapixels when you are working to a budget instead. Both sides land on a whole step, so the pair is one a model will take.
+
+| | |
+|---|---|
+| Node id | `WASResolutionSelector` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `aspect_ratio` | `COMBO` | Yes | 1:1 | `1:1`, `5:4`, `4:3`, `1.43:1`, `3:2`, `16:10`, `1.66:1`, `16:9`, `1.85:1`, `2:1`, `2.2:1`, `21:9` and 2 more | The shape, widest side first. 16:9 is widescreen, 3:2 is a stills camera, 1:1 is square. Orientation below decides which way round it is applied, so each shape is listed once. |
+| `orientation` | `COMBO` | Yes | landscape | `landscape`, `portrait`, `square` | Which way round the shape goes. `portrait` swaps the two sides, and `square` ignores the ratio entirely. |
+| `size_by` | `COMBO` | Yes | long edge | `long edge`, `short edge`, `width`, `height`, `megapixels` | Which measurement you are giving. `long edge` and `short edge` fix whichever side is longer or shorter; `width` and `height` fix that side whatever the orientation; `megapixels` fixes the area instead and reads the megapixels widget rather than size. |
+| `size` | `INT` | Yes | 1024 |  | The measurement in pixels, read by every option but `megapixels`. 1024 on the long edge of 16:9 is 1024 by 576. |
+| `multiple_of` | `INT` | Yes | 64 |  | Step both sides land on. 8 is the least a latent will take, and 64 is what most model families were trained on. A step moves a side by up to half of itself, so the shape you get back can differ slightly from the one you asked for; the ratio output says what it came to. |
+| `megapixels` | `FLOAT` | No | 1.0 |  | The area in millions of pixels, read only when size_by is `megapixels`. 1.0 at 16:9 is about 1344 by 768. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `width` | `INT` | Width in pixels, a whole number of steps. |
+| `height` | `INT` | Height in pixels, a whole number of steps. |
+| `ratio` | `FLOAT` | Width divided by height as it came out, after the step was applied. Compare it with the shape you asked for to see what the step cost. |
+| `megapixels` | `FLOAT` | Area of the pair in millions of pixels, whichever way it was sized. Read it to keep two different shapes to the same cost. |
+| `label` | `STRING` | The pair written out, as '1024 x 576, 16:9, 0.59 MP'. Feed it to a filename prefix or a caption so a render records its own size. |
+
+</details>
+
+### WAS Suite/Number/Operations
+
+<a id="node-wascurvetonumbers"></a>
+<details>
+<summary><b>Curve to Numbers</b></summary>
+
+Read a curve as numbers, so a shape drawn by hand can drive a schedule. Drag the plot on the node to bend the curve, or write the same '0,0;128,200;255,255' shorthand, and this walks minimum to maximum by step and answers what the curve reads at every position along the way. The straight line gives an even ramp, a bent one redistributes the same range, which is what gives a strength ramp, a denoise schedule or a camera move its shape. Every value comes out on one wire and one per run, so it can feed a list node or step a For Loop.
+
+| | |
+|---|---|
+| Node id | `WASCurveToNumbers` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `curve_points` | `STRING` | Yes |  |  | The curve, written as '0,0;128,200;255,255' on a 0-255 scale, lowest input first. Drag the plot below to write it by hand, or paste the curve_points an Image Curves node holds, whose composite RGB curve is the one read. Empty is the straight line, which walks the range evenly. |
+| `minimum` | `FLOAT,NUMBER,INT` | Yes | 0.0 |  | The bottom of the range, and the value the curve reads out at its lowest. 0.0 for a strength or a denoise, -1.0 with a maximum of 1.0 for a move either side of centre. |
+| `maximum` | `FLOAT,NUMBER,INT` | Yes | 1.0 |  | The top of the range, and the value the curve reads out at its highest. 1.0 for a blend factor, 255 for a colour level. Below minimum stops with an error. |
+| `step` | `FLOAT,NUMBER,INT` | Yes | 0.1 |  | The increment from one position to the next, which is what decides how many values there are. 0.1 over 0.0 to 1.0 gives 11 of them. Maximum is included only where the step divides the range exactly, so a step of 0.3 stops at 0.9. |
+| `decimals` | `INT` | Yes | 6 |  | How many decimal places each number is rounded to. This is what keeps 0.30000000000000004 out of a filename or a log line. 0 rounds to whole numbers. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `values` | `ARRAY` | What the curve reads at each position, on one wire and on the minimum to maximum scale, for Number List Statistics, Text List Get and Text List Length. The straight line answers the positions back. |
+| `positions` | `ARRAY` | Where each value sits along the range, on one wire and in the same order: 0, 0.1, 0.2 and so on for 0.0 to 1.0 by 0.1. Entry 3 here is the position of value 3, which is what plots the pair. |
+| `value` | `FLOAT` | The same values one per run, so the graph below runs once for each: wire it into a sampler's denoise or a blend factor to render the whole curve as a series. |
+| `count` | `INT` | How many values there are, which is how many times the graph below the 'value' output runs. 11 for a range of 0.0 to 1.0 by 0.1. |
+| `text` | `STRING` | The values on one line, separated by commas, as '0, 0.5, 1'. Wire it into Text to Console or Save Text File to keep the numbers a curve produced, or into a text input that takes a list of weights. |
+
+</details>
+
+<a id="node-image-aspect-ratio"></a>
+<details>
+<summary><b>Image Aspect Ratio</b></summary>
+
+Measure an image, or a given width and height, and report the shape of it: the ratio as a number, its common form such as 16:9, and whether it is landscape, portrait or square.
+
+| | |
+|---|---|
+| Node id | `Image Aspect Ratio` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `image` | `IMAGE` | No |  |  | The image to measure. Only needed when width and height are not both given; with no image and no pair of sizes the node stops with an error. A batch is measured at its first image, since each output carries one value. |
+| `width` | `NUMBER,INT,FLOAT` | No |  |  | Width in pixels, measured instead of the image. It is used only when height is given too, and a value of 0 counts as not given. |
+| `height` | `NUMBER,INT,FLOAT` | No |  |  | Height in pixels, measured instead of the image. It is used only when width is given too, and a value of 0 counts as not given. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `aspect_number` | `NUMBER` | Width divided by height: roughly 1.78 for 1920x1080, 0.5625 for 1080x1920, and exactly 1.0 for a square. |
+| `aspect_float` | `FLOAT` | The same width-over-height ratio, on a FLOAT socket. |
+| `is_landscape_bool` | `NUMBER` | 1 when the image is wider than it is tall, 0 when it is taller or square. A number rather than a true/false value. |
+| `aspect_ratio_common` | `STRING` | The ratio reduced to whole numbers, such as 16:9 for 1920x1080 or 1:1 for a square. A fractional width or height is cut to a whole number before reducing. |
+| `aspect_type` | `STRING` | The orientation as a word: 'landscape', 'portrait' or 'square', ready to drop into a prompt or a file name. |
+| `is_landscape_float` | `FLOAT` | The same landscape flag as 1.0 or 0.0. |
+| `is_landscape_int` | `INT` | The same landscape flag as 1 or 0, on an INT socket. |
+
+</details>
+
+<a id="node-image-size-to-number"></a>
+<details>
+<summary><b>Image Size to Number</b></summary>
+
+Measure an image and emit its width and height in pixels, on one pair of sockets per numeric type, so an existing image's size can drive a latent, a resize or a crop.
+
+| | |
+|---|---|
+| Node id | `Image Size to Number` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `image` | `IMAGE` | Yes |  |  | The image to measure. Nothing about it is changed, and a batch is measured at its first image, since each output carries one value. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `width_num` | `NUMBER` | Width in pixels, on a NUMBER socket. |
+| `height_num` | `NUMBER` | Height in pixels, on a NUMBER socket. |
+| `width_float` | `FLOAT` | The same width as a float, so 512 leaves here as 512.0. |
+| `height_float` | `FLOAT` | The same height as a float, so 512 leaves here as 512.0. |
+| `width_int` | `INT` | The same width as an INT, for a core node's width widget. |
+| `height_int` | `INT` | The same height as an INT, for a core node's height widget. |
+| `count` | `INT` | How many frames the batch holds. 1 for a single picture, which is what makes this answer for a video sequence as well as a still. |
+
+</details>
+
+<a id="node-image-to-seed"></a>
+<details>
+<summary><b>Image to Seed</b></summary>
+
+Turn images into seed numbers, so a picture can stand in for a seed. The same picture always gives the same number.
+
+| | |
+|---|---|
+| Node id | `Image to Seed` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `images` | `IMAGE` | Yes |  |  | The images to digest. Every image in the batch produces its own seed. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `INT` | One seed per image, between 0 and 4294967295. Because this is a list, a node reading it runs once per seed. |
+
+</details>
+
+<a id="node-integer-place-counter"></a>
+<details>
+<summary><b>Integer Place Counter</b></summary>
+
+Count how many decimal digits an integer has, which is the padding width a zero-padded frame or batch number needs.
+
+| | |
+|---|---|
+| Node id | `Integer place counter` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `int_input` | `INT` | Yes | 0 |  | The whole number to measure. Usually linked from a frame or batch count rather than typed in. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `INT_PLACES` | `INT` | How many digits the number is written with: 1 for 0 through 9, 3 for 100, 4 for 1000. |
+
+</details>
+
+<a id="node-latent-size-to-number"></a>
+<details>
+<summary><b>Latent Size to Number</b></summary>
+
+Read a latent's tensor width and height, on one pair of sockets per numeric type. These are latent units: an eighth of the pixel dimensions the latent decodes to.
+
+| | |
+|---|---|
+| Node id | `Latent Size to Number` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `samples` | `LATENT` | Yes |  |  | The latent to measure, from an Empty Latent Image, a VAE Encode or a sampler. It is passed over untouched. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `tensor_w_num` | `NUMBER` | Latent width, on a NUMBER socket. 64 here means 512 pixels once decoded; multiply by 8 for the pixel width. |
+| `tensor_h_num` | `NUMBER` | Latent height, on a NUMBER socket. Multiply by 8 for the pixel height. |
+| `tensor_w_float` | `FLOAT` | The same latent width as a float, so 64 leaves here as 64.0. |
+| `tensor_h_float` | `FLOAT` | The same latent height as a float, so 64 leaves here as 64.0. |
+| `tensor_w_int` | `INT` | The same latent width as an INT. |
+| `tensor_h_int` | `INT` | The same latent height as an INT. |
+
+</details>
+
+<a id="node-wasnumbereasing"></a>
+<details>
+<summary><b>Number Easing</b></summary>
+
+Convert numbers from one range to another through an easing curve. One number or a whole list, typed into the value box or wired in, and every value comes out as a list, so the graph below runs once per number. The linear curve is a plain range remap; any other also shapes how the values accelerate. A wire is read instead of the box, so Number Range's LIST converts a whole series at once. A value outside the input range is pulled to the nearest end first, the curves being defined only between them. Past the far end `back` travels about a tenth of the span and `elastic` almost a whole one, so leave clamp on where the result feeds a hard limit such as a denoise. On unreadable, `zero` keeps an entry's position, and as do nan and infinity. The ints output cuts off rather than rounding.
+
+| | |
+|---|---|
+| Node id | `WASNumberEasing` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `value` | `STRING,NUMBER,FLOAT,INT,ARRAY` | Yes |  |  | The numbers to convert, one to a line or separated by commas. A comma is a separator rather than a thousands mark, so 1,000 reads as two values. |
+| `easing` | `COMBO` | Yes |  |  | The curve applied to every value once it has been normalised. `linear` leaves it alone, which turns this node into a plain range conversion. `ease_in` starts slow, `ease_out` finishes slow, `ease_in_out` does both. The `back` and `elastic` families leave the output range on purpose, and `bounce` settles onto it in decreasing hops without ever leaving it. |
+| `input_min` | `FLOAT` | Yes | 0.0 |  | The value that counts as the start of the input range, and the same range is used for every value converted. Set this and input_max to the range the source actually produces, 0 and 23 for a 24-frame counter, or the start and stop of the Number Range feeding it. |
+| `input_max` | `FLOAT` | Yes | 1.0 |  | The value that counts as the end of the input range. Equal to input_min stops with an error, since a range of no width cannot say where a value sits in it. |
+| `output_min` | `FLOAT` | Yes | 0.0 |  | What the start of the input range becomes. Larger than output_max runs the result backwards, which is how a fade-out is written without touching the curve. |
+| `output_max` | `FLOAT` | Yes | 1.0 |  | What the end of the input range becomes. |
+| `clamp` | `BOOLEAN` | Yes | True |  | Whether each result is held inside the output range. On by default; turn it off where the overshoot of `back` or `elastic` is the point. |
+| `unreadable` | `COMBO` | Yes |  | `skip`, `zero`, `error` | What an entry that is not a number does. `skip` leaves it out, `zero` puts 0 in its place, and `error` stops the prompt and names the entry. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `ARRAY` | Every converted value on one wire, for Text List Get, Text List Length and the other list nodes. |
+| `<output1>` | `NUMBER` | One NUMBER per value. Because this is a list, a node reading it runs once for each. This is the socket that drives a series of renders. |
+| `floats` | `FLOAT` | The same values as decimals, one per run. |
+| `ints` | `INT` | The same values as whole numbers, one per run, for a step count or a pixel size. Cut off rather than rounded, so 7.6 arrives as 7. |
+| `count` | `INT` | How many values were converted, which is how many times the graph below this node runs. |
+
+</details>
+
+<a id="node-wasnumberexpression"></a>
+<details>
+<summary><b>Number Expression</b></summary>
+
+Work out a whole formula over up to 24 numbers in one node, such as `(a * b) / 2 + c`, `clamp(a, 0, 1)` or `round(a / b, 2)`. The functions are min, max, abs, round, floor, ceil, sqrt, clamp(v, lo, hi), lerp(a, b, t), sign, log, log2, log10, exp, sin, cos, tan, atan2, hypot, degrees and radians, with pi, e and tau as constants. Comparisons and `and`, `or` work too, so `a if a > b else b` picks the larger and the boolean output carries the answer. Only arithmetic is read: a name, an attribute or a call that is not on the list is refused by name before anything runs. The box takes several lines, joined into one, and `#` starts a comment.
+
+| | |
+|---|---|
+| Node id | `WASNumberExpression` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `expression` | `STRING` | Yes | a + b |  | The formula, over `a` to `x`. Eg: `(a * b) / 2 + c`. Functions: min max abs round floor ceil sqrt clamp lerp sign log log2 log10 exp sin cos tan atan2 hypot degrees radians, plus pi, e and tau. `a > b` comes out as 1 or 0; `#` starts a comment. |
+| `a` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `a` stands for. Type it here or wire one in. Unconnected slots use the widget, and a slot the expression never names is ignored. |
+| `b` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `b` stands for. Type it here or wire one in. `a / b` with b at 0 stops the run unless on_error is set to zero. |
+| `c` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `c` stands for. Type it here or wire one in. Handy as the offset in `(a * b) / 2 + c`. |
+| `d` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `d` stands for. Type it here or wire one in. The fourth value, free for a limit such as `clamp(a, c, d)`. |
+| `e` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `e` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `f` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `f` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `g` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `g` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `h` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `h` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `i` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `i` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `j` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `j` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `k` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `k` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `l` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `l` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `m` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `m` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `n` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `n` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `o` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `o` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `p` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `p` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `q` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `q` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `r` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `r` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `s` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `s` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `t` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `t` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `u` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `u` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `v` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `v` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `w` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `w` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `x` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `x` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
+| `decimals` | `INT` | No | 6 |  | Decimal places a fractional answer is rounded to. 6 = 0.333333, 2 = 0.33, 0 = whole, so 3.7 comes out 4.0. It also clears the trailing 0.0000000001 that decimal arithmetic leaves behind. A whole answer is untouched. |
+| `on_error` | `COMBO` | No | error | `error`, `zero` | What a refused or impossible expression does. `error` = stop the run and name the cause, `zero` = log it and answer 0. Pick `zero` where a division by zero is expected on some frames of a batch. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `number` | `NUMBER` | The answer on the NUMBER wire, whole where it came out whole. A comparison answers 1 or 0. |
+| `float` | `FLOAT` | The same answer as a decimal, so 7 leaves here as 7.0. |
+| `int` | `INT` | The same answer with its fraction cut off rather than rounded, so 3.9 leaves here as 3. Held to the range a whole-number socket carries. |
+| `boolean` | `BOOLEAN` | false when the answer is 0, true for anything else. Wire it to a switch to branch on `a > b`. |
+| `text` | `STRING` | The answer written out, as `4.5` or `7`. Feed it to a filename prefix or a text join. |
+
+</details>
+
+<a id="node-wasnumberliststatistics"></a>
+<details>
+<summary><b>Number List Statistics</b></summary>
+
+Measure a whole list of numbers at once: sum, mean, min, max, median and range, how many were read, and a summary line to preview. Feed it Number Range's LIST, a text list, or numbers typed one to a line. Divide each value by max to normalise a schedule against its own peak, or by sum to turn weights into shares. Every figure comes out as a single value rather than a list, so the graph below runs once however long the list is. An entry holding no number is left out, counted as 0, or stopped on.
+
+| | |
+|---|---|
+| Node id | `WASNumberListStatistics` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `values` | `STRING,ARRAY,NUMBER,FLOAT,INT` | Yes |  |  | The numbers to measure, one to a line or separated by commas, or a LIST wired in from Number Range or Text List. A comma separates values rather than marking thousands, so 1,000 reads as two values. |
+| `unreadable` | `COMBO` | Yes |  | `skip`, `zero`, `error` | What an entry that is not a number does. `skip` leaves it out and lowers count, `zero` counts it as 0 and pulls the mean down, `error` stops the prompt and names the entry. |
+| `decimals` | `INT` | Yes | 4 |  | Decimal places every figure is rounded to, on the outputs and in the summary. 0 = whole numbers; 2 = 0.33; 6 = 0.333333. Raise it where sum or mean feeds further maths. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `sum` | `FLOAT` | Every value added together. 1, 2, 3 gives 6. Divide a value by this to get its share of the whole. |
+| `mean` | `FLOAT` | The average, which is sum divided by count. 1, 2, 6 gives 3. A single far-off value drags it, so read it beside median. |
+| `min` | `FLOAT` | The smallest value. 4, 1, 9 gives 1. Subtract it from each value and divide by range to spread a schedule across 0 to 1. |
+| `max` | `FLOAT` | The largest value. 4, 1, 9 gives 9. Divide each value by this to normalise a schedule against its own peak. |
+| `median` | `FLOAT` | The middle value once sorted, or the average of the middle two when count is even. 1, 2, 90 gives 2, where mean gives 31. |
+| `range` | `FLOAT` | max minus min, the width the values cover. 4, 1, 9 gives 8. 0 means every value is the same, so dividing by it to normalise would fail. |
+| `count` | `INT` | How many values were read. `skip` leaves an entry holding no number out, so 4 entries with one word among them gives 3, where `zero` gives 4. Compare it with the entries given to see how many held no number. |
+| `summary` | `STRING` | Every figure on one line, rounded to decimals: `count 3, sum 6.0000, mean 2.0000, min 1.0000, max 3.0000, median 2.0000, range 2.0000`. Wire it to a text preview or into a filename. |
+
+</details>
+
+<a id="node-number-multiple-of"></a>
+<details>
+<summary><b>Number Multiple Of</b></summary>
+
+Round a number up to the next multiple of the given value, which is how a free-typed dimension is snapped to the multiple of 8 a latent needs. A number that already divides evenly is returned as it is.
+
+| | |
+|---|---|
+| Node id | `Number Multiple Of` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `number` | `NUMBER,INT,FLOAT` | Yes |  |  | The value to snap upward, such as a width or height that was typed or computed freely. |
+| `multiple` | `INT` | Yes | 8 |  | The spacing to snap to. 8 turns 500 into 504, which is the grid a latent needs; 64 turns 500 into 512. A value of 0 stops with a division error. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `NUMBER` | The snapped value, or the original when it already divided evenly. |
+| `<output1>` | `FLOAT` | The same snapped value, on a FLOAT socket. |
+| `<output2>` | `INT` | The snapped value as a whole number, cut off rather than rounded. |
+
+</details>
+
+<a id="node-number-operation"></a>
+<details>
+<summary><b>Number Operation</b></summary>
+
+Combine two numbers with one operation. The seven arithmetic operations emit the result; the six comparisons emit 1 when they hold and 0 when they do not. `exponentiation` raises A to the power of B, so 2 and 10 give 1024, and `modulus` is the remainder, so 7 and 2 give 1.
+
+| | |
+|---|---|
+| Node id | `Number Operation` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `number_a` | `NUMBER,INT,FLOAT` | Yes |  |  | The left-hand value: what is divided, raised to a power or compared against number_b. |
+| `number_b` | `NUMBER,INT,FLOAT` | Yes |  |  | The right-hand value: what number_a is divided by, raised to, or measured against. A value of 0 with `division`, `floor division` or `modulus` stops with a division error. |
+| `operation` | `COMBO` | Yes |  | `addition`, `subtraction`, `division`, `floor division`, `multiplication`, `exponentiation`, `modulus`, `greater-than`, `greater-than or equals`, `less-than`, `less-than or equals`, `equals` and 1 more | What to do with the two values. `division` keeps the fraction, so 7 over 2 is 3.5, while `floor division` throws it away and gives 3. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `NUMBER` | The result of the operation, or 1/0 when a comparison was chosen. |
+| `<output1>` | `FLOAT` | The same result, on a FLOAT socket. |
+| `<output2>` | `INT` | The same result as a whole number, cut off rather than rounded, so 3.5 leaves here as 3. |
+
+</details>
+
+<a id="node-wasnumberrange"></a>
+<details>
+<summary><b>Number Range</b></summary>
+
+Generate a series of numbers between two values, by count or by step, shaped by an easing curve. Every value comes out as a list, so the graph below runs once per number. A step's sign is taken from the direction start to stop, so 0.1 and -0.1 behave the same, and a step that divides the span exactly ends the series on stop while one that does not ends it on the last whole step before stop. On easing, the `ease_in` curves start slow and accelerate, `ease_out` the reverse, and `ease_in_out` does both, which is what makes a camera move or a strength ramp look deliberate rather than mechanical, while `back` and `elastic` overshoot past start and stop on purpose.
+
+| | |
+|---|---|
+| Node id | `WASNumberRange` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `start` | `FLOAT,NUMBER,INT` | Yes | 0.0 |  | The first value of the series. |
+| `stop` | `FLOAT,NUMBER,INT` | Yes | 1.0 |  | The value the series runs to. Lower than start counts downwards, which is how a fade-out is written. |
+| `mode` | `COMBO` | Yes |  | `count`, `step` | What decides the values. `count` produces exactly that many, spread across the whole span, the mode to use when the number of frames is what is fixed. `step` walks from start towards stop by a fixed amount and produces however many values fit, for a series where the spacing is what matters. |
+| `count` | `INT` | Yes | 10 |  | How many values to produce, read in `count` mode. A count of 1 gives start alone. Every node below this one runs this many times, so a large count is a large queue. |
+| `step` | `FLOAT` | Yes | 0.1 |  | The gap between one value and the next, read in `step` mode. A step of 0 stops with an error. |
+| `easing` | `COMBO` | Yes |  |  | How the values are distributed across the span, in `count` mode. `linear` spaces them evenly. Not read in `step` mode, where the spacing is fixed. |
+| `endpoint` | `BOOLEAN` | Yes | True |  | Whether the last value is exactly stop, in `count` mode. Turn it off for a seamless loop: the final frame of a loop is the first frame of the next pass, so emitting both repeats it. |
+| `decimals` | `INT` | Yes | 6 |  | How many decimal places each value is rounded to. This is what keeps 0.30000000000000004 out of a filename or a log line. 0 rounds to whole numbers. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `ARRAY` | Every value on one wire, for Number Easing, Text List Get, Text List Length and the other list nodes. |
+| `<output1>` | `NUMBER` | One NUMBER per value. Because this is a list, a node reading it runs once for each. This is the socket that drives a series of renders. |
+| `floats` | `FLOAT` | The same values as decimals, one per run. |
+| `ints` | `INT` | The same values as whole numbers, cut off rather than rounded, one per run. For a step count, a frame number or a seed. |
+| `count` | `INT` | How many values were produced, which is how many times the graph below this node runs. |
+
+</details>
+
+<a id="node-number-to-float"></a>
+<details>
+<summary><b>Number to Float</b></summary>
+
+Hand a value on as a decimal FLOAT, so a NUMBER wire from this pack can reach a core node's float input such as a CFG or a denoise.
+
+| | |
+|---|---|
+| Node id | `Number to Float` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `number` | `NUMBER,INT,FLOAT` | Yes |  |  | The value to hand on. Nothing is rounded or clamped. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `FLOAT` | The same value as a decimal, so 8 leaves here as 8.0. |
+
+</details>
+
+<a id="node-number-to-int"></a>
+<details>
+<summary><b>Number to Int</b></summary>
+
+Hand a value on as a whole INT, so a NUMBER wire from this pack can reach a core node's integer input such as steps, width or a seed.
+
+| | |
+|---|---|
+| Node id | `Number to Int` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `number` | `NUMBER,INT,FLOAT` | Yes |  |  | The value to make whole. Any fraction is cut off rather than rounded, so 2.9 gives 2 and -2.9 gives -2. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `INT` | The value with its fractional part removed. |
+
+</details>
+
+<a id="node-number-to-seed"></a>
+<details>
+<summary><b>Number to Seed</b></summary>
+
+Repackage a number as a SEED, the socket KSampler (WAS) takes its seed on. Core samplers want a plain INT instead, use Number to Int for those.
+
+| | |
+|---|---|
+| Node id | `Number to Seed` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `number` | `NUMBER,INT,FLOAT` | Yes |  |  | The value to use as the seed, typically from Number Counter or Random Number. It is passed through as it is, not rounded. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `SEED` | The seed in the shape KSampler (WAS) expects, for its seed input. |
+
+</details>
+
+<a id="node-number-to-string"></a>
+<details>
+<summary><b>Number to String</b></summary>
+
+Convert a NUMBER to a STRING. The value keeps the type it arrives with, so an integer renders as '8' and a float as '8.0'.
+
+| | |
+|---|---|
+| Node id | `Number to String` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `number` | `NUMBER,INT,FLOAT` | Yes |  |  | The value to write out. Put a Number to Int in front of it to lose a trailing '.0'. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `STRING` | The number written out in full, with no padding, thousands separators or currency signs: 8, 8.0, -1.25. |
+
+</details>
+
+<a id="node-wastonumber"></a>
+<details>
+<summary><b>To Number</b></summary>
+
+Put a whole number, a decimal or a switch onto NUMBER, the wire this pack's own arithmetic runs on. Anything answering an INT, a FLOAT or a BOOLEAN can then feed a node that takes only a NUMBER, so a size, a count or a flag from elsewhere joins a chain of number nodes without a node in between.
+
+| | |
+|---|---|
+| Node id | `WASToNumber` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `value` | `INT,FLOAT,BOOLEAN` | Yes |  |  | What to convert. A whole number and a decimal pass through as they are, and a switch becomes 1 for true and 0 for false. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `number` | `NUMBER` | The same value on the NUMBER wire. A decimal keeps its fraction, so feed it to a node that rounds where a whole number is wanted. |
+
+</details>
+
+### WAS Suite/Sampling
+
+<a id="node-ksampler-cycle"></a>
+<details>
+<summary><b>KSampler Cycle</b></summary>
+
+Sample a latent over several cycles, enlarging it between passes by an even share of upscale_factor. Scaling runs in latent space, or through a VAE round trip with an optional upscale model and unsharp sharpening.
+
+| | |
+|---|---|
+| Node id | `KSampler Cycle` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `model` | `MODEL` | Yes |  |  | The diffusion model every cycle samples with, unless secondary_model takes over partway through. |
+| `seed` | `INT` | Yes | 0 |  | Seed for the noise. Every cycle uses this same seed, so the whole run is repeatable; change it for a different image. Any whole number; `0` is as good a seed as any. |
+| `steps` | `INT` | Yes | 20 |  | Sampling steps on the first cycle. More steps take longer and resolve more detail, with little to gain past about 30 for most models. Turning steps_scaling on changes this figure on later cycles. |
+| `cfg` | `FLOAT` | Yes | 8.0 |  | How closely the image is held to the prompt. Around 7-8 suits most models; lower is looser and softer, much higher tends to burn contrast and flatten detail. |
+| `sampler_name` | `COMBO` | Yes |  |  | The sampling algorithm. 'euler' is the plain, predictable choice; the 'ancestral' and 'sde' variants add fresh noise as they go and keep changing the image at high step counts; the 'dpmpp' family converges in fewer steps. The list is whatever this ComfyUI offers. |
+| `scheduler` | `COMBO` | Yes |  |  | How the noise level is stepped down over the run. 'normal' and 'karras' are the usual choices, karras spending more steps at low noise where fine detail is decided. The list is whatever this ComfyUI offers. |
+| `positive` | `CONDITIONING` | Yes |  |  | Encoded prompt describing what the image should contain. |
+| `negative` | `CONDITIONING` | Yes |  |  | Encoded prompt describing what to keep out of the image. |
+| `latent_image` | `LATENT` | Yes |  |  | The latent the first cycle works on: an empty one to generate from scratch, or an encoded image to work up from. Its size sets where the enlargement starts. |
+| `tiled_vae` | `COMBO` | Yes |  | `disable`, `enable` | `enable` converts between latent and pixels a tile at a time, which needs far less VRAM at large sizes and can leave faint seams. Only matters when latent_upscale is `disable`, since that is the only path that goes through pixels. |
+| `latent_upscale` | `COMBO` | Yes |  | `disable`, `nearest-exact`, `bilinear`, `area`, `bicubic`, `bislerp` | How the enlargement between cycles is done. `disable` takes the slower, sharper route through pixels, using vae, upscale_model, processor_model and scale_sampling. Any other entry stays in latent space and is much faster, ignoring all four; `nearest-exact` is the blockiest, `bilinear` and `bicubic` smoother, `area` averages, and `bislerp` is a blend built for latents. |
+| `upscale_factor` | `FLOAT` | Yes | 2.0 |  | Total enlargement across the whole run, not per cycle: 2.0 means the result is twice the size it started at, and the cycles share that growth evenly between them. |
+| `upscale_cycles` | `INT` | Yes | 2 |  | How many sample passes to run. Enlargement happens between passes, so 2 grows once and 4 grows three times in smaller jumps, which is gentler but slower. Capped at steps, since a pass needs at least one step. |
+| `starting_denoise` | `FLOAT` | Yes | 1.0 |  | How much of the first pass is redrawn. 1.0 ignores latent_image's content and generates from noise; around 0.5 keeps its composition and changes the detail; 0.0 changes nothing. |
+| `cycle_denoise` | `FLOAT` | Yes | 0.5 |  | How much every pass after the first redraws. This is what keeps the enlarged image recognisable: 0.5 refines it, and much above that starts inventing new content at each size. |
+| `scale_denoise` | `COMBO` | Yes |  | `enable`, `disable` | `enable` halves cycle_denoise again on each pass after the second, so later passes only polish; denoise_cutoff sets how low it may go. `disable` uses cycle_denoise unchanged on every pass. |
+| `scale_sampling` | `COMBO` | Yes |  | `bilinear`, `bicubic`, `nearest`, `lanczos` | Which filter resizes the decoded picture on the pixel-space route. `lanczos` and `bicubic` are the sharpest, `bilinear` softer, `nearest` blocky. Ignored unless latent_upscale is `disable`. |
+| `vae` | `VAE` | Yes |  |  | The VAE used to decode to pixels and encode back between cycles. Required even when latent_upscale keeps the work in latent space and nothing is decoded. |
+| `secondary_model` | `MODEL` | No |  |  | A second diffusion model to hand the later cycles to, so one model lays out the image and another finishes it. Disconnected, one model does the whole run. |
+| `secondary_start_cycle` | `INT` | No | 2 |  | Which pass secondary_model takes over on, counting from 1, so 2 hands over straight after the first. That pass also uses cycle_denoise rather than any scaled-down value. |
+| `upscale_model` | `UPSCALE_MODEL` | No |  |  | An upscale model such as ESRGAN to do the enlarging, which recovers far more detail than a plain resize. Its result is fitted to the target size, rounded to a multiple of 32. Disconnected, the picture is simply resampled. Ignored unless latent_upscale is `disable`. |
+| `processor_model` | `UPSCALE_MODEL` | No |  |  | An upscale model run before the enlargement and shrunk straight back to the size it started at, so it cleans up artefacts and restores detail without changing the size. Ignored unless latent_upscale is `disable`. |
+| `pos_additive` | `CONDITIONING` | No |  |  | A second positive prompt mixed into the first a little more, or a little less, on every cycle, a way to steer the image somewhere new as it grows. Disconnected, the positive prompt stays as it is. |
+| `neg_additive` | `CONDITIONING` | No |  |  | A second negative prompt mixed into the first a little more, or a little less, on every cycle. Disconnected, the negative prompt stays as it is. |
+| `pos_add_mode` | `COMBO` | No |  | `increment`, `decrement` | Which way pos_add_strength moves between cycles: `increment` doubles it each pass, so pos_additive takes over gradually; `decrement` halves it, so its influence fades out. Only used when pos_add_strength_scaling is enabled. |
+| `pos_add_strength` | `FLOAT` | No | 0.25 |  | How much of pos_additive is mixed in on the first cycle. 0.25 is a quarter of the way towards it, 1.0 replaces the positive prompt outright. |
+| `pos_add_strength_scaling` | `COMBO` | No |  | `enable`, `disable` | `enable` lets pos_add_mode change the strength from cycle to cycle. `disable` holds pos_add_strength steady for the whole run. |
+| `pos_add_strength_cutoff` | `FLOAT` | No | 2.0 |  | The limit the scaled strength is held to: a ceiling while incrementing, a floor while decrementing. At the default of 2.0 in increment mode the strength is effectively unbounded, since 1.0 already means full replacement. |
+| `neg_add_mode` | `COMBO` | No |  | `increment`, `decrement` | Which way neg_add_strength moves between cycles: `increment` doubles it each pass, `decrement` halves it. Only used when neg_add_strength_scaling is enabled. |
+| `neg_add_strength` | `FLOAT` | No | 0.25 |  | How much of neg_additive is mixed in on the first cycle. 0.25 is a quarter of the way towards it, 1.0 replaces the negative prompt outright. |
+| `neg_add_strength_scaling` | `COMBO` | No |  | `enable`, `disable` | `enable` lets neg_add_mode change the strength from cycle to cycle. `disable` holds neg_add_strength steady for the whole run. |
+| `neg_add_strength_cutoff` | `FLOAT` | No | 2.0 |  | The limit the scaled strength is held to: a ceiling while incrementing, a floor while decrementing. |
+| `sharpen_strength` | `FLOAT` | No | 0.0 |  | How hard to sharpen the enlarged picture before it is encoded again. 0.0 skips sharpening entirely; around 1.0 counteracts the softness of a resize; far above that leaves halos. Ignored unless latent_upscale is `disable`. |
+| `sharpen_radius` | `INT` | No | 2 |  | How wide the sharpening reaches, in pixels. Small values pick out fine texture, large ones lift broad edges and coarsen the picture. Only used when sharpen_strength is above 0. |
+| `steps_scaling` | `COMBO` | No |  | `enable`, `disable` | `enable` changes the step count on every pass after the first, by steps_scaling_value and in the direction steps_control names. `disable` keeps steps the same throughout. |
+| `steps_control` | `COMBO` | No |  | `decrement`, `increment` | Which way the step count moves. `decrement` spends fewer steps on each larger pass, which is the cheaper choice since low-denoise passes need fewer; `increment` spends more. |
+| `steps_scaling_value` | `INT` | No | 10 |  | How many steps are added or taken away on each pass after the first. Only used when steps_scaling is enabled. |
+| `steps_cutoff` | `INT` | No | 20 |  | The step count the scaling is not allowed past: a ceiling while incrementing, a floor while decrementing. At the default of 20, with steps also 20 and steps_control on `decrement`, the count never moves. |
+| `denoise_cutoff` | `FLOAT` | No | 0.25 |  | The lowest denoise the halving under scale_denoise may reach, so later passes still do some work. Ignored when scale_denoise is disabled. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `latent(s)` | `LATENT` | The latent after the final pass, at the full enlarged size. Decode it with a VAE Decode to see the picture. |
+
+</details>
+
+<a id="node-wasspeedsampler"></a>
+<details>
+<summary><b>SPEED Sampler</b></summary>
+
+Sample the early steps at a reduced resolution and grow the latent partway through, in a spectral basis so the detail that appears is resolved rather than interpolated. Needs a flow-matching model, and the spectrum values it schedules from should be measured with Latent Power Spectrum.
+
+| | |
+|---|---|
+| Node id | `WASSpeedSampler` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `base_sampler` | `COMBO` | Yes | euler |  | The solver each segment runs. A solver that carries state between steps starts that state again at every transition, so the simpler ones behave most predictably here. |
+| `scales` | `STRING` | Yes | 0.5,1.0 |  | Fractions of the full resolution to sample at, increasing, ending at 1.0. `0.5,1.0` starts at half size and grows once. A single `1.0` disables growth and samples normally throughout. |
+| `transform` | `COMBO` | Yes | dct | `dct`, `dwt`, `fft` | The basis the latent grows in. `dct` and `fft` handle any ratio between scales; `dwt` is cheaper but only ever doubles, so every step in the list has to be exactly twice the one before it. |
+| `delta` | `FLOAT` | Yes | 0.01 |  | How much leftover noise counts as burying a frequency. Larger values hold the small grid for more steps, saving more but leaving less of the schedule to resolve detail in. The default is conservative: it grows after about a sixth of the steps. |
+| `amplitude` | `FLOAT` | Yes | 203.615097 |  | The A of the model's power spectrum, eg 203.6 for FLUX.1-dev. Only meaningful alongside delta: a measured A runs larger than a published one, so take both from the same place. |
+| `beta` | `FLOAT` | Yes | 1.915461 |  | How fast the model's spectrum falls away with frequency. Unlike the amplitude this is a property of the model rather than of the scale its latents happen to be in, so a measured one is directly comparable to a published one. The default belongs to FLUX.1-dev. |
+| `seed` | `INT` | Yes | 0 |  | Seeds the noise that fills the frequencies each transition adds. Changing it varies the fine detail without moving the composition. Any whole number; `0` is as good a seed as any. |
+| `manual_sigmas` | `STRING` | No |  |  | Sigmas to grow at, one per transition, decreasing. Leave this empty to have them worked out from the amplitude and beta instead, which is the usual way round. Setting them ignores delta, amplitude and beta. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `SAMPLER` | `SAMPLER` | Feeds the SAMPLER socket of SamplerCustom. |
+
+</details>
+
+### WAS Suite/Text
+
+<a id="node-wasrichtexteditor"></a>
+<details>
+<summary><b>Rich Text Editor</b></summary>
+
+Write a document in a rich text editor drawn on the node and emit it as HTML. The document lives in the node's own text box, so a saved workflow reopens with it intact and a run from the API produces the same text with no browser involved. The box takes no link. Tokens such as [time] and [user] are replaced on the way out, and the box itself is never rewritten. With document.clean_html left on, which is the default, script and iframe elements, object and embed tags, on* handler attributes and javascript: URLs are removed from the output and named in the log; text, styling, images, tables and everything else come through as the box holds them. Setting document.clean_html to false in config.yaml emits the markup untouched.
+
+| | |
+|---|---|
+| Node id | `WASRichTextEditor` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `html` | `STRING` | Yes |  |  | The document, as HTML. The editor drawn on the node is a view onto this box, so paste markup here and the two stay in step. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `html` | `STRING` | The document as HTML, for anything that takes a string. A bare < in the text arrives as &lt;. |
+
+</details>
+
+<a id="node-text-concatenate"></a>
+<details>
+<summary><b>Text Concatenate</b></summary>
+
+Join up to 24 text inputs with a delimiter, in socket order. Empty inputs are skipped. Type \n as the delimiter to join with newlines.
+
+| | |
+|---|---|
+| Node id | `Text Concatenate` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `delimiter` | `STRING` | Yes | , |  | Put between the joined pieces; STRING. Eg: ', ' for a prompt,   for one per line, empty to run them together. |
+| `clean_whitespace` | `BOOLEAN` | Yes | True |  | Trim whitespace off each piece before joining. `on` also drops a piece holding only spaces. |
+| `text_a` | `STRING` | No |  |  | First piece to join; STRING. Joined with delimiter; empty pieces are skipped. Eg: masterpiece |
+| `text_b` | `STRING` | No |  |  | Piece 2; STRING. Empty is skipped. |
+| `text_c` | `STRING` | No |  |  | Piece 3; STRING. Empty is skipped. |
+| `text_d` | `STRING` | No |  |  | Piece 4; STRING. Empty is skipped. |
+| `text_e` | `STRING` | No |  |  | Piece 5; STRING. Empty is skipped. |
+| `text_f` | `STRING` | No |  |  | Piece 6; STRING. Empty is skipped. |
+| `text_g` | `STRING` | No |  |  | Piece 7; STRING. Empty is skipped. |
+| `text_h` | `STRING` | No |  |  | Piece 8; STRING. Empty is skipped. |
+| `text_i` | `STRING` | No |  |  | Piece 9; STRING. Empty is skipped. |
+| `text_j` | `STRING` | No |  |  | Piece 10; STRING. Empty is skipped. |
+| `text_k` | `STRING` | No |  |  | Piece 11; STRING. Empty is skipped. |
+| `text_l` | `STRING` | No |  |  | Piece 12; STRING. Empty is skipped. |
+| `text_m` | `STRING` | No |  |  | Piece 13; STRING. Empty is skipped. |
+| `text_n` | `STRING` | No |  |  | Piece 14; STRING. Empty is skipped. |
+| `text_o` | `STRING` | No |  |  | Piece 15; STRING. Empty is skipped. |
+| `text_p` | `STRING` | No |  |  | Piece 16; STRING. Empty is skipped. |
+| `text_q` | `STRING` | No |  |  | Piece 17; STRING. Empty is skipped. |
+| `text_r` | `STRING` | No |  |  | Piece 18; STRING. Empty is skipped. |
+| `text_s` | `STRING` | No |  |  | Piece 19; STRING. Empty is skipped. |
+| `text_t` | `STRING` | No |  |  | Piece 20; STRING. Empty is skipped. |
+| `text_u` | `STRING` | No |  |  | Piece 21; STRING. Empty is skipped. |
+| `text_v` | `STRING` | No |  |  | Piece 22; STRING. Empty is skipped. |
+| `text_w` | `STRING` | No |  |  | Piece 23; STRING. Empty is skipped. |
+| `text_x` | `STRING` | No |  |  | Piece 24; STRING. Empty is skipped. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `STRING` | The connected inputs joined in socket order, separated by the delimiter. |
+
+</details>
+
+<a id="node-text-load-line-from-file"></a>
+<details>
+<summary><b>Text Load Line From File</b></summary>
+
+Read one line of a text file per prompt, or one line by index. The second output holds every line, keyed by the dictionary name. The file has to sit in a folder this pack may read: ComfyUI's input, output or temp folder, the pack's own folder, or one listed under paths.allow_read in config.yaml. With no path and nothing connected the node logs an error and emits an empty line.
+
+| | |
+|---|---|
+| Node id | `Text Load Line From File` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `file` | `COMBO` | Yes |  |  | Which file to read, one prompt or phrase per line. The menu lists every text file in ComfyUI's input, output and temp folders and in any folder added under paths.allow_read. Ignored when multiline_text is connected. |
+| `dictionary_name` | `STRING` | Yes | [filename] |  | The key the list of every line is filed under in the dictionary output, so Text Dictionary Get can fetch it again by name. Used exactly as typed. |
+| `label` | `STRING` | Yes | TextBatch |  | Name this batch's read position is remembered under, and the position survives a restart. Two nodes sharing a label share one position and take turns; giving them different labels lets two lists advance independently. Pointing a label at a different file starts it over at the first line. |
+| `mode` | `COMBO` | Yes |  | `automatic`, `index` | `automatic` hands out the next line on every run and wraps around at the end of the file, which is what walks a list of prompts one per generation. `index` returns the one line asked for and does not advance. |
+| `index` | `INT` | Yes | 0 |  | Which line to return in `index` mode, counting from 0 for the first line. Ignored in `automatic` mode. An index past the end of a file wraps around, so 12 in a 10-line file is line 2. |
+| `multiline_text` | `STRING` | No |  |  | Lines to read instead of file_path; STRING, one entry per line. Anything here overrides file_path. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `line_text` | `STRING` | The one line selected, stripped of surrounding whitespace. Empty when the file is missing, empty, or the index was out of range. |
+| `dictionary` | `DICT` | Every line of the source, as a list filed under dictionary_name, the whole list alongside the single line, for a node that needs all of it. |
+
+</details>
+
+<a id="node-text-multiline"></a>
+<details>
+<summary><b>Text Multiline</b></summary>
+
+A multiline text box. Lines starting with # are dropped, and tokens such as [time] and [user] are substituted. A {red\|blue} alternation picks one option at random unless dynamic_prompts is switched off, which keeps a literal brace intact. Text whose # lines have to survive as well, such as code, belongs in Text Multiline (Code Compatible).
+
+| | |
+|---|---|
+| Node id | `Text Multiline` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text` | `STRING` | Yes |  |  | The text to emit. A line whose first non-blank character is # is left out, so part of a prompt can be parked instead of deleted. Tokens such as [time], [user] and [hostname] are replaced with their values, and a {red\|blue} alternation picks one of the options at random unless dynamic_prompts is off. |
+| `dynamic_prompts` | `BOOLEAN` | Yes | True |  | Whether a {red\|blue} alternation picks one option at random. `on` is the prompt behaviour; `off` keeps every brace as typed, which is what JSON needs. Lines starting with # are dropped either way, so code belongs in Text Multiline (Code Compatible). The choice is made on the canvas: text sent straight to the API is never rewritten. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `STRING` | The text with # lines removed and every token replaced. |
+
+</details>
+
+<a id="node-text-multiline-code-compatible"></a>
+<details>
+<summary><b>Text Multiline (Code Compatible)</b></summary>
+
+A multiline text box for code, JSON, YAML or anything else that has to arrive exactly as typed. Every line is kept, including one starting with '#', and a {red\|blue} alternation is passed through as written. Text Multiline drops # lines and reads braces as a prompt alternation, so this is the box to reach for whenever those two characters mean something.
+
+| | |
+|---|---|
+| Node id | `Text Multiline (Code Compatible)` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text` | `STRING` | Yes |  |  | The text to emit, kept exactly as typed. A line starting with `#` survives and a `{red\|blue}` alternation is passed through literally, which is what makes this box safe for code and for JSON. Tokens such as [time] and [user] are still replaced. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `STRING` | The text as typed, with only its tokens replaced. |
+
+</details>
+
+<a id="node-text-random-line"></a>
+<details>
+<summary><b>Text Random Line</b></summary>
+
+Pick one line of the incoming text at random, chosen by the seed.
+
+| | |
+|---|---|
+| Node id | `Text Random Line` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text` | `STRING` | Yes |  |  | Candidates, one per line; STRING, as `a tabby cat`. One line is returned. Blank lines count as candidates. |
+| `seed` | `INT` | Yes | 0 |  | Which line comes out. The same seed and the same text always give the same line; change it to draw a different one. Any whole number; `0` is as good a seed as any. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `STRING` | The single line the seed selected. |
+
+</details>
+
+<a id="node-text-string"></a>
+<details>
+<summary><b>Text String</b></summary>
+
+Four text fields on one node, each with its own output. Tokens such as [time] and [user] are substituted in each of them.
+
+| | |
+|---|---|
+| Node id | `Text String` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text` | `STRING` | Yes |  |  | Text for the first output. Tokens such as `[time]`, `[user]` and `[hostname]` are replaced with their values, so this is a convenient source for file name prefixes and captions. |
+| `text_b` | `STRING` | No |  |  | Text for the second output, expanded the same way. |
+| `text_c` | `STRING` | No |  |  | Text for the third output, expanded the same way. |
+| `text_d` | `STRING` | No |  |  | Text for the fourth output, expanded the same way. |
+| `text_e` | `STRING` | No |  |  | Text 5, emitted on its own output. Tokens are substituted. |
+| `text_f` | `STRING` | No |  |  | Text 6, emitted on its own output. Tokens are substituted. |
+| `text_g` | `STRING` | No |  |  | Text 7, emitted on its own output. Tokens are substituted. |
+| `text_h` | `STRING` | No |  |  | Text 8, emitted on its own output. Tokens are substituted. |
+| `text_i` | `STRING` | No |  |  | Text 9, emitted on its own output. Tokens are substituted. |
+| `text_j` | `STRING` | No |  |  | Text 10, emitted on its own output. Tokens are substituted. |
+| `text_k` | `STRING` | No |  |  | Text 11, emitted on its own output. Tokens are substituted. |
+| `text_l` | `STRING` | No |  |  | Text 12, emitted on its own output. Tokens are substituted. |
+| `text_m` | `STRING` | No |  |  | Text 13, emitted on its own output. Tokens are substituted. |
+| `text_n` | `STRING` | No |  |  | Text 14, emitted on its own output. Tokens are substituted. |
+| `text_o` | `STRING` | No |  |  | Text 15, emitted on its own output. Tokens are substituted. |
+| `text_p` | `STRING` | No |  |  | Text 16, emitted on its own output. Tokens are substituted. |
+| `text_q` | `STRING` | No |  |  | Text 17, emitted on its own output. Tokens are substituted. |
+| `text_r` | `STRING` | No |  |  | Text 18, emitted on its own output. Tokens are substituted. |
+| `text_s` | `STRING` | No |  |  | Text 19, emitted on its own output. Tokens are substituted. |
+| `text_t` | `STRING` | No |  |  | Text 20, emitted on its own output. Tokens are substituted. |
+| `text_u` | `STRING` | No |  |  | Text 21, emitted on its own output. Tokens are substituted. |
+| `text_v` | `STRING` | No |  |  | Text 22, emitted on its own output. Tokens are substituted. |
+| `text_w` | `STRING` | No |  |  | Text 23, emitted on its own output. Tokens are substituted. |
+| `text_x` | `STRING` | No |  |  | Text 24, emitted on its own output. Tokens are substituted. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `TEXT` | `STRING` | The text field, with its tokens replaced. |
+| `TEXT_B` | `STRING` | The text_b field, with its tokens replaced. |
+| `TEXT_C` | `STRING` | The text_c field, with its tokens replaced. |
+| `TEXT_D` | `STRING` | The text_d field, with its tokens replaced. |
+| `TEXT_E` | `STRING` | Text 5, with its tokens substituted. |
+| `TEXT_F` | `STRING` | Text 6, with its tokens substituted. |
+| `TEXT_G` | `STRING` | Text 7, with its tokens substituted. |
+| `TEXT_H` | `STRING` | Text 8, with its tokens substituted. |
+| `TEXT_I` | `STRING` | Text 9, with its tokens substituted. |
+| `TEXT_J` | `STRING` | Text 10, with its tokens substituted. |
+| `TEXT_K` | `STRING` | Text 11, with its tokens substituted. |
+| `TEXT_L` | `STRING` | Text 12, with its tokens substituted. |
+| `TEXT_M` | `STRING` | Text 13, with its tokens substituted. |
+| `TEXT_N` | `STRING` | Text 14, with its tokens substituted. |
+| `TEXT_O` | `STRING` | Text 15, with its tokens substituted. |
+| `TEXT_P` | `STRING` | Text 16, with its tokens substituted. |
+| `TEXT_Q` | `STRING` | Text 17, with its tokens substituted. |
+| `TEXT_R` | `STRING` | Text 18, with its tokens substituted. |
+| `TEXT_S` | `STRING` | Text 19, with its tokens substituted. |
+| `TEXT_T` | `STRING` | Text 20, with its tokens substituted. |
+| `TEXT_U` | `STRING` | Text 21, with its tokens substituted. |
+| `TEXT_V` | `STRING` | Text 22, with its tokens substituted. |
+| `TEXT_W` | `STRING` | Text 23, with its tokens substituted. |
+| `TEXT_X` | `STRING` | Text 24, with its tokens substituted. |
+
+</details>
+
+### WAS Suite/Text/Dictionary
+
+<a id="node-text-dictionary-convert"></a>
+<details>
+<summary><b>Text Dictionary Convert</b></summary>
+
+Convert text holding a dictionary literal into a dictionary. The text is read with ast.literal_eval, which accepts single quotes as well as JSON's double quotes and executes nothing.
+
+| | |
+|---|---|
+| Node id | `Text Dictionary Convert` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `dictionary_text` | `STRING` | Yes |  |  | Dictionary literal; STRING. Single or double quotes both work. Eg: {'subject': 'a cat'} |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `DICT` | The dictionary the text described, for the other DICT nodes. |
+
+</details>
+
+<a id="node-text-dictionary-get"></a>
+<details>
+<summary><b>Text Dictionary Get</b></summary>
+
+Look up a key in a dictionary and emit its value as text. A key that is not in the dictionary emits the default value.
+
+| | |
+|---|---|
+| Node id | `Text Dictionary Get` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `dictionary` | `DICT` | Yes |  |  | The dictionary to read from. |
+| `key` | `STRING` | Yes |  |  | Name of the entry to fetch, for example 'subject'. Matching is exact, so case and spaces have to line up with the key as it was stored. |
+| `default_value` | `STRING` | No |  |  | Emitted when the dictionary has no such key. Left empty, a missing key gives an empty string rather than failing the prompt. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `STRING` | The entry's value as text. A value that is a list or a number is rendered the way python prints it, so a list arrives as ['a', 'b']. |
+
+</details>
+
+<a id="node-wastextdictionaryitems"></a>
+<details>
+<summary><b>Text Dictionary Items</b></summary>
+
+Open a dictionary into two lists that line up: the keys, and their values. Entry 0 of one belongs with entry 0 of the other, so a For Loop stepping one index through both reads a key and its value together. The entries also come out written as text, and counted for the loop to run on.
+
+| | |
+|---|---|
+| Node id | `WASTextDictionaryItems` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `dictionary` | `DICT` | Yes |  |  | The dictionary whose entries are wanted, keys and values both. |
+| `sort` | `COMBO` | Yes | none | `none`, `key`, `value` | Order both lists come out in. `none` = the order the entries were added; `key` = A to Z by name; `value` = A to Z by the value as text. Case is ignored, so 'Apple' sits beside 'apple', and digits sort as text: '10' before '9'. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `keys` | `ARRAY` | The entry names on one wire, such as ['subject', 'style']. Feed it to Text List Get with a For Loop's index to read one name per iteration. |
+| `values` | `ARRAY` | What each name is stored against, in step with keys. An entry holding several alternatives stays a list, so ['a cat', 'a wolf'] arrives whole rather than as writing. |
+| `pairs` | `STRING` | Every entry written as `subject: a cat`, one to a line. For a preview, a caption or a saved text file. A value carrying line breaks of its own spans several lines. An empty dictionary gives an empty string. |
+| `count` | `INT` | How many entries the dictionary holds, 0 when it holds none. Feed it to a For Loop's iteration count to run the graph once per entry. |
+
+</details>
+
+<a id="node-text-dictionary-keys"></a>
+<details>
+<summary><b>Text Dictionary Keys</b></summary>
+
+Emit the keys of a dictionary, in insertion order.
+
+| | |
+|---|---|
+| Node id | `Text Dictionary Keys` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `dictionary` | `DICT` | Yes |  |  | The dictionary whose entry names are wanted. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `ARRAY` | The names of the dictionary's entries, in the order they were added. Text List to Text joins them into one string; Text List Concatenate skips them, because they arrive as a live view of the dictionary rather than as a plain list. |
+
+</details>
+
+<a id="node-text-dictionary-new"></a>
+<details>
+<summary><b>Text Dictionary New</b></summary>
+
+Build a DICT from up to 24 key/value pairs. A value can be a STRING, or a LIST of alternatives for Text Find and Replace by Dictionary to draw from. Empty keys are skipped.
+
+| | |
+|---|---|
+| Node id | `Text Dictionary New` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `key_1` | `STRING` | Yes |  |  | Key name for value_1; STRING. Text Find and Replace by Dictionary swaps __key__ in a prompt for the value. Eg: animal |
+| `value_1` | `STRING,ARRAY,DICT` | Yes |  |  | Value for key_1; STRING, LIST or DICT literal, or LIST or DICT by connection. A connection ignores list_values. Eg: a tabby cat |
+| `key_2` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_2` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_3` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_3` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_4` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_4` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_5` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_5` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_6` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_6` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_7` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_7` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_8` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_8` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_9` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_9` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_10` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_10` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_11` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_11` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_12` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_12` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_13` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_13` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_14` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_14` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_15` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_15` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_16` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_16` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_17` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_17` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_18` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_18` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_19` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_19` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_20` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_20` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_21` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_21` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_22` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_22` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_23` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_23` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `key_24` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
+| `value_24` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
+| `list_values` | `COMBO` | No | list literal | `list literal`, `one per line`, `off` | How a typed value becomes a LIST. `list literal`: reads ['a cat', 'a wolf'], anything else stays STRING. `one per line`: each line is an item, one line stays STRING. `off`: always STRING. Connections ignore this. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `DICT` | The DICT, for Text Find and Replace by Dictionary, Text Dictionary Get and the other DICT nodes. Duplicate keys keep the last value. |
+
+</details>
+
+<a id="node-text-dictionary-to-text"></a>
+<details>
+<summary><b>Text Dictionary To Text</b></summary>
+
+Render a dictionary as text. The result uses single quotes and reads back through Text Dictionary Convert.
+
+| | |
+|---|---|
+| Node id | `Text Dictionary To Text` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `dictionary` | `DICT` | Yes |  |  | The dictionary to write out as text. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `STRING` | The dictionary written out on one line, for example {'subject': 'a cat'}. Useful for a preview or a saved text file, and Text Dictionary Convert reads it back. |
+
+</details>
+
+<a id="node-text-dictionary-update"></a>
+<details>
+<summary><b>Text Dictionary Update</b></summary>
+
+Merge two to 24 dictionaries into one. Keys present in more than one input take the value of the last input that carries them.
+
+| | |
+|---|---|
+| Node id | `Text Dictionary Update` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `dictionary_a` | `DICT` | Yes |  |  | The base dictionary. Its entries are the ones overwritten when a later input carries the same key. |
+| `dictionary_b` | `DICT` | Yes |  |  | Merged over dictionary_a, so a key in both takes this one's value. |
+| `dictionary_c` | `DICT` | No |  |  | Merged over the first two. Unconnected, it contributes nothing. |
+| `dictionary_d` | `DICT` | No |  |  | Merged last, so it wins every clash. Unconnected, it contributes nothing. |
+| `dictionary_e` | `DICT` | No |  |  | Dictionary 5. Its keys win over every input before it and lose to every one after. |
+| `dictionary_f` | `DICT` | No |  |  | Dictionary 6. Its keys win over every input before it and lose to every one after. |
+| `dictionary_g` | `DICT` | No |  |  | Dictionary 7. Its keys win over every input before it and lose to every one after. |
+| `dictionary_h` | `DICT` | No |  |  | Dictionary 8. Its keys win over every input before it and lose to every one after. |
+| `dictionary_i` | `DICT` | No |  |  | Dictionary 9. Its keys win over every input before it and lose to every one after. |
+| `dictionary_j` | `DICT` | No |  |  | Dictionary 10. Its keys win over every input before it and lose to every one after. |
+| `dictionary_k` | `DICT` | No |  |  | Dictionary 11. Its keys win over every input before it and lose to every one after. |
+| `dictionary_l` | `DICT` | No |  |  | Dictionary 12. Its keys win over every input before it and lose to every one after. |
+| `dictionary_m` | `DICT` | No |  |  | Dictionary 13. Its keys win over every input before it and lose to every one after. |
+| `dictionary_n` | `DICT` | No |  |  | Dictionary 14. Its keys win over every input before it and lose to every one after. |
+| `dictionary_o` | `DICT` | No |  |  | Dictionary 15. Its keys win over every input before it and lose to every one after. |
+| `dictionary_p` | `DICT` | No |  |  | Dictionary 16. Its keys win over every input before it and lose to every one after. |
+| `dictionary_q` | `DICT` | No |  |  | Dictionary 17. Its keys win over every input before it and lose to every one after. |
+| `dictionary_r` | `DICT` | No |  |  | Dictionary 18. Its keys win over every input before it and lose to every one after. |
+| `dictionary_s` | `DICT` | No |  |  | Dictionary 19. Its keys win over every input before it and lose to every one after. |
+| `dictionary_t` | `DICT` | No |  |  | Dictionary 20. Its keys win over every input before it and lose to every one after. |
+| `dictionary_u` | `DICT` | No |  |  | Dictionary 21. Its keys win over every input before it and lose to every one after. |
+| `dictionary_v` | `DICT` | No |  |  | Dictionary 22. Its keys win over every input before it and lose to every one after. |
+| `dictionary_w` | `DICT` | No |  |  | Dictionary 23. Its keys win over every input before it and lose to every one after. |
+| `dictionary_x` | `DICT` | No |  |  | Dictionary 24. Its keys win over every input before it and lose to every one after. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `DICT` | A new dictionary holding every entry of the connected inputs. The inputs themselves are left alone. |
+
+</details>
+
+### WAS Suite/Text/List
+
+<a id="node-text-list"></a>
+<details>
+<summary><b>Text List</b></summary>
+
+Collect up to 24 texts into a list, in socket order. Each entry is typed in or wired in, and empty entries are skipped.
+
+| | |
+|---|---|
+| Node id | `Text List` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text_a` | `STRING` | No |  |  | First entry of the LIST; STRING. Empty entries are skipped. Eg: a cinematic photograph |
+| `text_b` | `STRING` | No |  |  | Entry 2; STRING. Empty is skipped. |
+| `text_c` | `STRING` | No |  |  | Entry 3; STRING. Empty is skipped. |
+| `text_d` | `STRING` | No |  |  | Entry 4; STRING. Empty is skipped. |
+| `text_e` | `STRING` | No |  |  | Entry 5; STRING. Empty is skipped. |
+| `text_f` | `STRING` | No |  |  | Entry 6; STRING. Empty is skipped. |
+| `text_g` | `STRING` | No |  |  | Entry 7; STRING. Empty is skipped. |
+| `text_h` | `STRING` | No |  |  | Entry 8 of the list; STRING. Empty is skipped. |
+| `text_i` | `STRING` | No |  |  | Entry 9 of the list; STRING. Empty is skipped. |
+| `text_j` | `STRING` | No |  |  | Entry 10 of the list; STRING. Empty is skipped. |
+| `text_k` | `STRING` | No |  |  | Entry 11 of the list; STRING. Empty is skipped. |
+| `text_l` | `STRING` | No |  |  | Entry 12 of the list; STRING. Empty is skipped. |
+| `text_m` | `STRING` | No |  |  | Entry 13 of the list; STRING. Empty is skipped. |
+| `text_n` | `STRING` | No |  |  | Entry 14 of the list; STRING. Empty is skipped. |
+| `text_o` | `STRING` | No |  |  | Entry 15 of the list; STRING. Empty is skipped. |
+| `text_p` | `STRING` | No |  |  | Entry 16 of the list; STRING. Empty is skipped. |
+| `text_q` | `STRING` | No |  |  | Entry 17 of the list; STRING. Empty is skipped. |
+| `text_r` | `STRING` | No |  |  | Entry 18 of the list; STRING. Empty is skipped. |
+| `text_s` | `STRING` | No |  |  | Entry 19 of the list; STRING. Empty is skipped. |
+| `text_t` | `STRING` | No |  |  | Entry 20 of the list; STRING. Empty is skipped. |
+| `text_u` | `STRING` | No |  |  | Entry 21 of the list; STRING. Empty is skipped. |
+| `text_v` | `STRING` | No |  |  | Entry 22 of the list; STRING. Empty is skipped. |
+| `text_w` | `STRING` | No |  |  | Entry 23 of the list; STRING. Empty is skipped. |
+| `text_x` | `STRING` | No |  |  | Entry 24 of the list; STRING. Empty is skipped. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `ARRAY` | The texts that hold something, as one list, in socket order. Text List to Text turns it back into a string. |
+
+</details>
+
+<a id="node-text-list-concatenate"></a>
+<details>
+<summary><b>Text List Concatenate</b></summary>
+
+Join up to 24 lists end to end, in socket order. Unconnected inputs are skipped.
+
+| | |
+|---|---|
+| Node id | `Text List Concatenate` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `list_a` | `ARRAY` | No |  |  | First list, whose entries come first in the result. An unconnected input contributes nothing. |
+| `list_b` | `ARRAY` | No |  |  | Second list, appended after list_a. |
+| `list_c` | `ARRAY` | No |  |  | Third list, appended after list_b. |
+| `list_d` | `ARRAY` | No |  |  | Fourth list, appended last. |
+| `list_e` | `ARRAY` | No |  |  | List 5, joined on after the one before it. Unconnected is skipped. |
+| `list_f` | `ARRAY` | No |  |  | List 6, joined on after the one before it. Unconnected is skipped. |
+| `list_g` | `ARRAY` | No |  |  | List 7, joined on after the one before it. Unconnected is skipped. |
+| `list_h` | `ARRAY` | No |  |  | List 8, joined on after the one before it. Unconnected is skipped. |
+| `list_i` | `ARRAY` | No |  |  | List 9, joined on after the one before it. Unconnected is skipped. |
+| `list_j` | `ARRAY` | No |  |  | List 10, joined on after the one before it. Unconnected is skipped. |
+| `list_k` | `ARRAY` | No |  |  | List 11, joined on after the one before it. Unconnected is skipped. |
+| `list_l` | `ARRAY` | No |  |  | List 12, joined on after the one before it. Unconnected is skipped. |
+| `list_m` | `ARRAY` | No |  |  | List 13, joined on after the one before it. Unconnected is skipped. |
+| `list_n` | `ARRAY` | No |  |  | List 14, joined on after the one before it. Unconnected is skipped. |
+| `list_o` | `ARRAY` | No |  |  | List 15, joined on after the one before it. Unconnected is skipped. |
+| `list_p` | `ARRAY` | No |  |  | List 16, joined on after the one before it. Unconnected is skipped. |
+| `list_q` | `ARRAY` | No |  |  | List 17, joined on after the one before it. Unconnected is skipped. |
+| `list_r` | `ARRAY` | No |  |  | List 18, joined on after the one before it. Unconnected is skipped. |
+| `list_s` | `ARRAY` | No |  |  | List 19, joined on after the one before it. Unconnected is skipped. |
+| `list_t` | `ARRAY` | No |  |  | List 20, joined on after the one before it. Unconnected is skipped. |
+| `list_u` | `ARRAY` | No |  |  | List 21, joined on after the one before it. Unconnected is skipped. |
+| `list_v` | `ARRAY` | No |  |  | List 22, joined on after the one before it. Unconnected is skipped. |
+| `list_w` | `ARRAY` | No |  |  | List 23, joined on after the one before it. Unconnected is skipped. |
+| `list_x` | `ARRAY` | No |  |  | List 24, joined on after the one before it. Unconnected is skipped. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `ARRAY` | One list holding the entries of every connected input, in socket order. Duplicates are kept. |
+
+</details>
+
+<a id="node-wastextlistget"></a>
+<details>
+<summary><b>Text List Get</b></summary>
+
+Read one entry out of a list by position. Negative counts from the end, and an index past either end wraps, clamps, comes back empty or stops, whichever is chosen. `wrap` counts round again, so index 5 of a 3-entry list is entry 2, which is what cycles a list forever from a counter that only climbs. `error` suits a workflow where a missing entry means something is wrong upstream.
+
+| | |
+|---|---|
+| Node id | `WASTextListGet` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text_list` | `ARRAY` | Yes |  |  | The list to read from, such as the LIST output of Text Split to List, Text List or Text Dictionary Keys. |
+| `index` | `INT,NUMBER,FLOAT` | Yes | 0 |  | Which entry to take, counting from 0. -1 is the last entry, -2 the one before it. Wire a Number Counter in to step through the list one entry per run. A decimal value is cut down to a whole number. |
+| `out_of_range` | `COMBO` | Yes |  | `wrap`, `clamp`, `empty`, `error` | What an index past the end does: `wrap` counts round again, `clamp` sticks at the first or last entry, `empty` returns nothing, `error` stops the prompt. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `text` | `STRING` | The entry at that position, as text. An entry that is not text is converted to it, so a list of numbers reads out as numerals. |
+| `resolved_index` | `INT` | The position actually read, after wrapping or clamping. Worth watching when a counter drives the index, since it is the entry number the result really came from. |
+| `length` | `INT` | How many entries the list holds. |
+
+</details>
+
+<a id="node-wastextlistlength"></a>
+<details>
+<summary><b>Text List Length</b></summary>
+
+Count the entries in a list, as a NUMBER, an INT and a FLOAT. Also reports whether the list is empty, for a switch that has to handle that case.
+
+| | |
+|---|---|
+| Node id | `WASTextListLength` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text_list` | `ARRAY` | Yes |  |  | The list to count, such as the LIST output of Text Split to List, Text List, Text Dictionary Keys or Image Color Palette. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `NUMBER` | The entry count, for any node taking a NUMBER, Number Operation, or the index of Text List Get. |
+| `length` | `INT` | The same count as a whole number. |
+| `length_float` | `FLOAT` | The same count as a decimal, for the division a progress fraction needs without a conversion node in between. |
+| `is_empty` | `BOOLEAN` | True when the list holds nothing. Wire it into a switch to route around the nodes that would fail on an empty list. |
+
+</details>
+
+<a id="node-wastextlistslice"></a>
+<details>
+<summary><b>Text List Slice</b></summary>
+
+Take a run of entries out of a list, from one position to another with both ends included, optionally every second or third one. The run comes out twice: as one LIST, and as a STRING list that runs everything downstream once per entry. An end of -1, the default, takes everything from start onwards, and an end past the last entry stops there. An end before start selects nothing and stops the prompt, since the graph below cannot be run zero times.
+
+| | |
+|---|---|
+| Node id | `WASTextListSlice` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text_list` | `ARRAY` | Yes |  |  | The list to take from, such as the lines output of Load Text Line or the LIST output of Text Split to List, Text List or Text Dictionary Keys. |
+| `start` | `INT` | Yes | 0 |  | The first entry taken, counting from 0, and it is taken. -1 is the last entry, -2 the one before it. A start before the beginning of the list begins at the first entry. |
+| `end` | `INT` | Yes | -1 |  | The last entry taken, and it is taken as well: start 9 and end 19 give 11 entries, the 10th to the 20th. -1 is the last entry. |
+| `step` | `INT` | Yes | 1 |  | How far to move between entries taken. 1 takes every entry, 2 takes every second one starting at start, 3 every third. The last entry is taken only when the stepping lands on it. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `ARRAY` | The entries taken, on one wire, for Text List Get, Text List Concatenate and Text List to Text. |
+| `strings` | `STRING` | The same entries as a STRING list. Because this is a list, a node reading it runs once per entry and produces one result per entry, wire it into a sampler's prompt to render every line of a range in turn. An entry that is not text is converted to it. |
+| `count` | `INT` | How many entries the range took. |
+
+</details>
+
+<a id="node-wastextlisttonumbers"></a>
+<details>
+<summary><b>Text List to Numbers</b></summary>
+
+Read a LIST as numbers and emit them on the NUMBER, FLOAT and INT sockets as lists, so every node downstream runs once per value. `skip` suits a column with a heading on the first line, `zero` a schedule where entry 7 has to stay entry 7, and `error` names the entry it stopped on. An entry reading as nan or as infinity takes the same route as an unreadable one.
+
+| | |
+|---|---|
+| Node id | `WASTextListToNumbers` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text_list` | `ARRAY` | Yes |  |  | The list to read. Entries may be numbers already or text holding one; surrounding space, a leading + or - and a decimal point are all read, so '  -1.5 ' arrives as -1.5. |
+| `unreadable` | `COMBO` | Yes |  | `skip`, `zero`, `error` | What an entry that is not a number does. `skip` leaves it out, `zero` keeps the position and puts 0 there, and `error` stops the prompt. |
+| `round_to_int` | `BOOLEAN` | Yes | False |  | Whether the INT socket rounds to the nearest whole number instead of cutting the decimal off. Off, 1.9 arrives as 1; on, it arrives as 2. The NUMBER and FLOAT sockets keep the decimal either way. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `NUMBER` | One NUMBER per entry, for the maths and counter nodes. A node reading this runs once per value. If nothing in the list reads as a number the prompt stops, because a graph cannot be run zero times, set unreadable to `zero` to keep a value in every position. |
+| `floats` | `FLOAT` | The same values as decimals, one per run. |
+| `ints` | `INT` | The same values as whole numbers, one per run, for a step count or a seed. |
+| `count` | `INT` | How many values came through, which is how many times the graph below this node runs. |
+
+</details>
+
+<a id="node-wastextlisttostrings"></a>
+<details>
+<summary><b>Text List to Strings</b></summary>
+
+Turn a LIST into a STRING list, which runs every node downstream once per entry. The way to feed a list into nodes that take plain text.
+
+| | |
+|---|---|
+| Node id | `WASTextListToStrings` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text_list` | `ARRAY` | Yes |  |  | The list to unpack. Any LIST output does: Text Split to List, Text List, Text Dictionary Keys, Image Color Palette. |
+| `remove_empty` | `BOOLEAN` | Yes | False |  | Whether entries holding nothing are dropped before the list is handed on. Each empty entry would otherwise cost a full run of everything downstream to produce a result from an empty prompt. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `strings` | `STRING` | The entries, one per run. A node reading this executes once for each of them, so a list of six prompts renders six images. An empty list stops the prompt, because a graph cannot be run zero times. |
+| `count` | `INT` | How many entries were handed on, which is how many times the graph below this node runs. |
+
+</details>
+
+<a id="node-text-list-to-text"></a>
+<details>
+<summary><b>Text List to Text</b></summary>
+
+Join a list into one string, separated by the delimiter. Type \n as the delimiter to join with newlines.
+
+| | |
+|---|---|
+| Node id | `Text List to Text` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `delimiter` | `STRING` | Yes | , |  | Placed between the entries. The default ', ' builds a comma-separated prompt; type \n to put each entry on its own line; leave it empty to run them together with nothing between. |
+| `text_list` | `ARRAY` | Yes |  |  | The list to flatten, for example the lines of a file from Text Load Line From File or the entries of Text List. Every entry has to be text; a list holding a number fails the prompt. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `STRING` | The list's entries as one string, separated by the delimiter. |
+
+</details>
+
+<a id="node-wastextsplittolist"></a>
+<details>
+<summary><b>Text Split to List</b></summary>
+
+Split text into a list, on a delimiter, on line breaks, on whitespace or on a regular expression. The pieces come out twice: as one LIST, and as a STRING list that runs everything downstream once per piece. `delimiter` cuts on the exact text in the delimiter field, which is how a comma-separated prompt becomes one entry per tag, while `regex` reads that field as a pattern, so `[,;]` cuts on either mark. `characters` ignores the delimiter field.
+
+| | |
+|---|---|
+| Node id | `WASTextSplitToList` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text` | `STRING` | Yes |  |  | The text to cut up, as `cat, forest, sunset`. Typed here, or wired in from any node with a text output, such as a prompt built by Text Concatenate. |
+| `split_by` | `COMBO` | Yes |  | `delimiter`, `lines`, `whitespace`, `regex`, `characters` | Where the cuts go. `delimiter` and `regex` read the delimiter field; `lines` cuts on line breaks, `whitespace` on runs of space, `characters` on every character. |
+| `delimiter` | `STRING` | Yes | , |  | What to cut on, read only by `delimiter` and `regex`. Type \n for a line break or \t for a tab. An unreadable regular expression stops with the error the pattern produced, naming the position in it that failed. |
+| `trim_whitespace` | `BOOLEAN` | Yes | True |  | Whether each piece has its surrounding space removed. On, 'a, b, c' gives 'a', 'b', 'c'; off it gives 'a', ' b', ' c', and the leading spaces travel into whatever reads the list. |
+| `remove_empty` | `BOOLEAN` | Yes | True |  | Whether pieces holding nothing are dropped. Two delimiters in a row produce an empty piece, which is what a trailing comma on a prompt leaves behind. Turn this off when the position of every entry matters and an empty slot has to stay a slot. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `ARRAY` | Every piece on one wire, for Text List Get, Text List Concatenate and Text List to Text. |
+| `strings` | `STRING` | The same pieces as a STRING list. Because this is a list, a node reading it runs once per piece and produces one result per piece, wire it into a sampler's prompt to render every entry in turn. Text that splits into nothing stops the prompt, because a graph cannot be run zero times. |
+| `count` | `INT` | How many pieces the split produced. |
+
+</details>
+
+### WAS Suite/Text/Operations
+
+<a id="node-wasprompttagcleanup"></a>
+<details>
+<summary><b>Prompt Tag Cleanup</b></summary>
+
+Split a prompt into tags, drop the duplicates and the empty ones, optionally sort and cap the count, and join it back up. Emphasis such as (tag:1.4) is recognised as the same tag as the plain spelling.
+
+| | |
+|---|---|
+| Node id | `WASPromptTagCleanup` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text` | `STRING` | Yes |  |  | The prompt to tidy, as `a tabby cat,, a tabby cat`. Typed here, or wired in from whatever built it: Text Concatenate, a style selector, or a caption node. |
+| `delimiter` | `STRING` | Yes | , |  | What separates one tag from the next in the incoming text. Leave it empty to treat every word as its own tag. Type \n to split a prompt written one tag to a line. |
+| `join_with` | `STRING` | Yes | , |  | What is put between the tags on the way out. The default ', ' is the ordinary prompt spelling; type \n to get one tag per line, which is easier to read in a saved text file. |
+| `dedupe` | `BOOLEAN` | Yes | True |  | Whether a tag appearing more than once is reduced to one. The survivor keeps the position of the first occurrence, so tidying does not reshuffle the prompt. |
+| `ignore_case` | `BOOLEAN` | Yes | True |  | Whether 'Neon Glow' and 'neon glow' count as the same tag. Off, both survive, which is only useful where a downstream tool treats capitalisation as meaningful. |
+| `ignore_emphasis` | `BOOLEAN` | Yes | True |  | Whether '(neon glow:1.4)' counts as the same tag as 'neon glow'. On with keep set to 'last' is the combination that collapses a prompt onto its weighted spellings, which is normally the intended one, the plain duplicate is usually what a second source contributed. |
+| `keep` | `COMBO` | Yes |  | `first`, `last` | Which of a set of duplicates survives. `first` keeps the earliest spelling, `last` the latest. Position is the first occurrence either way, so keeping the last spelling does not move the tag to the end of the prompt. |
+| `remove_empty` | `BOOLEAN` | Yes | True |  | Whether tags holding nothing are dropped. This is what clears the run of bare commas an unconnected input leaves behind, which otherwise reaches the text encoder as it stands. |
+| `collapse_whitespace` | `BOOLEAN` | Yes | True |  | Whether runs of spaces, tabs and line breaks inside a tag become a single space. This is what removes the line breaks a multi-line prompt box leaves in the middle of a tag. |
+| `sort` | `COMBO` | Yes |  | `none`, `a-z`, `z-a`, `shortest first`, `longest first` | How the surviving tags are ordered. `none` keeps the order they were written in, which is what preserves the weight early tags carry in most encoders. The alphabetical orders make two prompts comparable by eye; `longest first` puts the descriptive phrases ahead of the single words. |
+| `limit` | `INT` | Yes | 0 |  | Keep at most this many tags, counted after everything else has run. 0 keeps all of them. Useful for trimming a caption model's output to the few tags worth keeping. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `text` | `STRING` | The tidied prompt, joined back up with join_with. |
+| `tags` | `ARRAY` | The surviving tags as one LIST, for Text List Get and the other list nodes. |
+| `tag_strings` | `STRING` | The same tags as a STRING list, so a node reading this runs once per tag, one render per tag, for instance. A prompt that tidies down to no tags leaves nothing to run on, so the nodes reading this socket stop and say so; the text output is still delivered, since an empty prompt is a valid one. |
+| `count` | `INT` | How many tags survived. |
+| `removed` | `INT` | How many entries the tidy-up took out, counting duplicates, empties and anything past the limit. 0 means the prompt was already clean. |
+
+</details>
+
+<a id="node-text-shuffle"></a>
+<details>
+<summary><b>Text Shuffle</b></summary>
+
+Randomly reorder the separated terms of a string.
+
+| | |
+|---|---|
+| Node id | `Text Shuffle` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text` | `STRING` | Yes |  |  | List on one line; STRING. Reordered randomly and rejoined with separator. Eg: `cat, forest, sunset` |
+| `separator` | `STRING` | Yes | , |  | The character the text is cut apart on, and the character the shuffled parts are rejoined with. The default ',' shuffles a comma-separated prompt term by term; a single space shuffles it word by word. |
+| `seed` | `INT` | Yes | 0 |  | Which order comes out. The same seed and the same text always give the same order; change it to shuffle differently. Any whole number; `0` is as good a seed as any. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `STRING` | The same terms in a new order, rejoined with the separator. Whitespace that sat next to a separator moves with its term. |
+
+</details>
+
+<a id="node-text-sort"></a>
+<details>
+<summary><b>Text Sort</b></summary>
+
+Sort the separated terms of a prompt alphabetically, leaving parenthesised attention groups intact.
+
+| | |
+|---|---|
+| Node id | `Text Sort` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text` | `STRING` | Yes |  |  | List on one line; STRING. Sorted alphabetically and rejoined with separator. Leading brackets and weights are ignored. Eg: `sunset, cat, forest` |
+| `separator` | `STRING` | Yes | , |  | The character the text is cut apart on, and the string the sorted terms are rejoined with. The default ', ' sorts a comma-separated prompt and puts a comma and a space back between each term. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `STRING` | The terms in alphabetical order, rejoined with the separator. Leading parentheses are ignored while sorting, so '((sunset))' files under s. |
+
+</details>
+
+<a id="node-text-string-truncate"></a>
+<details>
+<summary><b>Text String Truncate</b></summary>
+
+Truncate up to four strings to a number of characters or words, keeping either the beginning or the end.
+
+| | |
+|---|---|
+| Node id | `Text String Truncate` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `truncate_by` | `COMBO` | Yes |  | `characters`, `words` | What truncate_to counts. `characters` counts single characters, spaces included. `words` counts whitespace-separated words and rejoins them with one space each, so line breaks and runs of spaces in the text collapse. |
+| `truncate_from` | `COMBO` | Yes |  | `end`, `beginning` | Which end of the text is kept. `end` keeps the tail and throws the start away, so 'a long prompt' truncated to 6 characters becomes 'prompt'. `beginning` keeps the head, giving 'a long'. |
+| `truncate_to` | `INT` | Yes | 10 |  | How much to keep, counted in characters or words. A negative value measures what to remove instead: with truncate_from `end`, -10 keeps everything except the last 10, and with `beginning`, -10 keeps only the last 10. Zero with `end` keeps everything, and zero with `beginning` empties the text. |
+| `text` | `STRING` | Yes |  |  | First text to shorten; STRING. Cut per truncate_by, truncate_from and truncate_to; leaves on TEXT. |
+| `text_b` | `STRING` | No |  |  | Second text; STRING. Same settings, leaves on TEXT_B. |
+| `text_c` | `STRING` | No |  |  | Third text; STRING. Same settings, leaves on TEXT_C. |
+| `text_d` | `STRING` | No |  |  | Fourth text; STRING. Same settings, leaves on TEXT_D. |
+| `text_e` | `STRING` | No |  |  | Text 5, emitted on its own output. Tokens are substituted. |
+| `text_f` | `STRING` | No |  |  | Text 6, emitted on its own output. Tokens are substituted. |
+| `text_g` | `STRING` | No |  |  | Text 7, emitted on its own output. Tokens are substituted. |
+| `text_h` | `STRING` | No |  |  | Text 8, emitted on its own output. Tokens are substituted. |
+| `text_i` | `STRING` | No |  |  | Text 9, emitted on its own output. Tokens are substituted. |
+| `text_j` | `STRING` | No |  |  | Text 10, emitted on its own output. Tokens are substituted. |
+| `text_k` | `STRING` | No |  |  | Text 11, emitted on its own output. Tokens are substituted. |
+| `text_l` | `STRING` | No |  |  | Text 12, emitted on its own output. Tokens are substituted. |
+| `text_m` | `STRING` | No |  |  | Text 13, emitted on its own output. Tokens are substituted. |
+| `text_n` | `STRING` | No |  |  | Text 14, emitted on its own output. Tokens are substituted. |
+| `text_o` | `STRING` | No |  |  | Text 15, emitted on its own output. Tokens are substituted. |
+| `text_p` | `STRING` | No |  |  | Text 16, emitted on its own output. Tokens are substituted. |
+| `text_q` | `STRING` | No |  |  | Text 17, emitted on its own output. Tokens are substituted. |
+| `text_r` | `STRING` | No |  |  | Text 18, emitted on its own output. Tokens are substituted. |
+| `text_s` | `STRING` | No |  |  | Text 19, emitted on its own output. Tokens are substituted. |
+| `text_t` | `STRING` | No |  |  | Text 20, emitted on its own output. Tokens are substituted. |
+| `text_u` | `STRING` | No |  |  | Text 21, emitted on its own output. Tokens are substituted. |
+| `text_v` | `STRING` | No |  |  | Text 22, emitted on its own output. Tokens are substituted. |
+| `text_w` | `STRING` | No |  |  | Text 23, emitted on its own output. Tokens are substituted. |
+| `text_x` | `STRING` | No |  |  | Text 24, emitted on its own output. Tokens are substituted. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `TEXT` | `STRING` | The shortened text. |
+| `TEXT_B` | `STRING` | The shortened text_b. |
+| `TEXT_C` | `STRING` | The shortened text_c. |
+| `TEXT_D` | `STRING` | The shortened text_d. |
+| `TEXT_E` | `STRING` | Text 5, with its tokens substituted. |
+| `TEXT_F` | `STRING` | Text 6, with its tokens substituted. |
+| `TEXT_G` | `STRING` | Text 7, with its tokens substituted. |
+| `TEXT_H` | `STRING` | Text 8, with its tokens substituted. |
+| `TEXT_I` | `STRING` | Text 9, with its tokens substituted. |
+| `TEXT_J` | `STRING` | Text 10, with its tokens substituted. |
+| `TEXT_K` | `STRING` | Text 11, with its tokens substituted. |
+| `TEXT_L` | `STRING` | Text 12, with its tokens substituted. |
+| `TEXT_M` | `STRING` | Text 13, with its tokens substituted. |
+| `TEXT_N` | `STRING` | Text 14, with its tokens substituted. |
+| `TEXT_O` | `STRING` | Text 15, with its tokens substituted. |
+| `TEXT_P` | `STRING` | Text 16, with its tokens substituted. |
+| `TEXT_Q` | `STRING` | Text 17, with its tokens substituted. |
+| `TEXT_R` | `STRING` | Text 18, with its tokens substituted. |
+| `TEXT_S` | `STRING` | Text 19, with its tokens substituted. |
+| `TEXT_T` | `STRING` | Text 20, with its tokens substituted. |
+| `TEXT_U` | `STRING` | Text 21, with its tokens substituted. |
+| `TEXT_V` | `STRING` | Text 22, with its tokens substituted. |
+| `TEXT_W` | `STRING` | Text 23, with its tokens substituted. |
+| `TEXT_X` | `STRING` | Text 24, with its tokens substituted. |
+
+</details>
+
+<a id="node-text-to-conditioning"></a>
+<details>
+<summary><b>Text to Conditioning</b></summary>
+
+Encode a linked prompt with a CLIP model, for prompts built by the text nodes rather than typed into a widget.
+
+| | |
+|---|---|
+| Node id | `Text to Conditioning` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `clip` | `CLIP` | Yes |  |  | The text encoder that turns the prompt into conditioning. Wire it from the CLIP output of the checkpoint being sampled with, or the prompt will be encoded for the wrong model. |
+| `text` | `STRING` | Yes |  |  | Prompt to encode with the clip input; STRING, as `a tabby cat`. Also shown on the node after the run. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `CONDITIONING` | The encoded prompt, for the positive or negative input of a sampler. |
+
+</details>
+
+<a id="node-text-to-number"></a>
+<details>
+<summary><b>Text to Number</b></summary>
+
+Parse a string into a number: a float when it contains a decimal point, an int otherwise.
+
+| | |
+|---|---|
+| Node id | `Text to Number` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text` | `STRING` | Yes |  |  | Number written as text; STRING. A decimal point gives a decimal, otherwise a whole number. Non-numeric text fails the prompt. Eg: 3.5 |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `NUMBER` | The parsed value, still a whole number or a decimal depending on the text. For the NUMBER inputs of the suite's own maths nodes. |
+| `<output1>` | `FLOAT` | The same value as a decimal, for example 42.0. |
+| `<output2>` | `INT` | The same value as a whole number, with anything after the decimal point dropped: 3.9 becomes 3 and -3.9 becomes -3. |
+
+</details>
+
+### WAS Suite/Text/Parse
+
+<a id="node-waspromptparse"></a>
+<details>
+<summary><b>Prompt Parse</b></summary>
+
+Expand __terms__, <a\|b\|c> groups and $\|phrase\|$ variables and return the finished text. Every markup CLIPTextEncode (NSP) understands, stopping at the string so it can be saved, split or encoded elsewhere.
+
+| | |
+|---|---|
+| Node id | `WASPromptParse` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text` | `STRING` | Yes |  |  | The prompt, in any of three markups. __term__ draws a phrase from the terminology pantry or a line from a wildcard file; <a\|b\|c> picks one of the alternatives; $\|a stormy sky\|$ captures the phrase as $1 so it can be repeated by number later in the prompt. |
+| `mode` | `COMBO` | Yes |  | `Noodle Soup Prompts`, `Wildcards`, `none` | What __terms__ are replaced with. `Noodle Soup Prompts` draws from the shared terminology pantry, downloaded once and then cached. `Wildcards` draws a random line from the matching file in the wildcards directory, where a subfolder is part of the name, so __animals/birds__ reads animals/birds.txt. `none` leaves __terms__ alone, for a prompt that only uses the groups and variables below. |
+| `noodle_key` | `STRING` | Yes | __ |  | The marker put either side of a term to flag it for replacement. With the default '__', __animals__ is replaced and plain animals is not. |
+| `seed` | `INT` | Yes | 0 |  | Which words get drawn. Any value other than 0 makes the whole parse repeatable, so the same seed and the same prompt always give the same text. 0 is the exception the term draw treats as unseeded, so __terms__ come out different every run while the <a\|b\|c> groups stay fixed. |
+| `dynamic_prompts` | `BOOLEAN` | Yes | True |  | Whether <a\|b\|c> groups are resolved to one of their options. Turn it off to keep the brackets in the text, which is what a prompt being passed on to another parser needs. |
+| `prompt_variables` | `BOOLEAN` | Yes | True |  | Whether $\|phrase\|$ captures are expanded. A capture is numbered in the order it appears and replaced by $1, $2 and so on, and every reference to that number anywhere in the prompt then becomes the phrase, which is how one long description is written once and repeated. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `text` | `STRING` | The finished prompt, with every enabled markup expanded. Worth saving beside the image with Text Save, since a new seed produces different words. |
+| `raw_text` | `STRING` | The prompt exactly as it arrived, markup and all. |
+
+</details>
+
+<a id="node-text-parse-a1111-embeddings"></a>
+<details>
+<summary><b>Text Parse A1111 Embeddings</b></summary>
+
+Convert A1111-style embedding names in a prompt to ComfyUI's embedding:name syntax, using the embeddings installed on this machine.
+
+| | |
+|---|---|
+| Node id | `Text Parse A1111 Embeddings` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text` | `STRING` | Yes |  |  | Prompt naming embeddings by file name; STRING. Installed names get the `embedding:` prefix. Eg: `photo, badhands` |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `STRING` | The prompt with every installed embedding's name prefixed, so 'photo, badhands' becomes 'photo, embedding:badhands'. An embedding that is not installed on this machine is left as written. |
+
+</details>
+
+<a id="node-text-parse-noodle-soup-prompts"></a>
+<details>
+<summary><b>Text Parse Noodle Soup Prompts</b></summary>
+
+Replace __terms__ in a prompt with random Noodle Soup Prompts terminology, or with a random line from the matching wildcard file.
+
+| | |
+|---|---|
+| Node id | `Text Parse Noodle Soup Prompts` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `mode` | `COMBO` | Yes |  | `Noodle Soup Prompts`, `Wildcards` | Where the replacements come from. `Noodle Soup Prompts` draws from the shared terminology pantry, a published list of subjects, styles and materials that is downloaded once and then cached. `Wildcards` draws one random line from the matching text file in the wildcards directory, where a subfolder is part of the name: __animals/birds__ reads animals/birds.txt. |
+| `noodle_key` | `STRING` | Yes | __ |  | The marker put either side of a term to flag it for replacement. With the default '__', __animals__ is replaced and plain animals is not. |
+| `seed` | `INT` | Yes | 0 |  | Which terms get drawn. Any value other than 0 makes the draw repeatable, so the same seed and the same prompt always give the same words. 0 draws differently every run and cannot be reproduced. |
+| `text` | `STRING` | Yes |  |  | Prompt with __terms__ to expand; STRING. Each occurrence is drawn separately. Eg: a __animals__ in a __location__ |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `STRING` | The prompt with every marked term replaced. A term with no matching pantry entry or wildcard file is left as written. |
+
+</details>
+
+### WAS Suite/Text/Search
+
+<a id="node-text-compare"></a>
+<details>
+<summary><b>Text Compare</b></summary>
+
+Compare two strings. Both texts pass through unchanged, alongside an exact equality flag, a similarity or difference score, and the words that score was built from. `similarity` scores 1.0 for identical text and falls toward 0.0 as the two diverge, and COMPARISON_TEXT lists the words they have in common. `difference` lists the parts of text_a that changed and scores on a separate scale that is not capped at 1.0, where identical text comes out a little over 1.0. tolerance only widens the words collected in `similarity` mode: it never changes any score, `difference` mode ignores it, and a setting between 0.0 and 1.0 behaves like 0.0.
+
+| | |
+|---|---|
+| Node id | `Text Compare` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text_a` | `STRING` | Yes |  |  | First text to compare; STRING. Empty boxes count as identical. |
+| `text_b` | `STRING` | Yes |  |  | Second text to compare; STRING. Both pass through unchanged on TEXT_A_PASS and TEXT_B_PASS. |
+| `mode` | `COMBO` | Yes |  | `similarity`, `difference` | Which measure to report. `similarity` scores how alike the two texts are and lists the words they share; `difference` lists the parts of text_a that changed. |
+| `tolerance` | `FLOAT` | Yes | 0.0 |  | How loosely a word counts as shared in COMPARISON_TEXT. 0.0 keeps only words appearing in both texts; 1.0 also keeps words one character apart, so 'colour' matches 'color'. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `TEXT_A_PASS` | `STRING` | text_a unchanged, so the node can sit in the middle of a prompt chain instead of on a branch. |
+| `TEXT_B_PASS` | `STRING` | text_b unchanged. |
+| `BOOLEAN` | `BOOLEAN` | True only when the two texts are identical character for character. Neither the mode nor the tolerance affects it. |
+| `SCORE_NUMBER` | `NUMBER` | The score, for the NUMBER inputs of the suite's own maths and logic nodes. In `similarity` mode 1.0 means identical and 0.0 means nothing in common; `difference` mode uses its own scale, which can go past 1.0. |
+| `COMPARISON_TEXT` | `STRING` | The words behind the comparison, space-separated. In `similarity` mode the words the two texts have in common, and once tolerance is raised the near matches from both. In `difference` mode the parts of text_a that changed. |
+| `SCORE_FLOAT` | `FLOAT` | The same score as a decimal, for a core FLOAT input. |
+| `SCORE_INT` | `INT` | The score with everything after the decimal point dropped, so in `similarity` mode it is 1 only for identical text and 0 for everything else. |
+
+</details>
+
+<a id="node-text-find"></a>
+<details>
+<summary><b>Text Find</b></summary>
+
+Search text for a plain substring, or for a regular expression when the substring field is left empty.
+
+| | |
+|---|---|
+| Node id | `Text Find` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text` | `STRING` | Yes |  |  | Text to search; STRING, as `a tabby cat`. Read only, never changed. |
+| `substring` | `STRING` | Yes |  |  | Exact text to look for, taken literally and matched case sensitively, so 'cat' does not find 'Cat'. Filled in, it is what gets searched for and pattern is ignored; leave it empty to search with pattern instead. |
+| `pattern` | `STRING` | Yes |  |  | Regular expression to search for when substring is empty, for example 'cat\|dog' to find either word or '^photo' to require it at the start. An empty pattern matches everything, so leaving both fields blank always reports found. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `found` | `BOOLEAN` | True when the substring or the pattern was found anywhere in the text. |
+
+</details>
+
+<a id="node-text-find-and-replace"></a>
+<details>
+<summary><b>Text Find and Replace</b></summary>
+
+Replace every regular-expression match in the text and report how many replacements were made.
+
+| | |
+|---|---|
+| Node id | `Text Find and Replace` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text` | `STRING` | Yes |  |  | Text to search; STRING, as `a tabby cat`. Every filled find box is applied in one pass over it. |
+| `find` | `STRING,ARRAY` | Yes |  |  | A regular expression, so 'cat\|dog' matches either word and '\s+' matches whitespace. A backslash makes a special character literal. Left empty, nothing is replaced. |
+| `replace` | `STRING,ARRAY` | Yes |  |  | What each match becomes. Leave it empty to delete the matches. \1 and \2 stand for the first and second parenthesised group of the pattern, and a literal backslash has to be doubled. |
+| `find_2` | `STRING,ARRAY` | No |  |  | Another pattern, searched in the same single pass as the first. Every pattern is tried against the text as it arrived, so a replacement is never matched again by a later pattern and two patterns can swap. Where two patterns match at the same place, the earlier box wins. |
+| `replace_2` | `STRING,ARRAY` | No |  |  | What the pattern in the box above becomes. Leave it empty to delete what that pattern matched, the same as the first pair. |
+| `find_3` | `STRING,ARRAY` | No |  |  | Another pattern, searched in the same single pass as the first. Every pattern is tried against the text as it arrived, so a replacement is never matched again by a later pattern and two patterns can swap. Where two patterns match at the same place, the earlier box wins. |
+| `replace_3` | `STRING,ARRAY` | No |  |  | What the pattern in the box above becomes. Leave it empty to delete what that pattern matched, the same as the first pair. |
+| `find_4` | `STRING,ARRAY` | No |  |  | Another pattern, searched in the same single pass as the first. Every pattern is tried against the text as it arrived, so a replacement is never matched again by a later pattern and two patterns can swap. Where two patterns match at the same place, the earlier box wins. |
+| `replace_4` | `STRING,ARRAY` | No |  |  | What the pattern in the box above becomes. Leave it empty to delete what that pattern matched, the same as the first pair. |
+| `find_5` | `STRING,ARRAY` | No |  |  | Another pattern, searched in the same single pass as the first. Every pattern is tried against the text as it arrived, so a replacement is never matched again by a later pattern and two patterns can swap. Where two patterns match at the same place, the earlier box wins. |
+| `replace_5` | `STRING,ARRAY` | No |  |  | What the pattern in the box above becomes. Leave it empty to delete what that pattern matched, the same as the first pair. |
+| `find_6` | `STRING,ARRAY` | No |  |  | Another pattern, searched in the same single pass as the first. Every pattern is tried against the text as it arrived, so a replacement is never matched again by a later pattern and two patterns can swap. Where two patterns match at the same place, the earlier box wins. |
+| `replace_6` | `STRING,ARRAY` | No |  |  | What the pattern in the box above becomes. Leave it empty to delete what that pattern matched, the same as the first pair. |
+| `find_7` | `STRING,ARRAY` | No |  |  | Another pattern, searched in the same single pass as the first. Every pattern is tried against the text as it arrived, so a replacement is never matched again by a later pattern and two patterns can swap. Where two patterns match at the same place, the earlier box wins. |
+| `replace_7` | `STRING,ARRAY` | No |  |  | What the pattern in the box above becomes. Leave it empty to delete what that pattern matched, the same as the first pair. |
+| `find_8` | `STRING,ARRAY` | No |  |  | Another pattern, searched in the same single pass as the first. Every pattern is tried against the text as it arrived, so a replacement is never matched again by a later pattern and two patterns can swap. Where two patterns match at the same place, the earlier box wins. |
+| `replace_8` | `STRING,ARRAY` | No |  |  | What the pattern in the box above becomes. Leave it empty to delete what that pattern matched, the same as the first pair. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `result_text` | `STRING` | The text with every match replaced. |
+| `replacement_count_number` | `NUMBER` | How many replacements were made, for the NUMBER inputs of the suite's own maths and logic nodes. 0 means the text was not matched at all. |
+| `replacement_count_float` | `FLOAT` | The same count as a decimal, for example 3.0. |
+| `replacement_count_int` | `INT` | The same count as a whole number, for a core INT input. |
+
+</details>
+
+<a id="node-text-find-and-replace-by-dictionary"></a>
+<details>
+<summary><b>Text Find and Replace by Dictionary</b></summary>
+
+Replace each delimited term in the text with its value from a dictionary, for example __subject__ with the dictionary's subject entry.
+
+| | |
+|---|---|
+| Node id | `Text Find and Replace by Dictionary` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text` | `STRING` | Yes |  |  | Text to fill in; STRING. Blanks written __key__ are swapped for that key's dictionary value; a LIST value is redrawn per blank. Eg: a __animal__ in a __place__ |
+| `dictionary` | `DICT` | Yes |  |  | The replacements; DICT. Each key is a term to look for, its value the replacement. A LIST value has one item drawn per occurrence. Unmatched terms are left as written. |
+| `replacement_key` | `STRING` | Yes | __ |  | Marker put either side of a key; STRING. Eg: __ matches __subject__, not subject. |
+| `seed` | `INT` | Yes | 1 |  | Seed for drawing from LIST values; INT. The same seed rewrites the same text. Ignored for single-value entries. Any whole number; `0` is as good a seed as any. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `STRING` | The text with every marked term replaced by its entry's value. |
+
+</details>
+
+<a id="node-text-find-and-replace-input"></a>
+<details>
+<summary><b>Text Find and Replace Input</b></summary>
+
+Replace every literal occurrence of the find text and report how many replacements were made. All three text terms come from links.
+
+| | |
+|---|---|
+| Node id | `Text Find and Replace Input` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text` | `STRING` | Yes |  |  | Text to search; STRING, as `a tabby cat`. Every occurrence of find becomes replace. |
+| `find` | `STRING` | Yes |  |  | Exact text to look for, taken literally and matched case sensitively, no pattern characters, unlike Text Find and Replace. An empty search term leaves the text untouched and reports 0 replacements. |
+| `replace` | `STRING` | Yes |  |  | What each occurrence becomes, again taken literally. An empty value deletes the occurrences. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `result_text` | `STRING` | The text with every occurrence of the search term replaced. |
+| `replacement_count_number` | `NUMBER` | How many occurrences were replaced, for the NUMBER inputs of the suite's own maths and logic nodes. 0 means the term was not present. |
+| `replacement_count_float` | `FLOAT` | The same count as a decimal, for example 3.0. |
+| `replacement_count_int` | `INT` | The same count as a whole number, for a core INT input. |
+
+</details>
+
+### WAS Suite/Text/Styles
+
+<a id="node-prompt-multiple-styles-selector"></a>
+<details>
+<summary><b>Prompt Multiple Styles Selector</b></summary>
+
+Concatenate the positive and negative prompts of up to four styles from the style library, separated by spaces. A slot left on None is skipped.
+
+| | |
+|---|---|
+| Node id | `Prompt Multiple Styles Selector` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `style1` | `COMBO` | Yes | None |  | First style to combine, or None to skip it; its prompts come first in both outputs. A style named here and missing from the library empties both outputs rather than dropping part of the prompt silently. |
+| `style2` | `COMBO` | Yes | None |  | Second style, appended after style1. None skips it. |
+| `style3` | `COMBO` | Yes | None |  | Third style, appended after style2. None skips it. |
+| `style4` | `COMBO` | Yes | None |  | Fourth style, appended last. None skips it. |
+| `style5` | `COMBO` | Yes | None |  | Style 5, concatenated after the one before it. `None` is skipped. |
+| `style6` | `COMBO` | Yes | None |  | Style 6, concatenated after the one before it. `None` is skipped. |
+| `style7` | `COMBO` | Yes | None |  | Style 7, concatenated after the one before it. `None` is skipped. |
+| `style8` | `COMBO` | Yes | None |  | Style 8, concatenated after the one before it. `None` is skipped. |
+| `style9` | `COMBO` | Yes | None |  | Style 9, concatenated after the one before it. `None` is skipped. |
+| `style10` | `COMBO` | Yes | None |  | Style 10, concatenated after the one before it. `None` is skipped. |
+| `style11` | `COMBO` | Yes | None |  | Style 11, concatenated after the one before it. `None` is skipped. |
+| `style12` | `COMBO` | Yes | None |  | Style 12, concatenated after the one before it. `None` is skipped. |
+| `style13` | `COMBO` | Yes | None |  | Style 13, concatenated after the one before it. `None` is skipped. |
+| `style14` | `COMBO` | Yes | None |  | Style 14, concatenated after the one before it. `None` is skipped. |
+| `style15` | `COMBO` | Yes | None |  | Style 15, concatenated after the one before it. `None` is skipped. |
+| `style16` | `COMBO` | Yes | None |  | Style 16, concatenated after the one before it. `None` is skipped. |
+| `style17` | `COMBO` | Yes | None |  | Style 17, concatenated after the one before it. `None` is skipped. |
+| `style18` | `COMBO` | Yes | None |  | Style 18, concatenated after the one before it. `None` is skipped. |
+| `style19` | `COMBO` | Yes | None |  | Style 19, concatenated after the one before it. `None` is skipped. |
+| `style20` | `COMBO` | Yes | None |  | Style 20, concatenated after the one before it. `None` is skipped. |
+| `style21` | `COMBO` | Yes | None |  | Style 21, concatenated after the one before it. `None` is skipped. |
+| `style22` | `COMBO` | Yes | None |  | Style 22, concatenated after the one before it. `None` is skipped. |
+| `style23` | `COMBO` | Yes | None |  | Style 23, concatenated after the one before it. `None` is skipped. |
+| `style24` | `COMBO` | Yes | None |  | Style 24, concatenated after the one before it. `None` is skipped. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `positive_string` | `STRING` | The chosen positive prompts joined with spaces, for a positive CLIP Text Encode. Empty when a named style is missing from the library. |
+| `negative_string` | `STRING` | The chosen negative prompts joined with spaces, for a negative CLIP Text Encode. Empty when a named style is missing from the library. |
+
+</details>
+
+<a id="node-waspromptstylesave"></a>
+<details>
+<summary><b>Prompt Style Save</b></summary>
+
+Save a positive and negative prompt into the style library under a name, so Prompt Styles Selector can call it back. Saving over a name replaces what it held, and a pair already in the library under another name is left where it is rather than stored twice.
+
+| | |
+|---|---|
+| Node id | `WASPromptStyleSave` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `name` | `STRING` | Yes |  |  | What to call the style in the selector menu. Eg: cinematic film still. Left empty, the name is made from the date and the first 32 characters of the prompt. |
+| `prompt` | `STRING` | Yes |  |  | The positive prompt to store; STRING. Eg: `cinematic film still, shallow depth of field, highly detailed` |
+| `negative_prompt` | `STRING` | No |  |  | The negative prompt to store; STRING. Empty stores a style with no negative half. Eg: `anime, cartoon, low contrast` |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `name` | `STRING` | The name the style is stored under, which is the generated one when name was left empty. |
+| `positive_string` | `STRING` | The positive prompt as stored, for a positive CLIP Text Encode. |
+| `negative_string` | `STRING` | The negative prompt as stored, for a negative CLIP Text Encode. |
+
+</details>
+
+<a id="node-waspromptstylesexport"></a>
+<details>
+<summary><b>Prompt Styles Export</b></summary>
+
+Write the whole style library out to a file, to share it or back it up. A name ending in .csv writes AUTOMATIC1111's name, prompt and negative_prompt columns; any other name writes JSON. Prompt Styles Import reads either back. A file already at that name is replaced.
+
+| | |
+|---|---|
+| Node id | `WASPromptStylesExport` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `root` | `COMBO` | Yes |  |  | Which folder the file lands in: ComfyUI's own 'output' or 'temp', or any folder added under paths.allow_write in config.yaml, listed by its own name. filename names the part below it. |
+| `filename` | `STRING` | Yes | styles.json |  | Name of the file, and any folder below root to put it in. styles.json writes a JSON library, styles.csv writes A1111 columns. Eg: styles/[time(%Y-%m-%d)].json |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `path` | `STRING` | The full path of the file that was written. |
+| `styles` | `INT` | How many styles were written. |
+
+</details>
+
+<a id="node-waspromptstylesimport"></a>
+<details>
+<summary><b>Prompt Styles Import</b></summary>
+
+Read a style library into this one, from a .json library or from an AUTOMATIC1111 styles.csv with name, prompt and negative_prompt columns. The styles land in Prompt Styles Selector's menu. Importing the same file again brings it up to date, dropping the styles it no longer names and keeping every style saved here.
+
+| | |
+|---|---|
+| Node id | `WASPromptStylesImport` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `file` | `COMBO` | Yes |  |  | Which style file to read. The menu lists every .json and .csv file in ComfyUI's input, output and temp folders and in any folder added under paths.allow_read in config.yaml, each labelled with the folder it sits in. |
+| `mode` | `COMBO` | Yes |  | `add to the library`, `replace the library` | `add to the library` keeps the styles already saved here and adds the file's. `replace the library` leaves the library holding exactly what the file holds, dropping every other style. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `names` | `ARRAY` | Every style name in the library after the import, in library order. Text List to Text turns it into one line per name. |
+| `imported` | `INT` | How many styles the file held. |
+| `total` | `INT` | How many styles the library holds after the import. |
+
+</details>
+
+<a id="node-prompt-styles-selector"></a>
+<details>
+<summary><b>Prompt Styles Selector</b></summary>
+
+Emit the positive and negative prompt of a style from the style library. Styles come from styles.json in the config directory, or from the AUTOMATIC1111 styles.csv named by paths.styles, which has to sit in a folder this pack may read.
+
+| | |
+|---|---|
+| Node id | `Prompt Styles Selector` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `style` | `COMBO` | Yes |  |  | Which saved style to emit. Each one is a named pair of a positive and a negative prompt. The menu is filled from the style library and shows only 'None' while no style has been saved or imported. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `positive_string` | `STRING` | The style's positive prompt, for a positive CLIP Text Encode. Empty when the style could not be found. |
+| `negative_string` | `STRING` | The style's negative prompt, for a negative CLIP Text Encode. Empty when the style has none, or could not be found. |
+
+</details>
+
+### WAS Suite/Text/Terminology
+
+<a id="node-wasnoodlesouppantryexport"></a>
+<details>
+<summary><b>Noodle Soup Pantry Export</b></summary>
+
+Write the stored Noodle Soup Prompts terminology out as a JSON file, to share it, back it up or edit it by hand. Noodle Soup Pantry Import reads the same file back. A file already at that name is replaced.
+
+| | |
+|---|---|
+| Node id | `WASNoodleSoupPantryExport` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `root` | `COMBO` | Yes |  |  | Which folder the file lands in: ComfyUI's own 'output' or 'temp', or any folder added under paths.allow_write in config.yaml, listed by its own name. filename names the part below it. |
+| `filename` | `STRING` | Yes | nsp_pantry.json |  | Name of the file, and any folder below root to put it in. Eg: nsp_pantry.json, or terminology/[time(%Y-%m-%d)].json to file each day's under a dated name. |
+| `scope` | `COMBO` | Yes |  | `the whole pantry`, `only what you added` | `the whole pantry` writes every terminology, published words included. `only what you added` writes just the words added from a node or brought in from a file, which is the portable copy of your own additions. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `path` | `STRING` | The full path of the file that was written. |
+| `terms` | `INT` | How many terminologies were written. |
+| `entries` | `INT` | How many words were written, counting every terminology. |
+
+</details>
+
+<a id="node-wasnoodlesouppantryimport"></a>
+<details>
+<summary><b>Noodle Soup Pantry Import</b></summary>
+
+Read a Noodle Soup Prompts pantry file into the stored pantry, so a terminology list shared as a file can be used here. The file is a JSON object of terminology name to a list of words, which is what Noodle Soup Pantry Export writes. The file itself is left where it is, and everything read in counts as yours, so a refresh never removes it.
+
+| | |
+|---|---|
+| Node id | `WASNoodleSoupPantryImport` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `file` | `COMBO` | Yes |  |  | Which pantry file to read. The menu lists every .json file in ComfyUI's input, output and temp folders and in any folder added under paths.allow_read in config.yaml, each labelled with the folder it sits in. |
+| `mode` | `COMBO` | Yes |  | `add to the pantry`, `replace the pantry` | `add to the pantry` keeps everything already stored and adds the words the file has that a terminology does not. `replace the pantry` leaves the pantry holding exactly what the file holds, dropping every other terminology. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `report` | `STRING` | What was read and what was stored, as one line per figure. Eg: 'entries added 12'. |
+| `terms` | `INT` | How many terminologies the file held. |
+| `entries` | `INT` | How many words the file held, counting every terminology. |
+
+</details>
+
+<a id="node-wasnoodlesouppantryrefresh"></a>
+<details>
+<summary><b>Noodle Soup Pantry Refresh</b></summary>
+
+Fetch the published Noodle Soup Prompts pantry and merge it into the stored one. Words you added are kept, words you removed are not put back, and a terminology of your own is untouched. The download is checked in full before anything is stored, so a failed fetch changes nothing. Needs features.network on in config.yaml.
+
+| | |
+|---|---|
+| Node id | `WASNoodleSoupPantryRefresh` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `mode` | `COMBO` | Yes |  | `check what is new`, `merge it in` | `check what is new` downloads the published pantry and reports what a merge would change, storing nothing. `merge it in` stores the merged result. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `report` | `STRING` | What the merge did, or would do, as one line per figure. Eg: 'terms added 2'. |
+| `terms_added` | `INT` | Terminologies the published pantry has that the stored one did not. |
+| `entries_added` | `INT` | Words the published pantry has that the stored one did not. |
+| `yours_kept` | `INT` | Words kept that the published pantry no longer has, which are the ones added here. |
+
+</details>
+
+<a id="node-wasnoodlesouppick"></a>
+<details>
+<summary><b>Noodle Soup Pick</b></summary>
+
+Choose words out of the Noodle Soup Prompts pantry and answer them as a list, as text and as a count. The browser panel ticks them; the picked box holds one pick per line either way. With nothing picked the terminology names go out instead, which is how the pantry is read. The yours figure counts what was added from a node or brought in from a file, apart from what the published pantry supplied.
+
+| | |
+|---|---|
+| Node id | `WASNoodleSoupPick` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `picked` | `STRING` | Yes |  |  | One pick per line, as `term: word`. `artist: Greg Rutkowski` takes one word, spelled as the pantry holds it; `artist: *` takes the whole terminology, and so does a line naming one on its own. Blank and `#` lines are ignored, a word named twice goes out once, and line order is output order. |
+| `limit` | `INT` | Yes | 0 |  | How many words go out at most, counting from the first. 0 = every one; 50 = the first 50. `artist` alone holds over 2000. |
+| `term` | `STRING` | No |  |  | One terminology taken whole, added to what is picked above, for wiring the term output of Noodle Soup Term Edit straight in. Eg: `my-animals`. Empty takes only what is picked. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `entries` | `ARRAY` | The picked words, in the order the picked box lists them, a `*` line expanded in pantry order. With nothing picked, the terminology names. Text List to Text joins them with a comma. |
+| `text` | `STRING` | The same words, one per line. Feeds the entries box of Noodle Soup Term Edit, and Text Random Line for one word a run. |
+| `count` | `INT` | How many words went out, after limit cut the list. |
+| `yours` | `INT` | How many of them were added from a node or brought in from a file rather than supplied by the published pantry. |
+
+</details>
+
+<a id="node-wasnoodlesouptermedit"></a>
+<details>
+<summary><b>Noodle Soup Term Edit</b></summary>
+
+Add words to a Noodle Soup Prompts terminology, take words out of one, or make a terminology of your own, so __your_term__ draws from your own list in Text Parse Noodle Soup Prompts and Prompt Parse. Entries you add are kept apart from the ones the published pantry supplied, and Noodle Soup Pantry Refresh never removes them.
+
+| | |
+|---|---|
+| Node id | `WASNoodleSoupTermEdit` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `term` | `STRING` | Yes |  |  | The terminology name, written without the __ markers. Eg: my-animals, which a prompt then draws from as __my-animals__. A name the pantry does not have yet is created. |
+| `action` | `COMBO` | Yes |  | `add entries`, `remove entries`, `replace entries`, `create the term`, `delete the term` | `add entries` stores the words below that the term does not already hold; `remove entries` takes them out and no refresh puts them back; `replace entries` leaves the term holding exactly what is typed; `create the term` makes an empty one; `delete the term` removes it and everything in it. |
+| `entries` | `STRING` | Yes |  |  | The words to add, remove or store, one per line. Blank lines are skipped. Eg: a line reading 'red fox asleep in long grass'. Ignored by `create the term` and `delete the term`. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `noodle` | `STRING` | The term wrapped in the default markers, __my-animals__, ready to paste into a prompt for Text Parse Noodle Soup Prompts. Empty when the term was deleted. |
+| `term` | `STRING` | The terminology name as it was stored, for wiring on to Noodle Soup Pantry Export or another edit. Empty when the term was deleted. |
+| `entries` | `ARRAY` | Every entry the term holds after the edit, in draw order. Text List to Text turns it into one line per entry. |
+| `entry_count` | `INT` | How many entries the term holds after the edit. |
+
+</details>
+
+### WAS Suite/Text/Tokens
+
+<a id="node-text-add-token-by-input"></a>
+<details>
+<summary><b>Text Add Token by Input</b></summary>
+
+Define a single custom token from a linked name and a linked value, for Text Parse Tokens and every other node that expands [tokens].
+
+| | |
+|---|---|
+| Node id | `Text Add Token by Input` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `token_name` | `STRING` | Yes |  |  | Token name, no brackets; STRING. Expands as [name] in every text node. Empty adds nothing. Eg: season |
+| `token_value` | `STRING` | Yes |  |  | What the token expands to; STRING. Empty expands to nothing. Eg: late autumn |
+| `print_current_tokens` | `BOOLEAN` | Yes | False |  | `on` logs every custom token now defined and shows them on the node, which is how to check what a previous run left behind; `off` stores the token silently. |
+
+</details>
+
+<a id="node-text-add-tokens"></a>
+<details>
+<summary><b>Text Add Tokens</b></summary>
+
+Define custom tokens, one 'name: value' pair per line, for Text Parse Tokens and every other node that expands [tokens]. Only the first colon splits a line, so a value may itself contain colons and drive letters, and a line with no colon, a blank one included, is skipped. The square brackets are convention: the name is matched exactly as written, so a name without them matches bare text anywhere in a prompt.
+
+| | |
+|---|---|
+| Node id | `Text Add Tokens` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `tokens` | `STRING` | Yes | [hello]: world |  | One token per line, written as 'name: value', so '[hello]: world' turns [hello] into world in every later node that expands tokens. |
+| `print_current_tokens` | `BOOLEAN` | Yes | False |  | `on` logs every custom token now defined and shows them on the node, which is how to check what a previous run left behind; `off` stores them silently. |
+
+</details>
+
+<a id="node-text-parse-tokens"></a>
+<details>
+<summary><b>Text Parse Tokens</b></summary>
+
+Replace suite tokens such as [time], [hostname] and [user], plus any custom tokens, with their current values.
+
+| | |
+|---|---|
+| Node id | `Text Parse Tokens` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text` | `STRING` | Yes |  |  | Text holding tokens; STRING. [time], [time(%Y-%m-%d)], [hostname], [user], [cuda_device], [cuda_name], plus custom tokens. Eg: render_[time] |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `STRING` | The text with every known token replaced. An unrecognised token is left as written. |
+
+</details>
+
+### WAS Suite/Utilities
+
+<a id="node-bus-node"></a>
+<details>
+<summary><b>Bus Node</b></summary>
+
+Bundle model, clip, vae, positive and negative onto one wire. Connected inputs override what arrives on the bus.
+
+| | |
+|---|---|
+| Node id | `Bus Node` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `bus` | `BUS` | No |  |  | An incoming bundle from an earlier Bus Node, carrying all five values on one wire. Leave it disconnected on the first node of a chain and connect the five inputs directly instead. |
+| `model` | `MODEL` | No |  |  | Diffusion model to put on the bus. Connected, it replaces whatever model arrived on the bus input; disconnected, the bus keeps its own. A model has to reach the node one way or the other. |
+| `clip` | `CLIP` | No |  |  | Text encoder to put on the bus. Connected, it replaces whatever clip arrived on the bus input; disconnected, the bus keeps its own. A clip has to reach the node one way or the other. |
+| `vae` | `VAE` | No |  |  | VAE to put on the bus. Connected, it replaces whatever vae arrived on the bus input; disconnected, the bus keeps its own. A vae has to reach the node one way or the other. |
+| `positive` | `CONDITIONING` | No |  |  | Positive conditioning to put on the bus. Connected, it replaces whatever arrived on the bus input. Unlike the model, clip and vae this one is not required, and stays empty if neither side has it. |
+| `negative` | `CONDITIONING` | No |  |  | Negative conditioning to put on the bus. Connected, it replaces whatever arrived on the bus input. Unlike the model, clip and vae this one is not required, and stays empty if neither side has it. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `bus` | `BUS` | All five values bundled onto one wire, to carry across the graph and unpack at the next Bus Node. |
+| `model` | `MODEL` | The model now on the bus: the model input, or the incoming bus's. |
+| `clip` | `CLIP` | The clip now on the bus: the clip input, or the incoming bus's. |
+| `vae` | `VAE` | The vae now on the bus: the vae input, or the incoming bus's. |
+| `positive` | `CONDITIONING` | The positive conditioning now on the bus: the positive input, or the incoming bus's. |
+| `negative` | `CONDITIONING` | The negative conditioning now on the bus: the negative input, or the incoming bus's. |
+
+</details>
+
+<a id="node-wasbusnodedynamic"></a>
+<details>
+<summary><b>Bus Node (Dynamic)</b></summary>
+
+Bundle model, clip, vae, positive and negative onto one wire, along with any number of extra named values. Reads and writes the same BUS as Bus Node, with the extras carried alongside.
+
+| | |
+|---|---|
+| Node id | `WASBusNodeDynamic` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `unpack_slot` | `INT` | Yes | 0 |  | Which extra comes out on the slot output, counted from 0 over the names in slot_names. A number past the end gives nothing rather than stopping the prompt, so a bus that has not been filled yet still runs. Chain another of these nodes to take a second extra off. |
+| `slots` | `COMFY_AUTOGROW_V3` | Yes |  |  | Extra values to put on the bus, named slot0, slot1 and so on. A slot replaces an extra of the same name already on the bus, so a value can be updated part way along a chain the way the five standard members can. Up to 16 slots. |
+| `bus` | `BUS` | No |  |  | An incoming bundle from either bus node. Its five members and any extras it carries pass through unless something here replaces them. Leave it disconnected on the first node of a chain. |
+| `model` | `MODEL` | No |  |  | Diffusion model to put on the bus. Connected, it replaces whatever model arrived on the bus input; disconnected, the bus keeps its own. Unlike Bus Node, this node does not insist on one being present. |
+| `clip` | `CLIP` | No |  |  | Text encoder to put on the bus. Connected, it replaces whatever clip arrived on the bus input; disconnected, the bus keeps its own. |
+| `vae` | `VAE` | No |  |  | VAE to put on the bus. Connected, it replaces whatever vae arrived on the bus input; disconnected, the bus keeps its own. |
+| `positive` | `CONDITIONING` | No |  |  | Positive conditioning to put on the bus. Connected, it replaces whatever arrived on the bus input. |
+| `negative` | `CONDITIONING` | No |  |  | Negative conditioning to put on the bus. Connected, it replaces whatever arrived on the bus input. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `bus` | `BUS` | Everything bundled onto one wire: the five members and every extra. Readable by Bus Node, which will see the five members and drop the extras. |
+| `model` | `MODEL` | The model now on the bus: the model input, or the incoming bus's. |
+| `clip` | `CLIP` | The clip now on the bus: the clip input, or the incoming bus's. |
+| `vae` | `VAE` | The vae now on the bus: the vae input, or the incoming bus's. |
+| `positive` | `CONDITIONING` | The positive conditioning now on the bus: the positive input, or the incoming bus's. |
+| `negative` | `CONDITIONING` | The negative conditioning now on the bus: the negative input, or the incoming bus's. |
+| `slot` | `*` | The extra named by unpack_slot, on a socket that accepts any type. Empty when the bus carries no extra at that position. |
+| `slot_names` | `ARRAY` | The names of every extra on the bus, in the order unpack_slot counts them. Wire it into Text List to Text to see what is being carried. |
+| `slot_count` | `INT` | How many extras the bus carries. |
+
+</details>
+
+<a id="node-wasdisplayany"></a>
+<details>
+<summary><b>Display Any</b></summary>
+
+Write whatever is connected onto the node, the value itself filling the panel and what it is sitting under it. Text and numbers appear as they are, a list or dictionary as the data it holds, and an image, mask or latent as its shape, type, device and value range. A socket carrying several values gives each one a box of its own, holding that value and nothing else, so any of them can be selected and copied as it stands. The value passes through unchanged, so the node can be dropped into a chain rather than hung off the side of one.
+
+| | |
+|---|---|
+| Node id | `WASDisplayAny` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `value` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Anything at all: text, a number, an image, a mask, a latent, a model. Whatever connects here first decides the type of the node, and the output then carries that same type. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `value` | `COMFY_MATCHTYPE_V3` | The same value that came in, unchanged, on a socket carrying its type. Leave it unwired to end a branch on the node, or wire it on to watch a value partway down a chain. |
+
+</details>
+
+<a id="node-wasfastgroups"></a>
+<details>
+<summary><b>Fast Groups</b></summary>
+
+List every group in the graph, each with a switch that mutes or bypasses every node inside it. Nothing has to be selected first, and the switches are the graph's own mute and bypass states, so they survive a save, an undo and a copy. The node reads nothing and answers nothing.
+
+| | |
+|---|---|
+| Node id | `WASFastGroups` |
+
+</details>
+
+<a id="node-wasfreememory"></a>
+<details>
+<summary><b>Free Memory</b></summary>
+
+Hand memory back to the graphics card partway through a run. ComfyUI can only be asked to free memory from its own menu, which a running graph cannot reach, so a chain that loads, upscales and then encodes video can run out on the last stage while the first two are still resident. Wire the stage that has finished into passthrough and the stage that needs the room after it, and the freeing happens between the two. Reports what the device held before and after, so the effect is a number rather than a guess. It runs on every queue rather than being cached, so everything below it runs again as well. Harmless on a machine with no graphics card.
+
+| | |
+|---|---|
+| Node id | `WASFreeMemory` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `unload_models` | `BOOLEAN` | Yes | True |  | true hands every loaded checkpoint, VAE, CLIP and ControlNet back; false leaves them where they are. This is what frees the most. They load again by themselves when a node next asks for one, which costs the seconds that load took. |
+| `empty_cache` | `BOOLEAN` | Yes | True |  | true gives the driver back the blocks torch has reserved and is not using. Torch reuses those blocks itself, so this seldom changes what the next sampler can fit; reach for it when another program, or a library such as OpenCV, needs room on the card. |
+| `collect_garbage` | `BOOLEAN` | Yes | True |  | true runs Python's collector before the cache is emptied, so anything the graph has finished with is actually handed back rather than only marked unused. It costs a few milliseconds and makes unload_models worth more. |
+| `passthrough` | `COMFY_MATCHTYPE_V3` | No |  |  | Anything at all: an image, a model, a latent, text. It comes back out unchanged once the freeing is done, which is what pins the free to a point in the chain instead of leaving it to happen whenever. Leave it unwired to free on its own. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `passthrough` | `COMFY_MATCHTYPE_V3` | The value that came in, unchanged, on a socket carrying its type. Nothing wired to it starts until the freeing is over. Empty when nothing was wired into passthrough. |
+| `vram_before` | `FLOAT` | Gigabytes in use on the device ComfyUI computes on when the node started, as 18.42. On a machine with no graphics card that device is the processor and the figure is system RAM. |
+| `vram_after` | `FLOAT` | The same figure once the freeing has finished, as 2.10. Wire it into Compare to stop a run that still has too little room, or into Text Concatenate to record it. |
+| `freed` | `FLOAT` | vram_before minus vram_after, in gigabytes, as 16.32. 0.00 means nothing was handed back. It reads negative when another program took memory on the same device while this ran. |
+| `report` | `STRING` | The device, the used, free and total figures on both sides, what was done and how much came back, on five lines. Drawn on the node and wireable to Display Any or Text Save. |
+
+</details>
+
+<a id="node-hex-to-hsl"></a>
+<details>
+<summary><b>Hex to HSL</b></summary>
+
+Convert a hex colour string into its HSL components and CSS string.
+
+| | |
+|---|---|
+| Node id | `Hex to HSL` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `hex_color` | `STRING` | Yes | #FF0000 |  | The colour to convert, written as six hex digits for red, green and blue, '#FF0000' is pure red, or as eight with a trailing pair for opacity. The leading '#' is optional. |
+| `include_alpha` | `BOOLEAN` | No | False |  | Whether to read the last two hex digits as opacity. Off, alpha is reported as 1.0 and the string comes out as 'hsl(...)'; on, and given an eight-digit colour, the string comes out as 'hsla(...)'. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `hue` | `INT` | Position on the colour wheel in degrees, 0 to 360: 0 is red, 120 green, 240 blue. Grey and white have no hue and report 0. |
+| `saturation` | `INT` | How strong the colour is, as a percentage: 0 is grey, 100 is fully saturated. |
+| `lightness` | `INT` | How light the colour is, as a percentage: 0 is black, 50 is the pure hue, 100 is white. |
+| `alpha` | `FLOAT` | Opacity from 0.0 to 1.0, rounded to two places. 1.0 unless include_alpha is on and the colour carried eight hex digits. |
+| `hsl` | `STRING` | The same colour as a CSS string, e.g. 'hsl(0, 100%, 50%)', ready for HSL to Hex or any node that takes a colour string. |
+
+</details>
+
+<a id="node-hsl-to-hex"></a>
+<details>
+<summary><b>HSL to Hex</b></summary>
+
+Convert a CSS hsl() or hsla() colour string into a hex colour string.
+
+| | |
+|---|---|
+| Node id | `HSL to Hex` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `hsl_color` | `STRING` | Yes | hsl(0, 100%, 50%) |  | The colour to convert, as a CSS string: hue in degrees 0-359, then saturation and lightness as percentages, e.g. 'hsl(0, 100%, 50%)' for pure red. 'hsla(0, 100%, 50%, 0.5)' adds opacity from 0.0 to 1.0. The percent signs may be left out. A hue of exactly 360 falls in no sector and comes out black; use 0 for red. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `hex_color` | `STRING` | The same colour as '#RRGGBB', e.g. '#FF0000'. An opacity below 1.0 adds a fourth pair, giving '#RRGGBBAA'. |
+
+</details>
+
+<a id="node-wasmodelinfo"></a>
+<details>
+<summary><b>Model Info</b></summary>
+
+Say which model is on a wire and how big it is. Answers the class behind the loader, as `SDXL` or `AutoencoderKL`, the precision the weights are held at, the device they run on, and the parameter count both as a whole number and in millions. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types on one socket, reads them without loading or changing anything, and answers empty text for a fact it cannot reach rather than stopping the run.
+
+| | |
+|---|---|
+| Node id | `WASModelInfo` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `model` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Anything a loader answers: MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the rest. The wire is read, not changed, and nothing is moved onto the graphics card to read it. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `kind` | `STRING` | The class behind the wire, which names the family: `SDXL` or `Flux` for a checkpoint, `AutoencoderKL` for a VAE, `RRDBNet` for an upscaler. A LoRA arrives as a plain `dict`. Falls back to the wrapper's own name where there is nothing inside it. |
+| `dtype` | `STRING` | Precision the weights are held at: `float16`, `bfloat16`, `float32`, `float8_e4m3fn`. Compare it to catch a checkpoint that loaded at full precision when half was wanted. Empty where the model does not say. |
+| `device` | `STRING` | Where the weights run: `cuda:0`, `cpu`, `mps`. For a loader that offloads, this is the device it loads onto when it runs, not where it is parked between runs. |
+| `parameter_count` | `INT` | Weights the model holds, counted element by element: around 860 million for an SD1.5 checkpoint and 2.6 billion for SDXL. 0 where nothing could be counted. |
+| `parameter_millions` | `FLOAT` | The same count divided by a million and rounded to three decimals, so 2567463684 reads as 2567.464. Easier to test against a threshold than the whole number. |
+| `summary` | `STRING` | Every figure on one line, as `SDXL, float16 on cuda:0, 2567.46M parameters`, with a count under a million written out in full. Wire it to Display Any, or into a filename prefix, to label a render with what made it. |
+
+</details>
+
+<a id="node-wassleep"></a>
+<details>
+<summary><b>Sleep</b></summary>
+
+Wait a set number of seconds, then hand whatever is wired in straight back out. Put it in front of anything that needs pacing: a web service with a rate limit, a folder another program is still writing to, a loop that would otherwise hammer a device. Cancel stops the wait within a twentieth of a second. The wait is taken on every queue rather than cached, so everything below it runs again as well.
+
+| | |
+|---|---|
+| Node id | `WASSleep` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `seconds` | `FLOAT` | Yes | 1.0 |  | How long to wait. 0 = no wait; 0.5 = half a second; 60 = a minute; 3600 = an hour, the most on offer. Match it to the limit being respected, such as 1.2 for a service allowing 50 calls a minute. |
+| `passthrough` | `COMFY_MATCHTYPE_V3` | No |  |  | Anything at all: an image, a model, text, a number. It comes back out unchanged once the wait is over, which is what puts the delay in the middle of a chain rather than off to one side. Leave it unwired to wait on its own. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `passthrough` | `COMFY_MATCHTYPE_V3` | The value that came in, unchanged, on a socket carrying its type. Nothing wired to it starts until the wait is over. Empty when nothing was wired into passthrough. |
+| `slept` | `FLOAT` | Seconds actually spent waiting, measured rather than repeated back, so 1.0 comes out as 1.001 or so. Wire it to Text Concatenate or Number Operation to record how long a run was paced for. |
+
+</details>
+
+<a id="node-waswidgettostring"></a>
+<details>
+<summary><b>Widget to String</b></summary>
+
+Read one widget off another node in the graph and answer what it holds as text, so a filename, a caption or a log line can carry the seed, the sampler name, the steps or a prompt from wherever it is actually set. Nothing is wired to the node being read: give its id, the name of the widget, and optionally text to answer when either cannot be found.
+
+| | |
+|---|---|
+| Node id | `WASWidgetToString` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `node_id` | `STRING` | Yes |  |  | The id of the node to read, as ComfyUI draws it on the node's badge: 12. Turn the badge on under Settings if no number is showing. Inside a subgraph the local number is enough, and a full path such as 12:3 works too. |
+| `widget_name` | `STRING` | Yes |  |  | The widget to read, spelled exactly as its node spells it: seed, steps, cfg, sampler_name, ckpt_name, text. An input filled by a wire holds no widget value, and asking for one says which node feeds it. |
+| `default` | `STRING` | No |  |  | Text to answer when the node or the widget cannot be found, which keeps the prompt running and sets found to false. Left empty, a miss stops the prompt with a message naming what was looked for and which nodes do carry a widget of that name. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `string` | `STRING` | What the widget holds, written out: 42, 8.0, true, dpmpp_2m, or a whole prompt. Feed it to a filename prefix, a text join, or anything else taking a STRING. |
+| `found` | `BOOLEAN` | true when the widget was read, false when default stood in for it. Wire it into a switch where a stand-in must be handled differently, since the string alone cannot tell the two apart. |
+
+</details>
+
+### WAS Suite/Workflow
+
+<a id="node-wasappworkflow"></a>
+<details>
+<summary><b>App Workflow</b></summary>
+
+Run a workflow saved in app mode as a single node. Its exposed inputs become values this node sets, and each result it presents leaves on a wire, so a whole saved graph can be reused inside a larger one.
+
+| | |
+|---|---|
+| Node id | `WASAppWorkflow` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `app` | `COMBO` | Yes |  |  | Which saved app workflow to run; a name ending .app.json from the workflows directory, such as upscale.app.json. |
+| `overrides` | `STRING` | Yes | {} |  | Values for the workflow's exposed inputs, as JSON keyed on the input name: {"steps": 30, "text": "a red car"}. Anything left out keeps the value the workflow was saved with, and the widgets below are sent through here. |
+| `input_1` | `*` | No |  |  | Value for the first input the workflow exposes, replacing what it saved; any type. Choosing a workflow renames this socket to the input it feeds, such as red_offset, and narrows it to that input's own type. An input that names a file takes an IMAGE here instead, and the file is not read. |
+| `input_2` | `*` | No |  |  | Value for the second input the workflow exposes, replacing what it saved; any type. Choosing a workflow renames this socket to the input it feeds, such as red_offset, and narrows it to that input's own type. An input that names a file takes an IMAGE here instead, and the file is not read. |
+| `input_3` | `*` | No |  |  | Value for the third input the workflow exposes, replacing what it saved; any type. Choosing a workflow renames this socket to the input it feeds, such as red_offset, and narrows it to that input's own type. An input that names a file takes an IMAGE here instead, and the file is not read. |
+| `input_4` | `*` | No |  |  | Value for the fourth input the workflow exposes, replacing what it saved; any type. Choosing a workflow renames this socket to the input it feeds, such as red_offset, and narrows it to that input's own type. An input that names a file takes an IMAGE here instead, and the file is not read. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `exposed` | `DICT` | What the workflow offers, as one value; DICT. Holds its exposed input names, its result count and the node count it ran. |
+| `output_1` | `*` | The first result the workflow presents; any type. It carries whatever feeds that node, so a workflow ending in a Preview Image answers the IMAGE itself, and choosing a workflow renames this socket to what it carries. |
+| `output_2` | `*` | The second result the workflow presents; any type. It carries whatever feeds that node, so a workflow ending in a Preview Image answers the IMAGE itself, and choosing a workflow renames this socket to what it carries. |
+| `output_3` | `*` | The third result the workflow presents; any type. It carries whatever feeds that node, so a workflow ending in a Preview Image answers the IMAGE itself, and choosing a workflow renames this socket to what it carries. |
+| `output_4` | `*` | The fourth result the workflow presents; any type. It carries whatever feeds that node, so a workflow ending in a Preview Image answers the IMAGE itself, and choosing a workflow renames this socket to what it carries. |
+
+</details>
+
+---
+
+## `features.network`
+
+4 nodes. Off in a fresh install: set `features.network: true` in `config.yaml` and restart ComfyUI to load these.
+
+### WAS Suite/IO
+
+<a id="node-wasdownloadimage"></a>
+<details>
+<summary><b>Download Image</b></summary>
+
+Fetch an image from an http or https address and hand it on as a picture, a mask, its name and its colour profile, the same four things Image Load answers with. A file tagged with a colour profile is converted to sRGB as it is read, or kept in its own space. This node is in the network group, so it only appears with features.network on in config.yaml, and it is the only node in the pack that fetches a picture.
+
+| | |
+|---|---|
+| Node id | `WASDownloadImage` |
+| Enable with | `features.network: true` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `url` | `STRING` | Yes |  |  | The address to fetch, such as 'https://example.com/photo.jpg'. It is read on every run, since nothing on the wire says whether it has changed. |
+| `RGBA` | `BOOLEAN` | Yes | False |  | `off` discards any transparency and hands on a plain colour image, which is what samplers and most nodes expect; `on` keeps the transparency channel in the image itself. The mask output is produced either way. |
+| `filename_text_extension` | `BOOLEAN` | No | True |  | Whether the filename_text output keeps the extension. On = 'cat.png', off = 'cat'. The name is the last part of the address. |
+| `colour_space` | `COMBO` | No | sRGB |  | Which colour space the picture comes out in. "the file's own" leaves a tagged file exactly as it was written. 'sRGB' is what a sampler, a filter and a LUT expect. The rest, such as 'Adobe RGB (1998)' and 'Display P3', are for a photograph that goes back out in its own space. |
+| `icc_mode` | `COMBO` | No |  | `convert`, `assign` | What to do with the space above. 'convert' changes the numbers so the colour stays put, which is what a photograph wants. 'assign' leaves the numbers alone and says they were in that space all along, which is how an untagged file that is really Display P3 is put right. Ignored for "the file's own". |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `image` | `IMAGE` | The picture that was fetched, as a batch of one. |
+| `mask` | `MASK` | The image's transparency as a mask, with the transparent parts white and the opaque parts black. An image with no transparency gives an empty 64x64 mask. |
+| `filename_text` | `STRING` | The last part of the address, for reuse as a caption or a save prefix. |
+| `profile` | `WAS_COLOUR_PROFILE` | The colour profile the file was tagged with, such as Adobe RGB (1998). Wire it into Image Save to write the result back in that space rather than in sRGB. Empty for a file carrying no profile. |
+
+</details>
+
+<a id="node-image-send-http"></a>
+<details>
+<summary><b>Image Send HTTP</b></summary>
+
+Send the images to an HTTP endpoint as a multipart upload. This node makes an outbound request with the image data, so it is only loaded when features.network is enabled.
+
+| | |
+|---|---|
+| Node id | `Image Send HTTP` |
+| Enable with | `features.network: true` in `config.yaml` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `images` | `IMAGE` | Yes |  |  | The images to upload. Every image in the batch is encoded as a PNG and sent in the same request, named 'image_0.png', 'image_1.png' and so on. |
+| `url` | `STRING` | Yes | example.com |  | Full address the images are sent to, e.g. 'https://example.com/api/upload'. The default is a placeholder and has to be replaced. |
+| `method_type` | `COMBO` | Yes | post | `post`, `put`, `patch` | Which HTTP verb the request uses. `post` is the usual choice for an upload; pick `put` or `patch` if the receiving endpoint asks for one of those. |
+| `request_field_name` | `STRING` | Yes | image |  | Name of the form field the files are attached under. It has to match whatever the receiving endpoint expects, often 'image' or 'file'. |
+| `additional_request_headers` | `DICT` | No |  |  | Extra HTTP headers to send, as a dictionary of names to values, an 'Authorization' entry for an endpoint that needs a token, for instance. Disconnected, only the default headers are sent. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `status_code` | `INT` | The HTTP status the endpoint answered with: 200 or 201 for success, 401 for a rejected token, 404 for a wrong address, 500 for a fault at the far end. |
+| `result_text` | `STRING` | The body of the endpoint's reply, as text, often JSON holding an id or a link for the uploaded image. |
+
+</details>
+
+### WAS Suite/Number
+
+<a id="node-true-randomorg-number-generator"></a>
+<details>
+<summary><b>True Random.org Number Generator</b></summary>
+
+Draw a true random integer from RANDOM.ORG, which derives it from atmospheric noise rather than a pseudo-random generator. Requires a free API key from https://api.random.org and an internet connection; without one the node emits 0.
+
+| | |
+|---|---|
+| Node id | `True Random.org Number Generator` |
+| Enable with | `features.network: true` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `api_key` | `STRING` | Yes | 00000000-0000-0000-0000-000000000000 |  | A RANDOM.ORG API key, free from https://api.random.org, in the form of a UUID. The all-zero default is a placeholder: while it is there, no request is sent and the node reports the missing key and emits 0. |
+| `minimum` | `FLOAT` | Yes | 0 |  | The lowest number that can be drawn, itself included. Any fraction is cut off first, since the service only draws whole numbers. |
+| `maximum` | `FLOAT` | Yes | 10000000 |  | The highest number that can be drawn, itself included. Any fraction is cut off first. A range the service will not accept comes back as 0, with the refusal in the log. |
+| `mode` | `COMBO` | Yes |  | `random`, `fixed` | How often a new number is fetched. `random` asks the service for a fresh one on every prompt. `fixed` keeps handing out the number already drawn until the key or one of the bounds changes, which saves requests while the rest of a workflow is being tuned. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `NUMBER` | The drawn whole number, or 0 when no key was given or the service did not answer. |
+| `<output1>` | `FLOAT` | The same number as a decimal, so 42 leaves here as 42.0. |
+| `<output2>` | `INT` | The same number on an INT socket, for a seed widget. |
+
+</details>
+
+### WAS Suite/Text
+
+<a id="node-text-random-prompt"></a>
+<details>
+<summary><b>Text Random Prompt</b></summary>
+
+Search lexica.art and return the prompt of one random result. An empty search term picks a subject at random. Needs an internet connection.
+
+| | |
+|---|---|
+| Node id | `Text Random Prompt` |
+| Enable with | `features.network: true` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `search_seed` | `STRING` | Yes |  |  | Subject to search lexica.art for, for example 'cyberpunk city'. Left empty, one of portrait, landscape, anime, superhero, animal, nature or scenery is searched for instead. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `STRING` | The prompt of one random image the search matched. Reads '404 not found error' when the search returned nothing or the site could not be reached. |
+
+</details>
+
+---
+
+## `features.pssr`
+
+1 nodes. Off in a fresh install: set `features.pssr: true` in `config.yaml` and restart ComfyUI to load these.
+
+### WAS Suite/Image/Process
+
+<a id="node-waspssrsuperresolution"></a>
+<details>
+<summary><b>Video Super Resolution (PS-SR)</b></summary>
+
+Raise a video's resolution with PS-SR, which resamples to the target size and then puts detail back with a diffusion pass, twice: once for a steady result and once for a sharp one, blended by frequency. Weights are placed by hand and never downloaded. Long clips are covered by sliding windows, so memory depends on the window rather than the length.
+
+| | |
+|---|---|
+| Node id | `WASPSSRSuperResolution` |
+| Enable with | `features.pssr: true` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `model` | `MODEL` | Yes |  |  | Wan 2.1 T2V-1.3B, from Load Diffusion Model. Finetunes of it work; 14B and other families are refused, since the restoration weights are 1.3B. |
+| `positive` | `CONDITIONING` | Yes |  |  | What to restore towards, from CLIP Text Encode on a wan CLIP Loader. Name the subject and the finish, eg 'a red car, sharp, fine detail'. |
+| `negative` | `CONDITIONING` | Yes |  |  | What to avoid, eg 'blurry, jpeg artifacts, over-smooth'. Carried but not read at this method's guidance; wire Conditioning Zero Out if unused. |
+| `images` | `IMAGE` | Yes |  |  | The frames to raise, in order. Treated as one continuous shot, so a cut inside the batch is blended across rather than respected. |
+| `scale` | `FLOAT` | Yes | 1.5 |  | Size multiplier. 1.5 = half again as large; 1.0 = restore at the current size. Cost rises with the square of it. |
+| `interpolation` | `COMBO` | Yes | lanczos | `lanczos`, `bicubic`, `bilinear` | How the frames reach the target size first. `lanczos` keeps the most detail for the model to build on, `bicubic` is smoother over flat areas, and `bilinear` is the cheapest. |
+| `seed` | `INT` | Yes | 1 |  | Seeds the diffusion noise, so the same seed restores the same way. Any whole number; `0` is as good a seed as any. |
+| `window_frames` | `INT` | Yes | 33 |  | Frames per pass, eg 33. Larger is steadier over time and costs more memory. This, not the clip length, sets peak VRAM. |
+| `overlap_frames` | `INT` | Yes | 8 |  | Frames shared between passes, eg 8. More hides the joins and costs proportionally more; 0 = no sharing. |
+| `tile_size` | `INT` | Yes | 0 |  | 0 = whole frame, halving only if it will not fit; 1280 = 1280px patches. Tiling is for memory, not speed: overlaps average two passes and band against the edges. |
+| `tile_overlap` | `INT` | Yes | 128 |  | How much neighbouring patches share. The shared band is feathered between them, so more hides the seams at proportionally more cost. |
+| `detail_strength` | `FLOAT` | Yes | 1.0 |  | How much sharp pass to blend in. 0 = steady only; 1 = intended; 2 = exaggerated. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `images` | `IMAGE` | The frames at the new size, detail restored. |
+
+</details>
+
+---
+
+## `legacy.cache`
+
+2 nodes. Off in a fresh install: set `legacy.cache: true` in `config.yaml` and restart ComfyUI to load these.
+
+### WAS Suite/IO
+
+<a id="node-cache-node"></a>
+<details>
+<summary><b>Cache Node</b></summary>
+
+Deprecated. Nothing replaces it directly: it writes a latent, image batch or conditioning to a file between prompts, and Load Cache reads it back. Off by default: enable legacy.cache to load it. Each suffix defaults to a fresh random number followed by '_cache', so two Cache Nodes do not overwrite each other; set one by hand to write a predictable name a Load Cache node can be pointed at.
+
+| | |
+|---|---|
+| Node id | `Cache Node` |
+| Enable with | `legacy.cache: true` in `config.yaml` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `latent_suffix` | `STRING` | Yes |  |  | Name for the latent's file, without an extension, '.latent' is added. It has to be a plain file name with no folders in it. |
+| `image_suffix` | `STRING` | Yes |  |  | Name for the image batch's file, without an extension, '.image' is added. Otherwise as latent_suffix. |
+| `conditioning_suffix` | `STRING` | Yes |  |  | Name for the conditioning's file, without an extension, '.conditioning' is added. Otherwise as latent_suffix. |
+| `root` | `COMBO` | No |  |  | Which folder the files land in: 'cache', the pack's own cache directory, ComfyUI's 'output' or 'temp', or any folder added under paths.allow_write in config.yaml. folder names the part below it. |
+| `folder` | `STRING` | No |  |  | Folder below the root the files land in, created if it is not there. Tokens expand, so '[time(%Y-%m-%d)]' files each day's cache under a dated folder. Empty writes into the root itself. |
+| `latent` | `LATENT` | No |  |  | A latent to write out. Disconnected, no latent file is written and latent_filename comes back empty. |
+| `image` | `IMAGE` | No |  |  | An image batch to write out. Disconnected, no image file is written and image_filename comes back empty. |
+| `conditioning` | `CONDITIONING` | No |  |  | Conditioning to write out. Disconnected, no conditioning file is written and conditioning_filename comes back empty. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `latent_filename` | `STRING` | Name of the latent file that was written, to paste into a Load Cache node. Empty when no latent was connected. |
+| `image_filename` | `STRING` | Name of the image file that was written. Empty when no image was connected. |
+| `conditioning_filename` | `STRING` | Name of the conditioning file that was written. Empty when no conditioning was connected. |
+
+</details>
+
+<a id="node-load-cache"></a>
+<details>
+<summary><b>Load Cache</b></summary>
+
+Deprecated. Nothing replaces it directly: it reads back a latent, image batch or conditioning that Cache Node wrote to a file in an earlier prompt. Off by default: enable legacy.cache to load it. A cache file holds tensor data only, and one holding anything else is refused.
+
+| | |
+|---|---|
+| Node id | `Load Cache` |
+| Enable with | `legacy.cache: true` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `latent` | `COMBO` | No |  |  | Which '.latent' file to read, as Cache Node named it. The menu lists the pack's cache directory, tagged '[cache]', beside ComfyUI's own folders. Left on the empty entry, the LATENT output is nothing at all. |
+| `image` | `COMBO` | No |  |  | Which '.image' file to read, as Cache Node named it. The menu lists the pack's cache directory, tagged '[cache]', beside ComfyUI's own folders. Left on the empty entry, the IMAGE output is nothing at all. |
+| `conditioning` | `COMBO` | No |  |  | Which '.conditioning' file to read, as Cache Node named it. The menu lists the pack's cache directory, tagged '[cache]', beside ComfyUI's own folders. Left on the empty entry, the CONDITIONING output is nothing at all. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `LATENT` | `LATENT` | The latent read from latent_path. Nothing at all when the widget is empty or the file is missing, which will fail whatever it is connected to. |
+| `IMAGE` | `IMAGE` | The image batch read from image_path. Nothing at all when the widget is empty or the file is missing. |
+| `CONDITIONING` | `CONDITIONING` | The conditioning read from conditioning_path. Nothing at all when the widget is empty or the file is missing. |
+
+</details>
+
+---
+
+## `legacy.debug`
+
+2 nodes. Off in a fresh install: set `legacy.debug: true` in `config.yaml` and restart ComfyUI to load these.
+
+### WAS Suite/Debug
+
+<a id="node-export-api"></a>
+<details>
+<summary><b>Export API</b></summary>
+
+Deprecated: use ComfyUI's own Workflow > Export (API) menu item instead, which saves the same document without a node in the graph. Writes the prompt API JSON of the running workflow to a numbered file. The folder has to be one this pack may write to: ComfyUI's output and temp folders, the pack's own folder, or a folder listed under paths.allow_write in config.yaml.
+
+| | |
+|---|---|
+| Node id | `Export API` |
+| Enable with | `legacy.debug: true` in `config.yaml` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `save_prompt_api` | `COMBO` | Yes |  | `true`, `true` | Whether to write the file. Both entries of this menu read `true`, so there is no way to turn writing off; the JSON is always written and always printed to the console. |
+| `root` | `COMBO` | Yes |  |  | Which folder the JSON lands in: ComfyUI's own 'output' or 'temp', or any folder added under paths.allow_write in config.yaml, listed by its own name. filename_prefix names the part below it, so '[time(%Y-%m-%d)]/prompt' files each day's under a dated folder. |
+| `filename_prefix` | `STRING` | Yes | ComfyUI_Prompt |  | The name part of the file, before the number. |
+| `filename_delimiter` | `STRING` | Yes | _ |  | What sits between the name and the number: 'ComfyUI_Prompt_0001.json' with the default. |
+| `filename_number_padding` | `INT` | Yes | 4 |  | How many digits the number is padded to with leading zeros: 4 gives '_0001', 2 gives '_01'. |
+| `parse_text_tokens` | `BOOLEAN` | Yes | False |  | Whether to expand '[token]' patterns in every string of the saved document, so a prompt containing '[time(%Y-%m-%d)]' is recorded as the date it ran. Off, the widget values are saved exactly as typed, which is what a reloadable workflow needs. |
+
+</details>
+
+<a id="node-samples-passthrough-stat-system"></a>
+<details>
+<summary><b>Samples Passthrough (Stat System)</b></summary>
+
+Deprecated: use ComfyUI's system stats endpoint instead, which reports the same RAM, VRAM and disk figures. Logs those figures to the console and passes the latent through unchanged.
+
+| | |
+|---|---|
+| Node id | `Samples Passthrough (Stat System)` |
+| Enable with | `legacy.debug: true` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `samples` | `LATENT` | Yes |  |  | A latent to pass along. It is not read or altered; it only gives the node somewhere to sit in the graph so the figures are logged at that point in the run. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `samples` | `LATENT` | The same latent that came in, unchanged. |
+
+</details>
+
+---
+
+## `legacy.dupes`
+
+1 nodes. Off in a fresh install: set `legacy.dupes: true` in `config.yaml` and restart ComfyUI to load these.
+
+### WAS Suite/Image/Masking
+
+<a id="node-clipseg2"></a>
+<details>
+<summary><b>CLIPSeg Tiled Masking</b></summary>
+
+Deprecated: use CLIPSeg Masking, which does the same job in one pass and also returns a MASK. This one scores the image in overlapping tiles and returns a hard black and white result. Enable legacy.dupes to load it.
+
+| | |
+|---|---|
+| Node id | `CLIPSEG2` |
+| Enable with | `legacy.dupes: true` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `image` | `IMAGE` | Yes |  |  | The image to search. One image at a time; a batch of more than one is refused. |
+| `text` | `STRING` | Yes |  |  | What to select, in plain words: 'the sky', 'a red car', 'hair'. Short noun phrases work best. |
+| `use_cuda` | `BOOLEAN` | Yes | False |  | On, the model runs on the graphics card, which is much faster on a large image because every tile is a separate pass. Off, it runs on the processor. A machine with no graphics card runs on the processor either way. |
+| `clipseg_model` | `CLIPSEG_MODEL` | No |  |  | An already-loaded model from CLIPSeg Model Loader. Wire one in to load the weights once and share them between several nodes; leave it empty to load the default model here. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `IMAGE` | The match as a pure black and white image: white where the phrase was found, black everywhere else, with no soft edge. |
+
+</details>
+
+---
+
+## `legacy.superseded`
+
+1 nodes. Off in a fresh install: set `legacy.superseded: true` in `config.yaml` and restart ComfyUI to load these.
+
+### WAS Suite/Image/AI
+
+<a id="node-midas-mask-image"></a>
+<details>
+<summary><b>MiDaS Mask Image</b></summary>
+
+Deprecated: use Image Remove Background, CLIPSeg Masking or SAM Image Mask instead. Splits an image by distance from the camera using a MiDaS depth map, keeping the near or the far half on transparency or on a flat colour, with the same split on a mask. Depth knows nothing about objects, so anything level with the kept half is kept with it and the edge comes out as a gradient rather than a cutline until threshold is on, which is why those three suit a cutout better. It still fits fading a background by distance, matting in fog or driving a depth composite. Enable features.midas to load this node.
+
+| | |
+|---|---|
+| Node id | `MiDaS Mask Image` |
+| Enable with | `legacy.superseded: true` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `image` | `IMAGE` | Yes |  |  | The image to split. A batch is depth-mapped one image at a time and comes back as a batch of the same length. |
+| `midas_model` | `MIDAS_MODEL` | Yes |  |  | The depth model, from MiDaS Model Loader, which is where the DPT_Large, DPT_Hybrid or DPT_Small choice is made. One loader can feed several nodes so the weights are built once. |
+| `use_cpu` | `BOOLEAN` | Yes | False |  | `off` = the graphics card, which is much faster and costs VRAM; `on` = the processor instead. |
+| `remove` | `COMBO` | Yes |  | `background`, `foregroud` | Which half to replace with the background colour: `background` keeps what is near the camera, `foregroud` keeps what is far away. The second option is spelled as it was in the workflows that store it. |
+| `threshold` | `BOOLEAN` | Yes | False |  | `on` pushes the depth map towards black and white using the three threshold values below, which gives a harder edge; `off` composites with the smooth depth map and leaves a gradual fade. |
+| `threshold_low` | `FLOAT` | Yes | 10 |  | Depth value that becomes fully background, 0-255. Raise it to pull more of the middle distance into the background. Only used when threshold is on. |
+| `threshold_mid` | `FLOAT` | Yes | 200 |  | Depth value that becomes mid grey, 0-255. Below threshold_low it is skipped; between the two it bends the falloff, so 150 keeps more of the near half and 230 keeps less. Only used when threshold is on. |
+| `threshold_high` | `FLOAT` | Yes | 210 |  | Depth value that becomes fully foreground, 0-255. Lower it to keep more of the middle distance. Only used when threshold is on, and it must not equal threshold_low. |
+| `smoothing` | `FLOAT` | Yes | 0.25 |  | Blur applied to the depth map before compositing, in pixels. Softens the edge between the two halves; 0 turns it off and leaves the edge as the depth map drew it. |
+| `background_red` | `INT` | Yes | 0 |  | Red channel of the replacement colour, 0-255. |
+| `background_green` | `INT` | Yes | 0 |  | Green channel of the replacement colour, 0-255. 255 with the other two at 0 gives a green screen. |
+| `background_blue` | `INT` | Yes | 0 |  | Blue channel of the replacement colour, 0-255. |
+| `transparency` | `BOOLEAN` | Yes | True |  | `on` = the removed half is transparent and RESULT carries four channels, ready to composite over anything; `off` = RESULT is three channels and the removed half is filled with the background colour above. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `RESULT` | `IMAGE` | The kept half of the image. Four channels with the removed half transparent when transparency is on, three with it filled by the background colour when off. |
+| `DEPTH` | `IMAGE` | The depth map used to make the split, after levelling and blurring, as a greyscale image. White is the half that was kept. |
+| `MASK` | `MASK` | The same split as a mask, white over the half that was kept. Wire it into Image Paste Crop, a mask input or Mask Dilate Region without converting DEPTH first. |
+
+</details>
+
+---
+
+## `features.blip`
+
+2 nodes. On in a fresh install: set `features.blip: false` in `config.yaml` and restart ComfyUI to leave these out.
+
+### WAS Suite/Image/AI
+
+<a id="node-blip-analyze-image"></a>
+<details>
+<summary><b>BLIP Analyze Image</b></summary>
+
+Turn an image into text: either a caption describing it, or an answer to a question about it. Enable features.blip to load this node.
+
+| | |
+|---|---|
+| Node id | `BLIP Analyze Image` |
+| Turn off with | `features.blip: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `images` | `IMAGE` | Yes |  |  | The images to describe. Every image in the batch gets its own caption or answer. |
+| `mode` | `COMBO` | Yes |  | `caption`, `interrogate` | `caption` writes a description of the image and ignores the question widget. `interrogate` answers the question instead, so 'What colour is the car?' gives back a colour. |
+| `question` | `STRING` | Yes | What does the background consist of? |  | The question to answer in `interrogate` mode. Plain language works best and short answers are the norm: 'How many people are there?' answers with a number. Ignored in `caption` mode. |
+| `blip_model` | `BLIP_MODEL` | Yes |  |  | Both models from BLIP Model Loader. |
+| `min_length` | `INT` | No | 24 |  | Shortest answer the model may stop at, in tokens, which are roughly words. Raise it to force a wordier caption; a question answer is usually padded out rather than improved by it. |
+| `max_length` | `INT` | No | 64 |  | Longest answer the model may produce, in tokens. The answer is cut off here, so raise it if captions end mid-sentence. |
+| `num_beams` | `INT` | No | 5 |  | How many candidate wordings are explored before the best is picked. 1 is fastest and takes the first thing that comes; 5 is the usual trade; 12 is slower and a little more considered. |
+| `no_repeat_ngram_size` | `INT` | No | 3 |  | Blocks any run of this many words from appearing twice, which stops 'a man on a man on a man'. 3 is a good default; 1 forbids repeating even single words, including 'the'. |
+| `early_stopping` | `BOOLEAN` | No | False |  | Stop searching as soon as enough finished candidates exist rather than exploring to the end. Faster, and it tends to give shorter answers. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `FULL_CAPTIONS` | `STRING` | Every caption in one string, separated by blank lines, for saving to a text file or feeding a prompt box. |
+| `CAPTIONS` | `STRING` | One caption per image, as a list, so downstream nodes run once per image. |
+
+</details>
+
+### WAS Suite/Loaders
+
+<a id="node-blip-model-loader"></a>
+<details>
+<summary><b>BLIP Model Loader</b></summary>
+
+Load the BLIP captioning and visual question answering models for BLIP Analyze Image. Enable features.blip to load this node.
+
+| | |
+|---|---|
+| Node id | `BLIP Model Loader` |
+| Turn off with | `features.blip: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `blip_model` | `STRING` | Yes | Salesforce/blip-image-captioning-base |  | Hugging Face repository of the captioning model, used by BLIP Analyze Image in caption mode. 'Salesforce/blip-image-captioning-large' is the heavier, more detailed alternative to the default. A repository name is all this takes: a folder path is refused, and a local checkpoint is picked up from ComfyUI's models directory. |
+| `vqa_model_id` | `STRING` | Yes | Salesforce/blip-vqa-base |  | Hugging Face repository of the question answering model, used by BLIP Analyze Image in interrogate mode. It has to be a BLIP VQA model; a captioning model cannot answer a question. A repository name is all this takes: a folder path is refused, and a local checkpoint is picked up from ComfyUI's models directory. |
+| `device` | `COMBO` | Yes |  | `cuda`, `cpu` | Where the models are held. `cuda` is faster and costs VRAM for as long as they stay loaded; `cpu` keeps the GPU free. `cuda` on a machine with no CUDA device falls back to the CPU. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `BLIP_MODEL` | Both loaded models, for the blip_model input of BLIP Analyze Image. |
+
+</details>
+
+---
+
+## `features.clipseg`
+
+3 nodes. On in a fresh install: set `features.clipseg: false` in `config.yaml` and restart ComfyUI to leave these out.
+
+### WAS Suite/Image/Masking
+
+<a id="node-clipseg-batch-masking"></a>
+<details>
+<summary><b>CLIPSeg Batch Masking</b></summary>
+
+Mask several images at once, each against its own description, and return the images, the masks and the masks as images as three matching batches. Enable features.clipseg to load this node.
+
+| | |
+|---|---|
+| Node id | `CLIPSeg Batch Masking` |
+| Turn off with | `features.clipseg: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `image_a` | `IMAGE` | Yes |  |  | First image. Its size decides the size of every output, and the other images have to match it. A batch here is masked image by image, all against text_a. |
+| `image_b` | `IMAGE` | Yes |  |  | Second image. Masked against text_b, and a batch here is masked image by image against it. |
+| `text_a` | `STRING` | Yes |  |  | What to select in image_a, in plain words: 'the sky', 'a red car'. Short noun phrases work best. This box and text_b are always used, empty or not. |
+| `text_b` | `STRING` | Yes |  |  | What to select in image_b. |
+| `clipseg_model` | `CLIPSEG_MODEL` | Yes |  |  | The segmentation model, from CLIPSeg Model Loader. One loader can feed several nodes so the weights are built once. |
+| `image_c` | `IMAGE` | No |  |  | Third image, if there is one. Same size as image_a. |
+| `image_d` | `IMAGE` | No |  |  | Fourth image, if there is one. Same size as image_a. |
+| `image_e` | `IMAGE` | No |  |  | Fifth image, if there is one. Same size as image_a. |
+| `image_f` | `IMAGE` | No |  |  | Sixth image, if there is one. Same size as image_a. |
+| `image_g` | `IMAGE` | No |  |  | Picture 7, segmented by text_g. Unconnected is skipped. |
+| `image_h` | `IMAGE` | No |  |  | Picture 8, segmented by text_h. Unconnected is skipped. |
+| `image_i` | `IMAGE` | No |  |  | Picture 9, segmented by text_i. Unconnected is skipped. |
+| `image_j` | `IMAGE` | No |  |  | Picture 10, segmented by text_j. Unconnected is skipped. |
+| `image_k` | `IMAGE` | No |  |  | Picture 11, segmented by text_k. Unconnected is skipped. |
+| `image_l` | `IMAGE` | No |  |  | Picture 12, segmented by text_l. Unconnected is skipped. |
+| `image_m` | `IMAGE` | No |  |  | Picture 13, segmented by text_m. Unconnected is skipped. |
+| `image_n` | `IMAGE` | No |  |  | Picture 14, segmented by text_n. Unconnected is skipped. |
+| `image_o` | `IMAGE` | No |  |  | Picture 15, segmented by text_o. Unconnected is skipped. |
+| `image_p` | `IMAGE` | No |  |  | Picture 16, segmented by text_p. Unconnected is skipped. |
+| `image_q` | `IMAGE` | No |  |  | Picture 17, segmented by text_q. Unconnected is skipped. |
+| `image_r` | `IMAGE` | No |  |  | Picture 18, segmented by text_r. Unconnected is skipped. |
+| `image_s` | `IMAGE` | No |  |  | Picture 19, segmented by text_s. Unconnected is skipped. |
+| `image_t` | `IMAGE` | No |  |  | Picture 20, segmented by text_t. Unconnected is skipped. |
+| `image_u` | `IMAGE` | No |  |  | Picture 21, segmented by text_u. Unconnected is skipped. |
+| `image_v` | `IMAGE` | No |  |  | Picture 22, segmented by text_v. Unconnected is skipped. |
+| `image_w` | `IMAGE` | No |  |  | Picture 23, segmented by text_w. Unconnected is skipped. |
+| `image_x` | `IMAGE` | No |  |  | Picture 24, segmented by text_x. Unconnected is skipped. |
+| `text_c` | `STRING` | No |  |  | What to select in image_c. An empty box is left out of the list. |
+| `text_d` | `STRING` | No |  |  | What to select in image_d. An empty box is left out of the list. |
+| `text_e` | `STRING` | No |  |  | What to select in image_e. An empty box is left out of the list. |
+| `text_f` | `STRING` | No |  |  | What to select in image_f. An empty box is left out of the list. |
+| `text_g` | `STRING` | No |  |  | What to find in image_g. Empty is skipped. |
+| `text_h` | `STRING` | No |  |  | What to find in image_h. Empty is skipped. |
+| `text_i` | `STRING` | No |  |  | What to find in image_i. Empty is skipped. |
+| `text_j` | `STRING` | No |  |  | What to find in image_j. Empty is skipped. |
+| `text_k` | `STRING` | No |  |  | What to find in image_k. Empty is skipped. |
+| `text_l` | `STRING` | No |  |  | What to find in image_l. Empty is skipped. |
+| `text_m` | `STRING` | No |  |  | What to find in image_m. Empty is skipped. |
+| `text_n` | `STRING` | No |  |  | What to find in image_n. Empty is skipped. |
+| `text_o` | `STRING` | No |  |  | What to find in image_o. Empty is skipped. |
+| `text_p` | `STRING` | No |  |  | What to find in image_p. Empty is skipped. |
+| `text_q` | `STRING` | No |  |  | What to find in image_q. Empty is skipped. |
+| `text_r` | `STRING` | No |  |  | What to find in image_r. Empty is skipped. |
+| `text_s` | `STRING` | No |  |  | What to find in image_s. Empty is skipped. |
+| `text_t` | `STRING` | No |  |  | What to find in image_t. Empty is skipped. |
+| `text_u` | `STRING` | No |  |  | What to find in image_u. Empty is skipped. |
+| `text_v` | `STRING` | No |  |  | What to find in image_v. Empty is skipped. |
+| `text_w` | `STRING` | No |  |  | What to find in image_w. Empty is skipped. |
+| `text_x` | `STRING` | No |  |  | What to find in image_x. Empty is skipped. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `IMAGES_BATCH` | `IMAGE` | Every image that was given, as one batch in input order, so the masks line up with the pictures they came from. |
+| `MASKS_BATCH` | `MASK` | One mask per image, brighter where the phrase matched, for an inpainting or compositing node. |
+| `MASK_IMAGES_BATCH` | `IMAGE` | The same masks as black and white images, to preview or to feed a node that takes an image rather than a mask. |
+| `count` | `INT` | How many frames each batch holds, which is the total across the slots rather than the number of slots. |
+
+</details>
+
+<a id="node-clipseg-masking"></a>
+<details>
+<summary><b>CLIPSeg Masking</b></summary>
+
+Make a mask from a word for what to select, such as `person`, `sky` or `the red car`. Enable features.clipseg to load this node.
+
+| | |
+|---|---|
+| Node id | `CLIPSeg Masking` |
+| Turn off with | `features.clipseg: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `image` | `IMAGE` | Yes |  |  | The image to search. A batch is handled as a batch, one mask per image, all against the same text. |
+| `text` | `STRING` | Yes |  |  | What to select, in plain words: 'the sky', 'a red car', 'hair'. Short noun phrases work best. An empty string still runs and matches nothing in particular. |
+| `clipseg_model` | `CLIPSEG_MODEL` | Yes |  |  | The segmentation model, from CLIPSeg Model Loader. One loader can feed several nodes so the weights are built once. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `MASK` | `MASK` | The match as a mask, for an inpainting or compositing node. Brighter means a stronger match. |
+| `MASK_IMAGE` | `IMAGE` | The same match as a black and white image, to preview or to feed a node that takes an image rather than a mask. |
+
+</details>
+
+### WAS Suite/Loaders
+
+<a id="node-clipseg-model-loader"></a>
+<details>
+<summary><b>CLIPSeg Model Loader</b></summary>
+
+Load a CLIPSeg model for the CLIPSeg masking nodes, which turn a text description into a mask. Enable features.clipseg to load this node.
+
+| | |
+|---|---|
+| Node id | `CLIPSeg Model Loader` |
+| Turn off with | `features.clipseg: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `model` | `STRING` | Yes | CIDAS/clipseg-rd64-refined |  | Hugging Face repository of the CLIPSeg model. The default is the refined 64-dimension model, which is the one CLIPSeg ships for general use; 'CIDAS/clipseg-rd16' is smaller and coarser. A repository name is all this takes: a folder path is refused, and a local checkpoint is picked up from ComfyUI's models directory. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `clipseg_model` | `CLIPSEG_MODEL` | The loaded model, for the clipseg_model input of CLIPSeg Masking and CLIPSeg Batch Masking. |
+
+</details>
+
+---
+
+## `features.diffusers`
+
+2 nodes. On in a fresh install: set `features.diffusers: false` in `config.yaml` and restart ComfyUI to leave these out.
+
+### WAS Suite/Loaders
+
+<a id="node-diffusers-hub-model-down-loader"></a>
+<details>
+<summary><b>Diffusers Hub Model Down-Loader</b></summary>
+
+Download a diffusers model from the Hugging Face Hub into models/diffusers and load it. Enable features.diffusers to load this node.
+
+| | |
+|---|---|
+| Node id | `Diffusers Hub Model Down-Loader` |
+| Turn off with | `features.diffusers: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `repo_id` | `STRING` | Yes |  |  | The Hugging Face repository to fetch, owner and name, such as 'stabilityai/stable-diffusion-2-1'. It must be a diffusers-format repository: one holding unet, vae and text_encoder folders. Fetching needs features.network on in config.yaml; without it, a repository already in models/diffusers still loads. |
+| `revision` | `STRING` | Yes | None |  | Branch, tag or commit to fetch, such as 'fp16' or 'refs/pr/2'. Leave it as 'None' for the repository's default branch, which then means the files can change under a saved workflow; a commit hash pins them. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `MODEL` | `MODEL` | The diffusion model, for a sampler. |
+| `CLIP` | `CLIP` | The text encoder, for the prompt encoding nodes. |
+| `VAE` | `VAE` | The autoencoder that turns a latent into an image. |
+| `NAME_STRING` | `STRING` | The repository id that was loaded, for captions, file names and log lines. |
+
+</details>
+
+<a id="node-diffusers-model-loader"></a>
+<details>
+<summary><b>Diffusers Model Loader</b></summary>
+
+Load a diffusers-format model directory from models/diffusers and emit its name alongside the model, CLIP and VAE. Enable features.diffusers to load this node.
+
+| | |
+|---|---|
+| Node id | `Diffusers Model Loader` |
+| Turn off with | `features.diffusers: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `model_path` | `COMBO` | Yes |  |  | The model directory in models/diffusers to load. Each entry is a folder holding unet, vae and text_encoder subdirectories, which is what cloning a Hugging Face model repository produces. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `MODEL` | `MODEL` | The diffusion model, for a sampler. |
+| `CLIP` | `CLIP` | The text encoder, for the prompt encoding nodes. |
+| `VAE` | `VAE` | The autoencoder that turns a latent into an image. |
+| `NAME_STRING` | `STRING` | The name of the directory the model was loaded from, for captions, file names and log lines. |
+
+</details>
+
+---
+
+## `features.extras`
+
+27 nodes. On in a fresh install: set `features.extras: false` in `config.yaml` and restart ComfyUI to leave these out.
+
+### WAS Suite/Animation
+
+<a id="node-wascameramotiontrajectory"></a>
+<details>
+<summary><b>Camera Motion Trajectory from Images</b></summary>
+
+Move a virtual camera over a still picture and emit the result as a frame sequence: zoom, rotate, pan, tilt, dolly and fisheye, keyframed in JSON with easing between keys. Feed it a depth map and near parts of the scene move more than far ones, which turns a single image into a parallax shot ready for a video encoder or an image-to-video model. A keyframe takes any of zoom, center, angle, pan, tilt, dolly_strength, sphereize_strength and depth_strength, 'ease' on it shapes the run to the next keyframe, and 'loop': true wraps the last keyframe back round to the first. A property a later keyframe leaves out keeps moving at the '<name>_speed' the earlier one gave it.
+
+| | |
+|---|---|
+| Node id | `WASCameraMotionTrajectory` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `image` | `IMAGE` | Yes |  |  | The picture the camera moves over. A batch is read as source frames: when it holds exactly num_frames images each output frame uses its own, otherwise the batch is cycled. |
+| `num_frames` | `INT` | Yes | 60 |  | How many frames to render. At 24 frames per second, 60 frames is two and a half seconds. Keyframe numbers in the spec are held inside this range. |
+| `trajectory_spec` | `STRING` | Yes | {   "loop": false,   "default_ease": "linear",   "keyframes": [     {       "frame": 0,       "zoom": 1.0,       "center": [0.5, 0.5],       "angle": 0.0,       "pan": [0.0, 0.0],       "tilt": [0.0, 0.0],       "dolly_strength": 0.0,       "dolly_radius": [0.3, 0.3],       "dolly_feather": 0.5,       "dolly_mode": "radial",       "sphereize_strength": 0.0,       "sphereize_radius": [0.4, 0.4],       "sphereize_feather": 0.5,       "depth_strength": 0.0,       "ease": "ease_in_out"     },     {       "frame": 30,       "zoom": 1.5,       "center": [0.5, 0.5],       "angle": 90.0,       "pan": [0.0, 0.0],       "tilt": [0.0, 0.15],       "dolly_strength": 0.3,       "dolly_radius": [0.35, 0.35],       "dolly_feather": 0.5,       "dolly_mode": "radial",       "sphereize_strength": 0.0,       "sphereize_radius": [0.4, 0.4],       "sphereize_feather": 0.5,       "depth_strength": 0.0,       "ease": "ease_in_out"     },     {       "frame": 59,       "zoom": 2.0,       "center": [0.6, 0.4],       "angle": 360.0,       "pan": [0.1, 0.0],       "tilt": [0.0, 0.3],       "dolly_strength": 0.6,       "dolly_radius": [0.4, 0.4],       "dolly_feather": 0.5,       "dolly_mode": "radial",       "sphereize_strength": 0.0,       "sphereize_radius": [0.4, 0.4],       "sphereize_feather": 0.5,       "depth_strength": 0.0,       "ease": "linear"     }   ] } |  | The move, as JSON: a 'keyframes' list, each entry carrying a 'frame' number and the camera properties it sets there. Empty text holds the picture still. |
+| `edge_mode` | `COMBO` | Yes | mirror | `border`, `mirror`, `wrap` | What fills the frame when the camera looks past the edge of the picture. `mirror` reflects the picture back, which is the least visible; `border` smears the edge pixels; `wrap` brings the opposite edge round, which suits a seamless texture. |
+| `enable_camera_shake` | `BOOLEAN` | Yes | False |  | Whether to add a handheld wobble on top of the keyframed move. Off gives a locked-off, tripod-steady result; on makes the shot feel operated by a person. |
+| `shake_position_amplitude` | `FLOAT` | Yes | 0.03 |  | How far the wobble drifts, as a share of the frame. 0.01 is a barely visible breath, 0.03 a natural handheld hold, 0.2 a running shot. Ignored while enable_camera_shake is off. |
+| `shake_rotation_amplitude` | `FLOAT` | Yes | 1.5 |  | How far the wobble rolls, in degrees. 1.5 reads as a steady hand, 10 as an unsteady one. Set to 0 for drift without any roll. Ignored while enable_camera_shake is off. |
+| `shake_seed` | `INT` | Yes | 0 |  | Seed for the wobble. The same seed always produces the same wobble, so a shot can be re-rendered identically; change it to try another take. |
+| `depth_map` | `IMAGE` | No |  |  | Optional depth map, white near and black far, at any size. With one connected, 'depth_strength' in the spec holds the far parts of the scene back while the near parts move fully, which is what makes the shot read as parallax. Leave it unconnected for a flat move. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `video` | `IMAGE` | The rendered frames in order, all at the input's size, ready for a video writer or an image-to-video model. |
+| `frame_count` | `INT` | How many frames were rendered, for wiring straight into a video writer's frame count or a duration calculation. |
+
+</details>
+
+### WAS Suite/Conditioning
+
+<a id="node-cliptextencodelist"></a>
+<details>
+<summary><b>CLIP Text Encode Sequence (Advanced)</b></summary>
+
+Encode one prompt per line, each tagged with the frame it takes effect on, into a schedule for KSamplerSeq. Write '0:a rosebud' and '10:a rose' and the run opens on the first prompt and switches to the second at frame 10.
+
+| | |
+|---|---|
+| Node id | `CLIPTextEncodeList` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `clip` | `CLIP` | Yes |  |  | The CLIP model the prompts are encoded with. Use the one belonging to the checkpoint that will sample them. |
+| `token_normalization` | `COMBO` | Yes |  | `none`, `mean`, `length`, `length+mean` | How token weights are evened out before encoding. Read only when a pack registering BNK_CLIPTextEncodeAdvanced is installed; without one this setting has no effect at all. 'none' leaves the weights alone, 'mean' recentres them, 'length' scales by prompt length, 'length+mean' does both. |
+| `weight_interpretation` | `COMBO` | Yes |  | `comfy`, `A1111`, `compel`, `comfy++` | Which prompt weighting dialect the '(word:1.2)' syntax is read in. Read only when a pack registering BNK_CLIPTextEncodeAdvanced is installed; without one this setting has no effect and the prompt is read the way ComfyUI's own CLIP Text Encode reads it. |
+| `text` | `STRING` | Yes | 0:A portrait of a rosebud 5:A portrait of a blooming rosebud 10:A portrait of a blooming rose 15:A portrait of a rose |  | One prompt per line, each written as 'frame:prompt', for example '0:a rosebud'. The number is the loop the prompt takes over on, counting from zero, and it stays in force until the next numbered line. A line with no number in front of a colon is ignored. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `conditioning_sequence` | `CONDITIONING_SEQ` | The frame-tagged prompts, for the positive_seq or negative_seq input of KSamplerSeq. It is not an ordinary conditioning and does not fit a plain sampler. |
+
+</details>
+
+<a id="node-cliptextencodesequence2"></a>
+<details>
+<summary><b>CLIP Text Encode Sequence (v2)</b></summary>
+
+Encode one prompt per line and work out the frame each one takes over on, spread across the length of the run. The three outputs plug straight into KSamplerSeq2's positive_seq or negative_seq, cond_keyframes and frame_count, so a prompt list becomes an animation schedule with no numbers typed by hand.
+
+| | |
+|---|---|
+| Node id | `CLIPTextEncodeSequence2` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `clip` | `CLIP` | Yes |  |  | The CLIP model the prompts are encoded with. Use the one belonging to the checkpoint that will sample them. |
+| `token_normalization` | `COMBO` | Yes |  | `none`, `mean`, `length`, `length+mean` | How token weights are evened out before encoding. Read only when a pack registering BNK_CLIPTextEncodeAdvanced is installed; without one this setting has no effect at all. 'none' leaves the weights alone, 'mean' recentres them, 'length' scales by prompt length, 'length+mean' does both. |
+| `weight_interpretation` | `COMBO` | Yes |  | `comfy`, `A1111`, `compel`, `comfy++` | Which prompt weighting dialect the '(word:1.2)' syntax is read in. Read only when a pack registering BNK_CLIPTextEncodeAdvanced is installed; without one this setting has no effect and the prompt is read the way ComfyUI's own CLIP Text Encode reads it. |
+| `cond_keyframes_type` | `COMBO` | Yes |  | `linear`, `sinus`, `sinus_inverted`, `half_sinus`, `half_sinus_inverted` | How the changeovers are spaced. `linear` gives every prompt an equal share of the run. The sinus shapes bunch them up at one end or the other, so the sequence lingers on the opening prompts and races through the rest, or the reverse, useful when the first shot needs to be held and the last few are only a flourish. |
+| `frame_count` | `INT` | Yes | 100 |  | How long the whole run is, in frames. The changeovers are spread across this many, so at 100 frames and four prompts each one holds for about 25. |
+| `text` | `STRING` | Yes | A portrait of a rosebud A portrait of a blooming rosebud A portrait of a blooming rose A portrait of a rose |  | One prompt per line, in the order the run works through them. No frame numbers: cond_keyframes_type and frame_count decide when each one takes over. A blank line is encoded as an empty prompt and takes its turn like any other. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `conditioning_sequence` | `CONDITIONING` | Every prompt, encoded, in the order they were written. Wire it into KSamplerSeq2's positive_seq or negative_seq. |
+| `cond_keyframes` | `INT` | The frames at which the run steps to the next prompt. Wire it into KSamplerSeq2's cond_keyframes. |
+| `frame_count` | `INT` | The frame count as it was given, passed straight through so one wire carries it to KSamplerSeq2 rather than the number being typed twice. |
+
+</details>
+
+<a id="node-conditioningblend"></a>
+<details>
+<summary><b>Conditioning (Blend)</b></summary>
+
+Mix encoded prompts into one, by a choice of twelve formulas rather than a single average. Blending prompts produces a subject that is genuinely between them instead of a picture containing both, which is what the concatenating nodes give. Each further slot is blended onto the result of the ones before it. Every prompt must come from a text encoder that produces a pooled output, such as SDXL's or Flux's. `lerp`, `bislerp` and `slerp` are the same straight mix, `cosine interp` and `cuberp` are that mix with the ends held longer, `add` balances the pair, `inject` layers the newer prompt on top, `difference` and `exclusion` keep only what the pair disagree on and so push the result away from both, and `random` varies the mix per element and is the only mode the seed changes.
+
+| | |
+|---|---|
+| Node id | `ConditioningBlend` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `conditioning_a` | `CONDITIONING` | Yes |  |  | The prompt blended away from. Only its first entry is read, so feed it a plain text encode rather than a combined or scheduled conditioning. |
+| `conditioning_b` | `CONDITIONING` | Yes |  |  | The prompt blended towards. Only its first entry is read, as with conditioning_a. |
+| `blending_mode` | `COMBO` | Yes |  | `add`, `bislerp`, `cosine interp`, `cuberp`, `difference`, `exclusion`, `hslerp`, `inject`, `lerp`, `random`, `slerp`, `subtract` | Which formula combines a prompt with the result so far. `lerp` is the straight mix to reach for first; other modes layer, balance or subtract the pair instead. |
+| `blending_strength` | `FLOAT` | Yes | 0.5 |  | How strongly each blend leans, which every mode reads its own way. 0.5 is an even mix. With `lerp` and the other straight mixes, 0.0 takes the next prompt and 1.0 keeps the result so far; `add` and `cosine interp` run the other way round. Values outside 0 to 1 push past either prompt. |
+| `seed` | `INT` | Yes | 0 |  | Seed for the `random` blending mode, so a run can be repeated. 0 leaves the random source as it was, which makes `random` differ from run to run. Every other mode ignores this. |
+| `conditioning_c` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_d` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_e` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_f` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_g` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_h` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_i` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_j` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_k` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_l` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_m` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_n` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_o` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_p` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_q` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_r` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_s` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_t` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_u` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_v` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_w` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_x` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_y` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+| `conditioning_z` | `CONDITIONING` | No |  |  | A further prompt, blended onto the result of the ones before it with the same mode and strength. The interface reveals the next slot as this one is filled. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `conditioning` | `CONDITIONING` | The blended prompt, as a one-entry conditioning carrying the mixed embedding and pooled output. Anything else the inputs carried, an area, a mask, a control hint, is not passed on. |
+
+</details>
+
+### WAS Suite/Debug
+
+<a id="node-debuginput"></a>
+<details>
+<summary><b>Debug Input</b></summary>
+
+Print whatever is connected to it to the console, and for anything that is not a plain value, list its members as well. Connect it to a wire you want to understand; it produces no output of its own.
+
+| | |
+|---|---|
+| Node id | `DebugInput` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `input` | `*` | Yes |  |  | Anything at all: an image, a model, a number, a conditioning. Text and numbers are printed as they are, and anything else is printed along with the names of everything it carries. |
+
+</details>
+
+### WAS Suite/Image/Analyze
+
+<a id="node-waschannelwaveform"></a>
+<details>
+<summary><b>Image Waveform</b></summary>
+
+Plot the red, green and blue channels of each picture as broadcast waveform scopes, and the three together as an RGB parade. Each column of the plot is a column of the picture, so it shows where in the frame the brightness sits and whether the channels agree: a colour cast reads as three traces at different heights, clipping as a trace pinned to the top of the grid. Min, max, mean, deviation and median are printed underneath.
+
+| | |
+|---|---|
+| Node id | `WASChannelWaveform` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `image` | `IMAGE` | Yes |  |  | The pictures to measure. Each frame of a batch gets its own set of plots, so a sequence can be checked for drift frame by frame. |
+| `waveform_height` | `INT` | Yes | 512 |  | Height of the plots in pixels, which is how finely the brightness scale is divided. 512 separates levels that a 256-step scale would merge; raise it to 1024 to see fine banding, lower it for a compact on-screen scope. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `red_waveform` | `IMAGE` | The red channel's scope, with its own IRE grid and statistics line. |
+| `green_waveform` | `IMAGE` | The green channel's scope, with its own IRE grid and statistics line. |
+| `blue_waveform` | `IMAGE` | The blue channel's scope, with its own IRE grid and statistics line. |
+| `rgb_parade` | `IMAGE` | All three scopes side by side under one grid, which is the view a colour cast or a channel clipping early shows up in. This is also what the node previews. |
+
+</details>
+
+### WAS Suite/Image/Filter
+
+<a id="node-vividsharpen"></a>
+<details>
+<summary><b>Vivid Sharpen</b></summary>
+
+Sharpen images by blending an inverted, blurred copy back over them in vivid light. Edges gain local contrast and flat areas are left alone, which reads as detail rather than as the halo an ordinary sharpen leaves. Good on renders and upscales that came out soft.
+
+| | |
+|---|---|
+| Node id | `VividSharpen` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `images` | `IMAGE` | Yes |  |  | The pictures to sharpen. A batch is handled one frame at a time, so a whole video's worth of frames can go through at once. |
+| `radius` | `FLOAT` | Yes | 1.5 |  | Size in pixels of the detail the sharpening picks out. Around 1.0 accents fine texture such as skin and fabric; 5.0 and above accents broad shapes and starts to look like added contrast rather than added detail. |
+| `strength` | `FLOAT` | Yes | 1.0 |  | How much of the sharpened version is mixed back over the original. 0.0 returns the picture untouched, 1.0 uses the sharpened version outright, and 0.3 to 0.6 is the usual range for a subtle pass. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `images` | `IMAGE` | The sharpened pictures, same size and batch order as the input. |
+
+</details>
+
+<a id="node-vividsharpenv2"></a>
+<details>
+<summary><b>Vivid Sharpen (V2)</b></summary>
+
+Sharpen images by blending an inverted, blurred copy back over them in vivid light, with each stage of the stack adjustable: two blur radii, a brightness and contrast trim on the high-pass layer, and separate opacities for the two blends. Runs on the whole batch at once on the GPU, so it suits long video sequences.
+
+| | |
+|---|---|
+| Node id | `VividSharpenV2` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `images` | `IMAGE` | Yes |  |  | The pictures to sharpen. The whole batch is processed in one pass, so a long sequence costs little more than a single frame. |
+| `radius_highpass` | `FLOAT` | Yes | 5.0 |  | Size in pixels of the blur that builds the high-pass layer. This sets which detail is accented: 1.0 to 2.0 for fine texture, 5.0 and above for broad shapes and general punch. |
+| `radius_blur` | `FLOAT` | Yes | 2.5 |  | Size in pixels of a second blur applied to the high-pass layer. Raising it softens the accent and suppresses the halo that appears along hard edges; lowering it keeps the result crisp. |
+| `blur_mode` | `COMBO` | Yes | gaussian | `gaussian`, `box` | Shape of both blurs. `gaussian` falls off smoothly and is the natural-looking choice; `box` weights every pixel in the window equally, which is faster and gives a harder, more graphic accent. |
+| `hp_brightness` | `FLOAT` | Yes | 1.0 |  | Brightness of the high-pass layer before it is blended. Above 1.0 pushes the result lighter overall, below 1.0 darker. Use it to correct the slight lift or drop sharpening leaves behind; 1.0 changes nothing. |
+| `hp_contrast` | `FLOAT` | Yes | 1.0 |  | Contrast of the high-pass layer before it is blended. Above 1.0 makes the accent bite harder, below 1.0 softens it. This is the control to reach for when the sharpening is right but too strong. |
+| `vivid_opacity` | `FLOAT` | Yes | 1.0 |  | How much of the vivid-light blend is kept. This is the stage that creates the edge accent, so 0.0 disables the sharpening and leaves only the overlay pass. |
+| `overlay_opacity` | `FLOAT` | Yes | 1.0 |  | How much of the overlay pass is kept. Overlay restores the contrast the vivid-light stage flattens, so lowering it gives a flatter, more filmic result. |
+| `strength` | `FLOAT` | Yes | 1.0 |  | How much of the finished result is mixed back over the original. 0.0 returns the picture untouched, 1.0 uses the result outright, and values above 1.0 push past it for an exaggerated accent. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `images` | `IMAGE` | The sharpened pictures, same size and batch order as the input. |
+
+</details>
+
+### WAS Suite/Image/LUT
+
+<a id="node-wasapplylut"></a>
+<details>
+<summary><b>Apply LUT</b></summary>
+
+Grade pictures through a colour lookup table from Load LUT or LUT Blender. Each pixel's colour is looked up in the table and blended between the eight nearest entries, which is how a film look, a camera profile or a corrective grade is applied. Blend the result back over the original to use the look at partial strength.
+
+| | |
+|---|---|
+| Node id | `WASApplyLUT` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `image` | `IMAGE` | Yes |  |  | The pictures to grade. The whole batch is graded at once, so a video sequence gets exactly the same treatment frame to frame. |
+| `lut` | `LUT` | Yes |  |  | The colour lookup table to apply, from Load LUT or LUT Blender. A table stored as curves rather than a cube is converted first. |
+| `strength` | `FLOAT` | Yes | 1.0 |  | How far the graded result is mixed over the original. 0.0 returns the pictures untouched, 1.0 applies the look outright, 0.5 applies it at half strength. |
+| `use_threads` | `BOOLEAN` | Yes | False |  | Whether to grade the frames of a batch on several CPU threads at once. Leave it off on a GPU, where one pass over the whole batch is already fastest; turn it on for a long CPU-bound sequence. |
+| `threads` | `INT` | Yes | 0 |  | How many worker threads to use. 0 picks one per CPU core, up to the number of frames. Ignored while use_threads is off. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `image` | `IMAGE` | The graded pictures, same size and batch order as the input. |
+
+</details>
+
+<a id="node-wasloadlut"></a>
+<details>
+<summary><b>Load LUT</b></summary>
+
+Produce a colour lookup table to grade images with. Pick a .cube file from a models/LUT directory, one of the built-in looks, or 'Custom' to build a table from the exposure, contrast, saturation and white-balance controls below. Feed the result to Apply LUT, or to LUT Blender to mix two looks.
+
+| | |
+|---|---|
+| Node id | `WASLoadLUT` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `look` | `COMBO` | Yes |  |  | Which table to produce. 'Custom' builds one from the controls below and ignores any file; the named looks are built in and need no file; entries starting 'LUT: ' are .cube files found in a models/LUT directory or in the pack's own luts directory. |
+| `builtin_size` | `INT` | Yes | 33 |  | Edge length of the cube built for a named look or for 'Custom', in samples. 33 is the industry-standard size and is plenty; 65 is finer and eight times the memory. Ignored when a .cube file is chosen, since the file sets its own size. |
+| `custom_ev` | `FLOAT` | Yes | 0.0 |  | Exposure in photographic stops, for the 'Custom' look. +1.0 doubles the brightness, -1.0 halves it, 0.0 changes nothing. |
+| `custom_contrast` | `FLOAT` | Yes | 1.0 |  | Contrast for the 'Custom' look, around mid grey. Above 1.0 deepens shadows and brightens highlights, below 1.0 flattens the picture towards grey, 1.0 changes nothing. |
+| `custom_saturation` | `FLOAT` | Yes | 1.0 |  | Colour intensity for the 'Custom' look. 0.0 gives black and white, 1.0 changes nothing, 2.0 doubles the distance of every colour from grey. |
+| `custom_vibrance` | `FLOAT` | Yes | 0.0 |  | Colour intensity for the 'Custom' look, weighted towards the muted colours. Positive lifts pale colour without pushing already-strong colour further, which is the gentler way to add life to skin tones; 0.0 changes nothing. |
+| `custom_gamma` | `FLOAT` | Yes | 1.0 |  | Midtone brightness for the 'Custom' look, leaving black and white where they are. Above 1.0 opens up shadow detail, below 1.0 deepens it, 1.0 changes nothing. |
+| `custom_temperature` | `FLOAT` | Yes | 0.0 |  | Warmth for the 'Custom' look. Positive shifts towards orange, as though shot under tungsten light; negative shifts towards blue, as though shot in shade; 0.0 changes nothing. |
+| `custom_tint` | `FLOAT` | Yes | 0.0 |  | Green-magenta balance for the 'Custom' look, the second half of white balance. Positive adds green, negative adds magenta, which is what corrects a fluorescent cast. 0.0 changes nothing. |
+| `custom_red_balance` | `FLOAT` | Yes | 0.0 |  | Red channel gain for the 'Custom' look, applied on its own. +0.1 raises red by a tenth, -0.1 lowers it, 0.0 changes nothing. |
+| `custom_green_balance` | `FLOAT` | Yes | 0.0 |  | Green channel gain for the 'Custom' look, applied on its own. Use the three balance controls together to match a reference render channel by channel. 0.0 changes nothing. |
+| `custom_blue_balance` | `FLOAT` | Yes | 0.0 |  | Blue channel gain for the 'Custom' look, applied on its own. +0.1 raises blue by a tenth, -0.1 lowers it, 0.0 changes nothing. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `lut` | `LUT` | The colour lookup table, for Apply LUT, LUT Blender or Save LUT. |
+
+</details>
+
+<a id="node-wascombinelut"></a>
+<details>
+<summary><b>LUT Blender</b></summary>
+
+Mix two colour lookup tables into one, in whichever colour space suits the pair. Use it to dial a strong film look back towards neutral, to cross-fade between two grades, or to stack a corrective table under a creative one. Both tables are resampled to a common size first, so a 17-point table and a 65-point one mix without trouble. 'linear' is a straight average, 'cosine' and 'smoothstep' ease that mix, 'slerp' turns hue the short way round the wheel instead of through grey, 'lab' and 'oklab' mix in a perceptual space which keeps midway grades believable, 'hsv' mixes hue, saturation and brightness separately, 'auto' picks 'slerp' where the two colours differ a lot and 'linear' where they agree, and 'multiply' darkens, 'screen' brightens and 'overlay' does both.
+
+| | |
+|---|---|
+| Node id | `WASCombineLUT` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `lut_a` | `LUT` | Yes |  |  | The base table. At a strength of 0.0 this is what comes out unchanged. |
+| `lut_b` | `LUT` | Yes |  |  | The table mixed in. At a strength of 1.0 this is what comes out, except in the multiply, screen and overlay modes, which combine the two rather than replace one with the other. |
+| `mode` | `COMBO` | Yes |  | `linear`, `cosine`, `smoothstep`, `slerp`, `hsv`, `lab`, `oklab`, `auto`, `multiply`, `screen`, `overlay` | How the two tables are mixed. 'linear' is a straight average and the place to start; other modes ease it, mix perceptually, or combine the tables like layers. |
+| `strength` | `FLOAT` | Yes | 0.5 |  | How far the mix travels from lut_a to lut_b. 0.0 keeps lut_a, 0.5 is an even mix, 1.0 reaches lut_b. |
+| `output_size` | `INT` | Yes | 33 |  | Edge length of the resulting cube, in samples. Both inputs are resampled to it before mixing. 33 is the industry-standard size; raise it towards 65 only when banding shows on a steep grade. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `lut` | `LUT` | The mixed table, for Apply LUT or Save LUT. |
+
+</details>
+
+<a id="node-wassavelut"></a>
+<details>
+<summary><b>Save LUT (.cube)</b></summary>
+
+Write a colour lookup table to a .cube file, the format DaVinci Resolve, Premiere and most grading tools read. Files land in the pack's own luts directory under ComfyUI's user folder, which Load LUT also reads, so a look built once here can be reused everywhere. The table is passed straight through as well, so the node can sit mid-chain.
+
+| | |
+|---|---|
+| Node id | `WASSaveLUT` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+| Output node | Yes, it runs even with nothing wired after it |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `lut` | `LUT` | Yes |  |  | The table to write, from Load LUT or LUT Blender. A table stored as curves is converted to a cube first, since .cube files hold cubes. |
+| `filename` | `STRING` | Yes | CustomLUT |  | Name of the file to write, such as 'WarmFilm'. The .cube extension is added when it is missing. This is a name, not a path: it may name a subfolder, but it cannot step outside the luts directory. |
+| `output_size` | `INT` | Yes | 33 |  | Edge length of the cube written to the file, in samples. 33 is the industry-standard size and is what most grading tools expect; 65 is finer and produces a file eight times the size. |
+| `overwrite` | `BOOLEAN` | Yes | True |  | Whether an existing file of the same name may be replaced. Turn it off to have the node stop rather than overwrite a look already saved under that name. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `lut` | `LUT` | The table as it was written, resampled to output_size, so the downstream grade matches the file exactly. |
+
+</details>
+
+### WAS Suite/Image/Transform
+
+<a id="node-wasimagetileextractgrid"></a>
+<details>
+<summary><b>Image Tile Extract (Grid)</b></summary>
+
+Cut each picture into a grid of tiles and send each tile to its own output, reading left to right then top to bottom. Outputs appear as the grid grows. For many tiles on one wire rather than one each, use Image Tiled.
+
+| | |
+|---|---|
+| Node id | `WASImageTileExtractGrid` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `images` | `IMAGE` | Yes |  |  | The pictures to cut up. Every frame of a batch is cut the same way, so each output carries the same tile of every frame. |
+| `columns` | `INT` | Yes | 2 |  | Tiles across. Together with rows this decides how many outputs appear, up to 16. |
+| `rows` | `INT` | Yes | 2 |  | Tiles down. A grid of 2 by 2 gives the four quadrants, which is what Image Tile Extract (Quadrants) does with fixed outputs. |
+| `border_width` | `INT` | Yes | 0 |  | Border in pixels drawn around each tile, in border_color. The tile is shrunk to fit inside it, so the output stays the same size. 0 leaves the tile at its own resolution with no resampling at all. |
+| `border_color` | `STRING` | Yes | #FFFFFF |  | Colour of the border, as a hex string such as #FFFFFF for white or #000000 for black. The leading # is optional, and an unreadable value falls back to white. Ignored when border_width is 0. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `tile_1` | `IMAGE` | The first tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
+| `tile_2` | `IMAGE` | The second tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
+| `tile_3` | `IMAGE` | The third tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
+| `tile_4` | `IMAGE` | The fourth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
+| `tile_5` | `IMAGE` | The fifth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
+| `tile_6` | `IMAGE` | The sixth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
+| `tile_7` | `IMAGE` | The seventh tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
+| `tile_8` | `IMAGE` | The eighth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
+| `tile_9` | `IMAGE` | The ninth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
+| `tile_10` | `IMAGE` | The tenth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
+| `tile_11` | `IMAGE` | The eleventh tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
+| `tile_12` | `IMAGE` | The twelfth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
+| `tile_13` | `IMAGE` | The thirteenth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
+| `tile_14` | `IMAGE` | The fourteenth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
+| `tile_15` | `IMAGE` | The fifteenth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
+| `tile_16` | `IMAGE` | The sixteenth tile, counting left to right then top to bottom. Carries nothing meaningful when the grid holds fewer tiles than this, so leave it unwired. |
+
+</details>
+
+<a id="node-wasimagetileextract"></a>
+<details>
+<summary><b>Image Tile Extract (Quadrants)</b></summary>
+
+Split each picture into its four quadrants and send each one to its own output. Handy for upscaling or re-rendering a large frame in four pieces, and for feeding four separate crops into a comparison grid.
+
+| | |
+|---|---|
+| Node id | `WASImageTileExtract` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `images` | `IMAGE` | Yes |  |  | The pictures to split. Every frame of a batch is split the same way, so each output carries one quadrant of every frame. |
+| `border_width` | `INT` | Yes | 0 |  | Border in pixels drawn around each quadrant, in border_color. The quadrant is shrunk to fit inside it, so the output tile stays the same size. 0 leaves the quadrant at its own resolution with no resampling at all. |
+| `border_color` | `STRING` | Yes | #FFFFFF |  | Colour of the border, as a hex string such as #FFFFFF for white or #000000 for black. The leading # is optional, and an unreadable value falls back to white. Ignored when border_width is 0. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `top_left` | `IMAGE` | The upper-left quarter of each picture. |
+| `top_right` | `IMAGE` | The upper-right quarter of each picture. |
+| `bottom_left` | `IMAGE` | The lower-left quarter of each picture. |
+| `bottom_right` | `IMAGE` | The lower-right quarter of each picture. |
+
+</details>
+
+<a id="node-wasimagetileshuffle"></a>
+<details>
+<summary><b>Image Tile Shuffle</b></summary>
+
+Cut each picture into a grid of equal tiles and lay them back down in a shuffled order, optionally with a coloured gap between them. Useful for puzzle and collage looks, and for building a scrambled reference that a model cannot read as a coherent scene.
+
+| | |
+|---|---|
+| Node id | `WASImageTileShuffle` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `images` | `IMAGE` | Yes |  |  | The pictures to cut up. Every frame of a batch is cut the same way and shuffled with the same seed, so a sequence stays consistent. |
+| `max_tiles` | `INT` | Yes | 4 |  | How many tiles the picture is cut into. The grid is the squarest arrangement of that many: 4 gives 2 by 2, 12 gives 3 by 4. Rows and columns divide the picture exactly, so any leftover pixels on the right and bottom edges are dropped. |
+| `seed` | `INT` | Yes | 0 |  | Seed for the shuffle. The same seed always produces the same tile order; change it to get a different arrangement of the same tiles. Any whole number; `0` is as good a seed as any. |
+| `border_width` | `INT` | Yes | 0 |  | Gap in pixels drawn between neighbouring tiles, in border_color. 0 butts the tiles together with no gap, which keeps the output the same size as the input. |
+| `border_color` | `STRING` | Yes | #FFFFFF |  | Colour of the gap between tiles, as a hex string such as #FFFFFF for white or #000000 for black. The leading # is optional, and an unreadable value falls back to white. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `images` | `IMAGE` | The reassembled pictures. Larger than the input when border_width is above 0, since the gaps are added between the tiles. |
+
+</details>
+
+### WAS Suite/Image/Upscaling
+
+<a id="node-wastiledimageupscalewithmodel"></a>
+<details>
+<summary><b>Tiled Image Upscale (With Model)</b></summary>
+
+Upscale pictures with a loaded upscale model, one overlapping tile at a time, so a large frame fits in the memory a single pass would not. The overlaps are cross-faded, so no tile seams show, and the result is resampled to whatever magnification is asked for rather than the model's own fixed scale.
+
+| | |
+|---|---|
+| Node id | `WASTiledImageUpscaleWithModel` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `upscale_model` | `UPSCALE_MODEL` | Yes |  |  | The upscale model to run, from a Load Upscale Model node. Its own scale does not have to match upscale_factor: a 4x model can produce a 2x result. |
+| `image` | `IMAGE` | Yes |  |  | The pictures to enlarge. Each frame of a batch is upscaled in turn, so memory use is set by the tile size rather than by the batch. |
+| `upscale_factor` | `FLOAT` | Yes | 4.0 |  | Final size relative to the input. 2.0 doubles both sides, 4.0 quadruples them, 1.0 keeps the original size while still passing the picture through the model. |
+| `tile_size` | `INT` | Yes | 512 |  | Tile edge in input pixels. Larger tiles are faster and need more video memory; if the card runs out, the tile is halved and the run retried automatically. 512 suits most 8 GB cards. |
+| `overlap` | `INT` | Yes | 32 |  | How far neighbouring tiles overlap, in input pixels. This is the material the cross-fade is made from, so 0 puts a hard join between tiles; 32 to 64 hides it on most models. |
+| `feather` | `INT` | Yes | 0 |  | Width of the cross-fade in output pixels. 0 works it out from the overlap, which is the right answer almost always; raise it only when a faint grid still shows on flat areas such as sky. |
+| `resample_method` | `COMBO` | Yes | lanczos | `nearest-exact`, `bilinear`, `area`, `bicubic`, `lanczos` | How a tile is resized when the model's own scale does not match upscale_factor. `lanczos` keeps the most detail, `area` is the gentlest when shrinking, `nearest-exact` keeps hard pixel edges for pixel art. |
+| `clear_comfy_memory` | `BOOLEAN` | Yes | False |  | Whether to unload every other model and empty the caches before upscaling. Turn this on when a large upscale runs out of memory next to a checkpoint that is still resident; it costs the time to reload those models afterwards. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `IMAGE` | The enlarged pictures, at roughly the input size times upscale_factor, clamped to the displayable range. |
+
+</details>
+
+### WAS Suite/Latent
+
+<a id="node-vaeencodeforinpaint-was"></a>
+<details>
+<summary><b>Inpainting VAE Encode</b></summary>
+
+Encode an image into a latent for inpainting, with control over how far the mask grows or shrinks first. The masked pixels are flattened to mid grey before encoding so the sampler is not led by what was there, and the adjusted mask travels with the latent as its noise mask, which is what tells a KSampler which part to repaint. A positive mask_offset grows the painted area, so 6 reaches six pixels past what was drawn and hides the seam where new and old meet, which suits removing an object. A negative offset shrinks it, keeping more of the original, which suits touching up the middle of a region without disturbing its outline.
+
+| | |
+|---|---|
+| Node id | `VAEEncodeForInpaint (WAS)` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `pixels` | `IMAGE` | Yes |  |  | The image to inpaint. Its width and height are cropped to the nearest multiple of 8, taking the trim evenly from both sides. A latent addresses the image 8 pixels at a time. |
+| `vae` | `VAE` | Yes |  |  | The VAE that turns the prepared image into a latent. Use the one that belongs to the checkpoint the sampler runs, or the colours shift. |
+| `mask` | `MASK` | Yes |  |  | Which part is repainted. White is repainted, black is kept, and grey is rounded to one or the other. It is stretched to the image's size first, so a mask drawn at another resolution still lines up. |
+| `mask_offset` | `INT` | Yes | 6 |  | How far the painted area grows or shrinks before encoding, in pixels of the input image. 0 uses the mask exactly as drawn. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `LATENT` | The encoded latent with the adjusted mask attached as its noise mask. Feed it to a KSampler, which will only replace the masked part. |
+
+</details>
+
+<a id="node-blvaeencode"></a>
+<details>
+<summary><b>VAEEncode (Bundle Latent)</b></summary>
+
+Encode an image to a latent and, if asked, keep a copy of that latent inside the workflow itself. A workflow saved with a bundled latent can be shared or reopened without the source image and still start from the same point, which is how a starting latent travels in one file instead of two.
+
+| | |
+|---|---|
+| Node id | `BLVAEEncode` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `vae` | `VAE` | Yes |  |  | The VAE that turns the image into a latent. Use the one belonging to the checkpoint that will sample it. |
+| `tiled` | `BOOLEAN` | Yes | False |  | Whether the image is encoded a tile at a time instead of all at once. Tiling holds far less in VRAM, which is what makes a very large image encodable on a small card, at the cost of being slower and of faint seams where tiles meet. |
+| `tile_size` | `INT` | Yes | 512 |  | Edge of one tile in pixels, read only when tiled is on. Smaller tiles use less VRAM and take longer: 512 is a safe starting point, and 1024 or more is worth trying if the card has room. |
+| `store_or_load_latent` | `BOOLEAN` | Yes | True |  | Whether the workflow is used as the latent's home. On, the node reads a latent already bundled in the workflow rather than encoding, and writes the one it encodes back into it so the next save carries it. Off, the node is an ordinary VAE encode and touches nothing. |
+| `remove_latent_on_load` | `BOOLEAN` | Yes | True |  | Whether a bundled latent is taken out of the workflow once it has been read. On, it is used once and the saved file is left clean, which suits carrying a starting point into a run. Off, it stays in the workflow and every later save keeps carrying it. |
+| `delete_workflow_latent` | `BOOLEAN` | Yes | False |  | Turn on for one run to throw away whatever this node has bundled and encode the image again. That is the way out when the stored latent no longer matches the image, or when a shared workflow arrived with one that is not wanted. |
+| `image` | `IMAGE` | No |  |  | The image to encode. It can be left unconnected when the workflow already carries a bundled latent, which is what lets a workflow be reopened and run without the picture it started from. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `latent` | `LATENT` | The encoded latent, or the one that was bundled in the workflow when there was one to read. |
+
+</details>
+
+<a id="node-waslatentcontrastlimiteddetailboost"></a>
+<details>
+<summary><b>WAS Latent Detail Boost</b></summary>
+
+Bring out fine detail in a latent by isolating one band of detail, levelling it against the local amount of contrast and adding it back. The added detail is normalised and limited before it lands: a busy area and a smooth one gain the same amount, and the dark outlines and embossed look that come from sharpening a latent directly do not appear. Handles video latents as well as single images.
+
+| | |
+|---|---|
+| Node id | `WASLatentContrastLimitedDetailBoost` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `latent` | `LATENT` | Yes |  |  | The latent to enhance. A video latent with a time axis is handled frame by frame. |
+| `sigma_small` | `FLOAT` | Yes | 0.6 |  | The fine end of the detail that is boosted, in latent blocks. Together with sigma_large it picks which size of feature is affected: 0.6 keeps the treatment on the smallest structures. Set to 0.0 to reach the very finest detail, including noise. |
+| `sigma_large` | `FLOAT` | Yes | 1.4 |  | The coarse end of the detail that is boosted, in latent blocks. Widening the gap between it and sigma_small treats larger features as well; 1.4 against 0.6 gives a narrow band that reads as texture. The two are swapped if entered the wrong way round. |
+| `gain` | `FLOAT` | Yes | 0.35 |  | How much of the isolated detail is added back. 0.0 leaves the latent alone, 0.35 is a gentle lift, and above about 1.0 the texture starts to dominate the picture. |
+| `limit` | `FLOAT` | Yes | 1.25 |  | How hard the detail is squashed before it is added, which is what stops a strong edge ringing. High values such as 4.0 flatten the strongest detail to a uniform level; 1.25 keeps most of the variation; 0.1 barely limits at all. |
+| `rms_sigma` | `FLOAT` | Yes | 1.2 |  | How large an area the local amount of contrast is measured over, in latent blocks. It is what lets a smooth sky gain as much texture as a busy tree instead of being left behind. 0.0 measures over the whole frame instead, which restores the plain behaviour of sharpening everything by the same amount. |
+| `rms_floor` | `FLOAT` | Yes | 0.06 |  | A floor under that local measurement, which keeps genuinely flat areas from being amplified into noise. Raise it towards 0.2 if a clear sky or a plain wall comes out grainy; lower it towards 0.0 to treat flat areas as hard as everything else. |
+| `edge_protect` | `FLOAT` | Yes | 0.45 |  | How much the enhancement is held back on strong boundaries, which is what prevents dark outlines around objects. 0.0 turns the protection off and skips finding edges at all; 1.0 leaves boundaries completely untouched; 0.45 halves the effect there. |
+| `edge_sigma` | `FLOAT` | Yes | 0.8 |  | Blur applied before boundaries are looked for, in latent blocks. Raise it so that fine texture is not counted as an edge and protected from the very treatment it wants; 0.0 finds the finest boundaries. |
+| `edge_threshold` | `FLOAT` | Yes | 0.25 |  | How strong a boundary has to be to be protected, measured against the strongest one in the picture. 0.25 covers the clear outlines; lower values protect more and enhance less. |
+| `edge_softness` | `FLOAT` | Yes | 0.1 |  | How gradually the protection fades in around that threshold. Small values give a hard-edged protected strip that can be seen; 0.10 fades over a comfortable range. |
+| `preview_mask_scale` | `INT` | Yes | 8 |  | How many preview pixels each latent block becomes. 8 matches the size the latent decodes to on most VAEs, so the preview lines up with the finished picture; 1 gives the small raw map. This affects the preview image only, never the mask output. |
+| `preview_mode` | `COMBO` | Yes | detail_mask | `edge_mask`, `detail_mask` | Which map leaves the node. `detail_mask` shows where detail was added and how much, which is what to watch while setting gain. `edge_mask` shows the boundaries that were protected, which is what to watch while setting edge_threshold. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `latent` | `LATENT` | The enhanced latent, ready for a sampler or a decode. |
+| `mask` | `MASK` | The chosen map at latent resolution, useful for driving another node from the same areas this one treated. |
+| `mask_preview` | `IMAGE` | The same map as a viewable image, enlarged by preview_mask_scale. |
+
+</details>
+
+### WAS Suite/Latent/Transform
+
+<a id="node-waslatentupscalehybrid"></a>
+<details>
+<summary><b>Latent Hybrid Upscale</b></summary>
+
+Enlarge a latent and decide where to be smooth by looking at the picture it decodes to. Edges found in that picture are grown and feathered into a mask; where the mask is white the enlargement is interpolated, and everywhere else it keeps the crisp block-copied version. Flat areas therefore stay sharp while outlines avoid the stair-stepping that a plain enlargement leaves. Handles video latents, with tiled decoding to keep VRAM in check.
+
+| | |
+|---|---|
+| Node id | `WASLatentUpscaleHybrid` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `latent` | `LATENT` | Yes |  |  | The latent to enlarge. A video latent with a time axis is handled frame by frame. |
+| `vae` | `VAE` | Yes |  |  | The VAE used to decode the latent so its edges can be found. It must be the one that matches the latent, or the edges will be found in the wrong places. It only reads the latent; the result is still built in latent space. |
+| `scale` | `FLOAT` | Yes | 2.0 |  | How much larger the result is. 2.0 doubles both sides, 1.5 adds half again. Sizes are rounded to whole latent blocks. |
+| `pre_blur_sigma_px` | `FLOAT` | Yes | 1.0 |  | Blur applied to the decoded picture before edges are looked for, in pixels. It keeps film grain and fine texture from registering as edges; 0.0 finds every last one, 2.0 or more keeps only the major outlines. |
+| `canny_threshold1` | `INT` | Yes | 25 |  | The lower of the two edge-detection levels, on a 0-255 scale. A faint edge is kept only when it joins a strong one, and this is how faint it may be. Lower values trace more of an outline; raise it if speckles appear in flat areas. |
+| `canny_threshold2` | `INT` | Yes | 155 |  | The upper of the two edge-detection levels, on a 0-255 scale. Anything this strong starts an edge on its own. Raise it to keep only bold outlines, lower it to catch soft ones. |
+| `canny_l2gradient` | `BOOLEAN` | Yes | True |  | How edge strength is measured. On, the true length of the gradient is used, which is slightly slower and more accurate on diagonals. Off, a cheaper approximation is used that reads diagonal edges as stronger than they are. |
+| `dilate_radius_px` | `INT` | Yes | 8 |  | How far the found edges are grown, in pixels. Edges are hairline by themselves, so growing them is what gives the smooth enlargement a band to work in: 8 covers a typical outline, 0 leaves the raw one-pixel lines. |
+| `feather_sigma_px` | `FLOAT` | Yes | 6.0 |  | How far the grown edge fades out, in pixels. Without it the band would have a visible border of its own; 6.0 gives a soft changeover, 0.0 leaves a hard-edged band. |
+| `mask_min` | `FLOAT` | Yes | 0.0 |  | Floor under the finished mask. Raise it above 0.0 to let a little of the smooth enlargement into areas with no edges at all, which takes the hard blockiness off the whole picture. |
+| `mask_max` | `FLOAT` | Yes | 1.0 |  | Ceiling over the finished mask. Lower it below 1.0 to keep some of the crisp enlargement even on the strongest edges, which is the way back when outlines come out too soft. |
+| `use_nearest_exact` | `BOOLEAN` | Yes | True |  | How the crisp half of the blend is enlarged. On, each output block takes the value of the source block whose centre is nearest, which keeps the picture from drifting half a block sideways. Off uses the older nearest-neighbour rule. |
+| `output_mask_resolution` | `COMBO` | Yes | image | `image`, `latent` | Which size the mask output comes out at. `image` gives it at the size the enlarged latent decodes to, ready to view or reuse against the finished picture. `latent` gives the small version that actually drove the blend. |
+| `video_decode_horizontal_tiles` | `INT` | Yes | 2 |  | How many columns a video latent is split into for the decode that finds edges. More tiles means less VRAM and more time. Ignored on an image latent. |
+| `video_decode_vertical_tiles` | `INT` | Yes | 2 |  | How many rows a video latent is split into for that decode. 2 rows and 2 columns is four tiles, each a quarter of the frame. Ignored on an image latent. |
+| `video_decode_overlap_latent` | `INT` | Yes | 4 |  | How far neighbouring tiles overlap, in latent units. The overlap is cross-faded, so raise it if seams show along the tile boundaries; 0 turns the fade off entirely. |
+| `video_decode_last_frame_fix` | `BOOLEAN` | Yes | False |  | Whether the final frame is duplicated before decoding and the extra output dropped afterwards. Turn it on when the last frames of a clip decode to something corrupt, which some video VAEs do. |
+| `video_decode_enable_cudnn` | `BOOLEAN` | Yes | True |  | Whether cuDNN is left on for the video decode. Turning it off is slower and avoids the large workspace allocations that make some cards run out of memory part way through a clip. |
+| `donor_latent` | `LATENT` | No |  |  | Where the smooth half of the blend comes from. Leave it unconnected and the node interpolates the input latent. Connect a second latent of the same batch and channel shape, a version sampled at a higher resolution, say, and its detail is what gets laid into the edges. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `latent` | `LATENT` | The enlarged latent, ready for a sampler or a decode. |
+| `edge_mask` | `MASK` | Where the smooth enlargement was used: white along the edges the node found, black elsewhere. Watch it while setting the two Canny levels, or reuse it to treat the same areas downstream. |
+
+</details>
+
+<a id="node-waslatentscaletomaxdimension"></a>
+<details>
+<summary><b>Scale Latent to Max Dimension</b></summary>
+
+Resize a latent so that the picture it decodes to has its longest side at a chosen number of pixels, with the aspect ratio kept. The size is worked out in latent space, so nothing is decoded and re-encoded and no detail is lost on the way. The resulting pixel width and height come out alongside the latent, ready to drive whatever needs to know the size.
+
+| | |
+|---|---|
+| Node id | `WASLatentScaleToMaxDimension` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `samples` | `LATENT` | Yes |  |  | The latent to resize. A video latent with a time axis is resized on its height and width only, and keeps every frame. |
+| `upscale_method` | `COMBO` | Yes | bislerp | `nearest-exact`, `bilinear`, `area`, `bicubic`, `bislerp` | How values in between the existing ones are worked out. `bislerp` interpolates along the shape of the latent rather than straight through it and is the safest choice for a latent; `bilinear` and `bicubic` are the ordinary smooth options; `area` averages the source region and suits shrinking; `nearest-exact` copies the closest value and stays blocky. |
+| `largest_size` | `INT` | Yes | 2048 |  | How long the longest side should be, in pixels of the decoded picture rather than in latent units. 2048 on a 3:2 latent gives 2048x1360. The target is rounded down to whole latent units, so the result never comes out larger than asked for. |
+| `scale_mode` | `COMBO` | Yes | always | `always`, `downscale_only`, `upscale_only` | Which direction the resize is allowed to go. `always` hits the target from either side. `downscale_only` treats largest_size as a ceiling and leaves anything already smaller alone, which is what suits capping mixed input sizes. `upscale_only` is the reverse: it brings small latents up and leaves large ones untouched. |
+| `spatial_compression` | `INT` | Yes | 8 |  | How many pixels one latent unit becomes on the VAE that will decode this: 8 for SD, SDXL, Flux and Wan 2.1, 16 for Wan 2.2 TI2V, 32 for Hunyuan Image. Getting it wrong scales the result by the ratio of the two numbers. Ignored when a vae is connected. |
+| `vae` | `VAE` | No |  |  | The VAE this latent will be decoded with. Connect it and the compression ratio is read straight off it, which removes the need to know the right spatial_compression for the model in use. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `samples` | `LATENT` | The resized latent. It is passed through untouched when scale_mode rules the resize out, or when it is already the right size. |
+| `width` | `INT` | Width the latent now decodes to, in pixels. Feed it to anything that has to be built at the same size, such as an empty image or a second resize. |
+| `height` | `INT` | Height the latent now decodes to, in pixels. |
+
+</details>
+
+<a id="node-was_adaptivedifferencelatentupscale"></a>
+<details>
+<summary><b>WAS Adaptive Difference Latent Upscale (Damped)</b></summary>
+
+Enlarge a latent twice, once by copying the nearest block, once by interpolating, and take the smooth version only where the two disagree. Flat areas keep the crispness of the blocky enlargement while edges and texture get the smooth one, which is what stops a plain latent upscale either going soft everywhere or ringing along every boundary. Works on video latents as well as single images, and reports the maps it used so the settings can be seen rather than guessed at.
+
+| | |
+|---|---|
+| Node id | `WAS_AdaptiveDifferenceLatentUpscale` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `latent` | `LATENT` | Yes |  |  | The latent to enlarge. A video latent with a time axis is handled frame by frame. |
+| `scale` | `FLOAT` | Yes | 2.0 |  | How much larger the result is. 2.0 doubles both sides, 1.5 adds half again, 1.0 leaves the size alone and only applies the damping. Sizes are rounded to whole latent blocks. |
+| `smooth_mode` | `COMBO` | Yes | bilinear | `bilinear`, `bicubic`, `area` | How the smooth half of the blend is enlarged. `bilinear` is the safe default; `bicubic` is sharper and can overshoot slightly at a hard edge; `area` averages the source region and is the softest of the three. |
+| `diff_blur_sigma` | `FLOAT` | Yes | 0.6 |  | How far the disagreement between the two enlargements is spread before it decides anything, in latent blocks. A little blur keeps the blend from switching on and off block by block; 0.0 uses the raw per-block difference and gives the busiest map. |
+| `threshold` | `FLOAT` | Yes | 0.12 |  | How much disagreement counts as detail. Below this the blocky enlargement is kept, above it the smooth one takes over. Lower values smooth more of the picture; 0.12 leaves flat areas crisp and treats edges. |
+| `softness` | `FLOAT` | Yes | 0.05 |  | How gradual the changeover at the threshold is. Small values such as 0.005 give a hard switch that can be seen as a rim; 0.05 fades between the two enlargements over a comfortable range. |
+| `weight_power` | `FLOAT` | Yes | 1.0 |  | Bends the blend map after it is built. Above 1.0 pulls it towards the blocky enlargement everywhere but the strongest edges; below 1.0 spreads the smooth enlargement into weaker detail. 1.0 leaves the map as measured. |
+| `weight_blur_sigma` | `FLOAT` | Yes | 0.0 |  | Softens the finished blend map, in latent blocks. Raise it when the treated areas have visible outlines of their own; 0.0 leaves the map alone. |
+| `temporal_ema` | `FLOAT` | Yes | 0.0 |  | How much each frame of a video latent carries over from the frames before it, which stops the blend map flickering. 0.0 treats every frame on its own; 0.5 is a light smoothing; 0.9 is heavy and can smear the map behind fast motion. Ignored on a single image. |
+| `enable_directional_damping` | `BOOLEAN` | Yes | True |  | Whether the second pass runs, which takes fine detail back out along strong boundaries. It is what removes the halo that an upscale leaves around hard edges. Turn it off to see the blend on its own, or when the source is already soft. |
+| `damping_strength` | `FLOAT` | Yes | 0.35 |  | How much fine detail is removed where the damping mask is fully on. 0.0 removes none and turns the pass off; 0.35 takes the edge off a halo; 1.0 flattens the detail there completely. |
+| `damping_gate_mode` | `COMBO` | Yes | weight_sqrt | `none`, `weight`, `weight_sqrt` | Where the damping is allowed to act. `none` lets it act on every boundary it finds. `weight` confines it to the areas the blend already treated. `weight_sqrt` is in between, allowing some damping in areas the blend touched only lightly. |
+| `damping_grad_blur_sigma` | `FLOAT` | Yes | 0.0 |  | Blur applied before boundaries are looked for, in latent blocks. Raise it so that texture is not mistaken for an edge; 0.0 finds the finest boundaries. |
+| `damping_threshold` | `FLOAT` | Yes | 0.25 |  | How strong a boundary has to be to be damped, measured against the strongest one in the picture. 0.25 catches the clear outlines; lower values reach into texture as well. |
+| `damping_softness` | `FLOAT` | Yes | 0.08 |  | How gradually the damping fades in around that threshold. Small values give a hard-edged mask; 0.08 fades over a comfortable range. |
+| `damping_power` | `FLOAT` | Yes | 1.0 |  | Bends the damping mask. Above 1.0 confines the damping to the very strongest boundaries; below 1.0 spreads it over more of the picture. 1.0 leaves the mask as measured. |
+| `damping_mask_blur_sigma` | `FLOAT` | Yes | 0.6 |  | Softens the damping mask before it is used, in latent blocks. A little blur keeps the damped strip from having a visible border of its own; 0.0 uses the mask as found. |
+| `damping_highpass_sigma` | `FLOAT` | Yes | 1.0 |  | Which detail counts as fine enough to be removed, in latent blocks. 1.0 takes out ringing while leaving the shapes; larger values reach into broader structure and start to blur. 0.0 removes the whole signal under the mask instead. |
+| `damping_temporal_ema` | `FLOAT` | Yes | 0.25 |  | How much of the damping mask each frame of a video latent carries over from the frames before it, so damped areas do not shimmer. 0.0 treats every frame on its own. Ignored on a single image. |
+| `preview_mode` | `COMBO` | Yes | both | `weight`, `damp`, `both` | Which map leaves the node. `weight` shows where the smooth enlargement was used, `damp` shows where fine detail was removed, `both` puts the two side by side in the preview and sends the damping map to the mask output. |
+| `output_mask_pixel_scale` | `INT` | Yes | 8 |  | How many preview pixels each latent block becomes. 8 matches the size the latent decodes to on most VAEs, so the preview lines up with the finished picture; 1 gives the small raw map. This affects the preview image only, never the mask output. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `latent` | `LATENT` | The enlarged latent, ready for a sampler or a decode. |
+| `mask` | `MASK` | The map the node worked from, at latent resolution: the damping map on `damp` and `both`, the blend map on `weight`. Useful for driving another node from the same areas this one treated. |
+| `mask_preview` | `IMAGE` | The same map as a viewable image, enlarged by output_mask_pixel_scale. On `both` the blend map is on the left and the damping map on the right. |
+
+</details>
+
+### WAS Suite/LoRA
+
+<a id="node-wasapplyreweightedlora"></a>
+<details>
+<summary><b>Apply Reweighted LoRA</b></summary>
+
+Load a LoRA, scale its blocks by where they sit in the model, front, middle, back and the very last block, and apply the result to a model and clip. The reweighted LoRA is also saved under output/loras so a setting that works can be reused.
+
+| | |
+|---|---|
+| Node id | `WASApplyReweightedLoRA` |
+| Turn off with | `features.extras: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `model` | `MODEL` | Yes |  |  | The model the reweighted LoRA is applied to. |
+| `clip` | `CLIP` | Yes |  |  | The clip the LoRA's text-encoder half is applied to. A LoRA with no text-encoder tensors leaves it untouched. |
+| `lora_name` | `COMBO` | Yes |  |  | The LoRA file to reweight, from your LoRA folder. It is read from disk on every run, so the original file is never modified. |
+| `strength_model` | `FLOAT` | Yes | 0.8 |  | How strongly the reweighted LoRA is applied to the model, before any block scaling. 1.0 is full strength; a negative value pushes away from what the LoRA learned. |
+| `strength_clip` | `FLOAT` | Yes | 0.8 |  | The same for the clip. Lowering it while leaving strength_model alone keeps the LoRA's look without its trigger words dominating the prompt. |
+| `global_scale` | `FLOAT` | Yes | 1.0 |  | Multiplier applied to every block before the three below. 1.0 changes nothing; use it to turn the whole reweighting up or down once the balance between the thirds is right. |
+| `front_scale` | `FLOAT` | Yes | 1.0 |  | Extra multiplier for the first third of the blocks, which carry composition and overall shape. Lower it to keep a LoRA's style while letting the prompt decide the layout. |
+| `mid_scale` | `FLOAT` | Yes | 1.0 |  | Extra multiplier for the middle third, which carries subject and structure. This is the third to lower when a character LoRA is overriding the face you asked for. |
+| `back_scale` | `FLOAT` | Yes | 1.0 |  | Extra multiplier for the last third, which carries detail, texture and surface style. Raise it to keep a LoRA's look while its subject influence is turned down. |
+| `last_block_scale` | `FLOAT` | Yes | 1.0 |  | A further multiplier for the final block alone, on top of its third's. That block sits closest to the output, so small changes here show up strongly in fine detail. |
+| `scale_target` | `COMBO` | Yes | up_only | `up_only`, `down_only`, `both` | Which half of each LoRA pair is scaled. `up_only` is the usual choice and scales the result linearly. `both` scales the two halves and so squares the effect, which is much stronger for the same numbers. `down_only` is there for comparison. |
+| `block_preset` | `COMBO` | Yes | auto | `auto`, `wan`, `qwen`, `flux`, `zimg-turbo`, `sd`, `sdxl`, `generic` | Which model family's block naming is read to find each block's number. `auto` works it out from the LoRA's own keys and is right almost always; name the family if the stats output reports 0 blocks detected. |
+| `filter_by_block_range` | `BOOLEAN` | Yes | True |  | Drop tensors for blocks the connected model does not have. This is what lets a LoRA trained on a larger version of a model be applied to a smaller one instead of failing. |
+| `save_reweighted` | `BOOLEAN` | Yes | True |  | Write the reweighted LoRA to output/loras. Switch it off while hunting for the right numbers, then on for the run worth keeping. |
+| `output_filename` | `STRING` | Yes |  |  | Name for the saved copy. Left empty, a name is built from the source file and every scale, such as 'style.reweighted.up_only.g1.00.f1.0.m1.0.b1.0.L1.0.safetensors', so two settings never overwrite each other. |
+| `verify_roundtrip` | `BOOLEAN` | Yes | True |  | Read the saved file back and compare it tensor by tensor with what was applied, reporting the answer in the stats output. Costs a second read of the file; it is what proves the saved copy behaves the same as this run. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `model` | `MODEL` | The model with the reweighted LoRA applied. |
+| `clip` | `CLIP` | The clip with the reweighted LoRA applied. |
+| `stats` | `DICT` | What the run did: which naming scheme was detected, how many blocks were found, how many tensors were scaled, dropped and kept, where the copy was saved with its SHA-256, and whether the round-trip check passed. Feed it to a debug node to see why a reweighting had no effect. |
+
+</details>
+
+<a id="node-waspowerloramerger"></a>
 <details>
 <summary><b>Power LoRA Merger</b></summary>
 
@@ -8018,6 +12067,7 @@ Merge any number of LoRAs into one new LoRA file, saved into your LoRA folder so
 
 </details>
 
+<a id="node-waspowerloramergeroptions"></a>
 <details>
 <summary><b>Power LoRA Merger Options</b></summary>
 
@@ -8058,2544 +12108,9 @@ Advanced settings for the Power LoRA Merger: how far the merged LoRA is compress
 
 </details>
 
----
+### WAS Suite/Sampling
 
-## WAS Suite/Loaders
-
-<details>
-<summary><b>BLIP Model Loader</b></summary>
-
-Load the BLIP captioning and visual question answering models for BLIP Analyze Image. Enable features.blip to load this node.
-
-| | |
-|---|---|
-| Node id | `BLIP Model Loader` |
-| Turn off with | `features.blip: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `blip_model` | `STRING` | Yes | Salesforce/blip-image-captioning-base |  | Hugging Face repository of the captioning model, used by BLIP Analyze Image in caption mode. 'Salesforce/blip-image-captioning-large' is the heavier, more detailed alternative to the default. A repository name is all this takes: a folder path is refused, and a local checkpoint is picked up from ComfyUI's models directory. |
-| `vqa_model_id` | `STRING` | Yes | Salesforce/blip-vqa-base |  | Hugging Face repository of the question answering model, used by BLIP Analyze Image in interrogate mode. It has to be a BLIP VQA model; a captioning model cannot answer a question. A repository name is all this takes: a folder path is refused, and a local checkpoint is picked up from ComfyUI's models directory. |
-| `device` | `COMBO` | Yes |  | `cuda`, `cpu` | Where the models are held. `cuda` is faster and costs VRAM for as long as they stay loaded; `cpu` keeps the GPU free. `cuda` on a machine with no CUDA device falls back to the CPU. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `BLIP_MODEL` | Both loaded models, for the blip_model input of BLIP Analyze Image. |
-
-</details>
-
-<details>
-<summary><b>Checkpoint Loader (Advanced)</b></summary>
-
-Deprecated: use ComfyUI's Load Checkpoint instead, which reads the architecture out of the weights rather than asking for a config file. Loads a checkpoint against a chosen model config and returns the model, CLIP and VAE, plus the checkpoint's file name as a string. That name is already on the ckpt_name widget.
-
-| | |
-|---|---|
-| Node id | `Checkpoint Loader` |
-| Turn off with | `legacy.loaders: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `config_name` | `COMBO` | Yes |  |  | The .yaml config in models/configs that describes the checkpoint's architecture. Only original Stable Diffusion 1.x and 2.x weights need one; anything newer loads with ComfyUI's Load Checkpoint instead, which needs no config. |
-| `ckpt_name` | `COMBO` | Yes |  |  | The checkpoint file in models/checkpoints to load. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `MODEL` | `MODEL` | The diffusion model, for a sampler. |
-| `CLIP` | `CLIP` | The text encoder, for the prompt encoding nodes. |
-| `VAE` | `VAE` | The autoencoder that turns a latent into an image. |
-| `NAME_STRING` | `STRING` | The checkpoint's file name without its folder or extension, for captions, file names and log lines. |
-
-</details>
-
-<details>
-<summary><b>Checkpoint Loader (Simple, Advanced)</b></summary>
-
-Deprecated: use ComfyUI's Load Checkpoint instead. Loads a checkpoint and returns the model, CLIP and VAE, plus the checkpoint's file name as a string. That name is already on the ckpt_name widget.
-
-| | |
-|---|---|
-| Node id | `Checkpoint Loader (Simple)` |
-| Turn off with | `legacy.loaders: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `ckpt_name` | `COMBO` | Yes |  |  | The checkpoint file in models/checkpoints to load. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `MODEL` | `MODEL` | The diffusion model, for a sampler. |
-| `CLIP` | `CLIP` | The text encoder, for the prompt encoding nodes. |
-| `VAE` | `VAE` | The autoencoder that turns a latent into an image. Empty for a checkpoint that ships no VAE, which then needs a Load VAE node. |
-| `NAME_STRING` | `STRING` | The checkpoint's file name without its folder or extension, for captions, file names and log lines. |
-
-</details>
-
-<details>
-<summary><b>CLIPSeg Model Loader</b></summary>
-
-Load a CLIPSeg model for the CLIPSeg masking nodes, which turn a text description into a mask. Enable features.clipseg to load this node.
-
-| | |
-|---|---|
-| Node id | `CLIPSeg Model Loader` |
-| Turn off with | `features.clipseg: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `model` | `STRING` | Yes | CIDAS/clipseg-rd64-refined |  | Hugging Face repository of the CLIPSeg model. The default is the refined 64-dimension model, which is the one CLIPSeg ships for general use; 'CIDAS/clipseg-rd16' is smaller and coarser. A repository name is all this takes: a folder path is refused, and a local checkpoint is picked up from ComfyUI's models directory. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `clipseg_model` | `CLIPSEG_MODEL` | The loaded model, for the clipseg_model input of CLIPSeg Masking and CLIPSeg Batch Masking. |
-
-</details>
-
-<details>
-<summary><b>Diffusers Hub Model Down-Loader</b></summary>
-
-Download a diffusers model from the Hugging Face Hub into models/diffusers and load it. Enable features.diffusers to load this node.
-
-| | |
-|---|---|
-| Node id | `Diffusers Hub Model Down-Loader` |
-| Turn off with | `features.diffusers: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `repo_id` | `STRING` | Yes |  |  | The Hugging Face repository to fetch, owner and name, such as 'stabilityai/stable-diffusion-2-1'. It must be a diffusers-format repository: one holding unet, vae and text_encoder folders. Fetching needs features.network on in config.yaml; without it, a repository already in models/diffusers still loads. |
-| `revision` | `STRING` | Yes | None |  | Branch, tag or commit to fetch, such as 'fp16' or 'refs/pr/2'. Leave it as 'None' for the repository's default branch, which then means the files can change under a saved workflow; a commit hash pins them. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `MODEL` | `MODEL` | The diffusion model, for a sampler. |
-| `CLIP` | `CLIP` | The text encoder, for the prompt encoding nodes. |
-| `VAE` | `VAE` | The autoencoder that turns a latent into an image. |
-| `NAME_STRING` | `STRING` | The repository id that was loaded, for captions, file names and log lines. |
-
-</details>
-
-<details>
-<summary><b>Diffusers Model Loader</b></summary>
-
-Load a diffusers-format model directory from models/diffusers and emit its name alongside the model, CLIP and VAE. Enable features.diffusers to load this node.
-
-| | |
-|---|---|
-| Node id | `Diffusers Model Loader` |
-| Turn off with | `features.diffusers: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `model_path` | `COMBO` | Yes |  |  | The model directory in models/diffusers to load. Each entry is a folder holding unet, vae and text_encoder subdirectories, which is what cloning a Hugging Face model repository produces. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `MODEL` | `MODEL` | The diffusion model, for a sampler. |
-| `CLIP` | `CLIP` | The text encoder, for the prompt encoding nodes. |
-| `VAE` | `VAE` | The autoencoder that turns a latent into an image. |
-| `NAME_STRING` | `STRING` | The name of the directory the model was loaded from, for captions, file names and log lines. |
-
-</details>
-
-<details>
-<summary><b>EMA-VFI Model Loader</b></summary>
-
-Build an EMA-VFI network for EMA-VFI Frame Interpolation. The network is kept for the life of the process, so one loader can feed several nodes without building it again. The weights are not bundled: with features.network on the checkpoint is fetched on first use, and with it off put one in ComfyUI/models/EMA-VFI and restart so it appears in the list.
-
-| | |
-|---|---|
-| Node id | `WASEMAVFIModelLoader` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `checkpoint` | `COMBO` | Yes |  |  | Which EMA-VFI weights to build. The 'small' files are faster and less accurate; the '_t' files can land anywhere between two frames and are the ones a multiplier above 2 needs. A name not yet on disk is fetched on the first run that needs it. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `ema_vfi_model` | `EMA_VFI_MODEL` | The built network, for the ema_vfi_model input of EMA-VFI Frame Interpolation. |
-
-</details>
-
-<details>
-<summary><b>Image Remove Background Model Loader</b></summary>
-
-Build a cutout network for Image Remove Background. Building one takes a moment and holds a few hundred megabytes, so it is kept for the life of the process and one loader can feed several nodes. Weights go in ComfyUI/models/birefnet and ComfyUI/models/ben2, and are downloaded there on first use when features.network is on.
-
-| | |
-|---|---|
-| Node id | `WASRembgModelLoader` |
-| Turn off with | `features.preprocessors: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `model` | `COMBO` | Yes |  |  | Which cutout network to build. `BiRefNet General` suits most pictures. `BiRefNet Portrait` is trained on people and `BiRefNet Matting HR` on fine edges like hair, both read at 2048 across. `BEN2` is a second opinion from another family. docs/MODELS.md lists what each one suits and what it weighs. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `rembg_model` | `REMBG_MODEL` | The built network, for the rembg_model input of Image Remove Background. |
-
-</details>
-
-<details>
-<summary><b>Lora Loader (Advanced)</b></summary>
-
-Deprecated: use ComfyUI's Load LoRA instead. Applies a LoRA to a model and a CLIP at separate strengths, and returns the LoRA's file name as a string. That name is already on the lora_name widget.
-
-| | |
-|---|---|
-| Node id | `Lora Loader` |
-| Turn off with | `legacy.loaders: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `model` | `MODEL` | Yes |  |  | The diffusion model the LoRA is applied to. |
-| `clip` | `CLIP` | Yes |  |  | The text encoder the LoRA is applied to. Most LoRAs adjust both halves, so this is wired from the same checkpoint as model. |
-| `lora_name` | `COMBO` | Yes |  |  | The LoRA file in models/loras to apply. 'None' passes the model and CLIP through unchanged. |
-| `strength_model` | `FLOAT` | Yes | 1.0 |  | How strongly the LoRA modifies the diffusion model. 1.0 is the strength it was trained at, 0.0 leaves the model alone, and a negative value applies it in reverse. |
-| `strength_clip` | `FLOAT` | Yes | 1.0 |  | How strongly the LoRA modifies the text encoder. 1.0 is the strength it was trained at; lowering it keeps the LoRA's look while letting the prompt matter more. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `MODEL` | `MODEL` | The model with the LoRA applied. |
-| `CLIP` | `CLIP` | The text encoder with the LoRA applied. |
-| `NAME_STRING` | `STRING` | The LoRA's file name without its folder or extension, for captions, file names and log lines. |
-
-</details>
-
-<details>
-<summary><b>MiDaS Model Loader</b></summary>
-
-Load a MiDaS depth model for MiDaS Depth Approximation and MiDaS Mask Image. Enable features.midas to load this node.
-
-| | |
-|---|---|
-| Node id | `MiDaS Model Loader` |
-| Turn off with | `features.midas: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `midas_model` | `COMBO` | Yes |  | `DPT_Large`, `DPT_Hybrid`, `DPT_Small` | Which depth model to load. `DPT_Large` is the most accurate and the slowest, `DPT_Hybrid` is roughly half the size and close behind it, and `DPT_Small` is the quickest and the roughest. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `midas_model` | `MIDAS_MODEL` | The loaded model, for the midas_model input of MiDaS Depth Approximation and MiDaS Mask Image. |
-
-</details>
-
-<details>
-<summary><b>SAM Model Loader</b></summary>
-
-Load a Segment Anything model for SAM Image Mask, which turns clicked points into a mask. Enable features.sam to load this node.
-
-| | |
-|---|---|
-| Node id | `SAM Model Loader` |
-| Turn off with | `features.sam: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `model_size` | `COMBO` | Yes |  | `ViT-H`, `ViT-L`, `ViT-B` | Which size of Segment Anything to load. `ViT-H` is the most accurate and the largest at around 2.4 GB, `ViT-L` sits in the middle, and `ViT-B` is roughly 375 MB and the fastest. All three take the same points and produce a mask the same way. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `SAM_MODEL` | The loaded model, for the sam_model input of SAM Image Mask. |
-
-</details>
-
-<details>
-<summary><b>unCLIP Checkpoint Loader (Advanced)</b></summary>
-
-Deprecated: use ComfyUI's unCLIP Checkpoint Loader instead. Loads an unCLIP checkpoint and returns the model, CLIP, VAE and CLIP vision tower, plus the checkpoint's file name as a string. That name is already on the ckpt_name widget.
-
-| | |
-|---|---|
-| Node id | `unCLIP Checkpoint Loader` |
-| Turn off with | `legacy.loaders: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `ckpt_name` | `COMBO` | Yes |  |  | The checkpoint file in models/checkpoints to load. An unCLIP checkpoint is needed for the CLIP_VISION output to carry anything. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `MODEL` | `MODEL` | The diffusion model, for a sampler. |
-| `CLIP` | `CLIP` | The text encoder, for the prompt encoding nodes. |
-| `VAE` | `VAE` | The autoencoder that turns a latent into an image. |
-| `CLIP_VISION` | `CLIP_VISION` | The image encoder an unCLIP conditioning node needs. Empty when the checkpoint is not an unCLIP model. |
-| `NAME_STRING` | `STRING` | The checkpoint's file name without its folder or extension, for captions, file names and log lines. |
-
-</details>
-
-<details>
-<summary><b>Upscale Model Loader (Advanced)</b></summary>
-
-Deprecated: use ComfyUI's Load Upscale Model instead. Loads an upscale model and returns it, plus the file name it came from as a string. That name is already on the model_name widget.
-
-| | |
-|---|---|
-| Node id | `Upscale Model Loader` |
-| Turn off with | `legacy.loaders: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `model_name` | `COMBO` | Yes |  |  | The upscale model in models/upscale_models to load. Its own scale factor, usually 2x or 4x, decides how much larger the result is. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `UPSCALE_MODEL` | `UPSCALE_MODEL` | The loaded model, for Upscale Image (using Model). |
-| `MODEL_NAME_TEXT` | `STRING` | The file name as it appears in the widget, extension included, for captions, file names and log lines. |
-
-</details>
-
-<details>
-<summary><b>YuNet Model Loader</b></summary>
-
-Load the YuNet face detector for Image Crop Face (YuNet). The weights ship with the pack, so there is nothing to download and nothing to install: connect this to Image Crop Face (YuNet) and run it. The detector runs on whatever device ComfyUI is using.
-
-| | |
-|---|---|
-| Node id | `WASYuNetModelLoader` |
-| Turn off with | `features.yunet: false` in `config.yaml` |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `yunet_model` | `YUNET_MODEL` | The loaded detector, for the yunet_model input of Image Crop Face (YuNet). |
-
-</details>
-
----
-
-## WAS Suite/Logic
-
-<details>
-<summary><b>Combo Selector</b></summary>
-
-Pick a checkpoint, LoRA, VAE, ControlNet, upscale model, sampler or scheduler from one node, and send it to another node's dropdown. Choose the kind first and the list below it fills with what is installed. Convert the target node's dropdown to an input and connect combo to it. Also answers the choice as text.
-
-| | |
-|---|---|
-| Node id | `WASComboSelector` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `source` | `COMFY_DYNAMICCOMBO_V3` | Yes |  |  | What to pick from: checkpoints, loras, vae, clip, text_encoders, diffusion_models, controlnet, style_models, hypernetworks, upscale_models, embeddings, gligen, samplers, schedulers. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `combo` | `*` | The choice, on a wire a dropdown accepts. Connect it to a converted dropdown such as ckpt_name, lora_name or sampler_name. |
-| `name` | `STRING` | The choice as text: sd_xl_base_1.0.safetensors, euler, karras. |
-| `source` | `STRING` | Which list it came from: checkpoints, loras, samplers. |
-
-</details>
-
-<details>
-<summary><b>Pause</b></summary>
-
-Stop a run at this node and wait for Resume on the node itself. Everything above it has already run and stays cached, so change a widget while it waits and queue again: only the changed node and what depends on it run a second time. Whatever is connected passes through untouched.
-
-| | |
-|---|---|
-| Node id | `WASPause` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `message` | `STRING` | Yes |  |  | Text drawn beside Resume: `check the mask before sampling`. Empty draws the node name alone. |
-| `timeout` | `FLOAT` | Yes | 600.0 |  | Seconds to wait before carrying on by itself. 600 is 10 minutes, 0 waits with no limit. The queue holds still the whole time. |
-| `value` | `COMFY_MATCHTYPE_V3` | No |  |  | Anything to hold and pass on: IMAGE, LATENT, MODEL, STRING. Leave it unconnected to stop the run without carrying anything. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `value` | `COMFY_MATCHTYPE_V3` | What arrived, unchanged. |
-| `outcome` | `STRING` | How the wait ended: resumed, timed out. |
-| `resumed` | `BOOLEAN` | true where Resume was pressed, false where the wait ran out. |
-
-</details>
-
-<details>
-<summary><b>Text to Combo</b></summary>
-
-Answer text on a wire any dropdown takes, so a choice normally picked by hand can be worked out while the graph runs. Convert a node's dropdown to an input and connect this to it, and the checkpoint, LoRA, sampler or scheduler it uses can come from a loop, a switch or a text node. A plain STRING is refused by a dropdown; this is the wire that is not.
-
-| | |
-|---|---|
-| Node id | `WASTextToCombo` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text` | `STRING` | Yes |  |  | The option to choose, spelled exactly as the dropdown lists it, such as sd_xl_base_1.0.safetensors or euler_ancestral. |
-| `strip` | `BOOLEAN` | No | True |  | Drop spaces and line ends from both ends: ` euler ` becomes `euler`. Off sends the text exactly as typed. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `combo` | `*` | The text, on a wire a dropdown accepts. A name the dropdown does not list is refused by the node receiving it, not by this one. |
-
-</details>
-
----
-
-## WAS Suite/Logic/Boolean
-
-<details>
-<summary><b>Any Gate</b></summary>
-
-Pass a value on only when a condition holds. When it does not, everything downstream is skipped, which is the one way to stop a save or a preview from running. A switch chooses between two branches; this one stops a branch outright.
-
-| | |
-|---|---|
-| Node id | `WASAnyGate` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `value` | `COMFY_MATCHTYPE_V3` | Yes |  |  | What to pass on. It is only worked out when the gate opens, so a closed gate also skips the work behind it. |
-| `open` | `BOOLEAN` | Yes | True |  | true lets the value through; false stops every node downstream. Wire it from Compare, Boolean Reduce or any test. |
-| `message` | `STRING` | No |  |  | Shown on the blocked nodes as `Execution Blocked: <message>`. Left empty the branch stops quietly, which is what a routine skip wants. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `value` | `COMFY_MATCHTYPE_V3` | The value when the gate is open. Nothing runs downstream when it is not. |
-
-</details>
-
-<details>
-<summary><b>Any Is Empty</b></summary>
-
-Answer whether a wire is carrying nothing, whatever type it is, and pass the value straight through. An empty mask, a blank line of text, an empty list and a batch of no frames all read as empty, so a graph can branch on a stage that produced nothing.
-
-| | |
-|---|---|
-| Node id | `WASAnyIsEmpty` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `value` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Anything. The wire is read and passed on unchanged. |
-| `zero_is_empty` | `BOOLEAN` | No | False |  | Count a mask or an image that is entirely black as empty. Off, only a batch of no frames counts. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `is_empty` | `BOOLEAN` | true when nothing is being carried. Wire it to a switch. |
-| `value` | `COMFY_MATCHTYPE_V3` | The same value, unchanged, so the node sits in the middle of a chain. |
-| `reason` | `STRING` | Why it reads as empty, or what it holds when it does not. |
-
-</details>
-
-<details>
-<summary><b>Boolean Reduce</b></summary>
-
-Combine any number of conditions into one answer: all of them, any of them, none of them, exactly one, or a majority. Logic Comparison AND and OR take two, so four conditions need three of them chained; this takes them all at once.
-
-| | |
-|---|---|
-| Node id | `WASBooleanReduce` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `reduction` | `COMBO` | Yes | all | `all`, `any`, `none`, `exactly one`, `majority` | How the conditions combine. With 3 wired and 2 true: `all` = false, `any` = true, `none` = false, `exactly one` = false, `majority` = true. |
-| `condition_a` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_b` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_c` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_d` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_e` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_f` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_g` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_h` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_i` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_j` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_k` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_l` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_m` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_n` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_o` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_p` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_q` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_r` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_s` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_t` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_u` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_v` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_w` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_x` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_y` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-| `condition_z` | `BOOLEAN` | No | False |  | One condition, `true` or `false`. An unconnected slot is not counted, so the reduction runs over what is actually wired. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `boolean` | `BOOLEAN` | The combined answer. Wire it to any switch's boolean. |
-| `true_count` | `INT` | How many connected conditions are true. |
-| `count` | `INT` | Connected conditions. |
-
-</details>
-
-<details>
-<summary><b>Boolean To Text</b></summary>
-
-Spell a true/false value out as the text "True" or "False", so it can go into a prompt, a file name or a debug string.
-
-| | |
-|---|---|
-| Node id | `Boolean To Text` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `boolean` | `BOOLEAN` | Yes | False |  | The value to spell out. Usually linked from a comparison node such as Logic Comparison AND or Text Contains. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `STRING` | The words "True" or "False", capitalised, with no surrounding spaces or quotes. |
-
-</details>
-
-<details>
-<summary><b>Compare</b></summary>
-
-Compare two values and answer true or false, whatever they are. Numbers compare as numbers and everything else as text, so '10' is greater than '9' rather than sorting before it. Feed the answer to any switch.
-
-| | |
-|---|---|
-| Node id | `WASCompareAny` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `value_a` | `STRING,INT,FLOAT,NUMBER,BOOLEAN` | Yes |  |  | Left-hand value. Text, a number or a switch. |
-| `comparison` | `COMBO` | Yes | equals | `equals`, `does not equal`, `less than`, `less than or equals`, `greater than`, `greater than or equals`, `contains`, `does not contain`, `starts with`, `ends with`, `matches regex`, `is empty` | The test. `equals` and the four orderings read both sides as numbers where they can: 10 > 9. `contains`, `starts with`, `ends with` and `matches regex` read them as text. `is empty` ignores value_b. |
-| `value_b` | `STRING,INT,FLOAT,NUMBER,BOOLEAN` | Yes |  |  | Right-hand value. Ignored by `is empty`. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `boolean` | `BOOLEAN` | true when the test holds. Wire it to any switch's boolean. |
-| `comparison_text` | `STRING` | The test written out, as `10 greater than 9 = true`. |
-
-</details>
-
-<details>
-<summary><b>Condition Chain</b></summary>
-
-Test conditions in order and answer the position of the first one that holds. Wire that into an index switch and the pair reads as if, else if, else: condition_a picks input_a, condition_b picks input_b, and nothing matching picks whichever slot the fallback names.
-
-| | |
-|---|---|
-| Node id | `WASConditionChain` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `fallback` | `INT` | Yes | 0 |  | Answer when no condition holds; this is the `else`. -1 answers -1 and sets matched to false, which an index switch reads as its last slot. |
-| `condition_a` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_b` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_c` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_d` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_e` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_f` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_g` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_h` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_i` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_j` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_k` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_l` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_m` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_n` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_o` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_p` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_q` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_r` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_s` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_t` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_u` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_v` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_w` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_x` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_y` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-| `condition_z` | `BOOLEAN` | No | False |  | One condition, `true` or `false`, tested in slot order. The first `true` decides the answer. An unconnected slot is skipped, so the numbering follows what is wired. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `index` | `INT` | Position of the first true condition, counting connected slots from 0, or the fallback when none held. |
-| `matched` | `BOOLEAN` | true when a condition held, false when the fallback answered. |
-| `count` | `INT` | Connected conditions. The index runs 0..count-1. |
-
-</details>
-
-<details>
-<summary><b>Logic Boolean</b></summary>
-
-Turn a value between 0.0 and 1.0 into a true/false switch and the numbers that stand for it, which is how the Input Switch nodes and any node with a reset or toggle input get fed from one control.
-
-| | |
-|---|---|
-| Node id | `Logic Boolean` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `boolean` | `FLOAT` | Yes | 1 |  | The value to decide on, between 0.0 and 1.0. Anything above 0.5 counts as true and anything at or below 0.5 as false, so 0.5 itself is false. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `BOOLEAN` | True or false, for the boolean input of an Input Switch node. |
-| `<output1>` | `NUMBER` | The same decision as 1 or 0, for a NUMBER input such as a reset. |
-| `<output2>` | `INT` | The same decision as 1 or 0, on an INT socket. |
-| `<output3>` | `FLOAT` | The widget value itself, not rounded, so 0.35 leaves here as 0.35 while the other three outputs read false. |
-
-</details>
-
-<details>
-<summary><b>Logic Boolean Primitive</b></summary>
-
-A single true/false checkbox on a node of its own, so one switch can drive the boolean input of several nodes at once.
-
-| | |
-|---|---|
-| Node id | `Logic Boolean Primitive` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `boolean` | `BOOLEAN` | Yes | False |  | The value to send on: ticked is true, unticked is false. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `BOOLEAN` | The state of the checkbox, true or false. |
-
-</details>
-
-<details>
-<summary><b>Logic Compare Numbers</b></summary>
-
-Compare two numbers and report whether the test holds as a true or false value. Wire the result into While Loop Close to end a loop on a count, or into any node taking a boolean.
-
-| | |
-|---|---|
-| Node id | `WASLogicCompareNumbers` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `number_a` | `FLOAT,INT,NUMBER` | Yes | 0.0 |  | The number on the left of the test; FLOAT, INT or NUMBER. Type it, or wire it from a counter or a measurement. |
-| `number_b` | `FLOAT,INT,NUMBER` | Yes | 0.0 |  | The number on the right of the test; FLOAT, INT or NUMBER. Type it, or wire it from a counter or a measurement. |
-| `comparison` | `COMBO` | Yes |  |  | Which test to apply; COMBO. 'a' is number_a and 'b' is number_b, so 'a > b' is true while number_a is the larger of the two. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `boolean` | `BOOLEAN` | Whether the test holds; BOOLEAN. Equality allows a millionth of a millionth either way, so a computed float still matches. |
-| `comparison_text` | `STRING` | The test and its outcome in words; STRING, such as '3 > 2 is true'. For a readout or a filename. |
-
-</details>
-
-<details>
-<summary><b>Logic Comparison AND</b></summary>
-
-Combine two true/false values so the result is true only when both of them are, which is how two conditions are required at once.
-
-| | |
-|---|---|
-| Node id | `Logic Comparison AND` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `boolean_a` | `BOOLEAN` | Yes | False |  | The first condition. Usually linked from another logic node. |
-| `boolean_b` | `BOOLEAN` | Yes | False |  | The second condition, which also has to hold for a true result. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `BOOLEAN` | True when both inputs are true, false if either one is false. |
-
-</details>
-
-<details>
-<summary><b>Logic Comparison OR</b></summary>
-
-Combine two true/false values so the result is true when at least one of them is, which is how either of two conditions is accepted.
-
-| | |
-|---|---|
-| Node id | `Logic Comparison OR` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `boolean_a` | `BOOLEAN` | Yes | False |  | The first condition. Usually linked from another logic node. |
-| `boolean_b` | `BOOLEAN` | Yes | False |  | The second condition, which can carry the result on its own. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `BOOLEAN` | True when either input is true, or both are; false only when neither is. |
-
-</details>
-
-<details>
-<summary><b>Logic Comparison XOR</b></summary>
-
-Compare two true/false values and report whether they disagree: true when exactly one of them is true, false when they match.
-
-| | |
-|---|---|
-| Node id | `Logic Comparison XOR` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `boolean_a` | `BOOLEAN` | Yes | False |  | The first condition. Usually linked from another logic node. |
-| `boolean_b` | `BOOLEAN` | Yes | False |  | The second condition, compared against the first. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `BOOLEAN` | True when exactly one input is true; false when both are true or both are false. |
-
-</details>
-
-<details>
-<summary><b>Logic NOT</b></summary>
-
-Flip a true/false value over, which turns one condition into its opposite without a second comparison node.
-
-| | |
-|---|---|
-| Node id | `Logic NOT` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `boolean` | `BOOLEAN` | Yes | False |  | The value to invert. True comes out false, false comes out true. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `BOOLEAN` | The opposite of the input value. |
-
-</details>
-
-<details>
-<summary><b>Text Contains</b></summary>
-
-Search one piece of text for another and report whether it is in there, which is how a prompt can be tested for a word before a branch is taken.
-
-| | |
-|---|---|
-| Node id | `Text Contains` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text` | `STRING` | Yes |  |  | The text to search through, such as a prompt or a file name, as `a tabby cat`. |
-| `sub_text` | `STRING` | Yes |  |  | The word or phrase to look for. It has to appear as written, spaces included, and it can sit anywhere in the text rather than only at the start. Left empty, it matches everything. |
-| `case_insensitive` | `BOOLEAN` | No | True |  | Whether capitals are ignored. On, 'Cat' finds 'cat'; off, only an exact match of upper and lower case counts. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `BOOLEAN` | True when the phrase was found somewhere in the text. |
-
-</details>
-
-<details>
-<summary><b>To Boolean</b></summary>
-
-Read any value as true or false, so a count, a size or a line of text can drive a switch. Every switch in this pack keys on a boolean, and only one other node answers one from a number, so this is usually what stands between a measurement and a branch.
-
-| | |
-|---|---|
-| Node id | `WASToBoolean` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `value` | `STRING,INT,FLOAT,NUMBER,BOOLEAN` | Yes |  |  | What to read. A number is true when it is not 0. Text is read as a word first, so `true`, `yes`, `on` and `1` are true and `false`, `no`, `off`, `0` and empty are false. |
-| `unreadable` | `BOOLEAN` | Yes | False |  | Answer for text that is neither, such as `maybe`. false treats it as false; true treats any unrecognised word as true. |
-| `invert` | `BOOLEAN` | Yes | False |  | Flip the answer, saving a Logic NOT after it. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `boolean` | `BOOLEAN` | The value as true or false. Wire it to any switch's boolean. |
-| `int` | `INT` | The same answer as 1 or 0, for arithmetic that counts branches. |
-
-</details>
-
-<details>
-<summary><b>Type Of</b></summary>
-
-Name what is on a wire, so a graph can branch on it. Answers `IMAGE`, `MASK`, `LATENT`, `MODEL`, `STRING` and so on, with the batch size and shape beside it. Feed the name to Compare and the answer to a switch to handle each kind differently.
-
-| | |
-|---|---|
-| Node id | `WASTypeOf` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `value` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Anything. The wire is read, not changed. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `type_name` | `STRING` | The socket type in capitals: `IMAGE`, `MASK`, `LATENT`, `MODEL`, `STRING`, `INT`. Compare it to branch on the kind. |
-| `python_type` | `STRING` | The class behind it, as `Tensor`, `dict`, `str`. |
-| `shape` | `STRING` | Sizes of a tensor, as `4x512x512x3`, or the entry count of a list or dictionary. Empty for a value with neither. |
-| `batch_size` | `INT` | Frames a batched value carries, from the first axis of an image, mask or latent. 1 for a single value and 0 where there is no batch. |
-| `is_empty` | `BOOLEAN` | true for nothing connected, empty text, an empty list or a tensor with no elements. |
-
-</details>
-
----
-
-## WAS Suite/Logic/Loop
-
-<details>
-<summary><b>Collect to List</b></summary>
-
-Gather everything a fan-out produced back onto one wire. A node that emits a list, Load Text Files From Zip, Zip Open, Number Range or Number Easing, makes every node after it run once per entry, and nothing further down can see more than one of those runs at a time. Wire the last node of the series in here and the whole run arrives as one value: images, masks and latents join into a single batch ready for a video encoder or one save, and anything else arrives as a list. count says how many were gathered, and joined writes them out as one string.
-
-| | |
-|---|---|
-| Node id | `WASCollectToList` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `value` | `COMFY_MATCHTYPE_V3` | Yes |  |  | The last node of the fan-out, wired here once. Whatever connects, IMAGE, LATENT, STRING or a model, decides the type of the node, and the value output carries that same type. A source that ran only once gathers into a collection of one rather than failing. |
-| `delimiter` | `STRING` | Yes | , |  | Placed between the entries in joined. ', ' builds a comma-separated caption; \n puts each entry on its own line; empty runs them together with nothing between. It changes neither value nor count. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `value` | `COMFY_MATCHTYPE_V3` | Everything gathered, as one value. Images, masks and latents join into a single batch, so 5 runs of one image give a 5 image batch; anything else arrives as a list of 5. The socket carries the type that was wired into value. |
-| `count` | `INT` | How many are in value; INT. 5 runs of one image = 5; 5 runs of a 4 frame batch = 20, since those joined into one 20 frame batch; 5 runs of text = 5. Feed it to a batch index or an iteration count. |
-| `joined` | `STRING` | Every gathered value written out as text, separated by delimiter. Text and numbers appear as they are, an image, mask or latent as its kind and size, 'IMAGE 1x512x512x3'. Save it to log what a run gathered. |
-
-</details>
-
-<details>
-<summary><b>For Loop Close</b></summary>
-
-Finish one iteration of a For Loop and run the next, until the iteration count or the frame target is reached. Only nodes wired back to here, directly or through others, run again each iteration.
-
-| | |
-|---|---|
-| Node id | `WASForLoopClose` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `iterator` | `WAS_LOOP` | Yes |  |  | Identifies the loop and where it is up to; WAS_LOOP. Wired straight from For Loop Open's iterator output, and nothing else. |
-| `accumulate` | `BOOLEAN` | Yes | False |  | Collect every iteration's values; BOOLEAN. On, each value output carries everything that slot received, batched where images, masks or latents batch and a LIST where they do not. |
-| `value_1` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot 1's value at the end of this iteration; any type. It goes back to For Loop Open's value_1 for the next one. |
-| `value_2` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
-| `value_3` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
-| `value_4` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
-| `value_5` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
-| `value_6` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
-| `value_7` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
-| `value_8` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
-| `stop` | `BOOLEAN` | No | False |  | Stop after this iteration; BOOLEAN. Read once the body has run, so it ends the loop early whatever iterations or total_frames ask for. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `metadata` | `DICT` | What the finished loop did, as one value; DICT. Read it with Loop Metadata: iterations completed, frames collected, and why it stopped. |
-| `value_1` | `COMFY_MATCHTYPE_V3` | Slot 1's result; any type. The last value it held, or every value it held once accumulate is on, batched where they batch and a LIST where they do not. |
-| `value_2` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
-| `value_3` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
-| `value_4` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
-| `value_5` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
-| `value_6` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
-| `value_7` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
-| `value_8` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
-
-</details>
-
-<details>
-<summary><b>For Loop Open</b></summary>
-
-Open a loop that runs a fixed number of iterations, or until For Loop Close has collected a target number of frames. Wire the carried values into what should repeat, and their results into For Loop Close.
-
-| | |
-|---|---|
-| Node id | `WASForLoopOpen` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `mode` | `COMBO` | Yes |  | `iterations`, `total_frames` | How the loop decides when to stop; COMBO. 'iterations' runs a fixed count; 'total_frames' runs until For Loop Close has collected total_frames frames. |
-| `iterations` | `INT` | Yes | 10 |  | Iterations to run in 'iterations' mode; INT, 1 to 10000. Ignored in 'total_frames' mode. |
-| `total_frames` | `INT` | Yes | 100 |  | Frames to collect before stopping in 'total_frames' mode; INT. Counted from what For Loop Close collects, which needs accumulate on. |
-| `max_iterations` | `INT` | Yes | 100 |  | Safety limit for 'total_frames' mode; INT, 1 to 10000. Stops the loop even when the frame target is never reached. |
-| `start` | `INT` | Yes | 0 |  | First value of index; INT. index counts up by 1 from here each iteration, for reading a position in a list. |
-| `value_1` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot 1 starts with; any type. Read it back out of value_1 and hand the changed one to For Loop Close's value_1. |
-| `value_2` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
-| `value_3` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
-| `value_4` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
-| `value_5` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
-| `value_6` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
-| `value_7` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
-| `value_8` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `iterator` | `WAS_LOOP` | Identifies the loop and where it is up to; WAS_LOOP. Wire it straight to For Loop Close's iterator input, and nothing else. |
-| `index` | `INT` | The loop's counter; INT. Starts at start and counts up by 1 each iteration, for reading a position in a list. |
-| `metadata` | `DICT` | This iteration's counters as one value; DICT. Read them with Loop Metadata: current_iteration, index, and the frames collected so far. |
-| `value_1` | `COMFY_MATCHTYPE_V3` | Slot 1 as this iteration receives it; any type. The starting value on iteration 1, then whatever For Loop Close was given last iteration. |
-| `value_2` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
-| `value_3` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
-| `value_4` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
-| `value_5` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
-| `value_6` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
-| `value_7` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
-| `value_8` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
-
-</details>
-
-<details>
-<summary><b>Loop Metadata</b></summary>
-
-Read a loop's metadata output apart into separate values: which iteration is running, how many finished, how many frames were collected, and why the loop stopped. Works with both the For and While pairs, from either end.
-
-| | |
-|---|---|
-| Node id | `WASLoopMetadata` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `metadata` | `DICT` | Yes |  |  | The metadata output of a loop's Open or Close node; DICT. An Open node describes the iteration about to run, a Close node the finished loop. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `current_iteration` | `INT` | Which iteration this is; INT, counting from 1. |
-| `index` | `INT` | The loop's counter; INT. Counts from start_index on a For Loop and from 0 on a While Loop, for reading a position in a list. |
-| `iterations_completed` | `INT` | How many iterations have finished; INT. |
-| `limit` | `INT` | What the loop is counting towards; INT. The iteration count, the frame target, or the safety limit, whichever the loop is set to. |
-| `accumulated_count` | `INT` | Frames collected so far; INT, read from the first slot holding frames. 0 while accumulate is off. |
-| `accumulated_as` | `STRING` | How the values left the loop; STRING. 'final' for the last value alone, 'batch' for one joined batch, 'list' for every value. |
-| `mode` | `STRING` | What ends the loop; STRING. 'iterations', 'total_frames', or 'condition' for a While Loop. |
-| `stopped_reason` | `STRING` | Why the loop stopped; STRING. Never empty: it reads 'Still running' with the iteration while the loop is going, and 'Not started' before anything has run. |
-
-</details>
-
-<details>
-<summary><b>While Loop Close</b></summary>
-
-Finish one iteration of a While Loop and run another while continue_loop is true, up to max_iterations. Only nodes wired back to here run again.
-
-| | |
-|---|---|
-| Node id | `WASWhileLoopClose` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `iterator` | `WAS_LOOP` | Yes |  |  | Identifies the loop and where it is up to; WAS_LOOP. Wired straight from While Loop Open's iterator output, and nothing else. |
-| `continue_loop` | `BOOLEAN,NUMBER,INT,FLOAT` | Yes | False |  | Slot 1's value at the end of this iteration; any type. It goes back to While Loop Open's value_1 for the next one. |
-| `accumulate` | `BOOLEAN` | Yes | False |  | Collect every iteration's values; BOOLEAN. On, each value output carries everything that slot received, batched where images, masks or latents batch and a LIST where they do not. |
-| `value_1` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot 1's value at the end of this iteration; any type. It goes back to While Loop Open's value_1 for the next one. |
-| `value_2` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
-| `value_3` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
-| `value_4` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
-| `value_5` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
-| `value_6` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
-| `value_7` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
-| `value_8` | `COMFY_MATCHTYPE_V3` | No |  |  | Slot {n}'s value at the end of this iteration; any type. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `metadata` | `DICT` | What the finished loop did, as one value; DICT. Read it with Loop Metadata: iterations completed, frames collected, and why it stopped. |
-| `value_1` | `COMFY_MATCHTYPE_V3` | Slot 1's result; any type. The last value it held, or every value it held once accumulate is on, batched where they batch and a LIST where they do not. |
-| `value_2` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
-| `value_3` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
-| `value_4` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
-| `value_5` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
-| `value_6` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
-| `value_7` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
-| `value_8` | `COMFY_MATCHTYPE_V3` | Slot {n}'s result; any type. Every value it held while accumulate is on, otherwise the last one. |
-
-</details>
-
-<details>
-<summary><b>While Loop Open</b></summary>
-
-Open a loop that runs until a condition says stop. The body runs at least once; While Loop Close reads the condition after each iteration.
-
-| | |
-|---|---|
-| Node id | `WASWhileLoopOpen` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `max_iterations` | `INT` | Yes | 100 |  | Safety limit; INT, 1 to 10000. Stops the loop even if the condition stays true, so a mistake cannot run forever. |
-| `value_1` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot 1 starts with; any type. Read it back out of value_1 and hand the changed one to While Loop Close's value_1. |
-| `value_2` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
-| `value_3` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
-| `value_4` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
-| `value_5` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
-| `value_6` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
-| `value_7` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
-| `value_8` | `COMFY_MATCHTYPE_V3` | No |  |  | The value slot {n} starts with; any type. A new slot appears as this one is wired. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `iterator` | `WAS_LOOP` | Identifies the loop and where it is up to; WAS_LOOP. Wire it straight to While Loop Close's iterator input, and nothing else. |
-| `index` | `INT` | The loop's counter; INT. Starts at 0 and counts up by 1 each iteration, for reading a position in a list. |
-| `metadata` | `DICT` | This iteration's counters as one value; DICT. Read them with Loop Metadata: current_iteration, index, and the frames collected so far. |
-| `value_1` | `COMFY_MATCHTYPE_V3` | Slot 1 as this iteration receives it; any type. The starting value on iteration 1, then whatever While Loop Close was given last iteration. |
-| `value_2` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
-| `value_3` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
-| `value_4` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
-| `value_5` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
-| `value_6` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
-| `value_7` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
-| `value_8` | `COMFY_MATCHTYPE_V3` | Slot {n} as this iteration receives it; any type. |
-
-</details>
-
----
-
-## WAS Suite/Logic/Switch
-
-<details>
-<summary><b>Any Index Switch</b></summary>
-
-Pass one of any number of values on, chosen by a number rather than a boolean, whatever type they are. Wire a Number Counter or a loop's index in to step through the inputs one per run. Only the chosen input is evaluated, so the work behind the rest is skipped.
-
-| | |
-|---|---|
-| Node id | `WASAnyIndexSwitch` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `index` | `INT,NUMBER,FLOAT` | Yes | 0 |  | Slot to pass on, from 0. Negative counts from the end: -1 = last. A decimal is truncated: 2.7 = 2. |
-| `out_of_range` | `COMBO` | Yes | wrap | `wrap`, `clamp`, `error` | Index outside 0..count-1. With 3 slots and index 4: `wrap` = slot 1, `clamp` = slot 2, `error` stops the prompt. |
-| `input_a` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_b` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_c` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_d` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_e` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_f` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_g` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_h` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_i` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_j` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_k` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_l` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_m` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_n` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_o` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_p` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_q` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_r` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_s` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_t` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_u` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_v` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_w` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_x` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_y` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_z` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Any type. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `output` | `COMFY_MATCHTYPE_V3` | The selected input, typed to whatever was connected. |
-| `resolved_index` | `INT` | Slot actually read, from 0, after wrap or clamp. |
-| `count` | `INT` | Connected slots. The index runs 0..count-1. |
-
-</details>
-
-<details>
-<summary><b>Any Input Switch</b></summary>
-
-Pass one of two values on, chosen by a boolean, whatever type they are. The unselected input is not evaluated, so the work behind it is skipped.
-
-| | |
-|---|---|
-| Node id | `WASAnyInputSwitch` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `input_a` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Passed on when boolean is true. Any type. The first connection fixes the type; input_b and output then take that type only. |
-| `input_b` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Passed on when boolean is false. Must match input_a's type. |
-| `boolean` | `BOOLEAN` | Yes | True |  | Selects the input. true = input_a, false = input_b. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `output` | `COMFY_MATCHTYPE_V3` | The selected input, typed to whatever was connected. |
-
-</details>
-
-<details>
-<summary><b>Any Switch (First Connected)</b></summary>
-
-Pass the first connected input on, whatever type it is. Slots are tried in order, input_a to input_z, and the earliest one still connected is the one that leaves, so muting a branch falls through to the next without any rewiring. Only that branch is evaluated, so the work behind the rest is skipped.
-
-| | |
-|---|---|
-| Node id | `WASAnyFirstSwitch` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `input_a` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_b` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_c` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_d` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_e` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_f` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_g` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_h` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_i` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_j` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_k` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_l` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_m` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_n` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_o` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_p` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_q` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_r` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_s` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_t` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_u` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_v` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_w` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_x` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_y` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-| `input_z` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate branch. Any type, and the first connection fixes the type for the rest. Slots are tried in order, input_a first: with input_a muted or unwired, input_b answers. Only the branch that answers is evaluated. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `output` | `COMFY_MATCHTYPE_V3` | The branch that answered, typed to whatever was connected. |
-| `resolved_index` | `INT` | Which slot answered, counting the slots on the node from 0: input_a = 0, input_c = 2. With input_a and input_b muted, this reads 2. |
-| `count` | `INT` | How many slots are still connected. Muting the node feeding a slot drops it by one: 3 wired with 1 muted reads 2. |
-
-</details>
-
-<details>
-<summary><b>CLIP Input Switch</b></summary>
-
-Deprecated: use Model Switch instead. It takes the type of whatever is connected and skips the branch it does not select. This node passes one of two CLIP text encoders on, chosen by a boolean: clip_a when the boolean is true, clip_b when it is false.
-
-| | |
-|---|---|
-| Node id | `CLIP Input Switch` |
-| Turn off with | `legacy.switches: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `clip_a` | `CLIP` | Yes |  |  | The text encoder sent on when boolean is true. |
-| `clip_b` | `CLIP` | Yes |  |  | The text encoder sent on when boolean is false. |
-| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = clip_a, false = clip_b. Toggle it, or wire it from Logic Boolean. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `CLIP` | Whichever of the two text encoders was selected. |
-
-</details>
-
-<details>
-<summary><b>CLIP Vision Input Switch</b></summary>
-
-Deprecated: use Model Switch instead. It takes the type of whatever is connected and skips the branch it does not select. This node passes one of two CLIP Vision models on, chosen by a boolean: clip_vision_a when the boolean is true, clip_vision_b when it is false.
-
-| | |
-|---|---|
-| Node id | `CLIP Vision Input Switch` |
-| Turn off with | `legacy.switches: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `clip_vision_a` | `CLIP_VISION` | Yes |  |  | The CLIP Vision model sent on when boolean is true. |
-| `clip_vision_b` | `CLIP_VISION` | Yes |  |  | The CLIP Vision model sent on when boolean is false. |
-| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = clip_vision_a, false = clip_vision_b. Toggle it, or wire it from Logic Boolean. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `CLIP_VISION` | Whichever of the two CLIP Vision models was selected. |
-
-</details>
-
-<details>
-<summary><b>Conditioning Input Switch</b></summary>
-
-Deprecated: use Any Input Switch instead. It takes the type of whatever is connected and skips the branch it does not select. This node passes one of two conditionings on, chosen by a boolean: conditioning_a when the boolean is true, conditioning_b when it is false.
-
-| | |
-|---|---|
-| Node id | `Conditioning Input Switch` |
-| Turn off with | `legacy.switches: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `conditioning_a` | `CONDITIONING` | Yes |  |  | The encoded prompt sent on when boolean is true. |
-| `conditioning_b` | `CONDITIONING` | Yes |  |  | The encoded prompt sent on when boolean is false. |
-| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = conditioning_a, false = conditioning_b. Toggle it, or wire it from Logic Boolean. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `CONDITIONING` | Whichever of the two conditionings was selected. |
-
-</details>
-
-<details>
-<summary><b>Control Net Model Input Switch</b></summary>
-
-Deprecated: use Model Switch instead. It takes the type of whatever is connected and skips the branch it does not select. This node passes one of two ControlNet models on, chosen by a boolean: control_net_a when the boolean is true, control_net_b when it is false.
-
-| | |
-|---|---|
-| Node id | `Control Net Model Input Switch` |
-| Turn off with | `legacy.switches: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `control_net_a` | `CONTROL_NET` | Yes |  |  | The ControlNet model sent on when boolean is true. |
-| `control_net_b` | `CONTROL_NET` | Yes |  |  | The ControlNet model sent on when boolean is false. |
-| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = control_net_a, false = control_net_b. Toggle it, or wire it from Logic Boolean. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `CONTROL_NET` | Whichever of the two ControlNet models was selected. |
-
-</details>
-
-<details>
-<summary><b>Image Input Switch</b></summary>
-
-Deprecated: use Tensor Image Switch instead. It takes the type of whatever is connected, an image, a mask or a latent, and skips the branch it does not select. This node passes one of two images on, chosen by a boolean: image_a when the boolean is true, image_b when it is false.
-
-| | |
-|---|---|
-| Node id | `Image Input Switch` |
-| Turn off with | `legacy.switches: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `image_a` | `IMAGE` | Yes |  |  | The image sent on when boolean is true. |
-| `image_b` | `IMAGE` | Yes |  |  | The image sent on when boolean is false. |
-| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = image_a, false = image_b. Toggle it, or wire it from Logic Boolean. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `IMAGE` | Whichever of the two images was selected. |
-
-</details>
-
-<details>
-<summary><b>Latent Input Switch</b></summary>
-
-Deprecated: use Tensor Image Switch instead. It takes the type of whatever is connected, an image, a mask or a latent, and skips the branch it does not select. This node passes one of two latents on, chosen by a boolean: latent_a when the boolean is true, latent_b when it is false.
-
-| | |
-|---|---|
-| Node id | `Latent Input Switch` |
-| Turn off with | `legacy.switches: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `latent_a` | `LATENT` | Yes |  |  | The latent sent on when boolean is true. |
-| `latent_b` | `LATENT` | Yes |  |  | The latent sent on when boolean is false. |
-| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = latent_a, false = latent_b. Toggle it, or wire it from Logic Boolean. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `LATENT` | Whichever of the two latents was selected. |
-
-</details>
-
-<details>
-<summary><b>Lora Input Switch</b></summary>
-
-Pass one model and CLIP pair of two on, chosen by a boolean, which switches a whole LoRA branch with a single control. The model_a and clip_a pair is sent when the boolean is true, the model_b and clip_b pair when it is false.
-
-| | |
-|---|---|
-| Node id | `Lora Input Switch` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `model_a` | `MODEL` | Yes |  |  | The diffusion model sent on when boolean is true, with clip_a. |
-| `clip_a` | `CLIP` | Yes |  |  | The text encoder sent on when boolean is true. Wire it from the same LoRA loader as model_a, so a patched model keeps the CLIP it was patched with. |
-| `model_b` | `MODEL` | Yes |  |  | The diffusion model sent on when boolean is false, with clip_b. |
-| `clip_b` | `CLIP` | Yes |  |  | The text encoder sent on when boolean is false. Wire it from the same LoRA loader as model_b. |
-| `boolean` | `BOOLEAN` | Yes | True |  | Which pair passes; BOOLEAN. true = model_a and clip_a, false = model_b and clip_b. Toggle it, or wire it from Logic Boolean. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `MODEL` | The model half of the selected pair. |
-| `<output1>` | `CLIP` | The text encoder half of the same selected pair. |
-
-</details>
-
-<details>
-<summary><b>Model Index Switch</b></summary>
-
-Pass one of any number of loaded models on, chosen by a number. A model here is anything a loader answers: a diffusion model, a VAE, a text encoder, a ControlNet, an upscale model and the rest. Only the chosen input is evaluated, so no other model is loaded and its memory is never spent.
-
-| | |
-|---|---|
-| Node id | `WASModelIndexSwitch` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `index` | `INT,NUMBER,FLOAT` | Yes | 0 |  | Slot to pass on, from 0. Negative counts from the end: -1 = last. A decimal is truncated: 2.7 = 2. |
-| `out_of_range` | `COMBO` | Yes | wrap | `wrap`, `clamp`, `error` | Index outside 0..count-1. With 3 slots and index 4: `wrap` = slot 1, `clamp` = slot 2, `error` stops the prompt. |
-| `input_a` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_b` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_c` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_d` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_e` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_f` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_g` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_h` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_i` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_j` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_k` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_l` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_m` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_n` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_o` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_p` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_q` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_r` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_s` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_t` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_u` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_v` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_w` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_x` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_y` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_z` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `output` | `COMFY_MATCHTYPE_V3` | The selected input, typed to whatever was connected. |
-| `resolved_index` | `INT` | Slot actually read, from 0, after wrap or clamp. |
-| `count` | `INT` | Connected slots. The index runs 0..count-1. |
-
-</details>
-
-<details>
-<summary><b>Model Input Switch</b></summary>
-
-Deprecated: use Model Switch instead. It takes the type of whatever is connected and skips the branch it does not select. This node passes one of two diffusion models on, chosen by a boolean: model_a when the boolean is true, model_b when it is false.
-
-| | |
-|---|---|
-| Node id | `Model Input Switch` |
-| Turn off with | `legacy.switches: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `model_a` | `MODEL` | Yes |  |  | The diffusion model sent on when boolean is true. |
-| `model_b` | `MODEL` | Yes |  |  | The diffusion model sent on when boolean is false. |
-| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = model_a, false = model_b. Toggle it, or wire it from Logic Boolean. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `MODEL` | Whichever of the two diffusion models was selected. |
-
-</details>
-
-<details>
-<summary><b>Model Switch</b></summary>
-
-Pass one of two loaded models on, chosen by a boolean. A model here is anything a loader answers: a diffusion model, a VAE, a text encoder, a CLIP vision model, a ControlNet, an upscale model, a style model and the rest. The socket refuses anything that is not one, and the branch it does not pick is never loaded.
-
-| | |
-|---|---|
-| Node id | `WASModelSwitch` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `input_a` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Passed on when boolean is true. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types. The first connection fixes the type; input_b and output then take that type only. |
-| `input_b` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Passed on when boolean is false. Must match input_a's type. |
-| `boolean` | `BOOLEAN` | Yes | True |  | Selects the input. true = input_a, false = input_b. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `output` | `COMFY_MATCHTYPE_V3` | The selected input, typed to whatever was connected. |
-
-</details>
-
-<details>
-<summary><b>Number Input Condition</b></summary>
-
-Test two numbers against each other and emit either 1/0 for the outcome or the number that won the test, so a value can be picked without a separate switch node. 'divisible by' and 'factor of' are the same test, whether B divides evenly by A, so an A of 0 stops with a division error. 'if A odd', 'if A even' and 'if A prime' look at number_a alone, and 1 and everything below it counts as not prime.
-
-| | |
-|---|---|
-| Node id | `Number Input Condition` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `number_a` | `NUMBER,INT,FLOAT` | Yes |  |  | The left-hand value, and the only one the 'if A' tests look at. When return_boolean is 'false' this is what comes out if the test holds. |
-| `number_b` | `NUMBER,INT,FLOAT` | Yes |  |  | The right-hand value. When return_boolean is 'false' this is what comes out if the test fails. The 'if A odd', 'if A even' and 'if A prime' tests ignore it. |
-| `return_boolean` | `COMBO` | Yes |  | `false`, `true` | What the outputs carry. 'false' passes number_a through when the test holds and number_b when it does not; 'true' reports the outcome itself as 1 or 0. |
-| `comparison` | `COMBO` | Yes |  | `and`, `or`, `greater-than`, `greater-than or equals`, `less-than`, `less-than or equals`, `equals`, `does not equal`, `divisible by`, `if A odd`, `if A even`, `if A prime` and 1 more | The test to apply. 'and' holds when neither number is 0, 'or' when at least one is not. The ordering tests compare A against B. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `NUMBER` | The outcome: 1 or 0 when return_boolean is 'true', otherwise whichever of the two numbers the test picked. |
-| `<output1>` | `FLOAT` | The same result as a float, so 1 leaves here as 1.0. |
-| `<output2>` | `INT` | The same result as a whole number, cut off rather than rounded, so 2.9 leaves here as 2. |
-
-</details>
-
-<details>
-<summary><b>Number Input Switch</b></summary>
-
-Deprecated: use Any Input Switch instead. It takes the type of whatever is connected and skips the branch it does not select. This node passes one of two numbers on, chosen by a boolean: number_a when the boolean is true, number_b when it is false. The selected value also leaves as a float and as a whole number.
-
-| | |
-|---|---|
-| Node id | `Number Input Switch` |
-| Turn off with | `legacy.switches: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `number_a` | `NUMBER,INT,FLOAT` | Yes |  |  | The value sent on when boolean is true. |
-| `number_b` | `NUMBER,INT,FLOAT` | Yes |  |  | The value sent on when boolean is false. |
-| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = number_a, false = number_b. Toggle it, or wire it from Logic Boolean. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `NUMBER` | The selected value, keeping the type it arrived as: a whole number stays whole, 2.5 stays 2.5. |
-| `<output1>` | `FLOAT` | The same value as a float, so 8 leaves here as 8.0. |
-| `<output2>` | `INT` | The same value as a whole number, cut off rather than rounded, so 2.9 leaves here as 2. |
-
-</details>
-
-<details>
-<summary><b>Tensor Image Index Switch</b></summary>
-
-Pass one of any number of pictures on, chosen by a number, where a picture is an image, a mask or a latent. Wire a Number Counter or a loop's index in to step through them one per run. The sockets take those three types only, and just the chosen input is evaluated, so the rest is skipped.
-
-| | |
-|---|---|
-| Node id | `WASTensorImageIndexSwitch` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `index` | `INT,NUMBER,FLOAT` | Yes | 0 |  | Slot to pass on, from 0. Negative counts from the end: -1 = last. A decimal is truncated: 2.7 = 2. |
-| `out_of_range` | `COMBO` | Yes | wrap | `wrap`, `clamp`, `error` | Index outside 0..count-1. With 3 slots and index 4: `wrap` = slot 1, `clamp` = slot 2, `error` stops the prompt. |
-| `input_a` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_b` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_c` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_d` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_e` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_f` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_g` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_h` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_i` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_j` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_k` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_l` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_m` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_n` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_o` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_p` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_q` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_r` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_s` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_t` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_u` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_v` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_w` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_x` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_y` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-| `input_z` | `COMFY_MATCHTYPE_V3` | No |  |  | One candidate for the index. Takes IMAGE, MASK or LATENT. The first connection fixes the type; an unconnected slot is not counted, so index 0 is the first slot actually wired. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `output` | `COMFY_MATCHTYPE_V3` | The selected input, typed to whatever was connected. |
-| `resolved_index` | `INT` | Slot actually read, from 0, after wrap or clamp. |
-| `count` | `INT` | Connected slots. The index runs 0..count-1. |
-
-</details>
-
-<details>
-<summary><b>Tensor Image Switch</b></summary>
-
-Pass one of two pictures on, chosen by a boolean, where a picture is an image, a mask or a latent. The socket takes those three and refuses anything else, so a wrong wire is caught as it is drawn. The unselected input is not evaluated, so the work behind it is skipped.
-
-| | |
-|---|---|
-| Node id | `WASTensorImageSwitch` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `input_a` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Passed on when boolean is true. Takes IMAGE, MASK or LATENT. The first connection fixes the type; input_b and output then take that type only. |
-| `input_b` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Passed on when boolean is false. Must match input_a's type. |
-| `boolean` | `BOOLEAN` | Yes | True |  | Selects the input. true = input_a, false = input_b. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `output` | `COMFY_MATCHTYPE_V3` | The selected input, typed to whatever was connected. |
-
-</details>
-
-<details>
-<summary><b>Text Input Switch</b></summary>
-
-Deprecated: use Any Input Switch instead. It takes the type of whatever is connected and skips the branch it does not select. This node passes one of two pieces of text on, chosen by a boolean: text_a when the boolean is true, text_b when it is false.
-
-| | |
-|---|---|
-| Node id | `Text Input Switch` |
-| Turn off with | `legacy.switches: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text_a` | `STRING` | Yes |  |  | Sent out when boolean is true; STRING. |
-| `text_b` | `STRING` | Yes |  |  | Sent out when boolean is false; STRING. |
-| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = text_a, false = text_b. Toggle it, or wire it from Logic Boolean. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `STRING` | Whichever of the two pieces of text was selected. |
-
-</details>
-
-<details>
-<summary><b>Upscale Model Switch</b></summary>
-
-Deprecated: use Model Switch instead. It takes the type of whatever is connected and skips the branch it does not select. This node passes one of two upscale models on, chosen by a boolean: upscale_model_a when the boolean is true, upscale_model_b when it is false.
-
-| | |
-|---|---|
-| Node id | `Upscale Model Switch` |
-| Turn off with | `legacy.switches: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `upscale_model_a` | `UPSCALE_MODEL` | Yes |  |  | The upscale model sent on when boolean is true. |
-| `upscale_model_b` | `UPSCALE_MODEL` | Yes |  |  | The upscale model sent on when boolean is false. |
-| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = upscale_model_a, false = upscale_model_b. Toggle it, or wire it from Logic Boolean. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `UPSCALE_MODEL` | Whichever of the two upscale models was selected. |
-
-</details>
-
-<details>
-<summary><b>VAE Input Switch</b></summary>
-
-Deprecated: use Model Switch instead. It takes the type of whatever is connected and skips the branch it does not select. This node passes one of two VAEs on, chosen by a boolean: vae_a when the boolean is true, vae_b when it is false.
-
-| | |
-|---|---|
-| Node id | `VAE Input Switch` |
-| Turn off with | `legacy.switches: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `vae_a` | `VAE` | Yes |  |  | The VAE sent on when boolean is true. |
-| `vae_b` | `VAE` | Yes |  |  | The VAE sent on when boolean is false. |
-| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = vae_a, false = vae_b. Toggle it, or wire it from Logic Boolean. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `VAE` | Whichever of the two VAEs was selected. |
-
-</details>
-
----
-
-## WAS Suite/Number
-
-<details>
-<summary><b>Constant Number</b></summary>
-
-Emit a constant number. `integer` truncates the widget value, `float` keeps it, and `bool` emits 1 when it is greater than 0.5 and 0 otherwise. A number_as_text holding anything is parsed in place of the widget.
-
-| | |
-|---|---|
-| Node id | `Constant Number` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `number_type` | `COMBO` | Yes |  | `integer`, `float`, `bool` | How the value is read. `integer` cuts off any fraction, so 8.7 becomes 8; `float` keeps it as typed; `bool` collapses it to 1 when it is above 0.5 and to 0 otherwise. |
-| `number` | `FLOAT` | Yes | 0 |  | The value to send on, before number_type is applied: 8.7 leaves as 8 in `integer` and 8.7 in `float`. Ignored while number_as_text holds anything. |
-| `number_as_text` | `STRING` | No |  |  | The number in digits, used instead of the widget above. `integer` keeps every digit, past what the widget holds: 9007199254740993. `float` also takes a point or an exponent: -12.5, .5, 1e6. `bool` takes a word: true, 1, yes, on, or false, 0, no, off. Digits, not a sum: 2^53+1 is refused. Use Number Expression for a sum. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `NUMBER` | The value in the chosen type: whole in `integer` and `bool` mode, decimal in `float` mode. |
-| `<output1>` | `FLOAT` | The same value as a float, so 8 leaves here as 8.0. |
-| `<output2>` | `INT` | The same value as a whole number, cut off rather than rounded, so 8.7 leaves here as 8. |
-
-</details>
-
-<details>
-<summary><b>Number Counter</b></summary>
-
-Emit a number that moves on every prompt, which is how a batch gets numbered or a setting gets swept over a run of images. Each copy of the node counts on its own, and every count starts over when ComfyUI does. `increment` and `decrement` ignore stop. The '_to_stop' modes freeze on the first value that reaches stop, so start 0, step 3, stop 10 counts 3, 6, 9, 12 and then holds at 12; `reset_after_stop` jumps back to start + step instead of freezing.
-
-| | |
-|---|---|
-| Node id | `Number Counter` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `number_type` | `COMBO` | Yes |  | `integer`, `float` | Whether the count is kept whole. `integer` begins at a whole start and emits whole numbers; `float` allows fractions, so a step of 0.25 counts 0.25, 0.5, 0.75. |
-| `mode` | `COMBO` | Yes |  | `increment`, `decrement`, `increment_to_stop`, `decrement_to_stop`, `reset_after_stop` | Which way the count moves, and whether it ends. `increment` and `decrement` run on forever; the '_to_stop' modes freeze at stop, and `reset_after_stop` loops back instead. |
-| `start` | `FLOAT` | Yes | 0 |  | Where the count begins, and where a reset sends it back to. The first prompt already applies one step, so an incrementing counter from a start of 0 with a step of 1 first emits 1 rather than 0. |
-| `stop` | `FLOAT` | Yes | 0 |  | The limit the '_to_stop' and `reset_after_stop` modes watch for; `increment` and `decrement` ignore it. Left at 0, an `increment_to_stop` counter is already at its limit and never moves. |
-| `step` | `FLOAT` | Yes | 1 |  | How far the count moves each prompt. 1 counts 1, 2, 3; 10 counts 10, 20, 30; 0 holds the count still. Always positive, `decrement` is what subtracts it. |
-| `reset_bool` | `NUMBER,INT,FLOAT` | No |  |  | Send 1 or more here to put the count back to start before this prompt's step; 0, or nothing connected, leaves it running. The value is rounded first, so 0.6 also resets. The NUMBER output of Logic Boolean fits this socket. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `number` | `NUMBER` | The count after this prompt's step, whole when number_type is `integer`. |
-| `float` | `FLOAT` | The count as a float. This one keeps a fraction even when number_type is `integer`, which a fractional step can produce. |
-| `int` | `INT` | The count as a whole number, cut off rather than rounded, so 2.9 leaves here as 2. |
-
-</details>
-
-<details>
-<summary><b>Number PI</b></summary>
-
-Emit the constant pi, 3.141592653589793, for maths built out of the Number Operation nodes. It has no settings.
-
-| | |
-|---|---|
-| Node id | `Number PI` |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `NUMBER` | Pi on a NUMBER socket, for a Number Operation input. |
-| `<output1>` | `FLOAT` | The same value on a FLOAT socket, for a core node's float widget. |
-
-</details>
-
-<details>
-<summary><b>Random Number</b></summary>
-
-Draw a random number from a seed, for a value that should vary from run to run such as a strength, a step count or a seed of its own. The same seed and the same bounds always draw the same number, so a result can be reproduced.
-
-| | |
-|---|---|
-| Node id | `Random Number` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `number_type` | `COMBO` | Yes |  | `integer`, `float`, `bool` | What kind of number to draw. `integer` picks a whole number, both bounds included, cutting any fraction off the bounds first. `float` picks a decimal anywhere between them. `bool` ignores both bounds and picks a decimal from 0 up to 1, which the INT output rounds to 0 or 1 for a coin flip. |
-| `minimum` | `FLOAT` | Yes | 0 |  | The lowest value that can come out, itself included. Ignored in `bool` mode. Both bounds default to 0, which draws 0 every time until they are changed. |
-| `maximum` | `FLOAT` | Yes | 0 |  | The highest value that can come out, itself included. Ignored in `bool` mode, and in `integer` mode a maximum below minimum stops with an error. |
-| `seed` | `INT` | Yes | 0 |  | Seed for the draw. The same seed always gives the same number; change it for a different one. Only this node's draw is affected, sampling noise elsewhere in the prompt is left alone. Any whole number; `0` is as good a seed as any. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `NUMBER` | The drawn value: whole in `integer` mode, decimal in `float` and `bool` mode. |
-| `<output1>` | `FLOAT` | The same value as a decimal. |
-| `<output2>` | `INT` | The same value rounded to the nearest whole number, which is where the 0 or 1 of `bool` mode comes from. |
-
-</details>
-
-<details>
-<summary><b>Resolution Selector (Advanced)</b></summary>
-
-Pick a shape and one measurement, and get the width and height that match. Size by an edge in pixels when you know the resolution you want, such as 1024 across, and by megapixels when you are working to a budget instead. Both sides land on a whole step, so the pair is one a model will take.
-
-| | |
-|---|---|
-| Node id | `WASResolutionSelector` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `aspect_ratio` | `COMBO` | Yes | 1:1 | `1:1`, `5:4`, `4:3`, `1.43:1`, `3:2`, `16:10`, `1.66:1`, `16:9`, `1.85:1`, `2:1`, `2.2:1`, `21:9` and 2 more | The shape, widest side first. 16:9 is widescreen, 3:2 is a stills camera, 1:1 is square. Orientation below decides which way round it is applied, so each shape is listed once. |
-| `orientation` | `COMBO` | Yes | landscape | `landscape`, `portrait`, `square` | Which way round the shape goes. `portrait` swaps the two sides, and `square` ignores the ratio entirely. |
-| `size_by` | `COMBO` | Yes | long edge | `long edge`, `short edge`, `width`, `height`, `megapixels` | Which measurement you are giving. `long edge` and `short edge` fix whichever side is longer or shorter; `width` and `height` fix that side whatever the orientation; `megapixels` fixes the area instead and reads the megapixels widget rather than size. |
-| `size` | `INT` | Yes | 1024 |  | The measurement in pixels, read by every option but `megapixels`. 1024 on the long edge of 16:9 is 1024 by 576. |
-| `multiple_of` | `INT` | Yes | 64 |  | Step both sides land on. 8 is the least a latent will take, and 64 is what most model families were trained on. A step moves a side by up to half of itself, so the shape you get back can differ slightly from the one you asked for; the ratio output says what it came to. |
-| `megapixels` | `FLOAT` | No | 1.0 |  | The area in millions of pixels, read only when size_by is `megapixels`. 1.0 at 16:9 is about 1344 by 768. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `width` | `INT` | Width in pixels, a whole number of steps. |
-| `height` | `INT` | Height in pixels, a whole number of steps. |
-| `ratio` | `FLOAT` | Width divided by height as it came out, after the step was applied. Compare it with the shape you asked for to see what the step cost. |
-| `megapixels` | `FLOAT` | Area of the pair in millions of pixels, whichever way it was sized. Read it to keep two different shapes to the same cost. |
-| `label` | `STRING` | The pair written out, as '1024 x 576, 16:9, 0.59 MP'. Feed it to a filename prefix or a caption so a render records its own size. |
-
-</details>
-
-<details>
-<summary><b>Seed (Number Outputs)</b></summary>
-
-Deprecated: use ComfyUI's own Seed node instead. Emits one seed value on a SEED socket and on NUMBER, FLOAT and INT sockets. The SEED socket is read only by the deprecated KSampler (WAS); every core sampler takes a plain INT.
-
-| | |
-|---|---|
-| Node id | `Seed` |
-| Turn off with | `legacy.core_dupes: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `seed` | `INT` | Yes | 0 |  | The seed to hand out. The same seed reproduces the same noise, so an image can be repeated exactly; change it for a different one. Any whole number; `0` is as good a seed as any. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `seed` | `SEED` | The seed in the shape KSampler (WAS) expects on its seed input. |
-| `number` | `NUMBER` | The bare seed on a NUMBER socket, for this pack's number nodes. |
-| `float` | `FLOAT` | The same seed as a float, so 42 leaves here as 42.0. |
-| `int` | `INT` | The same seed as an INT, for a core sampler's seed widget. |
-
-</details>
-
-<details>
-<summary><b>True Random.org Number Generator</b></summary>
-
-Draw a true random integer from RANDOM.ORG, which derives it from atmospheric noise rather than a pseudo-random generator. Requires a free API key from https://api.random.org and an internet connection; without one the node emits 0.
-
-| | |
-|---|---|
-| Node id | `True Random.org Number Generator` |
-| Enable with | `features.network: true` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `api_key` | `STRING` | Yes | 00000000-0000-0000-0000-000000000000 |  | A RANDOM.ORG API key, free from https://api.random.org, in the form of a UUID. The all-zero default is a placeholder: while it is there, no request is sent and the node reports the missing key and emits 0. |
-| `minimum` | `FLOAT` | Yes | 0 |  | The lowest number that can be drawn, itself included. Any fraction is cut off first, since the service only draws whole numbers. |
-| `maximum` | `FLOAT` | Yes | 10000000 |  | The highest number that can be drawn, itself included. Any fraction is cut off first. A range the service will not accept comes back as 0, with the refusal in the log. |
-| `mode` | `COMBO` | Yes |  | `random`, `fixed` | How often a new number is fetched. `random` asks the service for a fresh one on every prompt. `fixed` keeps handing out the number already drawn until the key or one of the bounds changes, which saves requests while the rest of a workflow is being tuned. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `NUMBER` | The drawn whole number, or 0 when no key was given or the service did not answer. |
-| `<output1>` | `FLOAT` | The same number as a decimal, so 42 leaves here as 42.0. |
-| `<output2>` | `INT` | The same number on an INT socket, for a seed widget. |
-
-</details>
-
----
-
-## WAS Suite/Number/Operations
-
-<details>
-<summary><b>Curve to Numbers</b></summary>
-
-Read a curve as numbers, so a shape drawn by hand can drive a schedule. Drag the plot on the node to bend the curve, or write the same '0,0;128,200;255,255' shorthand, and this walks minimum to maximum by step and answers what the curve reads at every position along the way. The straight line gives an even ramp, a bent one redistributes the same range, which is what gives a strength ramp, a denoise schedule or a camera move its shape. Every value comes out on one wire and one per run, so it can feed a list node or step a For Loop.
-
-| | |
-|---|---|
-| Node id | `WASCurveToNumbers` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `curve_points` | `STRING` | Yes |  |  | The curve, written as '0,0;128,200;255,255' on a 0-255 scale, lowest input first. Drag the plot below to write it by hand, or paste the curve_points an Image Curves node holds, whose composite RGB curve is the one read. Empty is the straight line, which walks the range evenly. |
-| `minimum` | `FLOAT,NUMBER,INT` | Yes | 0.0 |  | The bottom of the range, and the value the curve reads out at its lowest. 0.0 for a strength or a denoise, -1.0 with a maximum of 1.0 for a move either side of centre. |
-| `maximum` | `FLOAT,NUMBER,INT` | Yes | 1.0 |  | The top of the range, and the value the curve reads out at its highest. 1.0 for a blend factor, 255 for a colour level. Below minimum stops with an error. |
-| `step` | `FLOAT,NUMBER,INT` | Yes | 0.1 |  | The increment from one position to the next, which is what decides how many values there are. 0.1 over 0.0 to 1.0 gives 11 of them. Maximum is included only where the step divides the range exactly, so a step of 0.3 stops at 0.9. |
-| `decimals` | `INT` | Yes | 6 |  | How many decimal places each number is rounded to. This is what keeps 0.30000000000000004 out of a filename or a log line. 0 rounds to whole numbers. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `values` | `ARRAY` | What the curve reads at each position, on one wire and on the minimum to maximum scale, for Number List Statistics, Text List Get and Text List Length. The straight line answers the positions back. |
-| `positions` | `ARRAY` | Where each value sits along the range, on one wire and in the same order: 0, 0.1, 0.2 and so on for 0.0 to 1.0 by 0.1. Entry 3 here is the position of value 3, which is what plots the pair. |
-| `value` | `FLOAT` | The same values one per run, so the graph below runs once for each: wire it into a sampler's denoise or a blend factor to render the whole curve as a series. |
-| `count` | `INT` | How many values there are, which is how many times the graph below the 'value' output runs. 11 for a range of 0.0 to 1.0 by 0.1. |
-| `text` | `STRING` | The values on one line, separated by commas, as '0, 0.5, 1'. Wire it into Text to Console or Save Text File to keep the numbers a curve produced, or into a text input that takes a list of weights. |
-
-</details>
-
-<details>
-<summary><b>Image Aspect Ratio</b></summary>
-
-Measure an image, or a given width and height, and report the shape of it: the ratio as a number, its common form such as 16:9, and whether it is landscape, portrait or square.
-
-| | |
-|---|---|
-| Node id | `Image Aspect Ratio` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `image` | `IMAGE` | No |  |  | The image to measure. Only needed when width and height are not both given; with no image and no pair of sizes the node stops with an error. A batch is measured at its first image, since each output carries one value. |
-| `width` | `NUMBER,INT,FLOAT` | No |  |  | Width in pixels, measured instead of the image. It is used only when height is given too, and a value of 0 counts as not given. |
-| `height` | `NUMBER,INT,FLOAT` | No |  |  | Height in pixels, measured instead of the image. It is used only when width is given too, and a value of 0 counts as not given. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `aspect_number` | `NUMBER` | Width divided by height: roughly 1.78 for 1920x1080, 0.5625 for 1080x1920, and exactly 1.0 for a square. |
-| `aspect_float` | `FLOAT` | The same width-over-height ratio, on a FLOAT socket. |
-| `is_landscape_bool` | `NUMBER` | 1 when the image is wider than it is tall, 0 when it is taller or square. A number rather than a true/false value. |
-| `aspect_ratio_common` | `STRING` | The ratio reduced to whole numbers, such as 16:9 for 1920x1080 or 1:1 for a square. A fractional width or height is cut to a whole number before reducing. |
-| `aspect_type` | `STRING` | The orientation as a word: 'landscape', 'portrait' or 'square', ready to drop into a prompt or a file name. |
-| `is_landscape_float` | `FLOAT` | The same landscape flag as 1.0 or 0.0. |
-| `is_landscape_int` | `INT` | The same landscape flag as 1 or 0, on an INT socket. |
-
-</details>
-
-<details>
-<summary><b>Image Size to Number</b></summary>
-
-Measure an image and emit its width and height in pixels, on one pair of sockets per numeric type, so an existing image's size can drive a latent, a resize or a crop.
-
-| | |
-|---|---|
-| Node id | `Image Size to Number` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `image` | `IMAGE` | Yes |  |  | The image to measure. Nothing about it is changed, and a batch is measured at its first image, since each output carries one value. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `width_num` | `NUMBER` | Width in pixels, on a NUMBER socket. |
-| `height_num` | `NUMBER` | Height in pixels, on a NUMBER socket. |
-| `width_float` | `FLOAT` | The same width as a float, so 512 leaves here as 512.0. |
-| `height_float` | `FLOAT` | The same height as a float, so 512 leaves here as 512.0. |
-| `width_int` | `INT` | The same width as an INT, for a core node's width widget. |
-| `height_int` | `INT` | The same height as an INT, for a core node's height widget. |
-| `count` | `INT` | How many frames the batch holds. 1 for a single picture, which is what makes this answer for a video sequence as well as a still. |
-
-</details>
-
-<details>
-<summary><b>Image to Seed</b></summary>
-
-Turn images into seed numbers, so a picture can stand in for a seed. The same picture always gives the same number.
-
-| | |
-|---|---|
-| Node id | `Image to Seed` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `images` | `IMAGE` | Yes |  |  | The images to digest. Every image in the batch produces its own seed. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `INT` | One seed per image, between 0 and 4294967295. Because this is a list, a node reading it runs once per seed. |
-
-</details>
-
-<details>
-<summary><b>Integer Place Counter</b></summary>
-
-Count how many decimal digits an integer has, which is the padding width a zero-padded frame or batch number needs.
-
-| | |
-|---|---|
-| Node id | `Integer place counter` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `int_input` | `INT` | Yes | 0 |  | The whole number to measure. Usually linked from a frame or batch count rather than typed in. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `INT_PLACES` | `INT` | How many digits the number is written with: 1 for 0 through 9, 3 for 100, 4 for 1000. |
-
-</details>
-
-<details>
-<summary><b>Latent Size to Number</b></summary>
-
-Read a latent's tensor width and height, on one pair of sockets per numeric type. These are latent units: an eighth of the pixel dimensions the latent decodes to.
-
-| | |
-|---|---|
-| Node id | `Latent Size to Number` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `samples` | `LATENT` | Yes |  |  | The latent to measure, from an Empty Latent Image, a VAE Encode or a sampler. It is passed over untouched. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `tensor_w_num` | `NUMBER` | Latent width, on a NUMBER socket. 64 here means 512 pixels once decoded; multiply by 8 for the pixel width. |
-| `tensor_h_num` | `NUMBER` | Latent height, on a NUMBER socket. Multiply by 8 for the pixel height. |
-| `tensor_w_float` | `FLOAT` | The same latent width as a float, so 64 leaves here as 64.0. |
-| `tensor_h_float` | `FLOAT` | The same latent height as a float, so 64 leaves here as 64.0. |
-| `tensor_w_int` | `INT` | The same latent width as an INT. |
-| `tensor_h_int` | `INT` | The same latent height as an INT. |
-
-</details>
-
-<details>
-<summary><b>Number Easing</b></summary>
-
-Convert numbers from one range to another through an easing curve. One number or a whole list, typed into the value box or wired in, and every value comes out as a list, so the graph below runs once per number. The linear curve is a plain range remap; any other also shapes how the values accelerate. A wire is read instead of the box, so Number Range's LIST converts a whole series at once. A value outside the input range is pulled to the nearest end first, the curves being defined only between them. Past the far end `back` travels about a tenth of the span and `elastic` almost a whole one, so leave clamp on where the result feeds a hard limit such as a denoise. On unreadable, `zero` keeps an entry's position, and as do nan and infinity. The ints output cuts off rather than rounding.
-
-| | |
-|---|---|
-| Node id | `WASNumberEasing` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `value` | `STRING,NUMBER,FLOAT,INT,ARRAY` | Yes |  |  | The numbers to convert, one to a line or separated by commas. A comma is a separator rather than a thousands mark, so 1,000 reads as two values. |
-| `easing` | `COMBO` | Yes |  |  | The curve applied to every value once it has been normalised. `linear` leaves it alone, which turns this node into a plain range conversion. `ease_in` starts slow, `ease_out` finishes slow, `ease_in_out` does both. The `back` and `elastic` families leave the output range on purpose, and `bounce` settles onto it in decreasing hops without ever leaving it. |
-| `input_min` | `FLOAT` | Yes | 0.0 |  | The value that counts as the start of the input range, and the same range is used for every value converted. Set this and input_max to the range the source actually produces, 0 and 23 for a 24-frame counter, or the start and stop of the Number Range feeding it. |
-| `input_max` | `FLOAT` | Yes | 1.0 |  | The value that counts as the end of the input range. Equal to input_min stops with an error, since a range of no width cannot say where a value sits in it. |
-| `output_min` | `FLOAT` | Yes | 0.0 |  | What the start of the input range becomes. Larger than output_max runs the result backwards, which is how a fade-out is written without touching the curve. |
-| `output_max` | `FLOAT` | Yes | 1.0 |  | What the end of the input range becomes. |
-| `clamp` | `BOOLEAN` | Yes | True |  | Whether each result is held inside the output range. On by default; turn it off where the overshoot of `back` or `elastic` is the point. |
-| `unreadable` | `COMBO` | Yes |  | `skip`, `zero`, `error` | What an entry that is not a number does. `skip` leaves it out, `zero` puts 0 in its place, and `error` stops the prompt and names the entry. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `ARRAY` | Every converted value on one wire, for Text List Get, Text List Length and the other list nodes. |
-| `<output1>` | `NUMBER` | One NUMBER per value. Because this is a list, a node reading it runs once for each. This is the socket that drives a series of renders. |
-| `floats` | `FLOAT` | The same values as decimals, one per run. |
-| `ints` | `INT` | The same values as whole numbers, one per run, for a step count or a pixel size. Cut off rather than rounded, so 7.6 arrives as 7. |
-| `count` | `INT` | How many values were converted, which is how many times the graph below this node runs. |
-
-</details>
-
-<details>
-<summary><b>Number Expression</b></summary>
-
-Work out a whole formula over up to 24 numbers in one node, such as `(a * b) / 2 + c`, `clamp(a, 0, 1)` or `round(a / b, 2)`. The functions are min, max, abs, round, floor, ceil, sqrt, clamp(v, lo, hi), lerp(a, b, t), sign, log, log2, log10, exp, sin, cos, tan, atan2, hypot, degrees and radians, with pi, e and tau as constants. Comparisons and `and`, `or` work too, so `a if a > b else b` picks the larger and the boolean output carries the answer. Only arithmetic is read: a name, an attribute or a call that is not on the list is refused by name before anything runs. The box takes several lines, joined into one, and `#` starts a comment.
-
-| | |
-|---|---|
-| Node id | `WASNumberExpression` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `expression` | `STRING` | Yes | a + b |  | The formula, over `a` to `x`. Eg: `(a * b) / 2 + c`. Functions: min max abs round floor ceil sqrt clamp lerp sign log log2 log10 exp sin cos tan atan2 hypot degrees radians, plus pi, e and tau. `a > b` comes out as 1 or 0; `#` starts a comment. |
-| `a` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `a` stands for. Type it here or wire one in. Unconnected slots use the widget, and a slot the expression never names is ignored. |
-| `b` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `b` stands for. Type it here or wire one in. `a / b` with b at 0 stops the run unless on_error is set to zero. |
-| `c` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `c` stands for. Type it here or wire one in. Handy as the offset in `(a * b) / 2 + c`. |
-| `d` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `d` stands for. Type it here or wire one in. The fourth value, free for a limit such as `clamp(a, c, d)`. |
-| `e` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `e` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `f` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `f` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `g` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `g` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `h` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `h` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `i` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `i` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `j` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `j` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `k` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `k` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `l` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `l` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `m` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `m` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `n` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `n` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `o` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `o` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `p` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `p` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `q` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `q` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `r` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `r` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `s` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `s` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `t` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `t` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `u` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `u` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `v` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `v` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `w` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `w` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `x` | `FLOAT,NUMBER,INT` | No | 0.0 |  | The number `x` stands for. Type it here or wire one in. An unconnected slot uses its widget, and a slot the expression never names is ignored. |
-| `decimals` | `INT` | No | 6 |  | Decimal places a fractional answer is rounded to. 6 = 0.333333, 2 = 0.33, 0 = whole, so 3.7 comes out 4.0. It also clears the trailing 0.0000000001 that decimal arithmetic leaves behind. A whole answer is untouched. |
-| `on_error` | `COMBO` | No | error | `error`, `zero` | What a refused or impossible expression does. `error` = stop the run and name the cause, `zero` = log it and answer 0. Pick `zero` where a division by zero is expected on some frames of a batch. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `number` | `NUMBER` | The answer on the NUMBER wire, whole where it came out whole. A comparison answers 1 or 0. |
-| `float` | `FLOAT` | The same answer as a decimal, so 7 leaves here as 7.0. |
-| `int` | `INT` | The same answer with its fraction cut off rather than rounded, so 3.9 leaves here as 3. Held to the range a whole-number socket carries. |
-| `boolean` | `BOOLEAN` | false when the answer is 0, true for anything else. Wire it to a switch to branch on `a > b`. |
-| `text` | `STRING` | The answer written out, as `4.5` or `7`. Feed it to a filename prefix or a text join. |
-
-</details>
-
-<details>
-<summary><b>Number List Statistics</b></summary>
-
-Measure a whole list of numbers at once: sum, mean, min, max, median and range, how many were read, and a summary line to preview. Feed it Number Range's LIST, a text list, or numbers typed one to a line. Divide each value by max to normalise a schedule against its own peak, or by sum to turn weights into shares. Every figure comes out as a single value rather than a list, so the graph below runs once however long the list is. An entry holding no number is left out, counted as 0, or stopped on.
-
-| | |
-|---|---|
-| Node id | `WASNumberListStatistics` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `values` | `STRING,ARRAY,NUMBER,FLOAT,INT` | Yes |  |  | The numbers to measure, one to a line or separated by commas, or a LIST wired in from Number Range or Text List. A comma separates values rather than marking thousands, so 1,000 reads as two values. |
-| `unreadable` | `COMBO` | Yes |  | `skip`, `zero`, `error` | What an entry that is not a number does. `skip` leaves it out and lowers count, `zero` counts it as 0 and pulls the mean down, `error` stops the prompt and names the entry. |
-| `decimals` | `INT` | Yes | 4 |  | Decimal places every figure is rounded to, on the outputs and in the summary. 0 = whole numbers; 2 = 0.33; 6 = 0.333333. Raise it where sum or mean feeds further maths. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `sum` | `FLOAT` | Every value added together. 1, 2, 3 gives 6. Divide a value by this to get its share of the whole. |
-| `mean` | `FLOAT` | The average, which is sum divided by count. 1, 2, 6 gives 3. A single far-off value drags it, so read it beside median. |
-| `min` | `FLOAT` | The smallest value. 4, 1, 9 gives 1. Subtract it from each value and divide by range to spread a schedule across 0 to 1. |
-| `max` | `FLOAT` | The largest value. 4, 1, 9 gives 9. Divide each value by this to normalise a schedule against its own peak. |
-| `median` | `FLOAT` | The middle value once sorted, or the average of the middle two when count is even. 1, 2, 90 gives 2, where mean gives 31. |
-| `range` | `FLOAT` | max minus min, the width the values cover. 4, 1, 9 gives 8. 0 means every value is the same, so dividing by it to normalise would fail. |
-| `count` | `INT` | How many values were read. `skip` leaves an entry holding no number out, so 4 entries with one word among them gives 3, where `zero` gives 4. Compare it with the entries given to see how many held no number. |
-| `summary` | `STRING` | Every figure on one line, rounded to decimals: `count 3, sum 6.0000, mean 2.0000, min 1.0000, max 3.0000, median 2.0000, range 2.0000`. Wire it to a text preview or into a filename. |
-
-</details>
-
-<details>
-<summary><b>Number Multiple Of</b></summary>
-
-Round a number up to the next multiple of the given value, which is how a free-typed dimension is snapped to the multiple of 8 a latent needs. A number that already divides evenly is returned as it is.
-
-| | |
-|---|---|
-| Node id | `Number Multiple Of` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `number` | `NUMBER,INT,FLOAT` | Yes |  |  | The value to snap upward, such as a width or height that was typed or computed freely. |
-| `multiple` | `INT` | Yes | 8 |  | The spacing to snap to. 8 turns 500 into 504, which is the grid a latent needs; 64 turns 500 into 512. A value of 0 stops with a division error. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `NUMBER` | The snapped value, or the original when it already divided evenly. |
-| `<output1>` | `FLOAT` | The same snapped value, on a FLOAT socket. |
-| `<output2>` | `INT` | The snapped value as a whole number, cut off rather than rounded. |
-
-</details>
-
-<details>
-<summary><b>Number Operation</b></summary>
-
-Combine two numbers with one operation. The seven arithmetic operations emit the result; the six comparisons emit 1 when they hold and 0 when they do not. `exponentiation` raises A to the power of B, so 2 and 10 give 1024, and `modulus` is the remainder, so 7 and 2 give 1.
-
-| | |
-|---|---|
-| Node id | `Number Operation` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `number_a` | `NUMBER,INT,FLOAT` | Yes |  |  | The left-hand value: what is divided, raised to a power or compared against number_b. |
-| `number_b` | `NUMBER,INT,FLOAT` | Yes |  |  | The right-hand value: what number_a is divided by, raised to, or measured against. A value of 0 with `division`, `floor division` or `modulus` stops with a division error. |
-| `operation` | `COMBO` | Yes |  | `addition`, `subtraction`, `division`, `floor division`, `multiplication`, `exponentiation`, `modulus`, `greater-than`, `greater-than or equals`, `less-than`, `less-than or equals`, `equals` and 1 more | What to do with the two values. `division` keeps the fraction, so 7 over 2 is 3.5, while `floor division` throws it away and gives 3. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `NUMBER` | The result of the operation, or 1/0 when a comparison was chosen. |
-| `<output1>` | `FLOAT` | The same result, on a FLOAT socket. |
-| `<output2>` | `INT` | The same result as a whole number, cut off rather than rounded, so 3.5 leaves here as 3. |
-
-</details>
-
-<details>
-<summary><b>Number Range</b></summary>
-
-Generate a series of numbers between two values, by count or by step, shaped by an easing curve. Every value comes out as a list, so the graph below runs once per number. A step's sign is taken from the direction start to stop, so 0.1 and -0.1 behave the same, and a step that divides the span exactly ends the series on stop while one that does not ends it on the last whole step before stop. On easing, the `ease_in` curves start slow and accelerate, `ease_out` the reverse, and `ease_in_out` does both, which is what makes a camera move or a strength ramp look deliberate rather than mechanical, while `back` and `elastic` overshoot past start and stop on purpose.
-
-| | |
-|---|---|
-| Node id | `WASNumberRange` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `start` | `FLOAT,NUMBER,INT` | Yes | 0.0 |  | The first value of the series. |
-| `stop` | `FLOAT,NUMBER,INT` | Yes | 1.0 |  | The value the series runs to. Lower than start counts downwards, which is how a fade-out is written. |
-| `mode` | `COMBO` | Yes |  | `count`, `step` | What decides the values. `count` produces exactly that many, spread across the whole span, the mode to use when the number of frames is what is fixed. `step` walks from start towards stop by a fixed amount and produces however many values fit, for a series where the spacing is what matters. |
-| `count` | `INT` | Yes | 10 |  | How many values to produce, read in `count` mode. A count of 1 gives start alone. Every node below this one runs this many times, so a large count is a large queue. |
-| `step` | `FLOAT` | Yes | 0.1 |  | The gap between one value and the next, read in `step` mode. A step of 0 stops with an error. |
-| `easing` | `COMBO` | Yes |  |  | How the values are distributed across the span, in `count` mode. `linear` spaces them evenly. Not read in `step` mode, where the spacing is fixed. |
-| `endpoint` | `BOOLEAN` | Yes | True |  | Whether the last value is exactly stop, in `count` mode. Turn it off for a seamless loop: the final frame of a loop is the first frame of the next pass, so emitting both repeats it. |
-| `decimals` | `INT` | Yes | 6 |  | How many decimal places each value is rounded to. This is what keeps 0.30000000000000004 out of a filename or a log line. 0 rounds to whole numbers. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `ARRAY` | Every value on one wire, for Number Easing, Text List Get, Text List Length and the other list nodes. |
-| `<output1>` | `NUMBER` | One NUMBER per value. Because this is a list, a node reading it runs once for each. This is the socket that drives a series of renders. |
-| `floats` | `FLOAT` | The same values as decimals, one per run. |
-| `ints` | `INT` | The same values as whole numbers, cut off rather than rounded, one per run. For a step count, a frame number or a seed. |
-| `count` | `INT` | How many values were produced, which is how many times the graph below this node runs. |
-
-</details>
-
-<details>
-<summary><b>Number to Float</b></summary>
-
-Hand a value on as a decimal FLOAT, so a NUMBER wire from this pack can reach a core node's float input such as a CFG or a denoise.
-
-| | |
-|---|---|
-| Node id | `Number to Float` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `number` | `NUMBER,INT,FLOAT` | Yes |  |  | The value to hand on. Nothing is rounded or clamped. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `FLOAT` | The same value as a decimal, so 8 leaves here as 8.0. |
-
-</details>
-
-<details>
-<summary><b>Number to Int</b></summary>
-
-Hand a value on as a whole INT, so a NUMBER wire from this pack can reach a core node's integer input such as steps, width or a seed.
-
-| | |
-|---|---|
-| Node id | `Number to Int` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `number` | `NUMBER,INT,FLOAT` | Yes |  |  | The value to make whole. Any fraction is cut off rather than rounded, so 2.9 gives 2 and -2.9 gives -2. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `INT` | The value with its fractional part removed. |
-
-</details>
-
-<details>
-<summary><b>Number to Seed</b></summary>
-
-Repackage a number as a SEED, the socket KSampler (WAS) takes its seed on. Core samplers want a plain INT instead, use Number to Int for those.
-
-| | |
-|---|---|
-| Node id | `Number to Seed` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `number` | `NUMBER,INT,FLOAT` | Yes |  |  | The value to use as the seed, typically from Number Counter or Random Number. It is passed through as it is, not rounded. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `SEED` | The seed in the shape KSampler (WAS) expects, for its seed input. |
-
-</details>
-
-<details>
-<summary><b>Number to String</b></summary>
-
-Convert a NUMBER to a STRING. The value keeps the type it arrives with, so an integer renders as '8' and a float as '8.0'.
-
-| | |
-|---|---|
-| Node id | `Number to String` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `number` | `NUMBER,INT,FLOAT` | Yes |  |  | The value to write out. Put a Number to Int in front of it to lose a trailing '.0'. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `STRING` | The number written out in full, with no padding, thousands separators or currency signs: 8, 8.0, -1.25. |
-
-</details>
-
-<details>
-<summary><b>To Number</b></summary>
-
-Put a whole number, a decimal or a switch onto NUMBER, the wire this pack's own arithmetic runs on. Anything answering an INT, a FLOAT or a BOOLEAN can then feed a node that takes only a NUMBER, so a size, a count or a flag from elsewhere joins a chain of number nodes without a node in between.
-
-| | |
-|---|---|
-| Node id | `WASToNumber` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `value` | `INT,FLOAT,BOOLEAN` | Yes |  |  | What to convert. A whole number and a decimal pass through as they are, and a switch becomes 1 for true and 0 for false. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `number` | `NUMBER` | The same value on the NUMBER wire. A decimal keeps its fraction, so feed it to a node that rounds where a whole number is wanted. |
-
-</details>
-
----
-
-## WAS Suite/Sampling
-
-<details>
-<summary><b>KSampler (Seed Socket)</b></summary>
-
-Deprecated: use ComfyUI's KSampler instead, with a Seed node feeding its seed input where the seed arrives on a wire. Samples a latent with the core sampler, taking the seed from a SEED socket rather than from a widget.
-
-| | |
-|---|---|
-| Node id | `KSampler (WAS)` |
-| Turn off with | `legacy.sampling: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `model` | `MODEL` | Yes |  |  | The diffusion model doing the sampling. |
-| `seed` | `SEED` | Yes |  |  | The noise seed, arriving on a wire from a Seed or Number to Seed node rather than as a widget. This socket is the only thing that sets this node apart from ComfyUI's own KSampler. |
-| `steps` | `INT` | Yes | 20 |  | How many sampling steps to run. More steps take longer and resolve more detail, with little to gain past about 30 for most models. |
-| `cfg` | `FLOAT` | Yes | 8.0 |  | How closely the image is held to the prompt. Around 7-8 suits most models; lower is looser and softer, much higher tends to burn contrast and flatten detail. |
-| `sampler_name` | `COMBO` | Yes |  |  | The sampling algorithm. 'euler' is the plain, predictable choice; the 'ancestral' and 'sde' variants add fresh noise as they go; the 'dpmpp' family converges in fewer steps. The list is whatever this ComfyUI offers. |
-| `scheduler` | `COMBO` | Yes |  |  | How the noise level is stepped down over the run. 'normal' and 'karras' are the usual choices, karras spending more steps at low noise where fine detail is decided. |
-| `positive` | `CONDITIONING` | Yes |  |  | Encoded prompt describing what the image should contain. |
-| `negative` | `CONDITIONING` | Yes |  |  | Encoded prompt describing what to keep out of the image. |
-| `latent_image` | `LATENT` | Yes |  |  | The latent to sample: an empty one to generate from scratch, or an encoded image to work from. Its size sets the output size. |
-| `denoise` | `FLOAT` | Yes | 1.0 |  | How much of the latent is redrawn. 1.0 ignores its content and generates from noise; around 0.5 keeps the composition and changes the detail; 0.0 changes nothing. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `LATENT` | The sampled latent. Decode it with a VAE Decode to see the picture. |
-
-</details>
-
-<details>
-<summary><b>KSampler Cycle</b></summary>
-
-Sample a latent over several cycles, enlarging it between passes by an even share of upscale_factor. Scaling runs in latent space, or through a VAE round trip with an optional upscale model and unsharp sharpening.
-
-| | |
-|---|---|
-| Node id | `KSampler Cycle` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `model` | `MODEL` | Yes |  |  | The diffusion model every cycle samples with, unless secondary_model takes over partway through. |
-| `seed` | `INT` | Yes | 0 |  | Seed for the noise. Every cycle uses this same seed, so the whole run is repeatable; change it for a different image. Any whole number; `0` is as good a seed as any. |
-| `steps` | `INT` | Yes | 20 |  | Sampling steps on the first cycle. More steps take longer and resolve more detail, with little to gain past about 30 for most models. Turning steps_scaling on changes this figure on later cycles. |
-| `cfg` | `FLOAT` | Yes | 8.0 |  | How closely the image is held to the prompt. Around 7-8 suits most models; lower is looser and softer, much higher tends to burn contrast and flatten detail. |
-| `sampler_name` | `COMBO` | Yes |  |  | The sampling algorithm. 'euler' is the plain, predictable choice; the 'ancestral' and 'sde' variants add fresh noise as they go and keep changing the image at high step counts; the 'dpmpp' family converges in fewer steps. The list is whatever this ComfyUI offers. |
-| `scheduler` | `COMBO` | Yes |  |  | How the noise level is stepped down over the run. 'normal' and 'karras' are the usual choices, karras spending more steps at low noise where fine detail is decided. The list is whatever this ComfyUI offers. |
-| `positive` | `CONDITIONING` | Yes |  |  | Encoded prompt describing what the image should contain. |
-| `negative` | `CONDITIONING` | Yes |  |  | Encoded prompt describing what to keep out of the image. |
-| `latent_image` | `LATENT` | Yes |  |  | The latent the first cycle works on: an empty one to generate from scratch, or an encoded image to work up from. Its size sets where the enlargement starts. |
-| `tiled_vae` | `COMBO` | Yes |  | `disable`, `enable` | `enable` converts between latent and pixels a tile at a time, which needs far less VRAM at large sizes and can leave faint seams. Only matters when latent_upscale is `disable`, since that is the only path that goes through pixels. |
-| `latent_upscale` | `COMBO` | Yes |  | `disable`, `nearest-exact`, `bilinear`, `area`, `bicubic`, `bislerp` | How the enlargement between cycles is done. `disable` takes the slower, sharper route through pixels, using vae, upscale_model, processor_model and scale_sampling. Any other entry stays in latent space and is much faster, ignoring all four; `nearest-exact` is the blockiest, `bilinear` and `bicubic` smoother, `area` averages, and `bislerp` is a blend built for latents. |
-| `upscale_factor` | `FLOAT` | Yes | 2.0 |  | Total enlargement across the whole run, not per cycle: 2.0 means the result is twice the size it started at, and the cycles share that growth evenly between them. |
-| `upscale_cycles` | `INT` | Yes | 2 |  | How many sample passes to run. Enlargement happens between passes, so 2 grows once and 4 grows three times in smaller jumps, which is gentler but slower. Capped at steps, since a pass needs at least one step. |
-| `starting_denoise` | `FLOAT` | Yes | 1.0 |  | How much of the first pass is redrawn. 1.0 ignores latent_image's content and generates from noise; around 0.5 keeps its composition and changes the detail; 0.0 changes nothing. |
-| `cycle_denoise` | `FLOAT` | Yes | 0.5 |  | How much every pass after the first redraws. This is what keeps the enlarged image recognisable: 0.5 refines it, and much above that starts inventing new content at each size. |
-| `scale_denoise` | `COMBO` | Yes |  | `enable`, `disable` | `enable` halves cycle_denoise again on each pass after the second, so later passes only polish; denoise_cutoff sets how low it may go. `disable` uses cycle_denoise unchanged on every pass. |
-| `scale_sampling` | `COMBO` | Yes |  | `bilinear`, `bicubic`, `nearest`, `lanczos` | Which filter resizes the decoded picture on the pixel-space route. `lanczos` and `bicubic` are the sharpest, `bilinear` softer, `nearest` blocky. Ignored unless latent_upscale is `disable`. |
-| `vae` | `VAE` | Yes |  |  | The VAE used to decode to pixels and encode back between cycles. Required even when latent_upscale keeps the work in latent space and nothing is decoded. |
-| `secondary_model` | `MODEL` | No |  |  | A second diffusion model to hand the later cycles to, so one model lays out the image and another finishes it. Disconnected, one model does the whole run. |
-| `secondary_start_cycle` | `INT` | No | 2 |  | Which pass secondary_model takes over on, counting from 1, so 2 hands over straight after the first. That pass also uses cycle_denoise rather than any scaled-down value. |
-| `upscale_model` | `UPSCALE_MODEL` | No |  |  | An upscale model such as ESRGAN to do the enlarging, which recovers far more detail than a plain resize. Its result is fitted to the target size, rounded to a multiple of 32. Disconnected, the picture is simply resampled. Ignored unless latent_upscale is `disable`. |
-| `processor_model` | `UPSCALE_MODEL` | No |  |  | An upscale model run before the enlargement and shrunk straight back to the size it started at, so it cleans up artefacts and restores detail without changing the size. Ignored unless latent_upscale is `disable`. |
-| `pos_additive` | `CONDITIONING` | No |  |  | A second positive prompt mixed into the first a little more, or a little less, on every cycle, a way to steer the image somewhere new as it grows. Disconnected, the positive prompt stays as it is. |
-| `neg_additive` | `CONDITIONING` | No |  |  | A second negative prompt mixed into the first a little more, or a little less, on every cycle. Disconnected, the negative prompt stays as it is. |
-| `pos_add_mode` | `COMBO` | No |  | `increment`, `decrement` | Which way pos_add_strength moves between cycles: `increment` doubles it each pass, so pos_additive takes over gradually; `decrement` halves it, so its influence fades out. Only used when pos_add_strength_scaling is enabled. |
-| `pos_add_strength` | `FLOAT` | No | 0.25 |  | How much of pos_additive is mixed in on the first cycle. 0.25 is a quarter of the way towards it, 1.0 replaces the positive prompt outright. |
-| `pos_add_strength_scaling` | `COMBO` | No |  | `enable`, `disable` | `enable` lets pos_add_mode change the strength from cycle to cycle. `disable` holds pos_add_strength steady for the whole run. |
-| `pos_add_strength_cutoff` | `FLOAT` | No | 2.0 |  | The limit the scaled strength is held to: a ceiling while incrementing, a floor while decrementing. At the default of 2.0 in increment mode the strength is effectively unbounded, since 1.0 already means full replacement. |
-| `neg_add_mode` | `COMBO` | No |  | `increment`, `decrement` | Which way neg_add_strength moves between cycles: `increment` doubles it each pass, `decrement` halves it. Only used when neg_add_strength_scaling is enabled. |
-| `neg_add_strength` | `FLOAT` | No | 0.25 |  | How much of neg_additive is mixed in on the first cycle. 0.25 is a quarter of the way towards it, 1.0 replaces the negative prompt outright. |
-| `neg_add_strength_scaling` | `COMBO` | No |  | `enable`, `disable` | `enable` lets neg_add_mode change the strength from cycle to cycle. `disable` holds neg_add_strength steady for the whole run. |
-| `neg_add_strength_cutoff` | `FLOAT` | No | 2.0 |  | The limit the scaled strength is held to: a ceiling while incrementing, a floor while decrementing. |
-| `sharpen_strength` | `FLOAT` | No | 0.0 |  | How hard to sharpen the enlarged picture before it is encoded again. 0.0 skips sharpening entirely; around 1.0 counteracts the softness of a resize; far above that leaves halos. Ignored unless latent_upscale is `disable`. |
-| `sharpen_radius` | `INT` | No | 2 |  | How wide the sharpening reaches, in pixels. Small values pick out fine texture, large ones lift broad edges and coarsen the picture. Only used when sharpen_strength is above 0. |
-| `steps_scaling` | `COMBO` | No |  | `enable`, `disable` | `enable` changes the step count on every pass after the first, by steps_scaling_value and in the direction steps_control names. `disable` keeps steps the same throughout. |
-| `steps_control` | `COMBO` | No |  | `decrement`, `increment` | Which way the step count moves. `decrement` spends fewer steps on each larger pass, which is the cheaper choice since low-denoise passes need fewer; `increment` spends more. |
-| `steps_scaling_value` | `INT` | No | 10 |  | How many steps are added or taken away on each pass after the first. Only used when steps_scaling is enabled. |
-| `steps_cutoff` | `INT` | No | 20 |  | The step count the scaling is not allowed past: a ceiling while incrementing, a floor while decrementing. At the default of 20, with steps also 20 and steps_control on `decrement`, the count never moves. |
-| `denoise_cutoff` | `FLOAT` | No | 0.25 |  | The lowest denoise the halving under scale_denoise may reach, so later passes still do some work. Ignored when scale_denoise is disabled. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `latent(s)` | `LATENT` | The latent after the final pass, at the full enlarged size. Decode it with a VAE Decode to see the picture. |
-
-</details>
-
+<a id="node-ksamplerseq"></a>
 <details>
 <summary><b>KSampler Sequence</b></summary>
 
@@ -10639,6 +12154,7 @@ Run the sampler once per loop and stack the results into one latent batch, switc
 
 </details>
 
+<a id="node-ksamplerseq2"></a>
 <details>
 <summary><b>KSampler Sequence (v2)</b></summary>
 
@@ -10690,1700 +12206,328 @@ Run the sampler once per frame and stack the results into one latent batch, step
 
 </details>
 
-<details>
-<summary><b>SPEED Sampler</b></summary>
+---
 
-Sample the early steps at a reduced resolution and grow the latent partway through, in a spectral basis so the detail that appears is resolved rather than interpolated. Needs a flow-matching model, and the spectrum values it schedules from should be measured with Latent Power Spectrum.
+## `features.midas`
+
+2 nodes. On in a fresh install: set `features.midas: false` in `config.yaml` and restart ComfyUI to leave these out.
+
+### WAS Suite/Image/AI
+
+<a id="node-midas-depth-approximation"></a>
+<details>
+<summary><b>MiDaS Depth Approximation</b></summary>
+
+Estimate how far away each part of an image is and return it as a greyscale depth map, for a depth ControlNet or a displacement effect. Enable features.midas to load this node.
 
 | | |
 |---|---|
-| Node id | `WASSpeedSampler` |
+| Node id | `MiDaS Depth Approximation` |
+| Turn off with | `features.midas: false` in `config.yaml` |
 
 **Inputs**
 
 | Name | Type | Required | Default | Choices | What it does |
 |---|---|---|---|---|---|
-| `base_sampler` | `COMBO` | Yes | euler |  | The solver each segment runs. A solver that carries state between steps starts that state again at every transition, so the simpler ones behave most predictably here. |
-| `scales` | `STRING` | Yes | 0.5,1.0 |  | Fractions of the full resolution to sample at, increasing, ending at 1.0. `0.5,1.0` starts at half size and grows once. A single `1.0` disables growth and samples normally throughout. |
-| `transform` | `COMBO` | Yes | dct | `dct`, `dwt`, `fft` | The basis the latent grows in. `dct` and `fft` handle any ratio between scales; `dwt` is cheaper but only ever doubles, so every step in the list has to be exactly twice the one before it. |
-| `delta` | `FLOAT` | Yes | 0.01 |  | How much leftover noise counts as burying a frequency. Larger values hold the small grid for more steps, saving more but leaving less of the schedule to resolve detail in. The default is conservative: it grows after about a sixth of the steps. |
-| `amplitude` | `FLOAT` | Yes | 203.615097 |  | The A of the model's power spectrum, eg 203.6 for FLUX.1-dev. Only meaningful alongside delta: a measured A runs larger than a published one, so take both from the same place. |
-| `beta` | `FLOAT` | Yes | 1.915461 |  | How fast the model's spectrum falls away with frequency. Unlike the amplitude this is a property of the model rather than of the scale its latents happen to be in, so a measured one is directly comparable to a published one. The default belongs to FLUX.1-dev. |
-| `seed` | `INT` | Yes | 0 |  | Seeds the noise that fills the frequencies each transition adds. Changing it varies the fine detail without moving the composition. Any whole number; `0` is as good a seed as any. |
-| `manual_sigmas` | `STRING` | No |  |  | Sigmas to grow at, one per transition, decreasing. Leave this empty to have them worked out from the amplitude and beta instead, which is the usual way round. Setting them ignores delta, amplitude and beta. |
+| `image` | `IMAGE` | Yes |  |  | The images to estimate depth for. A whole batch is processed. |
+| `midas_model` | `MIDAS_MODEL` | Yes |  |  | The depth model, from MiDaS Model Loader, which is where the DPT_Large, DPT_Hybrid or DPT_Small choice is made. One loader can feed several nodes so the weights are built once. |
+| `use_cpu` | `BOOLEAN` | Yes | False |  | `off` = the graphics card, which is much faster and costs VRAM; `on` = the processor instead, for a machine with no room left on the card. |
+| `invert_depth` | `BOOLEAN` | Yes | False |  | `off` = near things white and far things black, which is what depth ControlNets expect; `on` = flipped, for a model or effect that wants near things dark. |
 
 **Outputs**
 
 | Name | Type | What it is |
 |---|---|---|
-| `SAMPLER` | `SAMPLER` | Feeds the SAMPLER socket of SamplerCustom. |
+| `images` | `IMAGE` | The depth maps, as a greyscale batch the same length and size as the input. |
+
+</details>
+
+### WAS Suite/Loaders
+
+<a id="node-midas-model-loader"></a>
+<details>
+<summary><b>MiDaS Model Loader</b></summary>
+
+Load a MiDaS depth model for MiDaS Depth Approximation and MiDaS Mask Image. Enable features.midas to load this node.
+
+| | |
+|---|---|
+| Node id | `MiDaS Model Loader` |
+| Turn off with | `features.midas: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `midas_model` | `COMBO` | Yes |  | `DPT_Large`, `DPT_Hybrid`, `DPT_Small` | Which depth model to load. `DPT_Large` is the most accurate and the slowest, `DPT_Hybrid` is roughly half the size and close behind it, and `DPT_Small` is the quickest and the roughest. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `midas_model` | `MIDAS_MODEL` | The loaded model, for the midas_model input of MiDaS Depth Approximation and MiDaS Mask Image. |
 
 </details>
 
 ---
 
-## WAS Suite/Text
+## `features.preprocessors`
 
+4 nodes. On in a fresh install: set `features.preprocessors: false` in `config.yaml` and restart ComfyUI to leave these out.
+
+### WAS Suite/Image/AI
+
+<a id="node-image-rembg-remove-background"></a>
 <details>
-<summary><b>Rich Text Editor</b></summary>
+<summary><b>Image Remove Background</b></summary>
 
-Write a document in a rich text editor drawn on the node and emit it as HTML. The document lives in the node's own text box, so a saved workflow reopens with it intact and a run from the API produces the same text with no browser involved. The box takes no link. Tokens such as [time] and [user] are replaced on the way out, and the box itself is never rewritten. With document.clean_html left on, which is the default, script and iframe elements, object and embed tags, on* handler attributes and javascript: URLs are removed from the output and named in the log; text, styling, images, tables and everything else come through as the box holds them. Setting document.clean_html to false in config.yaml emits the markup untouched.
+Remove the background from an image, leaving the subject on transparency or on a flat colour. The cutout network comes from Image Remove Background Model Loader.
 
 | | |
 |---|---|
-| Node id | `WASRichTextEditor` |
+| Node id | `Image Rembg (Remove Background)` |
+| Turn off with | `features.preprocessors: false` in `config.yaml` |
 
 **Inputs**
 
 | Name | Type | Required | Default | Choices | What it does |
 |---|---|---|---|---|---|
-| `html` | `STRING` | Yes |  |  | The document, as HTML. The editor drawn on the node is a view onto this box, so paste markup here and the two stay in step. |
+| `images` | `IMAGE` | Yes |  |  | The images to cut out. Every image in the batch is processed. |
+| `rembg_model` | `REMBG_MODEL` | Yes |  |  | The cutout network, from Image Remove Background Model Loader, which is where the choice of model is made. One loader can feed several nodes so the network is built once. |
+| `transparency` | `BOOLEAN` | Yes | True |  | On, the background becomes transparent and the result carries an alpha channel. Off, the result is a plain colour image and the background is whatever background_color says, or black when that is `none`. |
+| `post_processing` | `BOOLEAN` | Yes | False |  | Tidy the cutout by removing stray specks and filling pinholes. Helps on a busy background and can nibble at thin details such as stray hairs. |
+| `only_mask` | `BOOLEAN` | Yes | False |  | Return the cutout shape itself as a greyscale image, white where the subject is, instead of the subject's pixels. Useful as a mask for another node. The result is always three channels, so transparency and background_color do nothing while this is on. |
+| `alpha_matting` | `BOOLEAN` | Yes | False |  | Refine the edge with alpha matting, which recovers soft detail such as hair and fur. Noticeably slower, and it is what the three alpha_matting values below control. |
+| `alpha_matting_foreground_threshold` | `INT` | Yes | 240 |  | How certain a pixel has to be to count as definitely the subject, from 0 to 255. Lower takes in more of the edge as subject; the default 240 keeps only the most confident core. |
+| `alpha_matting_background_threshold` | `INT` | Yes | 10 |  | How certain a pixel has to be to count as definitely background, from 0 to 255. Higher discards more of the edge; the default 10 leaves everything between the two thresholds for the matting to decide. |
+| `alpha_matting_erode_size` | `INT` | Yes | 10 |  | How far in from the edge, in pixels, the uncertain band is grown before matting. Larger values give the matting more room to work and soften the edge; 0 leaves the band as the thresholds drew it. |
+| `background_color` | `COMBO` | Yes | none | `none`, `black`, `white`, `magenta`, `chroma green`, `chroma blue` | What to put behind the subject. `none` leaves it empty. The rest fill it: `chroma green` and `chroma blue` are the two standard keying colours, and `magenta` is an easy colour to spot leftovers against. With transparency on, the fill is written fully transparent, so it only shows once the alpha channel is discarded. |
 
 **Outputs**
 
 | Name | Type | What it is |
 |---|---|---|
-| `html` | `STRING` | The document as HTML, for anything that takes a string. A bare < in the text arrives as &lt;. |
+| `images` | `IMAGE` | The cut-out images, as a batch the same length as the input. Four channels when transparency is on, three when it is off or when only_mask is on. |
 
 </details>
 
-<details>
-<summary><b>Text Concatenate</b></summary>
+### WAS Suite/Image/HDR
 
-Join up to 24 text inputs with a delimiter, in socket order. Empty inputs are skipped. Type \n as the delimiter to join with newlines.
+<a id="node-washdrreconstruct"></a>
+<details>
+<summary><b>HDR Reconstruct</b></summary>
+
+Rebuild the light a clipped highlight lost, answering linear light with everything above one kept. A blown sky, a lamp or a specular hit comes back as a gradient rather than one flat white, so a sun and its glow stay apart under a grade or in a 32-bit EXR. Every frame of a batch is reconstructed, and the largest value reached is answered beside the image.
 
 | | |
 |---|---|
-| Node id | `Text Concatenate` |
+| Node id | `WASHDRReconstruct` |
+| Turn off with | `features.preprocessors: false` in `config.yaml` |
 
 **Inputs**
 
 | Name | Type | Required | Default | Choices | What it does |
 |---|---|---|---|---|---|
-| `delimiter` | `STRING` | Yes | , |  | Put between the joined pieces; STRING. Eg: ', ' for a prompt,   for one per line, empty to run them together. |
-| `clean_whitespace` | `BOOLEAN` | Yes | True |  | Trim whitespace off each piece before joining. `on` also drops a piece holding only spaces. |
-| `text_a` | `STRING` | No |  |  | First piece to join; STRING. Joined with delimiter; empty pieces are skipped. Eg: masterpiece |
-| `text_b` | `STRING` | No |  |  | Piece 2; STRING. Empty is skipped. |
-| `text_c` | `STRING` | No |  |  | Piece 3; STRING. Empty is skipped. |
-| `text_d` | `STRING` | No |  |  | Piece 4; STRING. Empty is skipped. |
-| `text_e` | `STRING` | No |  |  | Piece 5; STRING. Empty is skipped. |
-| `text_f` | `STRING` | No |  |  | Piece 6; STRING. Empty is skipped. |
-| `text_g` | `STRING` | No |  |  | Piece 7; STRING. Empty is skipped. |
-| `text_h` | `STRING` | No |  |  | Piece 8; STRING. Empty is skipped. |
-| `text_i` | `STRING` | No |  |  | Piece 9; STRING. Empty is skipped. |
-| `text_j` | `STRING` | No |  |  | Piece 10; STRING. Empty is skipped. |
-| `text_k` | `STRING` | No |  |  | Piece 11; STRING. Empty is skipped. |
-| `text_l` | `STRING` | No |  |  | Piece 12; STRING. Empty is skipped. |
-| `text_m` | `STRING` | No |  |  | Piece 13; STRING. Empty is skipped. |
-| `text_n` | `STRING` | No |  |  | Piece 14; STRING. Empty is skipped. |
-| `text_o` | `STRING` | No |  |  | Piece 15; STRING. Empty is skipped. |
-| `text_p` | `STRING` | No |  |  | Piece 16; STRING. Empty is skipped. |
-| `text_q` | `STRING` | No |  |  | Piece 17; STRING. Empty is skipped. |
-| `text_r` | `STRING` | No |  |  | Piece 18; STRING. Empty is skipped. |
-| `text_s` | `STRING` | No |  |  | Piece 19; STRING. Empty is skipped. |
-| `text_t` | `STRING` | No |  |  | Piece 20; STRING. Empty is skipped. |
-| `text_u` | `STRING` | No |  |  | Piece 21; STRING. Empty is skipped. |
-| `text_v` | `STRING` | No |  |  | Piece 22; STRING. Empty is skipped. |
-| `text_w` | `STRING` | No |  |  | Piece 23; STRING. Empty is skipped. |
-| `text_x` | `STRING` | No |  |  | Piece 24; STRING. Empty is skipped. |
+| `images` | `IMAGE` | Yes |  |  | The frames to reconstruct. Each one is run on its own and comes back at the size it went in at. |
+| `dequantise` | `BOOLEAN` | Yes | True |  | 'true' = rebuild the levels an 8-bit file threw away first; 'false' = run the frames as they arrived. Leave it on for a PNG or a JPEG, off for footage already in float. |
 
 **Outputs**
 
 | Name | Type | What it is |
 |---|---|---|
-| `<output0>` | `STRING` | The connected inputs joined in socket order, separated by the delimiter. |
+| `images` | `IMAGE` | The reconstruction, as linear light on a 0 to 1 scale with the recovered highlights above it. A preview clips it back to white, so tone map it or write it to EXR to see the range. |
+| `peak` | `FLOAT` | The largest value anywhere in the result. 40.07 = a clipped disc rebuilt to 40 times white; 1.0 = nothing above white was recovered. Divide by it to scale the frame back into range. |
 
 </details>
 
-<details>
-<summary><b>Text Load Line From File</b></summary>
+### WAS Suite/Image/Preprocess
 
-Read one line of a text file per prompt, or one line by index. The second output holds every line, keyed by the dictionary name. The file has to sit in a folder this pack may read: ComfyUI's input, output or temp folder, the pack's own folder, or one listed under paths.allow_read in config.yaml. With no path and nothing connected the node logs an error and emits an empty line.
+<a id="node-waspowerpreprocessor"></a>
+<details>
+<summary><b>Power Preprocessor</b></summary>
+
+Measure an image and answer what it found: depth, surface direction, body pose, what every pixel is, edges, drawn lines, straight runs, the paint and the light it was lit by, or the frame with its noise or its darkness taken out. Feeding a ControlNet is the usual reason, and the same answers drive relighting, defocus, parallax, masking and stylising. Pick the question and the node draws only what that question reads, including which models can answer it. Five of them need no model and download nothing; the rest fetch a checkpoint on first use, or read one another pack already has.
 
 | | |
 |---|---|
-| Node id | `Text Load Line From File` |
+| Node id | `WASPowerPreprocessor` |
+| Turn off with | `features.preprocessors: false` in `config.yaml` |
 
 **Inputs**
 
 | Name | Type | Required | Default | Choices | What it does |
 |---|---|---|---|---|---|
-| `file` | `COMBO` | Yes |  |  | Which file to read, one prompt or phrase per line. The menu lists every text file in ComfyUI's input, output and temp folders and in any folder added under paths.allow_read. Ignored when multiline_text is connected. |
-| `dictionary_name` | `STRING` | Yes | [filename] |  | The key the list of every line is filed under in the dictionary output, so Text Dictionary Get can fetch it again by name. Used exactly as typed. |
-| `label` | `STRING` | Yes | TextBatch |  | Name this batch's read position is remembered under, and the position survives a restart. Two nodes sharing a label share one position and take turns; giving them different labels lets two lists advance independently. Pointing a label at a different file starts it over at the first line. |
-| `mode` | `COMBO` | Yes |  | `automatic`, `index` | `automatic` hands out the next line on every run and wraps around at the end of the file, which is what walks a list of prompts one per generation. `index` returns the one line asked for and does not advance. |
-| `index` | `INT` | Yes | 0 |  | Which line to return in `index` mode, counting from 0 for the first line. Ignored in `automatic` mode. An index past the end of a file wraps around, so 12 in a 10-line file is line 2. |
-| `multiline_text` | `STRING` | No |  |  | Lines to read instead of file_path; STRING, one entry per line. Anything here overrides file_path. |
+| `image` | `IMAGE` | Yes |  |  | The images to measure. A whole batch is processed. |
+| `preprocessor` | `COMBO` | Yes | canny_pyramid |  | What to work out. `canny_pyramid`, `lineart_simple`, `scribble_xdog`, `binary` and `shuffle` need no model. `depth_map`, `normal_map`, `openpose`, `animal_pose`, `ade20k_segments`, `soft_edge`, `lineart_model`, `line_segments`, `anyline`, `albedo`, `roughness`, `metallicity`, `material`, `shading`, `residual`, `denoise` and `low_light` each run a model, chosen below. |
+| `model` | `COMBO` | Yes | Depth Anything V2 Small |  | Which model answers the question, listing only the ones that can. Within a family the smaller is quicker and the larger more accurate: `Depth Anything V2 Small` is 99 MB against `Large` at 1.3 GB. Ignored by the five that need no model. |
+| `resolution` | `INT` | Yes | 512 |  | Longest edge the work is done at before the answer is scaled back to the image's own size. 512 is a sensible start; 1024 resolves finer detail and costs more. Anything above the image's own longest edge is held to it. `openpose`, `animal_pose`, `line_segments`, `denoise` and `low_light` ignore it. |
+| `threshold_low` | `FLOAT` | Yes | 100.0 |  | The lower cut-off, or the only one where a question takes one. Each preprocessor reads it over a range of its own, which the widget shows: `canny_pyramid` 1 to 255, `lineart_simple` 0 to 64, `openpose` 0.05 to 0.95, `line_segments` 0.01 to 0.40, `anyline` 1 to 256. Switching preprocessor moves it to that one's start. |
+| `threshold_high` | `FLOAT` | Yes | 200.0 |  | The upper cut-off, for a question that takes a pair. `canny_pyramid` reads 0 to 255 as the strength an edge must reach to start at all; `line_segments` reads 1 to 60 as the shortest run it keeps. |
+| `radius` | `FLOAT` | Yes | 6.0 |  | A distance in pixels. `lineart_simple` reads 0.5 to 32.0 as the blur each pixel is compared against: 6.0 gives normal line weight, 2.0 fine lines and 16.0 heavy ones. `normal_map` reads 0 to 8 as how far the surface slope is measured across: 3 suits a depth model, 0 is the sharpest and 6 flattens fine grain. |
+| `strength` | `FLOAT` | Yes | 16.0 |  | How hard the answer is shaped. `normal_map` reads 0.5 to 64.0 as relief: 16.0 shows the folds in a coat, 2.0 is nearly flat and 48.0 exaggerates every slope. |
+| `seed` | `INT` | Yes | 0 |  | Chooses between equally good random answers. `shuffle` reads it as the displacement: `0` and `1` scramble the same picture two different ways, and one seed always gives one scramble. `albedo`, `roughness`, `metallicity`, `material`, `shading` and `residual` read it as the noise their first step starts from, and every frame of a batch starts from the same one. |
+| `tile` | `INT` | Yes | 0 |  | Work a square at a time instead of the whole frame, which holds VRAM down on a large picture. 0 reads the whole frame. 512 reads a 512 pixel square at a time, overlapping a quarter and faded together, so no join shows. A larger square is closer to the whole frame. Read only by `denoise` and `low_light`. |
+| `steps` | `INT` | Yes | 4 |  | How many passes a question that denoises takes. `albedo`, `roughness`, `metallicity`, `material`, `shading` and `residual` read 1 to 20: 4 is what Marigold was tuned for, 1 is roughly twice as quick and coarser, and above 8 the answer stops changing much. |
 
 **Outputs**
 
 | Name | Type | What it is |
 |---|---|---|
-| `line_text` | `STRING` | The one line selected, stripped of surrounding whitespace. Empty when the file is missing, empty, or the index was out of range. |
-| `dictionary` | `DICT` | Every line of the source, as a list filed under dictionary_name, the whole list alongside the single line, for a node that needs all of it. |
+| `image` | `IMAGE` | The answer, the same size and batch length as the input. An Apply ControlNet image input is the usual destination, and it is an ordinary image that any node taking one will read. |
 
 </details>
 
-<details>
-<summary><b>Text Multiline</b></summary>
+### WAS Suite/Loaders
 
-A multiline text box. Lines starting with # are dropped, and tokens such as [time] and [user] are substituted. A {red\|blue} alternation picks one option at random unless dynamic_prompts is switched off, which keeps a literal brace intact. Text whose # lines have to survive as well, such as code, belongs in Text Multiline (Code Compatible).
+<a id="node-wasrembgmodelloader"></a>
+<details>
+<summary><b>Image Remove Background Model Loader</b></summary>
+
+Build a cutout network for Image Remove Background. Building one takes a moment and holds a few hundred megabytes, so it is kept for the life of the process and one loader can feed several nodes. Weights go in ComfyUI/models/birefnet and ComfyUI/models/ben2, and are downloaded there on first use when features.network is on.
 
 | | |
 |---|---|
-| Node id | `Text Multiline` |
+| Node id | `WASRembgModelLoader` |
+| Turn off with | `features.preprocessors: false` in `config.yaml` |
 
 **Inputs**
 
 | Name | Type | Required | Default | Choices | What it does |
 |---|---|---|---|---|---|
-| `text` | `STRING` | Yes |  |  | The text to emit. A line whose first non-blank character is # is left out, so part of a prompt can be parked instead of deleted. Tokens such as [time], [user] and [hostname] are replaced with their values, and a {red\|blue} alternation picks one of the options at random unless dynamic_prompts is off. |
-| `dynamic_prompts` | `BOOLEAN` | Yes | True |  | Whether a {red\|blue} alternation picks one option at random. `on` is the prompt behaviour; `off` keeps every brace as typed, which is what JSON needs. Lines starting with # are dropped either way, so code belongs in Text Multiline (Code Compatible). The choice is made on the canvas: text sent straight to the API is never rewritten. |
+| `model` | `COMBO` | Yes |  |  | Which cutout network to build. `BiRefNet General` suits most pictures. `BiRefNet Portrait` is trained on people and `BiRefNet Matting HR` on fine edges like hair, both read at 2048 across. `BEN2` is a second opinion from another family. docs/MODELS.md lists what each one suits and what it weighs. |
 
 **Outputs**
 
 | Name | Type | What it is |
 |---|---|---|
-| `<output0>` | `STRING` | The text with # lines removed and every token replaced. |
-
-</details>
-
-<details>
-<summary><b>Text Multiline (Code Compatible)</b></summary>
-
-A multiline text box for code, JSON, YAML or anything else that has to arrive exactly as typed. Every line is kept, including one starting with '#', and a {red\|blue} alternation is passed through as written. Text Multiline drops # lines and reads braces as a prompt alternation, so this is the box to reach for whenever those two characters mean something.
-
-| | |
-|---|---|
-| Node id | `Text Multiline (Code Compatible)` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text` | `STRING` | Yes |  |  | The text to emit, kept exactly as typed. A line starting with `#` survives and a `{red\|blue}` alternation is passed through literally, which is what makes this box safe for code and for JSON. Tokens such as [time] and [user] are still replaced. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `STRING` | The text as typed, with only its tokens replaced. |
-
-</details>
-
-<details>
-<summary><b>Text Random Line</b></summary>
-
-Pick one line of the incoming text at random, chosen by the seed.
-
-| | |
-|---|---|
-| Node id | `Text Random Line` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text` | `STRING` | Yes |  |  | Candidates, one per line; STRING, as `a tabby cat`. One line is returned. Blank lines count as candidates. |
-| `seed` | `INT` | Yes | 0 |  | Which line comes out. The same seed and the same text always give the same line; change it to draw a different one. Any whole number; `0` is as good a seed as any. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `STRING` | The single line the seed selected. |
-
-</details>
-
-<details>
-<summary><b>Text Random Prompt</b></summary>
-
-Search lexica.art and return the prompt of one random result. An empty search term picks a subject at random. Needs an internet connection.
-
-| | |
-|---|---|
-| Node id | `Text Random Prompt` |
-| Enable with | `features.network: true` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `search_seed` | `STRING` | Yes |  |  | Subject to search lexica.art for, for example 'cyberpunk city'. Left empty, one of portrait, landscape, anime, superhero, animal, nature or scenery is searched for instead. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `STRING` | The prompt of one random image the search matched. Reads '404 not found error' when the search returned nothing or the site could not be reached. |
-
-</details>
-
-<details>
-<summary><b>Text String</b></summary>
-
-Four text fields on one node, each with its own output. Tokens such as [time] and [user] are substituted in each of them.
-
-| | |
-|---|---|
-| Node id | `Text String` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text` | `STRING` | Yes |  |  | Text for the first output. Tokens such as `[time]`, `[user]` and `[hostname]` are replaced with their values, so this is a convenient source for file name prefixes and captions. |
-| `text_b` | `STRING` | No |  |  | Text for the second output, expanded the same way. |
-| `text_c` | `STRING` | No |  |  | Text for the third output, expanded the same way. |
-| `text_d` | `STRING` | No |  |  | Text for the fourth output, expanded the same way. |
-| `text_e` | `STRING` | No |  |  | Text 5, emitted on its own output. Tokens are substituted. |
-| `text_f` | `STRING` | No |  |  | Text 6, emitted on its own output. Tokens are substituted. |
-| `text_g` | `STRING` | No |  |  | Text 7, emitted on its own output. Tokens are substituted. |
-| `text_h` | `STRING` | No |  |  | Text 8, emitted on its own output. Tokens are substituted. |
-| `text_i` | `STRING` | No |  |  | Text 9, emitted on its own output. Tokens are substituted. |
-| `text_j` | `STRING` | No |  |  | Text 10, emitted on its own output. Tokens are substituted. |
-| `text_k` | `STRING` | No |  |  | Text 11, emitted on its own output. Tokens are substituted. |
-| `text_l` | `STRING` | No |  |  | Text 12, emitted on its own output. Tokens are substituted. |
-| `text_m` | `STRING` | No |  |  | Text 13, emitted on its own output. Tokens are substituted. |
-| `text_n` | `STRING` | No |  |  | Text 14, emitted on its own output. Tokens are substituted. |
-| `text_o` | `STRING` | No |  |  | Text 15, emitted on its own output. Tokens are substituted. |
-| `text_p` | `STRING` | No |  |  | Text 16, emitted on its own output. Tokens are substituted. |
-| `text_q` | `STRING` | No |  |  | Text 17, emitted on its own output. Tokens are substituted. |
-| `text_r` | `STRING` | No |  |  | Text 18, emitted on its own output. Tokens are substituted. |
-| `text_s` | `STRING` | No |  |  | Text 19, emitted on its own output. Tokens are substituted. |
-| `text_t` | `STRING` | No |  |  | Text 20, emitted on its own output. Tokens are substituted. |
-| `text_u` | `STRING` | No |  |  | Text 21, emitted on its own output. Tokens are substituted. |
-| `text_v` | `STRING` | No |  |  | Text 22, emitted on its own output. Tokens are substituted. |
-| `text_w` | `STRING` | No |  |  | Text 23, emitted on its own output. Tokens are substituted. |
-| `text_x` | `STRING` | No |  |  | Text 24, emitted on its own output. Tokens are substituted. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `TEXT` | `STRING` | The text field, with its tokens replaced. |
-| `TEXT_B` | `STRING` | The text_b field, with its tokens replaced. |
-| `TEXT_C` | `STRING` | The text_c field, with its tokens replaced. |
-| `TEXT_D` | `STRING` | The text_d field, with its tokens replaced. |
-| `TEXT_E` | `STRING` | Text 5, with its tokens substituted. |
-| `TEXT_F` | `STRING` | Text 6, with its tokens substituted. |
-| `TEXT_G` | `STRING` | Text 7, with its tokens substituted. |
-| `TEXT_H` | `STRING` | Text 8, with its tokens substituted. |
-| `TEXT_I` | `STRING` | Text 9, with its tokens substituted. |
-| `TEXT_J` | `STRING` | Text 10, with its tokens substituted. |
-| `TEXT_K` | `STRING` | Text 11, with its tokens substituted. |
-| `TEXT_L` | `STRING` | Text 12, with its tokens substituted. |
-| `TEXT_M` | `STRING` | Text 13, with its tokens substituted. |
-| `TEXT_N` | `STRING` | Text 14, with its tokens substituted. |
-| `TEXT_O` | `STRING` | Text 15, with its tokens substituted. |
-| `TEXT_P` | `STRING` | Text 16, with its tokens substituted. |
-| `TEXT_Q` | `STRING` | Text 17, with its tokens substituted. |
-| `TEXT_R` | `STRING` | Text 18, with its tokens substituted. |
-| `TEXT_S` | `STRING` | Text 19, with its tokens substituted. |
-| `TEXT_T` | `STRING` | Text 20, with its tokens substituted. |
-| `TEXT_U` | `STRING` | Text 21, with its tokens substituted. |
-| `TEXT_V` | `STRING` | Text 22, with its tokens substituted. |
-| `TEXT_W` | `STRING` | Text 23, with its tokens substituted. |
-| `TEXT_X` | `STRING` | Text 24, with its tokens substituted. |
+| `rembg_model` | `REMBG_MODEL` | The built network, for the rembg_model input of Image Remove Background. |
 
 </details>
 
 ---
 
-## WAS Suite/Text/Dictionary
+## `features.sam`
 
+4 nodes. On in a fresh install: set `features.sam: false` in `config.yaml` and restart ComfyUI to leave these out.
+
+### WAS Suite/Image/Masking
+
+<a id="node-sam-image-mask"></a>
 <details>
-<summary><b>Text Dictionary Convert</b></summary>
+<summary><b>SAM Image Mask</b></summary>
 
-Convert text holding a dictionary literal into a dictionary. The text is read with ast.literal_eval, which accepts single quotes as well as JSON's double quotes and executes nothing.
+Select part of an image by pointing at it: Segment Anything works out where the object under each point begins and ends and returns it as a mask. Enable features.sam to load this node.
 
 | | |
 |---|---|
-| Node id | `Text Dictionary Convert` |
+| Node id | `SAM Image Mask` |
+| Turn off with | `features.sam: false` in `config.yaml` |
 
 **Inputs**
 
 | Name | Type | Required | Default | Choices | What it does |
 |---|---|---|---|---|---|
-| `dictionary_text` | `STRING` | Yes |  |  | Dictionary literal; STRING. Single or double quotes both work. Eg: {'subject': 'a cat'} |
+| `sam_model` | `SAM_MODEL` | Yes |  |  | The model from SAM Model Loader. |
+| `sam_parameters` | `SAM_PARAMETERS` | Yes |  |  | The points to segment from, out of SAM Parameters or SAM Parameters Combine. Their coordinates are read against this image, so they have to be inside it. |
+| `image` | `IMAGE` | Yes |  |  | The image to segment. Every image of a batch is segmented against the same points, so the points have to be inside all of them. |
 
 **Outputs**
 
 | Name | Type | What it is |
 |---|---|---|
-| `<output0>` | `DICT` | The dictionary the text described, for the other DICT nodes. |
+| `<output0>` | `IMAGE` | The selection as a black and white image, white where the object is. Ready to preview, or to use as a matte. |
+| `<output1>` | `MASK` | The same selection as a mask, for an inpainting or compositing node. 1.0 inside the object and 0.0 outside it. |
 
 </details>
 
+<a id="node-sam-parameters"></a>
 <details>
-<summary><b>Text Dictionary Get</b></summary>
+<summary><b>SAM Parameters</b></summary>
 
-Look up a key in a dictionary and emit its value as text. A key that is not in the dictionary emits the default value.
+Describe which parts of an image Segment Anything should select, as a list of points and a matching list of keep/drop labels. Enable features.sam to load this node.
 
 | | |
 |---|---|
-| Node id | `Text Dictionary Get` |
+| Node id | `SAM Parameters` |
+| Turn off with | `features.sam: false` in `config.yaml` |
 
 **Inputs**
 
 | Name | Type | Required | Default | Choices | What it does |
 |---|---|---|---|---|---|
-| `dictionary` | `DICT` | Yes |  |  | The dictionary to read from. |
-| `key` | `STRING` | Yes |  |  | Name of the entry to fetch, for example 'subject'. Matching is exact, so case and spaces have to line up with the key as it was stored. |
-| `default_value` | `STRING` | No |  |  | Emitted when the dictionary has no such key. Left empty, a missing key gives an empty string rather than failing the prompt. |
+| `points` | `STRING` | Yes | [128, 128]; [0, 0] |  | The points to segment from, written as x and y pixel coordinates and separated by semicolons: '[128, 128]; [0, 0]' is two points, one 128 pixels in from the top left corner and one on the corner itself. Coordinates count from the top left of the image. |
+| `labels` | `STRING` | Yes | [1, 0] |  | One number per point, in the same order: 1 means 'the thing I want is here', 0 means 'this is background, leave it out'. '[1, 0]' keeps whatever sits under the first point and pushes the mask away from the second. |
 
 **Outputs**
 
 | Name | Type | What it is |
 |---|---|---|
-| `<output0>` | `STRING` | The entry's value as text. A value that is a list or a number is rendered the way python prints it, so a list arrives as ['a', 'b']. |
+| `<output0>` | `SAM_PARAMETERS` | The points and labels, for the sam_parameters input of SAM Image Mask or either input of SAM Parameters Combine. |
 
 </details>
 
+<a id="node-sam-parameters-combine"></a>
 <details>
-<summary><b>Text Dictionary Items</b></summary>
+<summary><b>SAM Parameters Combine</b></summary>
 
-Open a dictionary into two lists that line up: the keys, and their values. Entry 0 of one belongs with entry 0 of the other, so a For Loop stepping one index through both reads a key and its value together. The entries also come out written as text, and counted for the loop to run on.
+Merge two sets of Segment Anything points into a single set, so several SAM Parameters nodes can describe one selection. Enable features.sam to load this node.
 
 | | |
 |---|---|
-| Node id | `WASTextDictionaryItems` |
+| Node id | `SAM Parameters Combine` |
+| Turn off with | `features.sam: false` in `config.yaml` |
 
 **Inputs**
 
 | Name | Type | Required | Default | Choices | What it does |
 |---|---|---|---|---|---|
-| `dictionary` | `DICT` | Yes |  |  | The dictionary whose entries are wanted, keys and values both. |
-| `sort` | `COMBO` | Yes | none | `none`, `key`, `value` | Order both lists come out in. `none` = the order the entries were added; `key` = A to Z by name; `value` = A to Z by the value as text. Case is ignored, so 'Apple' sits beside 'apple', and digits sort as text: '10' before '9'. |
+| `sam_parameters_a` | `SAM_PARAMETERS` | Yes |  |  | The points and labels that come first in the merged set. |
+| `sam_parameters_b` | `SAM_PARAMETERS` | Yes |  |  | The points and labels appended after the first set. |
 
 **Outputs**
 
 | Name | Type | What it is |
 |---|---|---|
-| `keys` | `ARRAY` | The entry names on one wire, such as ['subject', 'style']. Feed it to Text List Get with a For Loop's index to read one name per iteration. |
-| `values` | `ARRAY` | What each name is stored against, in step with keys. An entry holding several alternatives stays a list, so ['a cat', 'a wolf'] arrives whole rather than as writing. |
-| `pairs` | `STRING` | Every entry written as `subject: a cat`, one to a line. For a preview, a caption or a saved text file. A value carrying line breaks of its own spans several lines. An empty dictionary gives an empty string. |
-| `count` | `INT` | How many entries the dictionary holds, 0 when it holds none. Feed it to a For Loop's iteration count to run the graph once per entry. |
+| `<output0>` | `SAM_PARAMETERS` | Every point of both inputs, for the sam_parameters input of SAM Image Mask or a further SAM Parameters Combine. |
 
 </details>
 
-<details>
-<summary><b>Text Dictionary Keys</b></summary>
+### WAS Suite/Loaders
 
-Emit the keys of a dictionary, in insertion order.
+<a id="node-sam-model-loader"></a>
+<details>
+<summary><b>SAM Model Loader</b></summary>
+
+Load a Segment Anything model for SAM Image Mask, which turns clicked points into a mask. Enable features.sam to load this node.
 
 | | |
 |---|---|
-| Node id | `Text Dictionary Keys` |
+| Node id | `SAM Model Loader` |
+| Turn off with | `features.sam: false` in `config.yaml` |
 
 **Inputs**
 
 | Name | Type | Required | Default | Choices | What it does |
 |---|---|---|---|---|---|
-| `dictionary` | `DICT` | Yes |  |  | The dictionary whose entry names are wanted. |
+| `model_size` | `COMBO` | Yes |  | `ViT-H`, `ViT-L`, `ViT-B` | Which size of Segment Anything to load. `ViT-H` is the most accurate and the largest at around 2.4 GB, `ViT-L` sits in the middle, and `ViT-B` is roughly 375 MB and the fastest. All three take the same points and produce a mask the same way. |
 
 **Outputs**
 
 | Name | Type | What it is |
 |---|---|---|
-| `<output0>` | `ARRAY` | The names of the dictionary's entries, in the order they were added. Text List to Text joins them into one string; Text List Concatenate skips them, because they arrive as a live view of the dictionary rather than as a plain list. |
-
-</details>
-
-<details>
-<summary><b>Text Dictionary New</b></summary>
-
-Build a DICT from up to 24 key/value pairs. A value can be a STRING, or a LIST of alternatives for Text Find and Replace by Dictionary to draw from. Empty keys are skipped.
-
-| | |
-|---|---|
-| Node id | `Text Dictionary New` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `key_1` | `STRING` | Yes |  |  | Key name for value_1; STRING. Text Find and Replace by Dictionary swaps __key__ in a prompt for the value. Eg: animal |
-| `value_1` | `STRING,ARRAY,DICT` | Yes |  |  | Value for key_1; STRING, LIST or DICT literal, or LIST or DICT by connection. A connection ignores list_values. Eg: a tabby cat |
-| `key_2` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_2` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_3` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_3` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_4` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_4` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_5` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_5` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_6` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_6` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_7` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_7` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_8` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_8` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_9` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_9` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_10` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_10` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_11` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_11` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_12` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_12` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_13` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_13` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_14` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_14` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_15` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_15` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_16` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_16` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_17` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_17` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_18` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_18` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_19` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_19` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_20` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_20` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_21` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_21` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_22` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_22` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_23` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_23` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `key_24` | `STRING` | No |  |  | Key name, such as `subject` or `style`; STRING. Empty keys are skipped. |
-| `value_24` | `STRING,ARRAY,DICT` | No |  |  | Value for the key beside it; STRING, LIST or DICT literal, or LIST or DICT by connection. |
-| `list_values` | `COMBO` | No | list literal | `list literal`, `one per line`, `off` | How a typed value becomes a LIST. `list literal`: reads ['a cat', 'a wolf'], anything else stays STRING. `one per line`: each line is an item, one line stays STRING. `off`: always STRING. Connections ignore this. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `DICT` | The DICT, for Text Find and Replace by Dictionary, Text Dictionary Get and the other DICT nodes. Duplicate keys keep the last value. |
-
-</details>
-
-<details>
-<summary><b>Text Dictionary To Text</b></summary>
-
-Render a dictionary as text. The result uses single quotes and reads back through Text Dictionary Convert.
-
-| | |
-|---|---|
-| Node id | `Text Dictionary To Text` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `dictionary` | `DICT` | Yes |  |  | The dictionary to write out as text. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `STRING` | The dictionary written out on one line, for example {'subject': 'a cat'}. Useful for a preview or a saved text file, and Text Dictionary Convert reads it back. |
-
-</details>
-
-<details>
-<summary><b>Text Dictionary Update</b></summary>
-
-Merge two to 24 dictionaries into one. Keys present in more than one input take the value of the last input that carries them.
-
-| | |
-|---|---|
-| Node id | `Text Dictionary Update` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `dictionary_a` | `DICT` | Yes |  |  | The base dictionary. Its entries are the ones overwritten when a later input carries the same key. |
-| `dictionary_b` | `DICT` | Yes |  |  | Merged over dictionary_a, so a key in both takes this one's value. |
-| `dictionary_c` | `DICT` | No |  |  | Merged over the first two. Unconnected, it contributes nothing. |
-| `dictionary_d` | `DICT` | No |  |  | Merged last, so it wins every clash. Unconnected, it contributes nothing. |
-| `dictionary_e` | `DICT` | No |  |  | Dictionary 5. Its keys win over every input before it and lose to every one after. |
-| `dictionary_f` | `DICT` | No |  |  | Dictionary 6. Its keys win over every input before it and lose to every one after. |
-| `dictionary_g` | `DICT` | No |  |  | Dictionary 7. Its keys win over every input before it and lose to every one after. |
-| `dictionary_h` | `DICT` | No |  |  | Dictionary 8. Its keys win over every input before it and lose to every one after. |
-| `dictionary_i` | `DICT` | No |  |  | Dictionary 9. Its keys win over every input before it and lose to every one after. |
-| `dictionary_j` | `DICT` | No |  |  | Dictionary 10. Its keys win over every input before it and lose to every one after. |
-| `dictionary_k` | `DICT` | No |  |  | Dictionary 11. Its keys win over every input before it and lose to every one after. |
-| `dictionary_l` | `DICT` | No |  |  | Dictionary 12. Its keys win over every input before it and lose to every one after. |
-| `dictionary_m` | `DICT` | No |  |  | Dictionary 13. Its keys win over every input before it and lose to every one after. |
-| `dictionary_n` | `DICT` | No |  |  | Dictionary 14. Its keys win over every input before it and lose to every one after. |
-| `dictionary_o` | `DICT` | No |  |  | Dictionary 15. Its keys win over every input before it and lose to every one after. |
-| `dictionary_p` | `DICT` | No |  |  | Dictionary 16. Its keys win over every input before it and lose to every one after. |
-| `dictionary_q` | `DICT` | No |  |  | Dictionary 17. Its keys win over every input before it and lose to every one after. |
-| `dictionary_r` | `DICT` | No |  |  | Dictionary 18. Its keys win over every input before it and lose to every one after. |
-| `dictionary_s` | `DICT` | No |  |  | Dictionary 19. Its keys win over every input before it and lose to every one after. |
-| `dictionary_t` | `DICT` | No |  |  | Dictionary 20. Its keys win over every input before it and lose to every one after. |
-| `dictionary_u` | `DICT` | No |  |  | Dictionary 21. Its keys win over every input before it and lose to every one after. |
-| `dictionary_v` | `DICT` | No |  |  | Dictionary 22. Its keys win over every input before it and lose to every one after. |
-| `dictionary_w` | `DICT` | No |  |  | Dictionary 23. Its keys win over every input before it and lose to every one after. |
-| `dictionary_x` | `DICT` | No |  |  | Dictionary 24. Its keys win over every input before it and lose to every one after. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `DICT` | A new dictionary holding every entry of the connected inputs. The inputs themselves are left alone. |
+| `<output0>` | `SAM_MODEL` | The loaded model, for the sam_model input of SAM Image Mask. |
 
 </details>
 
 ---
 
-## WAS Suite/Text/List
+## `features.threejs`
 
-<details>
-<summary><b>Text List</b></summary>
+43 nodes. On in a fresh install: set `features.threejs: false` in `config.yaml` and restart ComfyUI to leave these out.
 
-Collect up to 24 texts into a list, in socket order. Each entry is typed in or wired in, and empty entries are skipped.
+### WAS Suite/Three
 
-| | |
-|---|---|
-| Node id | `Text List` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text_a` | `STRING` | No |  |  | First entry of the LIST; STRING. Empty entries are skipped. Eg: a cinematic photograph |
-| `text_b` | `STRING` | No |  |  | Entry 2; STRING. Empty is skipped. |
-| `text_c` | `STRING` | No |  |  | Entry 3; STRING. Empty is skipped. |
-| `text_d` | `STRING` | No |  |  | Entry 4; STRING. Empty is skipped. |
-| `text_e` | `STRING` | No |  |  | Entry 5; STRING. Empty is skipped. |
-| `text_f` | `STRING` | No |  |  | Entry 6; STRING. Empty is skipped. |
-| `text_g` | `STRING` | No |  |  | Entry 7; STRING. Empty is skipped. |
-| `text_h` | `STRING` | No |  |  | Entry 8 of the list; STRING. Empty is skipped. |
-| `text_i` | `STRING` | No |  |  | Entry 9 of the list; STRING. Empty is skipped. |
-| `text_j` | `STRING` | No |  |  | Entry 10 of the list; STRING. Empty is skipped. |
-| `text_k` | `STRING` | No |  |  | Entry 11 of the list; STRING. Empty is skipped. |
-| `text_l` | `STRING` | No |  |  | Entry 12 of the list; STRING. Empty is skipped. |
-| `text_m` | `STRING` | No |  |  | Entry 13 of the list; STRING. Empty is skipped. |
-| `text_n` | `STRING` | No |  |  | Entry 14 of the list; STRING. Empty is skipped. |
-| `text_o` | `STRING` | No |  |  | Entry 15 of the list; STRING. Empty is skipped. |
-| `text_p` | `STRING` | No |  |  | Entry 16 of the list; STRING. Empty is skipped. |
-| `text_q` | `STRING` | No |  |  | Entry 17 of the list; STRING. Empty is skipped. |
-| `text_r` | `STRING` | No |  |  | Entry 18 of the list; STRING. Empty is skipped. |
-| `text_s` | `STRING` | No |  |  | Entry 19 of the list; STRING. Empty is skipped. |
-| `text_t` | `STRING` | No |  |  | Entry 20 of the list; STRING. Empty is skipped. |
-| `text_u` | `STRING` | No |  |  | Entry 21 of the list; STRING. Empty is skipped. |
-| `text_v` | `STRING` | No |  |  | Entry 22 of the list; STRING. Empty is skipped. |
-| `text_w` | `STRING` | No |  |  | Entry 23 of the list; STRING. Empty is skipped. |
-| `text_x` | `STRING` | No |  |  | Entry 24 of the list; STRING. Empty is skipped. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `ARRAY` | The texts that hold something, as one list, in socket order. Text List to Text turns it back into a string. |
-
-</details>
-
-<details>
-<summary><b>Text List Concatenate</b></summary>
-
-Join up to 24 lists end to end, in socket order. Unconnected inputs are skipped.
-
-| | |
-|---|---|
-| Node id | `Text List Concatenate` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `list_a` | `ARRAY` | No |  |  | First list, whose entries come first in the result. An unconnected input contributes nothing. |
-| `list_b` | `ARRAY` | No |  |  | Second list, appended after list_a. |
-| `list_c` | `ARRAY` | No |  |  | Third list, appended after list_b. |
-| `list_d` | `ARRAY` | No |  |  | Fourth list, appended last. |
-| `list_e` | `ARRAY` | No |  |  | List 5, joined on after the one before it. Unconnected is skipped. |
-| `list_f` | `ARRAY` | No |  |  | List 6, joined on after the one before it. Unconnected is skipped. |
-| `list_g` | `ARRAY` | No |  |  | List 7, joined on after the one before it. Unconnected is skipped. |
-| `list_h` | `ARRAY` | No |  |  | List 8, joined on after the one before it. Unconnected is skipped. |
-| `list_i` | `ARRAY` | No |  |  | List 9, joined on after the one before it. Unconnected is skipped. |
-| `list_j` | `ARRAY` | No |  |  | List 10, joined on after the one before it. Unconnected is skipped. |
-| `list_k` | `ARRAY` | No |  |  | List 11, joined on after the one before it. Unconnected is skipped. |
-| `list_l` | `ARRAY` | No |  |  | List 12, joined on after the one before it. Unconnected is skipped. |
-| `list_m` | `ARRAY` | No |  |  | List 13, joined on after the one before it. Unconnected is skipped. |
-| `list_n` | `ARRAY` | No |  |  | List 14, joined on after the one before it. Unconnected is skipped. |
-| `list_o` | `ARRAY` | No |  |  | List 15, joined on after the one before it. Unconnected is skipped. |
-| `list_p` | `ARRAY` | No |  |  | List 16, joined on after the one before it. Unconnected is skipped. |
-| `list_q` | `ARRAY` | No |  |  | List 17, joined on after the one before it. Unconnected is skipped. |
-| `list_r` | `ARRAY` | No |  |  | List 18, joined on after the one before it. Unconnected is skipped. |
-| `list_s` | `ARRAY` | No |  |  | List 19, joined on after the one before it. Unconnected is skipped. |
-| `list_t` | `ARRAY` | No |  |  | List 20, joined on after the one before it. Unconnected is skipped. |
-| `list_u` | `ARRAY` | No |  |  | List 21, joined on after the one before it. Unconnected is skipped. |
-| `list_v` | `ARRAY` | No |  |  | List 22, joined on after the one before it. Unconnected is skipped. |
-| `list_w` | `ARRAY` | No |  |  | List 23, joined on after the one before it. Unconnected is skipped. |
-| `list_x` | `ARRAY` | No |  |  | List 24, joined on after the one before it. Unconnected is skipped. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `ARRAY` | One list holding the entries of every connected input, in socket order. Duplicates are kept. |
-
-</details>
-
-<details>
-<summary><b>Text List Get</b></summary>
-
-Read one entry out of a list by position. Negative counts from the end, and an index past either end wraps, clamps, comes back empty or stops, whichever is chosen. `wrap` counts round again, so index 5 of a 3-entry list is entry 2, which is what cycles a list forever from a counter that only climbs. `error` suits a workflow where a missing entry means something is wrong upstream.
-
-| | |
-|---|---|
-| Node id | `WASTextListGet` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text_list` | `ARRAY` | Yes |  |  | The list to read from, such as the LIST output of Text Split to List, Text List or Text Dictionary Keys. |
-| `index` | `INT,NUMBER,FLOAT` | Yes | 0 |  | Which entry to take, counting from 0. -1 is the last entry, -2 the one before it. Wire a Number Counter in to step through the list one entry per run. A decimal value is cut down to a whole number. |
-| `out_of_range` | `COMBO` | Yes |  | `wrap`, `clamp`, `empty`, `error` | What an index past the end does: `wrap` counts round again, `clamp` sticks at the first or last entry, `empty` returns nothing, `error` stops the prompt. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `text` | `STRING` | The entry at that position, as text. An entry that is not text is converted to it, so a list of numbers reads out as numerals. |
-| `resolved_index` | `INT` | The position actually read, after wrapping or clamping. Worth watching when a counter drives the index, since it is the entry number the result really came from. |
-| `length` | `INT` | How many entries the list holds. |
-
-</details>
-
-<details>
-<summary><b>Text List Length</b></summary>
-
-Count the entries in a list, as a NUMBER, an INT and a FLOAT. Also reports whether the list is empty, for a switch that has to handle that case.
-
-| | |
-|---|---|
-| Node id | `WASTextListLength` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text_list` | `ARRAY` | Yes |  |  | The list to count, such as the LIST output of Text Split to List, Text List, Text Dictionary Keys or Image Color Palette. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `NUMBER` | The entry count, for any node taking a NUMBER, Number Operation, or the index of Text List Get. |
-| `length` | `INT` | The same count as a whole number. |
-| `length_float` | `FLOAT` | The same count as a decimal, for the division a progress fraction needs without a conversion node in between. |
-| `is_empty` | `BOOLEAN` | True when the list holds nothing. Wire it into a switch to route around the nodes that would fail on an empty list. |
-
-</details>
-
-<details>
-<summary><b>Text List Slice</b></summary>
-
-Take a run of entries out of a list, from one position to another with both ends included, optionally every second or third one. The run comes out twice: as one LIST, and as a STRING list that runs everything downstream once per entry. An end of -1, the default, takes everything from start onwards, and an end past the last entry stops there. An end before start selects nothing and stops the prompt, since the graph below cannot be run zero times.
-
-| | |
-|---|---|
-| Node id | `WASTextListSlice` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text_list` | `ARRAY` | Yes |  |  | The list to take from, such as the lines output of Load Text Line or the LIST output of Text Split to List, Text List or Text Dictionary Keys. |
-| `start` | `INT` | Yes | 0 |  | The first entry taken, counting from 0, and it is taken. -1 is the last entry, -2 the one before it. A start before the beginning of the list begins at the first entry. |
-| `end` | `INT` | Yes | -1 |  | The last entry taken, and it is taken as well: start 9 and end 19 give 11 entries, the 10th to the 20th. -1 is the last entry. |
-| `step` | `INT` | Yes | 1 |  | How far to move between entries taken. 1 takes every entry, 2 takes every second one starting at start, 3 every third. The last entry is taken only when the stepping lands on it. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `ARRAY` | The entries taken, on one wire, for Text List Get, Text List Concatenate and Text List to Text. |
-| `strings` | `STRING` | The same entries as a STRING list. Because this is a list, a node reading it runs once per entry and produces one result per entry, wire it into a sampler's prompt to render every line of a range in turn. An entry that is not text is converted to it. |
-| `count` | `INT` | How many entries the range took. |
-
-</details>
-
-<details>
-<summary><b>Text List to Numbers</b></summary>
-
-Read a LIST as numbers and emit them on the NUMBER, FLOAT and INT sockets as lists, so every node downstream runs once per value. `skip` suits a column with a heading on the first line, `zero` a schedule where entry 7 has to stay entry 7, and `error` names the entry it stopped on. An entry reading as nan or as infinity takes the same route as an unreadable one.
-
-| | |
-|---|---|
-| Node id | `WASTextListToNumbers` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text_list` | `ARRAY` | Yes |  |  | The list to read. Entries may be numbers already or text holding one; surrounding space, a leading + or - and a decimal point are all read, so '  -1.5 ' arrives as -1.5. |
-| `unreadable` | `COMBO` | Yes |  | `skip`, `zero`, `error` | What an entry that is not a number does. `skip` leaves it out, `zero` keeps the position and puts 0 there, and `error` stops the prompt. |
-| `round_to_int` | `BOOLEAN` | Yes | False |  | Whether the INT socket rounds to the nearest whole number instead of cutting the decimal off. Off, 1.9 arrives as 1; on, it arrives as 2. The NUMBER and FLOAT sockets keep the decimal either way. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `NUMBER` | One NUMBER per entry, for the maths and counter nodes. A node reading this runs once per value. If nothing in the list reads as a number the prompt stops, because a graph cannot be run zero times, set unreadable to `zero` to keep a value in every position. |
-| `floats` | `FLOAT` | The same values as decimals, one per run. |
-| `ints` | `INT` | The same values as whole numbers, one per run, for a step count or a seed. |
-| `count` | `INT` | How many values came through, which is how many times the graph below this node runs. |
-
-</details>
-
-<details>
-<summary><b>Text List to Strings</b></summary>
-
-Turn a LIST into a STRING list, which runs every node downstream once per entry. The way to feed a list into nodes that take plain text.
-
-| | |
-|---|---|
-| Node id | `WASTextListToStrings` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text_list` | `ARRAY` | Yes |  |  | The list to unpack. Any LIST output does: Text Split to List, Text List, Text Dictionary Keys, Image Color Palette. |
-| `remove_empty` | `BOOLEAN` | Yes | False |  | Whether entries holding nothing are dropped before the list is handed on. Each empty entry would otherwise cost a full run of everything downstream to produce a result from an empty prompt. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `strings` | `STRING` | The entries, one per run. A node reading this executes once for each of them, so a list of six prompts renders six images. An empty list stops the prompt, because a graph cannot be run zero times. |
-| `count` | `INT` | How many entries were handed on, which is how many times the graph below this node runs. |
-
-</details>
-
-<details>
-<summary><b>Text List to Text</b></summary>
-
-Join a list into one string, separated by the delimiter. Type \n as the delimiter to join with newlines.
-
-| | |
-|---|---|
-| Node id | `Text List to Text` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `delimiter` | `STRING` | Yes | , |  | Placed between the entries. The default ', ' builds a comma-separated prompt; type \n to put each entry on its own line; leave it empty to run them together with nothing between. |
-| `text_list` | `ARRAY` | Yes |  |  | The list to flatten, for example the lines of a file from Text Load Line From File or the entries of Text List. Every entry has to be text; a list holding a number fails the prompt. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `STRING` | The list's entries as one string, separated by the delimiter. |
-
-</details>
-
-<details>
-<summary><b>Text Split to List</b></summary>
-
-Split text into a list, on a delimiter, on line breaks, on whitespace or on a regular expression. The pieces come out twice: as one LIST, and as a STRING list that runs everything downstream once per piece. `delimiter` cuts on the exact text in the delimiter field, which is how a comma-separated prompt becomes one entry per tag, while `regex` reads that field as a pattern, so `[,;]` cuts on either mark. `characters` ignores the delimiter field.
-
-| | |
-|---|---|
-| Node id | `WASTextSplitToList` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text` | `STRING` | Yes |  |  | The text to cut up, as `cat, forest, sunset`. Typed here, or wired in from any node with a text output, such as a prompt built by Text Concatenate. |
-| `split_by` | `COMBO` | Yes |  | `delimiter`, `lines`, `whitespace`, `regex`, `characters` | Where the cuts go. `delimiter` and `regex` read the delimiter field; `lines` cuts on line breaks, `whitespace` on runs of space, `characters` on every character. |
-| `delimiter` | `STRING` | Yes | , |  | What to cut on, read only by `delimiter` and `regex`. Type \n for a line break or \t for a tab. An unreadable regular expression stops with the error the pattern produced, naming the position in it that failed. |
-| `trim_whitespace` | `BOOLEAN` | Yes | True |  | Whether each piece has its surrounding space removed. On, 'a, b, c' gives 'a', 'b', 'c'; off it gives 'a', ' b', ' c', and the leading spaces travel into whatever reads the list. |
-| `remove_empty` | `BOOLEAN` | Yes | True |  | Whether pieces holding nothing are dropped. Two delimiters in a row produce an empty piece, which is what a trailing comma on a prompt leaves behind. Turn this off when the position of every entry matters and an empty slot has to stay a slot. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `ARRAY` | Every piece on one wire, for Text List Get, Text List Concatenate and Text List to Text. |
-| `strings` | `STRING` | The same pieces as a STRING list. Because this is a list, a node reading it runs once per piece and produces one result per piece, wire it into a sampler's prompt to render every entry in turn. Text that splits into nothing stops the prompt, because a graph cannot be run zero times. |
-| `count` | `INT` | How many pieces the split produced. |
-
-</details>
-
----
-
-## WAS Suite/Text/Operations
-
-<details>
-<summary><b>Prompt Tag Cleanup</b></summary>
-
-Split a prompt into tags, drop the duplicates and the empty ones, optionally sort and cap the count, and join it back up. Emphasis such as (tag:1.4) is recognised as the same tag as the plain spelling.
-
-| | |
-|---|---|
-| Node id | `WASPromptTagCleanup` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text` | `STRING` | Yes |  |  | The prompt to tidy, as `a tabby cat,, a tabby cat`. Typed here, or wired in from whatever built it: Text Concatenate, a style selector, or a caption node. |
-| `delimiter` | `STRING` | Yes | , |  | What separates one tag from the next in the incoming text. Leave it empty to treat every word as its own tag. Type \n to split a prompt written one tag to a line. |
-| `join_with` | `STRING` | Yes | , |  | What is put between the tags on the way out. The default ', ' is the ordinary prompt spelling; type \n to get one tag per line, which is easier to read in a saved text file. |
-| `dedupe` | `BOOLEAN` | Yes | True |  | Whether a tag appearing more than once is reduced to one. The survivor keeps the position of the first occurrence, so tidying does not reshuffle the prompt. |
-| `ignore_case` | `BOOLEAN` | Yes | True |  | Whether 'Neon Glow' and 'neon glow' count as the same tag. Off, both survive, which is only useful where a downstream tool treats capitalisation as meaningful. |
-| `ignore_emphasis` | `BOOLEAN` | Yes | True |  | Whether '(neon glow:1.4)' counts as the same tag as 'neon glow'. On with keep set to 'last' is the combination that collapses a prompt onto its weighted spellings, which is normally the intended one, the plain duplicate is usually what a second source contributed. |
-| `keep` | `COMBO` | Yes |  | `first`, `last` | Which of a set of duplicates survives. `first` keeps the earliest spelling, `last` the latest. Position is the first occurrence either way, so keeping the last spelling does not move the tag to the end of the prompt. |
-| `remove_empty` | `BOOLEAN` | Yes | True |  | Whether tags holding nothing are dropped. This is what clears the run of bare commas an unconnected input leaves behind, which otherwise reaches the text encoder as it stands. |
-| `collapse_whitespace` | `BOOLEAN` | Yes | True |  | Whether runs of spaces, tabs and line breaks inside a tag become a single space. This is what removes the line breaks a multi-line prompt box leaves in the middle of a tag. |
-| `sort` | `COMBO` | Yes |  | `none`, `a-z`, `z-a`, `shortest first`, `longest first` | How the surviving tags are ordered. `none` keeps the order they were written in, which is what preserves the weight early tags carry in most encoders. The alphabetical orders make two prompts comparable by eye; `longest first` puts the descriptive phrases ahead of the single words. |
-| `limit` | `INT` | Yes | 0 |  | Keep at most this many tags, counted after everything else has run. 0 keeps all of them. Useful for trimming a caption model's output to the few tags worth keeping. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `text` | `STRING` | The tidied prompt, joined back up with join_with. |
-| `tags` | `ARRAY` | The surviving tags as one LIST, for Text List Get and the other list nodes. |
-| `tag_strings` | `STRING` | The same tags as a STRING list, so a node reading this runs once per tag, one render per tag, for instance. A prompt that tidies down to no tags leaves nothing to run on, so the nodes reading this socket stop and say so; the text output is still delivered, since an empty prompt is a valid one. |
-| `count` | `INT` | How many tags survived. |
-| `removed` | `INT` | How many entries the tidy-up took out, counting duplicates, empties and anything past the limit. 0 means the prompt was already clean. |
-
-</details>
-
-<details>
-<summary><b>String to Text</b></summary>
-
-Deprecated. Nothing replaces it: every text socket is a plain STRING, so a string wires straight into a text input and this node does nothing. Delete it from a workflow and join the two wires it sat between.
-
-| | |
-|---|---|
-| Node id | `String to Text` |
-| Turn off with | `legacy.text_type: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `string` | `STRING` | Yes |  |  | The string to pass on. Nothing is done to it: text inputs accept a string directly, so this node can be deleted from a workflow and its two wires joined. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `STRING` | The input string, unchanged. |
-
-</details>
-
-<details>
-<summary><b>Text Shuffle</b></summary>
-
-Randomly reorder the separated terms of a string.
-
-| | |
-|---|---|
-| Node id | `Text Shuffle` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text` | `STRING` | Yes |  |  | List on one line; STRING. Reordered randomly and rejoined with separator. Eg: `cat, forest, sunset` |
-| `separator` | `STRING` | Yes | , |  | The character the text is cut apart on, and the character the shuffled parts are rejoined with. The default ',' shuffles a comma-separated prompt term by term; a single space shuffles it word by word. |
-| `seed` | `INT` | Yes | 0 |  | Which order comes out. The same seed and the same text always give the same order; change it to shuffle differently. Any whole number; `0` is as good a seed as any. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `STRING` | The same terms in a new order, rejoined with the separator. Whitespace that sat next to a separator moves with its term. |
-
-</details>
-
-<details>
-<summary><b>Text Sort</b></summary>
-
-Sort the separated terms of a prompt alphabetically, leaving parenthesised attention groups intact.
-
-| | |
-|---|---|
-| Node id | `Text Sort` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text` | `STRING` | Yes |  |  | List on one line; STRING. Sorted alphabetically and rejoined with separator. Leading brackets and weights are ignored. Eg: `sunset, cat, forest` |
-| `separator` | `STRING` | Yes | , |  | The character the text is cut apart on, and the string the sorted terms are rejoined with. The default ', ' sorts a comma-separated prompt and puts a comma and a space back between each term. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `STRING` | The terms in alphabetical order, rejoined with the separator. Leading parentheses are ignored while sorting, so '((sunset))' files under s. |
-
-</details>
-
-<details>
-<summary><b>Text String Truncate</b></summary>
-
-Truncate up to four strings to a number of characters or words, keeping either the beginning or the end.
-
-| | |
-|---|---|
-| Node id | `Text String Truncate` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `truncate_by` | `COMBO` | Yes |  | `characters`, `words` | What truncate_to counts. `characters` counts single characters, spaces included. `words` counts whitespace-separated words and rejoins them with one space each, so line breaks and runs of spaces in the text collapse. |
-| `truncate_from` | `COMBO` | Yes |  | `end`, `beginning` | Which end of the text is kept. `end` keeps the tail and throws the start away, so 'a long prompt' truncated to 6 characters becomes 'prompt'. `beginning` keeps the head, giving 'a long'. |
-| `truncate_to` | `INT` | Yes | 10 |  | How much to keep, counted in characters or words. A negative value measures what to remove instead: with truncate_from `end`, -10 keeps everything except the last 10, and with `beginning`, -10 keeps only the last 10. Zero with `end` keeps everything, and zero with `beginning` empties the text. |
-| `text` | `STRING` | Yes |  |  | First text to shorten; STRING. Cut per truncate_by, truncate_from and truncate_to; leaves on TEXT. |
-| `text_b` | `STRING` | No |  |  | Second text; STRING. Same settings, leaves on TEXT_B. |
-| `text_c` | `STRING` | No |  |  | Third text; STRING. Same settings, leaves on TEXT_C. |
-| `text_d` | `STRING` | No |  |  | Fourth text; STRING. Same settings, leaves on TEXT_D. |
-| `text_e` | `STRING` | No |  |  | Text 5, emitted on its own output. Tokens are substituted. |
-| `text_f` | `STRING` | No |  |  | Text 6, emitted on its own output. Tokens are substituted. |
-| `text_g` | `STRING` | No |  |  | Text 7, emitted on its own output. Tokens are substituted. |
-| `text_h` | `STRING` | No |  |  | Text 8, emitted on its own output. Tokens are substituted. |
-| `text_i` | `STRING` | No |  |  | Text 9, emitted on its own output. Tokens are substituted. |
-| `text_j` | `STRING` | No |  |  | Text 10, emitted on its own output. Tokens are substituted. |
-| `text_k` | `STRING` | No |  |  | Text 11, emitted on its own output. Tokens are substituted. |
-| `text_l` | `STRING` | No |  |  | Text 12, emitted on its own output. Tokens are substituted. |
-| `text_m` | `STRING` | No |  |  | Text 13, emitted on its own output. Tokens are substituted. |
-| `text_n` | `STRING` | No |  |  | Text 14, emitted on its own output. Tokens are substituted. |
-| `text_o` | `STRING` | No |  |  | Text 15, emitted on its own output. Tokens are substituted. |
-| `text_p` | `STRING` | No |  |  | Text 16, emitted on its own output. Tokens are substituted. |
-| `text_q` | `STRING` | No |  |  | Text 17, emitted on its own output. Tokens are substituted. |
-| `text_r` | `STRING` | No |  |  | Text 18, emitted on its own output. Tokens are substituted. |
-| `text_s` | `STRING` | No |  |  | Text 19, emitted on its own output. Tokens are substituted. |
-| `text_t` | `STRING` | No |  |  | Text 20, emitted on its own output. Tokens are substituted. |
-| `text_u` | `STRING` | No |  |  | Text 21, emitted on its own output. Tokens are substituted. |
-| `text_v` | `STRING` | No |  |  | Text 22, emitted on its own output. Tokens are substituted. |
-| `text_w` | `STRING` | No |  |  | Text 23, emitted on its own output. Tokens are substituted. |
-| `text_x` | `STRING` | No |  |  | Text 24, emitted on its own output. Tokens are substituted. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `TEXT` | `STRING` | The shortened text. |
-| `TEXT_B` | `STRING` | The shortened text_b. |
-| `TEXT_C` | `STRING` | The shortened text_c. |
-| `TEXT_D` | `STRING` | The shortened text_d. |
-| `TEXT_E` | `STRING` | Text 5, with its tokens substituted. |
-| `TEXT_F` | `STRING` | Text 6, with its tokens substituted. |
-| `TEXT_G` | `STRING` | Text 7, with its tokens substituted. |
-| `TEXT_H` | `STRING` | Text 8, with its tokens substituted. |
-| `TEXT_I` | `STRING` | Text 9, with its tokens substituted. |
-| `TEXT_J` | `STRING` | Text 10, with its tokens substituted. |
-| `TEXT_K` | `STRING` | Text 11, with its tokens substituted. |
-| `TEXT_L` | `STRING` | Text 12, with its tokens substituted. |
-| `TEXT_M` | `STRING` | Text 13, with its tokens substituted. |
-| `TEXT_N` | `STRING` | Text 14, with its tokens substituted. |
-| `TEXT_O` | `STRING` | Text 15, with its tokens substituted. |
-| `TEXT_P` | `STRING` | Text 16, with its tokens substituted. |
-| `TEXT_Q` | `STRING` | Text 17, with its tokens substituted. |
-| `TEXT_R` | `STRING` | Text 18, with its tokens substituted. |
-| `TEXT_S` | `STRING` | Text 19, with its tokens substituted. |
-| `TEXT_T` | `STRING` | Text 20, with its tokens substituted. |
-| `TEXT_U` | `STRING` | Text 21, with its tokens substituted. |
-| `TEXT_V` | `STRING` | Text 22, with its tokens substituted. |
-| `TEXT_W` | `STRING` | Text 23, with its tokens substituted. |
-| `TEXT_X` | `STRING` | Text 24, with its tokens substituted. |
-
-</details>
-
-<details>
-<summary><b>Text to Conditioning</b></summary>
-
-Encode a linked prompt with a CLIP model, for prompts built by the text nodes rather than typed into a widget.
-
-| | |
-|---|---|
-| Node id | `Text to Conditioning` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `clip` | `CLIP` | Yes |  |  | The text encoder that turns the prompt into conditioning. Wire it from the CLIP output of the checkpoint being sampled with, or the prompt will be encoded for the wrong model. |
-| `text` | `STRING` | Yes |  |  | Prompt to encode with the clip input; STRING, as `a tabby cat`. Also shown on the node after the run. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `CONDITIONING` | The encoded prompt, for the positive or negative input of a sampler. |
-
-</details>
-
-<details>
-<summary><b>Text to Number</b></summary>
-
-Parse a string into a number: a float when it contains a decimal point, an int otherwise.
-
-| | |
-|---|---|
-| Node id | `Text to Number` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text` | `STRING` | Yes |  |  | Number written as text; STRING. A decimal point gives a decimal, otherwise a whole number. Non-numeric text fails the prompt. Eg: 3.5 |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `NUMBER` | The parsed value, still a whole number or a decimal depending on the text. For the NUMBER inputs of the suite's own maths nodes. |
-| `<output1>` | `FLOAT` | The same value as a decimal, for example 42.0. |
-| `<output2>` | `INT` | The same value as a whole number, with anything after the decimal point dropped: 3.9 becomes 3 and -3.9 becomes -3. |
-
-</details>
-
-<details>
-<summary><b>Text to String</b></summary>
-
-Deprecated. Nothing replaces it: every text socket is a plain STRING, so a text output wires straight into a string input and this node does nothing. Delete it from a workflow and join the two wires it sat between.
-
-| | |
-|---|---|
-| Node id | `Text to String` |
-| Turn off with | `legacy.text_type: false` in `config.yaml` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text` | `STRING` | Yes |  |  | Text to pass through unchanged; STRING, as `a tabby cat`. String inputs take text outputs directly. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `STRING` | The input text, unchanged. |
-
-</details>
-
----
-
-## WAS Suite/Text/Parse
-
-<details>
-<summary><b>Prompt Parse</b></summary>
-
-Expand __terms__, <a\|b\|c> groups and $\|phrase\|$ variables and return the finished text. Every markup CLIPTextEncode (NSP) understands, stopping at the string so it can be saved, split or encoded elsewhere.
-
-| | |
-|---|---|
-| Node id | `WASPromptParse` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text` | `STRING` | Yes |  |  | The prompt, in any of three markups. __term__ draws a phrase from the terminology pantry or a line from a wildcard file; <a\|b\|c> picks one of the alternatives; $\|a stormy sky\|$ captures the phrase as $1 so it can be repeated by number later in the prompt. |
-| `mode` | `COMBO` | Yes |  | `Noodle Soup Prompts`, `Wildcards`, `none` | What __terms__ are replaced with. `Noodle Soup Prompts` draws from the shared terminology pantry, downloaded once and then cached. `Wildcards` draws a random line from the matching file in the wildcards directory, where a subfolder is part of the name, so __animals/birds__ reads animals/birds.txt. `none` leaves __terms__ alone, for a prompt that only uses the groups and variables below. |
-| `noodle_key` | `STRING` | Yes | __ |  | The marker put either side of a term to flag it for replacement. With the default '__', __animals__ is replaced and plain animals is not. |
-| `seed` | `INT` | Yes | 0 |  | Which words get drawn. Any value other than 0 makes the whole parse repeatable, so the same seed and the same prompt always give the same text. 0 is the exception the term draw treats as unseeded, so __terms__ come out different every run while the <a\|b\|c> groups stay fixed. |
-| `dynamic_prompts` | `BOOLEAN` | Yes | True |  | Whether <a\|b\|c> groups are resolved to one of their options. Turn it off to keep the brackets in the text, which is what a prompt being passed on to another parser needs. |
-| `prompt_variables` | `BOOLEAN` | Yes | True |  | Whether $\|phrase\|$ captures are expanded. A capture is numbered in the order it appears and replaced by $1, $2 and so on, and every reference to that number anywhere in the prompt then becomes the phrase, which is how one long description is written once and repeated. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `text` | `STRING` | The finished prompt, with every enabled markup expanded. Worth saving beside the image with Text Save, since a new seed produces different words. |
-| `raw_text` | `STRING` | The prompt exactly as it arrived, markup and all. |
-
-</details>
-
-<details>
-<summary><b>Text Parse A1111 Embeddings</b></summary>
-
-Convert A1111-style embedding names in a prompt to ComfyUI's embedding:name syntax, using the embeddings installed on this machine.
-
-| | |
-|---|---|
-| Node id | `Text Parse A1111 Embeddings` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text` | `STRING` | Yes |  |  | Prompt naming embeddings by file name; STRING. Installed names get the `embedding:` prefix. Eg: `photo, badhands` |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `STRING` | The prompt with every installed embedding's name prefixed, so 'photo, badhands' becomes 'photo, embedding:badhands'. An embedding that is not installed on this machine is left as written. |
-
-</details>
-
-<details>
-<summary><b>Text Parse Noodle Soup Prompts</b></summary>
-
-Replace __terms__ in a prompt with random Noodle Soup Prompts terminology, or with a random line from the matching wildcard file.
-
-| | |
-|---|---|
-| Node id | `Text Parse Noodle Soup Prompts` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `mode` | `COMBO` | Yes |  | `Noodle Soup Prompts`, `Wildcards` | Where the replacements come from. `Noodle Soup Prompts` draws from the shared terminology pantry, a published list of subjects, styles and materials that is downloaded once and then cached. `Wildcards` draws one random line from the matching text file in the wildcards directory, where a subfolder is part of the name: __animals/birds__ reads animals/birds.txt. |
-| `noodle_key` | `STRING` | Yes | __ |  | The marker put either side of a term to flag it for replacement. With the default '__', __animals__ is replaced and plain animals is not. |
-| `seed` | `INT` | Yes | 0 |  | Which terms get drawn. Any value other than 0 makes the draw repeatable, so the same seed and the same prompt always give the same words. 0 draws differently every run and cannot be reproduced. |
-| `text` | `STRING` | Yes |  |  | Prompt with __terms__ to expand; STRING. Each occurrence is drawn separately. Eg: a __animals__ in a __location__ |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `STRING` | The prompt with every marked term replaced. A term with no matching pantry entry or wildcard file is left as written. |
-
-</details>
-
----
-
-## WAS Suite/Text/Search
-
-<details>
-<summary><b>Text Compare</b></summary>
-
-Compare two strings. Both texts pass through unchanged, alongside an exact equality flag, a similarity or difference score, and the words that score was built from. `similarity` scores 1.0 for identical text and falls toward 0.0 as the two diverge, and COMPARISON_TEXT lists the words they have in common. `difference` lists the parts of text_a that changed and scores on a separate scale that is not capped at 1.0, where identical text comes out a little over 1.0. tolerance only widens the words collected in `similarity` mode: it never changes any score, `difference` mode ignores it, and a setting between 0.0 and 1.0 behaves like 0.0.
-
-| | |
-|---|---|
-| Node id | `Text Compare` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text_a` | `STRING` | Yes |  |  | First text to compare; STRING. Empty boxes count as identical. |
-| `text_b` | `STRING` | Yes |  |  | Second text to compare; STRING. Both pass through unchanged on TEXT_A_PASS and TEXT_B_PASS. |
-| `mode` | `COMBO` | Yes |  | `similarity`, `difference` | Which measure to report. `similarity` scores how alike the two texts are and lists the words they share; `difference` lists the parts of text_a that changed. |
-| `tolerance` | `FLOAT` | Yes | 0.0 |  | How loosely a word counts as shared in COMPARISON_TEXT. 0.0 keeps only words appearing in both texts; 1.0 also keeps words one character apart, so 'colour' matches 'color'. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `TEXT_A_PASS` | `STRING` | text_a unchanged, so the node can sit in the middle of a prompt chain instead of on a branch. |
-| `TEXT_B_PASS` | `STRING` | text_b unchanged. |
-| `BOOLEAN` | `BOOLEAN` | True only when the two texts are identical character for character. Neither the mode nor the tolerance affects it. |
-| `SCORE_NUMBER` | `NUMBER` | The score, for the NUMBER inputs of the suite's own maths and logic nodes. In `similarity` mode 1.0 means identical and 0.0 means nothing in common; `difference` mode uses its own scale, which can go past 1.0. |
-| `COMPARISON_TEXT` | `STRING` | The words behind the comparison, space-separated. In `similarity` mode the words the two texts have in common, and once tolerance is raised the near matches from both. In `difference` mode the parts of text_a that changed. |
-| `SCORE_FLOAT` | `FLOAT` | The same score as a decimal, for a core FLOAT input. |
-| `SCORE_INT` | `INT` | The score with everything after the decimal point dropped, so in `similarity` mode it is 1 only for identical text and 0 for everything else. |
-
-</details>
-
-<details>
-<summary><b>Text Find</b></summary>
-
-Search text for a plain substring, or for a regular expression when the substring field is left empty.
-
-| | |
-|---|---|
-| Node id | `Text Find` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text` | `STRING` | Yes |  |  | Text to search; STRING, as `a tabby cat`. Read only, never changed. |
-| `substring` | `STRING` | Yes |  |  | Exact text to look for, taken literally and matched case sensitively, so 'cat' does not find 'Cat'. Filled in, it is what gets searched for and pattern is ignored; leave it empty to search with pattern instead. |
-| `pattern` | `STRING` | Yes |  |  | Regular expression to search for when substring is empty, for example 'cat\|dog' to find either word or '^photo' to require it at the start. An empty pattern matches everything, so leaving both fields blank always reports found. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `found` | `BOOLEAN` | True when the substring or the pattern was found anywhere in the text. |
-
-</details>
-
-<details>
-<summary><b>Text Find and Replace</b></summary>
-
-Replace every regular-expression match in the text and report how many replacements were made.
-
-| | |
-|---|---|
-| Node id | `Text Find and Replace` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text` | `STRING` | Yes |  |  | Text to search; STRING, as `a tabby cat`. Every filled find box is applied in one pass over it. |
-| `find` | `STRING,ARRAY` | Yes |  |  | A regular expression, so 'cat\|dog' matches either word and '\s+' matches whitespace. A backslash makes a special character literal. Left empty, nothing is replaced. |
-| `replace` | `STRING,ARRAY` | Yes |  |  | What each match becomes. Leave it empty to delete the matches. \1 and \2 stand for the first and second parenthesised group of the pattern, and a literal backslash has to be doubled. |
-| `find_2` | `STRING,ARRAY` | No |  |  | Another pattern, searched in the same single pass as the first. Every pattern is tried against the text as it arrived, so a replacement is never matched again by a later pattern and two patterns can swap. Where two patterns match at the same place, the earlier box wins. |
-| `replace_2` | `STRING,ARRAY` | No |  |  | What the pattern in the box above becomes. Leave it empty to delete what that pattern matched, the same as the first pair. |
-| `find_3` | `STRING,ARRAY` | No |  |  | Another pattern, searched in the same single pass as the first. Every pattern is tried against the text as it arrived, so a replacement is never matched again by a later pattern and two patterns can swap. Where two patterns match at the same place, the earlier box wins. |
-| `replace_3` | `STRING,ARRAY` | No |  |  | What the pattern in the box above becomes. Leave it empty to delete what that pattern matched, the same as the first pair. |
-| `find_4` | `STRING,ARRAY` | No |  |  | Another pattern, searched in the same single pass as the first. Every pattern is tried against the text as it arrived, so a replacement is never matched again by a later pattern and two patterns can swap. Where two patterns match at the same place, the earlier box wins. |
-| `replace_4` | `STRING,ARRAY` | No |  |  | What the pattern in the box above becomes. Leave it empty to delete what that pattern matched, the same as the first pair. |
-| `find_5` | `STRING,ARRAY` | No |  |  | Another pattern, searched in the same single pass as the first. Every pattern is tried against the text as it arrived, so a replacement is never matched again by a later pattern and two patterns can swap. Where two patterns match at the same place, the earlier box wins. |
-| `replace_5` | `STRING,ARRAY` | No |  |  | What the pattern in the box above becomes. Leave it empty to delete what that pattern matched, the same as the first pair. |
-| `find_6` | `STRING,ARRAY` | No |  |  | Another pattern, searched in the same single pass as the first. Every pattern is tried against the text as it arrived, so a replacement is never matched again by a later pattern and two patterns can swap. Where two patterns match at the same place, the earlier box wins. |
-| `replace_6` | `STRING,ARRAY` | No |  |  | What the pattern in the box above becomes. Leave it empty to delete what that pattern matched, the same as the first pair. |
-| `find_7` | `STRING,ARRAY` | No |  |  | Another pattern, searched in the same single pass as the first. Every pattern is tried against the text as it arrived, so a replacement is never matched again by a later pattern and two patterns can swap. Where two patterns match at the same place, the earlier box wins. |
-| `replace_7` | `STRING,ARRAY` | No |  |  | What the pattern in the box above becomes. Leave it empty to delete what that pattern matched, the same as the first pair. |
-| `find_8` | `STRING,ARRAY` | No |  |  | Another pattern, searched in the same single pass as the first. Every pattern is tried against the text as it arrived, so a replacement is never matched again by a later pattern and two patterns can swap. Where two patterns match at the same place, the earlier box wins. |
-| `replace_8` | `STRING,ARRAY` | No |  |  | What the pattern in the box above becomes. Leave it empty to delete what that pattern matched, the same as the first pair. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `result_text` | `STRING` | The text with every match replaced. |
-| `replacement_count_number` | `NUMBER` | How many replacements were made, for the NUMBER inputs of the suite's own maths and logic nodes. 0 means the text was not matched at all. |
-| `replacement_count_float` | `FLOAT` | The same count as a decimal, for example 3.0. |
-| `replacement_count_int` | `INT` | The same count as a whole number, for a core INT input. |
-
-</details>
-
-<details>
-<summary><b>Text Find and Replace by Dictionary</b></summary>
-
-Replace each delimited term in the text with its value from a dictionary, for example __subject__ with the dictionary's subject entry.
-
-| | |
-|---|---|
-| Node id | `Text Find and Replace by Dictionary` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text` | `STRING` | Yes |  |  | Text to fill in; STRING. Blanks written __key__ are swapped for that key's dictionary value; a LIST value is redrawn per blank. Eg: a __animal__ in a __place__ |
-| `dictionary` | `DICT` | Yes |  |  | The replacements; DICT. Each key is a term to look for, its value the replacement. A LIST value has one item drawn per occurrence. Unmatched terms are left as written. |
-| `replacement_key` | `STRING` | Yes | __ |  | Marker put either side of a key; STRING. Eg: __ matches __subject__, not subject. |
-| `seed` | `INT` | Yes | 1 |  | Seed for drawing from LIST values; INT. The same seed rewrites the same text. Ignored for single-value entries. Any whole number; `0` is as good a seed as any. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `STRING` | The text with every marked term replaced by its entry's value. |
-
-</details>
-
-<details>
-<summary><b>Text Find and Replace Input</b></summary>
-
-Replace every literal occurrence of the find text and report how many replacements were made. All three text terms come from links.
-
-| | |
-|---|---|
-| Node id | `Text Find and Replace Input` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text` | `STRING` | Yes |  |  | Text to search; STRING, as `a tabby cat`. Every occurrence of find becomes replace. |
-| `find` | `STRING` | Yes |  |  | Exact text to look for, taken literally and matched case sensitively, no pattern characters, unlike Text Find and Replace. An empty search term leaves the text untouched and reports 0 replacements. |
-| `replace` | `STRING` | Yes |  |  | What each occurrence becomes, again taken literally. An empty value deletes the occurrences. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `result_text` | `STRING` | The text with every occurrence of the search term replaced. |
-| `replacement_count_number` | `NUMBER` | How many occurrences were replaced, for the NUMBER inputs of the suite's own maths and logic nodes. 0 means the term was not present. |
-| `replacement_count_float` | `FLOAT` | The same count as a decimal, for example 3.0. |
-| `replacement_count_int` | `INT` | The same count as a whole number, for a core INT input. |
-
-</details>
-
----
-
-## WAS Suite/Text/Styles
-
-<details>
-<summary><b>Prompt Multiple Styles Selector</b></summary>
-
-Concatenate the positive and negative prompts of up to four styles from the style library, separated by spaces. A slot left on None is skipped.
-
-| | |
-|---|---|
-| Node id | `Prompt Multiple Styles Selector` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `style1` | `COMBO` | Yes | None |  | First style to combine, or None to skip it; its prompts come first in both outputs. A style named here and missing from the library empties both outputs rather than dropping part of the prompt silently. |
-| `style2` | `COMBO` | Yes | None |  | Second style, appended after style1. None skips it. |
-| `style3` | `COMBO` | Yes | None |  | Third style, appended after style2. None skips it. |
-| `style4` | `COMBO` | Yes | None |  | Fourth style, appended last. None skips it. |
-| `style5` | `COMBO` | Yes | None |  | Style 5, concatenated after the one before it. `None` is skipped. |
-| `style6` | `COMBO` | Yes | None |  | Style 6, concatenated after the one before it. `None` is skipped. |
-| `style7` | `COMBO` | Yes | None |  | Style 7, concatenated after the one before it. `None` is skipped. |
-| `style8` | `COMBO` | Yes | None |  | Style 8, concatenated after the one before it. `None` is skipped. |
-| `style9` | `COMBO` | Yes | None |  | Style 9, concatenated after the one before it. `None` is skipped. |
-| `style10` | `COMBO` | Yes | None |  | Style 10, concatenated after the one before it. `None` is skipped. |
-| `style11` | `COMBO` | Yes | None |  | Style 11, concatenated after the one before it. `None` is skipped. |
-| `style12` | `COMBO` | Yes | None |  | Style 12, concatenated after the one before it. `None` is skipped. |
-| `style13` | `COMBO` | Yes | None |  | Style 13, concatenated after the one before it. `None` is skipped. |
-| `style14` | `COMBO` | Yes | None |  | Style 14, concatenated after the one before it. `None` is skipped. |
-| `style15` | `COMBO` | Yes | None |  | Style 15, concatenated after the one before it. `None` is skipped. |
-| `style16` | `COMBO` | Yes | None |  | Style 16, concatenated after the one before it. `None` is skipped. |
-| `style17` | `COMBO` | Yes | None |  | Style 17, concatenated after the one before it. `None` is skipped. |
-| `style18` | `COMBO` | Yes | None |  | Style 18, concatenated after the one before it. `None` is skipped. |
-| `style19` | `COMBO` | Yes | None |  | Style 19, concatenated after the one before it. `None` is skipped. |
-| `style20` | `COMBO` | Yes | None |  | Style 20, concatenated after the one before it. `None` is skipped. |
-| `style21` | `COMBO` | Yes | None |  | Style 21, concatenated after the one before it. `None` is skipped. |
-| `style22` | `COMBO` | Yes | None |  | Style 22, concatenated after the one before it. `None` is skipped. |
-| `style23` | `COMBO` | Yes | None |  | Style 23, concatenated after the one before it. `None` is skipped. |
-| `style24` | `COMBO` | Yes | None |  | Style 24, concatenated after the one before it. `None` is skipped. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `positive_string` | `STRING` | The chosen positive prompts joined with spaces, for a positive CLIP Text Encode. Empty when a named style is missing from the library. |
-| `negative_string` | `STRING` | The chosen negative prompts joined with spaces, for a negative CLIP Text Encode. Empty when a named style is missing from the library. |
-
-</details>
-
-<details>
-<summary><b>Prompt Style Save</b></summary>
-
-Save a positive and negative prompt into the style library under a name, so Prompt Styles Selector can call it back. Saving over a name replaces what it held, and a pair already in the library under another name is left where it is rather than stored twice.
-
-| | |
-|---|---|
-| Node id | `WASPromptStyleSave` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `name` | `STRING` | Yes |  |  | What to call the style in the selector menu. Eg: cinematic film still. Left empty, the name is made from the date and the first 32 characters of the prompt. |
-| `prompt` | `STRING` | Yes |  |  | The positive prompt to store; STRING. Eg: `cinematic film still, shallow depth of field, highly detailed` |
-| `negative_prompt` | `STRING` | No |  |  | The negative prompt to store; STRING. Empty stores a style with no negative half. Eg: `anime, cartoon, low contrast` |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `name` | `STRING` | The name the style is stored under, which is the generated one when name was left empty. |
-| `positive_string` | `STRING` | The positive prompt as stored, for a positive CLIP Text Encode. |
-| `negative_string` | `STRING` | The negative prompt as stored, for a negative CLIP Text Encode. |
-
-</details>
-
-<details>
-<summary><b>Prompt Styles Export</b></summary>
-
-Write the whole style library out to a file, to share it or back it up. A name ending in .csv writes AUTOMATIC1111's name, prompt and negative_prompt columns; any other name writes JSON. Prompt Styles Import reads either back. A file already at that name is replaced.
-
-| | |
-|---|---|
-| Node id | `WASPromptStylesExport` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `root` | `COMBO` | Yes |  |  | Which folder the file lands in: ComfyUI's own 'output' or 'temp', or any folder added under paths.allow_write in config.yaml, listed by its own name. filename names the part below it. |
-| `filename` | `STRING` | Yes | styles.json |  | Name of the file, and any folder below root to put it in. styles.json writes a JSON library, styles.csv writes A1111 columns. Eg: styles/[time(%Y-%m-%d)].json |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `path` | `STRING` | The full path of the file that was written. |
-| `styles` | `INT` | How many styles were written. |
-
-</details>
-
-<details>
-<summary><b>Prompt Styles Import</b></summary>
-
-Read a style library into this one, from a .json library or from an AUTOMATIC1111 styles.csv with name, prompt and negative_prompt columns. The styles land in Prompt Styles Selector's menu. Importing the same file again brings it up to date, dropping the styles it no longer names and keeping every style saved here.
-
-| | |
-|---|---|
-| Node id | `WASPromptStylesImport` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `file` | `COMBO` | Yes |  |  | Which style file to read. The menu lists every .json and .csv file in ComfyUI's input, output and temp folders and in any folder added under paths.allow_read in config.yaml, each labelled with the folder it sits in. |
-| `mode` | `COMBO` | Yes |  | `add to the library`, `replace the library` | `add to the library` keeps the styles already saved here and adds the file's. `replace the library` leaves the library holding exactly what the file holds, dropping every other style. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `names` | `ARRAY` | Every style name in the library after the import, in library order. Text List to Text turns it into one line per name. |
-| `imported` | `INT` | How many styles the file held. |
-| `total` | `INT` | How many styles the library holds after the import. |
-
-</details>
-
-<details>
-<summary><b>Prompt Styles Selector</b></summary>
-
-Emit the positive and negative prompt of a style from the style library. Styles come from styles.json in the config directory, or from the AUTOMATIC1111 styles.csv named by paths.styles, which has to sit in a folder this pack may read.
-
-| | |
-|---|---|
-| Node id | `Prompt Styles Selector` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `style` | `COMBO` | Yes |  |  | Which saved style to emit. Each one is a named pair of a positive and a negative prompt. The menu is filled from the style library and shows only 'None' while no style has been saved or imported. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `positive_string` | `STRING` | The style's positive prompt, for a positive CLIP Text Encode. Empty when the style could not be found. |
-| `negative_string` | `STRING` | The style's negative prompt, for a negative CLIP Text Encode. Empty when the style has none, or could not be found. |
-
-</details>
-
----
-
-## WAS Suite/Text/Terminology
-
-<details>
-<summary><b>Noodle Soup Pantry Export</b></summary>
-
-Write the stored Noodle Soup Prompts terminology out as a JSON file, to share it, back it up or edit it by hand. Noodle Soup Pantry Import reads the same file back. A file already at that name is replaced.
-
-| | |
-|---|---|
-| Node id | `WASNoodleSoupPantryExport` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `root` | `COMBO` | Yes |  |  | Which folder the file lands in: ComfyUI's own 'output' or 'temp', or any folder added under paths.allow_write in config.yaml, listed by its own name. filename names the part below it. |
-| `filename` | `STRING` | Yes | nsp_pantry.json |  | Name of the file, and any folder below root to put it in. Eg: nsp_pantry.json, or terminology/[time(%Y-%m-%d)].json to file each day's under a dated name. |
-| `scope` | `COMBO` | Yes |  | `the whole pantry`, `only what you added` | `the whole pantry` writes every terminology, published words included. `only what you added` writes just the words added from a node or brought in from a file, which is the portable copy of your own additions. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `path` | `STRING` | The full path of the file that was written. |
-| `terms` | `INT` | How many terminologies were written. |
-| `entries` | `INT` | How many words were written, counting every terminology. |
-
-</details>
-
-<details>
-<summary><b>Noodle Soup Pantry Import</b></summary>
-
-Read a Noodle Soup Prompts pantry file into the stored pantry, so a terminology list shared as a file can be used here. The file is a JSON object of terminology name to a list of words, which is what Noodle Soup Pantry Export writes. The file itself is left where it is, and everything read in counts as yours, so a refresh never removes it.
-
-| | |
-|---|---|
-| Node id | `WASNoodleSoupPantryImport` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `file` | `COMBO` | Yes |  |  | Which pantry file to read. The menu lists every .json file in ComfyUI's input, output and temp folders and in any folder added under paths.allow_read in config.yaml, each labelled with the folder it sits in. |
-| `mode` | `COMBO` | Yes |  | `add to the pantry`, `replace the pantry` | `add to the pantry` keeps everything already stored and adds the words the file has that a terminology does not. `replace the pantry` leaves the pantry holding exactly what the file holds, dropping every other terminology. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `report` | `STRING` | What was read and what was stored, as one line per figure. Eg: 'entries added 12'. |
-| `terms` | `INT` | How many terminologies the file held. |
-| `entries` | `INT` | How many words the file held, counting every terminology. |
-
-</details>
-
-<details>
-<summary><b>Noodle Soup Pantry Refresh</b></summary>
-
-Fetch the published Noodle Soup Prompts pantry and merge it into the stored one. Words you added are kept, words you removed are not put back, and a terminology of your own is untouched. The download is checked in full before anything is stored, so a failed fetch changes nothing. Needs features.network on in config.yaml.
-
-| | |
-|---|---|
-| Node id | `WASNoodleSoupPantryRefresh` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `mode` | `COMBO` | Yes |  | `check what is new`, `merge it in` | `check what is new` downloads the published pantry and reports what a merge would change, storing nothing. `merge it in` stores the merged result. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `report` | `STRING` | What the merge did, or would do, as one line per figure. Eg: 'terms added 2'. |
-| `terms_added` | `INT` | Terminologies the published pantry has that the stored one did not. |
-| `entries_added` | `INT` | Words the published pantry has that the stored one did not. |
-| `yours_kept` | `INT` | Words kept that the published pantry no longer has, which are the ones added here. |
-
-</details>
-
-<details>
-<summary><b>Noodle Soup Pick</b></summary>
-
-Choose words out of the Noodle Soup Prompts pantry and answer them as a list, as text and as a count. The browser panel ticks them; the picked box holds one pick per line either way. With nothing picked the terminology names go out instead, which is how the pantry is read. The yours figure counts what was added from a node or brought in from a file, apart from what the published pantry supplied.
-
-| | |
-|---|---|
-| Node id | `WASNoodleSoupPick` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `picked` | `STRING` | Yes |  |  | One pick per line, as `term: word`. `artist: Greg Rutkowski` takes one word, spelled as the pantry holds it; `artist: *` takes the whole terminology, and so does a line naming one on its own. Blank and `#` lines are ignored, a word named twice goes out once, and line order is output order. |
-| `limit` | `INT` | Yes | 0 |  | How many words go out at most, counting from the first. 0 = every one; 50 = the first 50. `artist` alone holds over 2000. |
-| `term` | `STRING` | No |  |  | One terminology taken whole, added to what is picked above, for wiring the term output of Noodle Soup Term Edit straight in. Eg: `my-animals`. Empty takes only what is picked. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `entries` | `ARRAY` | The picked words, in the order the picked box lists them, a `*` line expanded in pantry order. With nothing picked, the terminology names. Text List to Text joins them with a comma. |
-| `text` | `STRING` | The same words, one per line. Feeds the entries box of Noodle Soup Term Edit, and Text Random Line for one word a run. |
-| `count` | `INT` | How many words went out, after limit cut the list. |
-| `yours` | `INT` | How many of them were added from a node or brought in from a file rather than supplied by the published pantry. |
-
-</details>
-
-<details>
-<summary><b>Noodle Soup Term Edit</b></summary>
-
-Add words to a Noodle Soup Prompts terminology, take words out of one, or make a terminology of your own, so __your_term__ draws from your own list in Text Parse Noodle Soup Prompts and Prompt Parse. Entries you add are kept apart from the ones the published pantry supplied, and Noodle Soup Pantry Refresh never removes them.
-
-| | |
-|---|---|
-| Node id | `WASNoodleSoupTermEdit` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `term` | `STRING` | Yes |  |  | The terminology name, written without the __ markers. Eg: my-animals, which a prompt then draws from as __my-animals__. A name the pantry does not have yet is created. |
-| `action` | `COMBO` | Yes |  | `add entries`, `remove entries`, `replace entries`, `create the term`, `delete the term` | `add entries` stores the words below that the term does not already hold; `remove entries` takes them out and no refresh puts them back; `replace entries` leaves the term holding exactly what is typed; `create the term` makes an empty one; `delete the term` removes it and everything in it. |
-| `entries` | `STRING` | Yes |  |  | The words to add, remove or store, one per line. Blank lines are skipped. Eg: a line reading 'red fox asleep in long grass'. Ignored by `create the term` and `delete the term`. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `noodle` | `STRING` | The term wrapped in the default markers, __my-animals__, ready to paste into a prompt for Text Parse Noodle Soup Prompts. Empty when the term was deleted. |
-| `term` | `STRING` | The terminology name as it was stored, for wiring on to Noodle Soup Pantry Export or another edit. Empty when the term was deleted. |
-| `entries` | `ARRAY` | Every entry the term holds after the edit, in draw order. Text List to Text turns it into one line per entry. |
-| `entry_count` | `INT` | How many entries the term holds after the edit. |
-
-</details>
-
----
-
-## WAS Suite/Text/Tokens
-
-<details>
-<summary><b>Text Add Token by Input</b></summary>
-
-Define a single custom token from a linked name and a linked value, for Text Parse Tokens and every other node that expands [tokens].
-
-| | |
-|---|---|
-| Node id | `Text Add Token by Input` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `token_name` | `STRING` | Yes |  |  | Token name, no brackets; STRING. Expands as [name] in every text node. Empty adds nothing. Eg: season |
-| `token_value` | `STRING` | Yes |  |  | What the token expands to; STRING. Empty expands to nothing. Eg: late autumn |
-| `print_current_tokens` | `BOOLEAN` | Yes | False |  | `on` logs every custom token now defined and shows them on the node, which is how to check what a previous run left behind; `off` stores the token silently. |
-
-</details>
-
-<details>
-<summary><b>Text Add Tokens</b></summary>
-
-Define custom tokens, one 'name: value' pair per line, for Text Parse Tokens and every other node that expands [tokens]. Only the first colon splits a line, so a value may itself contain colons and drive letters, and a line with no colon, a blank one included, is skipped. The square brackets are convention: the name is matched exactly as written, so a name without them matches bare text anywhere in a prompt.
-
-| | |
-|---|---|
-| Node id | `Text Add Tokens` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `tokens` | `STRING` | Yes | [hello]: world |  | One token per line, written as 'name: value', so '[hello]: world' turns [hello] into world in every later node that expands tokens. |
-| `print_current_tokens` | `BOOLEAN` | Yes | False |  | `on` logs every custom token now defined and shows them on the node, which is how to check what a previous run left behind; `off` stores them silently. |
-
-</details>
-
-<details>
-<summary><b>Text Parse Tokens</b></summary>
-
-Replace suite tokens such as [time], [hostname] and [user], plus any custom tokens, with their current values.
-
-| | |
-|---|---|
-| Node id | `Text Parse Tokens` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `text` | `STRING` | Yes |  |  | Text holding tokens; STRING. [time], [time(%Y-%m-%d)], [hostname], [user], [cuda_device], [cuda_name], plus custom tokens. Eg: render_[time] |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `<output0>` | `STRING` | The text with every known token replaced. An unrecognised token is left as written. |
-
-</details>
-
----
-
-## WAS Suite/Three
-
+<a id="node-wasthreeanimatetransform"></a>
 <details>
 <summary><b>Three Animate Transform</b></summary>
 
@@ -12392,7 +12536,7 @@ Move an object continuously. Rotate turns it on each axis, bob slides it up and 
 | | |
 |---|---|
 | Node id | `WASThreeAnimateTransform` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12417,6 +12561,7 @@ Move an object continuously. Rotate turns it on each axis, bob slides it up and 
 
 </details>
 
+<a id="node-wasthreeantialias"></a>
 <details>
 <summary><b>Three Antialias</b></summary>
 
@@ -12425,7 +12570,7 @@ Smooth the stepped edges left along a silhouette. Three App's own antialias sett
 | | |
 |---|---|
 | Node id | `WASThreeAntialias` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12441,6 +12586,7 @@ Smooth the stepped edges left along a silhouette. Three App's own antialias sett
 
 </details>
 
+<a id="node-wasthreeapp"></a>
 <details>
 <summary><b>Three App</b></summary>
 
@@ -12449,7 +12595,7 @@ Bring a scene and a camera together with the settings the renderer runs under, a
 | | |
 |---|---|
 | Node id | `WASThreeApp` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12477,6 +12623,7 @@ Bring a scene and a camera together with the settings the renderer runs under, a
 
 </details>
 
+<a id="node-wasthreearealight"></a>
 <details>
 <summary><b>Three Area Light</b></summary>
 
@@ -12485,7 +12632,7 @@ Light the scene from a panel with a size rather than from a point, so shadows so
 | | |
 |---|---|
 | Node id | `WASThreeAreaLight` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12511,6 +12658,7 @@ Light the scene from a panel with a size rather than from a point, so shadows so
 
 </details>
 
+<a id="node-wasthreebasicmaterial"></a>
 <details>
 <summary><b>Three Basic Material</b></summary>
 
@@ -12519,7 +12667,7 @@ A surface that ignores every light and draws its colour flat. Nothing shades it,
 | | |
 |---|---|
 | Node id | `WASThreeBasicMaterial` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12541,6 +12689,7 @@ A surface that ignores every light and draws its colour flat. Nothing shades it,
 
 </details>
 
+<a id="node-wasthreebloom"></a>
 <details>
 <summary><b>Three Bloom</b></summary>
 
@@ -12549,7 +12698,7 @@ Bleed a glow out of everything brighter than a threshold, which is what makes an
 | | |
 |---|---|
 | Node id | `WASThreeBloom` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12568,6 +12717,7 @@ Bleed a glow out of everything brighter than a threshold, which is what makes an
 
 </details>
 
+<a id="node-wasthreeboxgeometry"></a>
 <details>
 <summary><b>Three Box Geometry</b></summary>
 
@@ -12576,7 +12726,7 @@ A rectangular box, sized in scene units and centred on its own origin. Wire it i
 | | |
 |---|---|
 | Node id | `WASThreeBoxGeometry` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12597,6 +12747,7 @@ A rectangular box, sized in scene units and centred on its own origin. Wire it i
 
 </details>
 
+<a id="node-wasthreecompile"></a>
 <details>
 <summary><b>Three Compile</b></summary>
 
@@ -12605,7 +12756,7 @@ Write the scene out as a zip holding a web page that runs on its own. Unpack it 
 | | |
 |---|---|
 | Node id | `WASThreeCompile` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 | Output node | Yes, it runs even with nothing wired after it |
 
 **Inputs**
@@ -12626,6 +12777,7 @@ Write the scene out as a zip holding a web page that runs on its own. Unpack it 
 
 </details>
 
+<a id="node-wasthreecustomgeometry"></a>
 <details>
 <summary><b>Three Custom Geometry</b></summary>
 
@@ -12634,7 +12786,7 @@ Reach any Three.js geometry class the pack has no node for, by returning one fro
 | | |
 |---|---|
 | Node id | `WASThreeCustomGeometry` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12650,6 +12802,7 @@ Reach any Three.js geometry class the pack has no node for, by returning one fro
 
 </details>
 
+<a id="node-wasthreecustommaterial"></a>
 <details>
 <summary><b>Three Custom Material</b></summary>
 
@@ -12658,7 +12811,7 @@ Reach any Three.js material class the pack has no node for, by returning one fro
 | | |
 |---|---|
 | Node id | `WASThreeCustomMaterial` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12678,6 +12831,7 @@ Reach any Three.js material class the pack has no node for, by returning one fro
 
 </details>
 
+<a id="node-wasthreecustomobject"></a>
 <details>
 <summary><b>Three Custom Object</b></summary>
 
@@ -12686,7 +12840,7 @@ Build any Object3D from a short JavaScript body, for what wiring cannot express:
 | | |
 |---|---|
 | Node id | `WASThreeCustomObject` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12708,6 +12862,7 @@ Build any Object3D from a short JavaScript body, for what wiring cannot express:
 
 </details>
 
+<a id="node-wasthreecustomupdate"></a>
 <details>
 <summary><b>Three Custom Update</b></summary>
 
@@ -12716,7 +12871,7 @@ Run a short JavaScript body on an object once per drawn frame, for motion Three 
 | | |
 |---|---|
 | Node id | `WASThreeCustomUpdate` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12733,6 +12888,7 @@ Run a short JavaScript body on an object once per drawn frame, for motion Three 
 
 </details>
 
+<a id="node-wasthreecylindergeometry"></a>
 <details>
 <summary><b>Three Cylinder Geometry</b></summary>
 
@@ -12741,7 +12897,7 @@ A cylinder standing on Y, and a cone or a truncated cone when the two radii diff
 | | |
 |---|---|
 | Node id | `WASThreeCylinderGeometry` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12762,6 +12918,7 @@ A cylinder standing on Y, and a cone or a truncated cone when the two radii diff
 
 </details>
 
+<a id="node-wasthreedepthoffield"></a>
 <details>
 <summary><b>Three Depth Of Field</b></summary>
 
@@ -12770,7 +12927,7 @@ Keep one distance from the camera sharp and blur everything nearer and further, 
 | | |
 |---|---|
 | Node id | `WASThreeDepthOfField` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12789,6 +12946,7 @@ Keep one distance from the camera sharp and blur everything nearer and further, 
 
 </details>
 
+<a id="node-wasthreeenvironment"></a>
 <details>
 <summary><b>Three Environment</b></summary>
 
@@ -12797,7 +12955,7 @@ Light the scene from all around rather than from lamps alone, which is what give
 | | |
 |---|---|
 | Node id | `WASThreeEnvironment` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12820,6 +12978,7 @@ Light the scene from all around rather than from lamps alone, which is what give
 
 </details>
 
+<a id="node-wasthreegridhelper"></a>
 <details>
 <summary><b>Three Grid Helper</b></summary>
 
@@ -12828,7 +12987,7 @@ A flat grid on the ground plane, giving scale and a horizon to judge the camera 
 | | |
 |---|---|
 | Node id | `WASThreeGridHelper` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12847,6 +13006,7 @@ A flat grid on the ground plane, giving scale and a horizon to judge the camera 
 
 </details>
 
+<a id="node-wasthreegroup"></a>
 <details>
 <summary><b>Three Group</b></summary>
 
@@ -12855,7 +13015,7 @@ Gather up to eight objects under one parent, so a scene can hold more than the s
 | | |
 |---|---|
 | Node id | `WASThreeGroup` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12880,6 +13040,7 @@ Gather up to eight objects under one parent, so a scene can hold more than the s
 
 </details>
 
+<a id="node-wasthreeimportgeometry"></a>
 <details>
 <summary><b>Three Import Geometry</b></summary>
 
@@ -12888,7 +13049,7 @@ Take one geometry out of a Three Script Module by name and put it on a normal ge
 | | |
 |---|---|
 | Node id | `WASThreeImportGeometry` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12905,6 +13066,7 @@ Take one geometry out of a Three Script Module by name and put it on a normal ge
 
 </details>
 
+<a id="node-wasthreeimportmaterial"></a>
 <details>
 <summary><b>Three Import Material</b></summary>
 
@@ -12913,7 +13075,7 @@ Take one material out of a Three Script Module by name and put it on a normal ma
 | | |
 |---|---|
 | Node id | `WASThreeImportMaterial` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12930,6 +13092,7 @@ Take one material out of a Three Script Module by name and put it on a normal ma
 
 </details>
 
+<a id="node-wasthreeimportobject"></a>
 <details>
 <summary><b>Three Import Object</b></summary>
 
@@ -12938,7 +13101,7 @@ Take one Object3D out of a Three Script Module by name and put it on a normal ob
 | | |
 |---|---|
 | Node id | `WASThreeImportObject` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12955,6 +13118,7 @@ Take one Object3D out of a Three Script Module by name and put it on a normal ob
 
 </details>
 
+<a id="node-wasthreelight"></a>
 <details>
 <summary><b>Three Light</b></summary>
 
@@ -12963,7 +13127,7 @@ One light, wired into a group or straight into the scene. A standard or physical
 | | |
 |---|---|
 | Node id | `WASThreeLight` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -12990,6 +13154,7 @@ One light, wired into a group or straight into the scene. A standard or physical
 
 </details>
 
+<a id="node-wasthreeloadmodel"></a>
 <details>
 <summary><b>Three Load Model</b></summary>
 
@@ -12998,7 +13163,7 @@ Put a model file into the scene as an object, so a mesh made elsewhere can be li
 | | |
 |---|---|
 | Node id | `WASThreeLoadModel` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13018,6 +13183,7 @@ Put a model file into the scene as an object, so a mesh made elsewhere can be li
 
 </details>
 
+<a id="node-wasthreematerialmix"></a>
 <details>
 <summary><b>Three Material Mix</b></summary>
 
@@ -13026,7 +13192,7 @@ Paint one material over another through a mask, the way a texturing tool stacks 
 | | |
 |---|---|
 | Node id | `WASThreeMaterialMix` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13046,6 +13212,7 @@ Paint one material over another through a mask, the way a texturing tool stacks 
 
 </details>
 
+<a id="node-wasthreemesh"></a>
 <details>
 <summary><b>Three Mesh</b></summary>
 
@@ -13054,7 +13221,7 @@ Draw one geometry with one material. This is the object that appears in the scen
 | | |
 |---|---|
 | Node id | `WASThreeMesh` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13074,6 +13241,7 @@ Draw one geometry with one material. This is the object that appears in the scen
 
 </details>
 
+<a id="node-wasthreeorthographiccamera"></a>
 <details>
 <summary><b>Three Orthographic Camera</b></summary>
 
@@ -13082,7 +13250,7 @@ A camera with no perspective, so parallel lines stay parallel and an object is t
 | | |
 |---|---|
 | Node id | `WASThreeOrthographicCamera` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13107,6 +13275,7 @@ A camera with no perspective, so parallel lines stay parallel and an object is t
 
 </details>
 
+<a id="node-wasthreepathtracerender"></a>
 <details>
 <summary><b>Three Path Trace Render</b></summary>
 
@@ -13115,7 +13284,7 @@ Render the scene by following light as it bounces, so soft shadows, colour bleed
 | | |
 |---|---|
 | Node id | `WASThreePathTraceRender` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13150,6 +13319,7 @@ Render the scene by following light as it bounces, so soft shadows, colour bleed
 
 </details>
 
+<a id="node-wasthreepathtraceviewer"></a>
 <details>
 <summary><b>Three Path Trace Viewer</b></summary>
 
@@ -13158,7 +13328,7 @@ Trace the scene on this node and keep adding samples to the same picture, so it 
 | | |
 |---|---|
 | Node id | `WASThreePathTraceViewer` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 | Output node | Yes, it runs even with nothing wired after it |
 
 **Inputs**
@@ -13175,6 +13345,7 @@ Trace the scene on this node and keep adding samples to the same picture, so it 
 
 </details>
 
+<a id="node-wasthreeperspectivecamera"></a>
 <details>
 <summary><b>Three Perspective Camera</b></summary>
 
@@ -13183,7 +13354,7 @@ A camera with perspective, so distant things are smaller. Position places it and
 | | |
 |---|---|
 | Node id | `WASThreePerspectiveCamera` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13208,6 +13379,7 @@ A camera with perspective, so distant things are smaller. Position places it and
 
 </details>
 
+<a id="node-wasthreephysicalmaterial"></a>
 <details>
 <summary><b>Three Physical Material</b></summary>
 
@@ -13216,7 +13388,7 @@ Three Standard Material with the effects glass, car paint and soap bubbles need.
 | | |
 |---|---|
 | Node id | `WASThreePhysicalMaterial` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13271,6 +13443,7 @@ Three Standard Material with the effects glass, car paint and soap bubbles need.
 
 </details>
 
+<a id="node-wasthreeplanegeometry"></a>
 <details>
 <summary><b>Three Plane Geometry</b></summary>
 
@@ -13279,7 +13452,7 @@ A flat rectangle facing +Z, which is the usual carrier for a texture and the usu
 | | |
 |---|---|
 | Node id | `WASThreePlaneGeometry` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13298,6 +13471,7 @@ A flat rectangle facing +Z, which is the usual carrier for a texture and the usu
 
 </details>
 
+<a id="node-wasthreeplayanimation"></a>
 <details>
 <summary><b>Three Play Animation</b></summary>
 
@@ -13306,7 +13480,7 @@ Play a clip that was saved inside a model file, including a skinned one, so a ri
 | | |
 |---|---|
 | Node id | `WASThreePlayAnimation` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13327,6 +13501,7 @@ Play a clip that was saved inside a model file, including a skinned one, so a ri
 
 </details>
 
+<a id="node-wasthreerender"></a>
 <details>
 <summary><b>Three Render</b></summary>
 
@@ -13335,7 +13510,7 @@ Draw the scene at a size you choose and hand it on as an IMAGE, so a Three.js sc
 | | |
 |---|---|
 | Node id | `WASThreeRender` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13365,6 +13540,7 @@ Draw the scene at a size you choose and hand it on as an IMAGE, so a Three.js sc
 
 </details>
 
+<a id="node-wasthreescene"></a>
 <details>
 <summary><b>Three Scene</b></summary>
 
@@ -13373,7 +13549,7 @@ Everything that gets drawn, plus what sits behind it. Wire one object into root,
 | | |
 |---|---|
 | Node id | `WASThreeScene` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13396,6 +13572,7 @@ Everything that gets drawn, plus what sits behind it. Wire one object into root,
 
 </details>
 
+<a id="node-wasthreescriptmodule"></a>
 <details>
 <summary><b>Three Script Module</b></summary>
 
@@ -13404,7 +13581,7 @@ Build several named resources in one place and hand them out through Three Impor
 | | |
 |---|---|
 | Node id | `WASThreeScriptModule` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13421,6 +13598,7 @@ Build several named resources in one place and hand them out through Three Impor
 
 </details>
 
+<a id="node-wasthreeshadermaterial"></a>
 <details>
 <summary><b>Three Shader Material</b></summary>
 
@@ -13429,7 +13607,7 @@ A surface whose look is written in GLSL rather than set by widgets. Lights do no
 | | |
 |---|---|
 | Node id | `WASThreeShaderMaterial` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13452,6 +13630,7 @@ A surface whose look is written in GLSL rather than set by widgets. Lights do no
 
 </details>
 
+<a id="node-wasthreespheregeometry"></a>
 <details>
 <summary><b>Three Sphere Geometry</b></summary>
 
@@ -13460,7 +13639,7 @@ A sphere, centred on its own origin. The two angle pairs cut it: leaving phi at 
 | | |
 |---|---|
 | Node id | `WASThreeSphereGeometry` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13482,6 +13661,7 @@ A sphere, centred on its own origin. The two angle pairs cut it: leaving phi at 
 
 </details>
 
+<a id="node-wasthreestandardmaterial"></a>
 <details>
 <summary><b>Three Standard Material</b></summary>
 
@@ -13490,7 +13670,7 @@ A physically based surface, lit by the lights in the scene. Colour, roughness an
 | | |
 |---|---|
 | Node id | `WASThreeStandardMaterial` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13528,6 +13708,7 @@ A physically based surface, lit by the lights in the scene. Colour, roughness an
 
 </details>
 
+<a id="node-wasthreetextureimage"></a>
 <details>
 <summary><b>Three Texture From Image</b></summary>
 
@@ -13536,7 +13717,7 @@ Carry an image into any of a material's map sockets. Only the first frame of a b
 | | |
 |---|---|
 | Node id | `WASThreeTextureImage` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13561,6 +13742,7 @@ Carry an image into any of a material's map sockets. Only the first frame of a b
 
 </details>
 
+<a id="node-wasthreetextureurl"></a>
 <details>
 <summary><b>Three Texture URL</b></summary>
 
@@ -13569,7 +13751,7 @@ A texture the browser fetches for itself, from a web address or from a data URL 
 | | |
 |---|---|
 | Node id | `WASThreeTextureURL` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13595,6 +13777,7 @@ A texture the browser fetches for itself, from a web address or from a data URL 
 
 </details>
 
+<a id="node-wasthreetorusgeometry"></a>
 <details>
 <summary><b>Three Torus Geometry</b></summary>
 
@@ -13603,7 +13786,7 @@ A ring lying in the XY plane. Radius is the distance from the centre to the midd
 | | |
 |---|---|
 | Node id | `WASThreeTorusGeometry` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13623,6 +13806,7 @@ A ring lying in the XY plane. Radius is the distance from the centre to the midd
 
 </details>
 
+<a id="node-wasthreetrack"></a>
 <details>
 <summary><b>Three Track</b></summary>
 
@@ -13631,7 +13815,7 @@ Aim a camera at an object, carry the camera along with it, or both, so a moving 
 | | |
 |---|---|
 | Node id | `WASThreeTrack` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13653,6 +13837,7 @@ Aim a camera at an object, carry the camera along with it, or both, so a moving 
 
 </details>
 
+<a id="node-wasthreetransformobject"></a>
 <details>
 <summary><b>Three Transform Object</b></summary>
 
@@ -13661,7 +13846,7 @@ Place an object in the scene. The object wired in is not altered: it is put insi
 | | |
 |---|---|
 | Node id | `WASThreeTransformObject` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 
 **Inputs**
 
@@ -13688,6 +13873,7 @@ Place an object in the scene. The object wired in is not altered: it is put insi
 
 </details>
 
+<a id="node-wasthreeviewer"></a>
 <details>
 <summary><b>Three Viewer</b></summary>
 
@@ -13696,7 +13882,7 @@ Draw the scene on this node and keep drawing it. The picture is built in the bro
 | | |
 |---|---|
 | Node id | `WASThreeViewer` |
-| Enable with | `features.threejs: true` in `config.yaml` |
+| Turn off with | `features.threejs: false` in `config.yaml` |
 | Output node | Yes, it runs even with nothing wired after it |
 
 **Inputs**
@@ -13709,279 +13895,13 @@ Draw the scene on this node and keep drawing it. The picture is built in the bro
 
 ---
 
-## WAS Suite/Utilities
+## `features.viewer`
 
-<details>
-<summary><b>Bus Node</b></summary>
+2 nodes. On in a fresh install: set `features.viewer: false` in `config.yaml` and restart ComfyUI to leave these out.
 
-Bundle model, clip, vae, positive and negative onto one wire. Connected inputs override what arrives on the bus.
+### WAS Suite/View
 
-| | |
-|---|---|
-| Node id | `Bus Node` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `bus` | `BUS` | No |  |  | An incoming bundle from an earlier Bus Node, carrying all five values on one wire. Leave it disconnected on the first node of a chain and connect the five inputs directly instead. |
-| `model` | `MODEL` | No |  |  | Diffusion model to put on the bus. Connected, it replaces whatever model arrived on the bus input; disconnected, the bus keeps its own. A model has to reach the node one way or the other. |
-| `clip` | `CLIP` | No |  |  | Text encoder to put on the bus. Connected, it replaces whatever clip arrived on the bus input; disconnected, the bus keeps its own. A clip has to reach the node one way or the other. |
-| `vae` | `VAE` | No |  |  | VAE to put on the bus. Connected, it replaces whatever vae arrived on the bus input; disconnected, the bus keeps its own. A vae has to reach the node one way or the other. |
-| `positive` | `CONDITIONING` | No |  |  | Positive conditioning to put on the bus. Connected, it replaces whatever arrived on the bus input. Unlike the model, clip and vae this one is not required, and stays empty if neither side has it. |
-| `negative` | `CONDITIONING` | No |  |  | Negative conditioning to put on the bus. Connected, it replaces whatever arrived on the bus input. Unlike the model, clip and vae this one is not required, and stays empty if neither side has it. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `bus` | `BUS` | All five values bundled onto one wire, to carry across the graph and unpack at the next Bus Node. |
-| `model` | `MODEL` | The model now on the bus: the model input, or the incoming bus's. |
-| `clip` | `CLIP` | The clip now on the bus: the clip input, or the incoming bus's. |
-| `vae` | `VAE` | The vae now on the bus: the vae input, or the incoming bus's. |
-| `positive` | `CONDITIONING` | The positive conditioning now on the bus: the positive input, or the incoming bus's. |
-| `negative` | `CONDITIONING` | The negative conditioning now on the bus: the negative input, or the incoming bus's. |
-
-</details>
-
-<details>
-<summary><b>Bus Node (Dynamic)</b></summary>
-
-Bundle model, clip, vae, positive and negative onto one wire, along with any number of extra named values. Reads and writes the same BUS as Bus Node, with the extras carried alongside.
-
-| | |
-|---|---|
-| Node id | `WASBusNodeDynamic` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `unpack_slot` | `INT` | Yes | 0 |  | Which extra comes out on the slot output, counted from 0 over the names in slot_names. A number past the end gives nothing rather than stopping the prompt, so a bus that has not been filled yet still runs. Chain another of these nodes to take a second extra off. |
-| `slots` | `COMFY_AUTOGROW_V3` | Yes |  |  | Extra values to put on the bus, named slot0, slot1 and so on. A slot replaces an extra of the same name already on the bus, so a value can be updated part way along a chain the way the five standard members can. Up to 16 slots. |
-| `bus` | `BUS` | No |  |  | An incoming bundle from either bus node. Its five members and any extras it carries pass through unless something here replaces them. Leave it disconnected on the first node of a chain. |
-| `model` | `MODEL` | No |  |  | Diffusion model to put on the bus. Connected, it replaces whatever model arrived on the bus input; disconnected, the bus keeps its own. Unlike Bus Node, this node does not insist on one being present. |
-| `clip` | `CLIP` | No |  |  | Text encoder to put on the bus. Connected, it replaces whatever clip arrived on the bus input; disconnected, the bus keeps its own. |
-| `vae` | `VAE` | No |  |  | VAE to put on the bus. Connected, it replaces whatever vae arrived on the bus input; disconnected, the bus keeps its own. |
-| `positive` | `CONDITIONING` | No |  |  | Positive conditioning to put on the bus. Connected, it replaces whatever arrived on the bus input. |
-| `negative` | `CONDITIONING` | No |  |  | Negative conditioning to put on the bus. Connected, it replaces whatever arrived on the bus input. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `bus` | `BUS` | Everything bundled onto one wire: the five members and every extra. Readable by Bus Node, which will see the five members and drop the extras. |
-| `model` | `MODEL` | The model now on the bus: the model input, or the incoming bus's. |
-| `clip` | `CLIP` | The clip now on the bus: the clip input, or the incoming bus's. |
-| `vae` | `VAE` | The vae now on the bus: the vae input, or the incoming bus's. |
-| `positive` | `CONDITIONING` | The positive conditioning now on the bus: the positive input, or the incoming bus's. |
-| `negative` | `CONDITIONING` | The negative conditioning now on the bus: the negative input, or the incoming bus's. |
-| `slot` | `*` | The extra named by unpack_slot, on a socket that accepts any type. Empty when the bus carries no extra at that position. |
-| `slot_names` | `ARRAY` | The names of every extra on the bus, in the order unpack_slot counts them. Wire it into Text List to Text to see what is being carried. |
-| `slot_count` | `INT` | How many extras the bus carries. |
-
-</details>
-
-<details>
-<summary><b>Display Any</b></summary>
-
-Write whatever is connected onto the node, the value itself filling the panel and what it is sitting under it. Text and numbers appear as they are, a list or dictionary as the data it holds, and an image, mask or latent as its shape, type, device and value range. A socket carrying several values gives each one a box of its own, holding that value and nothing else, so any of them can be selected and copied as it stands. The value passes through unchanged, so the node can be dropped into a chain rather than hung off the side of one.
-
-| | |
-|---|---|
-| Node id | `WASDisplayAny` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `value` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Anything at all: text, a number, an image, a mask, a latent, a model. Whatever connects here first decides the type of the node, and the output then carries that same type. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `value` | `COMFY_MATCHTYPE_V3` | The same value that came in, unchanged, on a socket carrying its type. Leave it unwired to end a branch on the node, or wire it on to watch a value partway down a chain. |
-
-</details>
-
-<details>
-<summary><b>Fast Groups</b></summary>
-
-List every group in the graph, each with a switch that mutes or bypasses every node inside it. Nothing has to be selected first, and the switches are the graph's own mute and bypass states, so they survive a save, an undo and a copy. The node reads nothing and answers nothing.
-
-| | |
-|---|---|
-| Node id | `WASFastGroups` |
-
-</details>
-
-<details>
-<summary><b>Free Memory</b></summary>
-
-Hand memory back to the graphics card partway through a run. ComfyUI can only be asked to free memory from its own menu, which a running graph cannot reach, so a chain that loads, upscales and then encodes video can run out on the last stage while the first two are still resident. Wire the stage that has finished into passthrough and the stage that needs the room after it, and the freeing happens between the two. Reports what the device held before and after, so the effect is a number rather than a guess. It runs on every queue rather than being cached, so everything below it runs again as well. Harmless on a machine with no graphics card.
-
-| | |
-|---|---|
-| Node id | `WASFreeMemory` |
-| Output node | Yes, it runs even with nothing wired after it |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `unload_models` | `BOOLEAN` | Yes | True |  | true hands every loaded checkpoint, VAE, CLIP and ControlNet back; false leaves them where they are. This is what frees the most. They load again by themselves when a node next asks for one, which costs the seconds that load took. |
-| `empty_cache` | `BOOLEAN` | Yes | True |  | true gives the driver back the blocks torch has reserved and is not using. Torch reuses those blocks itself, so this seldom changes what the next sampler can fit; reach for it when another program, or a library such as OpenCV, needs room on the card. |
-| `collect_garbage` | `BOOLEAN` | Yes | True |  | true runs Python's collector before the cache is emptied, so anything the graph has finished with is actually handed back rather than only marked unused. It costs a few milliseconds and makes unload_models worth more. |
-| `passthrough` | `COMFY_MATCHTYPE_V3` | No |  |  | Anything at all: an image, a model, a latent, text. It comes back out unchanged once the freeing is done, which is what pins the free to a point in the chain instead of leaving it to happen whenever. Leave it unwired to free on its own. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `passthrough` | `COMFY_MATCHTYPE_V3` | The value that came in, unchanged, on a socket carrying its type. Nothing wired to it starts until the freeing is over. Empty when nothing was wired into passthrough. |
-| `vram_before` | `FLOAT` | Gigabytes in use on the device ComfyUI computes on when the node started, as 18.42. On a machine with no graphics card that device is the processor and the figure is system RAM. |
-| `vram_after` | `FLOAT` | The same figure once the freeing has finished, as 2.10. Wire it into Compare to stop a run that still has too little room, or into Text Concatenate to record it. |
-| `freed` | `FLOAT` | vram_before minus vram_after, in gigabytes, as 16.32. 0.00 means nothing was handed back. It reads negative when another program took memory on the same device while this ran. |
-| `report` | `STRING` | The device, the used, free and total figures on both sides, what was done and how much came back, on five lines. Drawn on the node and wireable to Display Any or Text Save. |
-
-</details>
-
-<details>
-<summary><b>Hex to HSL</b></summary>
-
-Convert a hex colour string into its HSL components and CSS string.
-
-| | |
-|---|---|
-| Node id | `Hex to HSL` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `hex_color` | `STRING` | Yes | #FF0000 |  | The colour to convert, written as six hex digits for red, green and blue, '#FF0000' is pure red, or as eight with a trailing pair for opacity. The leading '#' is optional. |
-| `include_alpha` | `BOOLEAN` | No | False |  | Whether to read the last two hex digits as opacity. Off, alpha is reported as 1.0 and the string comes out as 'hsl(...)'; on, and given an eight-digit colour, the string comes out as 'hsla(...)'. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `hue` | `INT` | Position on the colour wheel in degrees, 0 to 360: 0 is red, 120 green, 240 blue. Grey and white have no hue and report 0. |
-| `saturation` | `INT` | How strong the colour is, as a percentage: 0 is grey, 100 is fully saturated. |
-| `lightness` | `INT` | How light the colour is, as a percentage: 0 is black, 50 is the pure hue, 100 is white. |
-| `alpha` | `FLOAT` | Opacity from 0.0 to 1.0, rounded to two places. 1.0 unless include_alpha is on and the colour carried eight hex digits. |
-| `hsl` | `STRING` | The same colour as a CSS string, e.g. 'hsl(0, 100%, 50%)', ready for HSL to Hex or any node that takes a colour string. |
-
-</details>
-
-<details>
-<summary><b>HSL to Hex</b></summary>
-
-Convert a CSS hsl() or hsla() colour string into a hex colour string.
-
-| | |
-|---|---|
-| Node id | `HSL to Hex` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `hsl_color` | `STRING` | Yes | hsl(0, 100%, 50%) |  | The colour to convert, as a CSS string: hue in degrees 0-359, then saturation and lightness as percentages, e.g. 'hsl(0, 100%, 50%)' for pure red. 'hsla(0, 100%, 50%, 0.5)' adds opacity from 0.0 to 1.0. The percent signs may be left out. A hue of exactly 360 falls in no sector and comes out black; use 0 for red. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `hex_color` | `STRING` | The same colour as '#RRGGBB', e.g. '#FF0000'. An opacity below 1.0 adds a fourth pair, giving '#RRGGBBAA'. |
-
-</details>
-
-<details>
-<summary><b>Model Info</b></summary>
-
-Say which model is on a wire and how big it is. Answers the class behind the loader, as `SDXL` or `AutoencoderKL`, the precision the weights are held at, the device they run on, and the parameter count both as a whole number and in millions. Takes MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the other loader types on one socket, reads them without loading or changing anything, and answers empty text for a fact it cannot reach rather than stopping the run.
-
-| | |
-|---|---|
-| Node id | `WASModelInfo` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `model` | `COMFY_MATCHTYPE_V3` | Yes |  |  | Anything a loader answers: MODEL, VAE, CLIP, CLIP_VISION, CONTROL_NET, UPSCALE_MODEL, STYLE_MODEL and the rest. The wire is read, not changed, and nothing is moved onto the graphics card to read it. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `kind` | `STRING` | The class behind the wire, which names the family: `SDXL` or `Flux` for a checkpoint, `AutoencoderKL` for a VAE, `RRDBNet` for an upscaler. A LoRA arrives as a plain `dict`. Falls back to the wrapper's own name where there is nothing inside it. |
-| `dtype` | `STRING` | Precision the weights are held at: `float16`, `bfloat16`, `float32`, `float8_e4m3fn`. Compare it to catch a checkpoint that loaded at full precision when half was wanted. Empty where the model does not say. |
-| `device` | `STRING` | Where the weights run: `cuda:0`, `cpu`, `mps`. For a loader that offloads, this is the device it loads onto when it runs, not where it is parked between runs. |
-| `parameter_count` | `INT` | Weights the model holds, counted element by element: around 860 million for an SD1.5 checkpoint and 2.6 billion for SDXL. 0 where nothing could be counted. |
-| `parameter_millions` | `FLOAT` | The same count divided by a million and rounded to three decimals, so 2567463684 reads as 2567.464. Easier to test against a threshold than the whole number. |
-| `summary` | `STRING` | Every figure on one line, as `SDXL, float16 on cuda:0, 2567.46M parameters`, with a count under a million written out in full. Wire it to Display Any, or into a filename prefix, to label a render with what made it. |
-
-</details>
-
-<details>
-<summary><b>Sleep</b></summary>
-
-Wait a set number of seconds, then hand whatever is wired in straight back out. Put it in front of anything that needs pacing: a web service with a rate limit, a folder another program is still writing to, a loop that would otherwise hammer a device. Cancel stops the wait within a twentieth of a second. The wait is taken on every queue rather than cached, so everything below it runs again as well.
-
-| | |
-|---|---|
-| Node id | `WASSleep` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `seconds` | `FLOAT` | Yes | 1.0 |  | How long to wait. 0 = no wait; 0.5 = half a second; 60 = a minute; 3600 = an hour, the most on offer. Match it to the limit being respected, such as 1.2 for a service allowing 50 calls a minute. |
-| `passthrough` | `COMFY_MATCHTYPE_V3` | No |  |  | Anything at all: an image, a model, text, a number. It comes back out unchanged once the wait is over, which is what puts the delay in the middle of a chain rather than off to one side. Leave it unwired to wait on its own. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `passthrough` | `COMFY_MATCHTYPE_V3` | The value that came in, unchanged, on a socket carrying its type. Nothing wired to it starts until the wait is over. Empty when nothing was wired into passthrough. |
-| `slept` | `FLOAT` | Seconds actually spent waiting, measured rather than repeated back, so 1.0 comes out as 1.001 or so. Wire it to Text Concatenate or Number Operation to record how long a run was paced for. |
-
-</details>
-
-<details>
-<summary><b>Widget to String</b></summary>
-
-Read one widget off another node in the graph and answer what it holds as text, so a filename, a caption or a log line can carry the seed, the sampler name, the steps or a prompt from wherever it is actually set. Nothing is wired to the node being read: give its id, the name of the widget, and optionally text to answer when either cannot be found.
-
-| | |
-|---|---|
-| Node id | `WASWidgetToString` |
-
-**Inputs**
-
-| Name | Type | Required | Default | Choices | What it does |
-|---|---|---|---|---|---|
-| `node_id` | `STRING` | Yes |  |  | The id of the node to read, as ComfyUI draws it on the node's badge: 12. Turn the badge on under Settings if no number is showing. Inside a subgraph the local number is enough, and a full path such as 12:3 works too. |
-| `widget_name` | `STRING` | Yes |  |  | The widget to read, spelled exactly as its node spells it: seed, steps, cfg, sampler_name, ckpt_name, text. An input filled by a wire holds no widget value, and asking for one says which node feeds it. |
-| `default` | `STRING` | No |  |  | Text to answer when the node or the widget cannot be found, which keeps the prompt running and sets found to false. Left empty, a miss stops the prompt with a message naming what was looked for and which nodes do carry a widget of that name. |
-
-**Outputs**
-
-| Name | Type | What it is |
-|---|---|---|
-| `string` | `STRING` | What the widget holds, written out: 42, 8.0, true, dpmpp_2m, or a whole prompt. Feed it to a filename prefix, a text join, or anything else taking a STRING. |
-| `found` | `BOOLEAN` | true when the widget was read, false when default stood in for it. Wire it into a switch where a stand-in must be handled differently, since the string alone cannot tell the two apart. |
-
-</details>
-
----
-
-## WAS Suite/View
-
+<a id="node-wascomfyviewer"></a>
 <details>
 <summary><b>Content Viewer</b></summary>
 
@@ -14012,6 +13932,7 @@ Display anything wired in, in an embedded frame, and pass it on unchanged: Markd
 
 </details>
 
+<a id="node-wascanvascomposebatch"></a>
 <details>
 <summary><b>CV Canvas Compose Batch</b></summary>
 
@@ -14039,36 +13960,708 @@ Join any number of image batches into one, centring every image on a transparent
 
 ---
 
-## WAS Suite/Workflow
+## `features.yunet`
 
+2 nodes. On in a fresh install: set `features.yunet: false` in `config.yaml` and restart ComfyUI to leave these out.
+
+### WAS Suite/Image/Process
+
+<a id="node-wasimagecropfaceyunet"></a>
 <details>
-<summary><b>App Workflow</b></summary>
+<summary><b>Image Crop Face (YuNet)</b></summary>
 
-Run a workflow saved in app mode as a single node. Its exposed inputs become values this node sets, and each result it presents leaves on a wire, so a whole saved graph can be reused inside a larger one.
+Find a face with YuNet and crop a square around it, together with the crop window Image Paste Face needs to put it back. The detector ships with the pack and runs in torch on whatever device ComfyUI is using, so there is nothing to install. Set features.yunet to false to leave this node out.
 
 | | |
 |---|---|
-| Node id | `WASAppWorkflow` |
+| Node id | `WASImageCropFaceYuNet` |
+| Turn off with | `features.yunet: false` in `config.yaml` |
 
 **Inputs**
 
 | Name | Type | Required | Default | Choices | What it does |
 |---|---|---|---|---|---|
-| `app` | `COMBO` | Yes |  |  | Which saved app workflow to run; a name ending .app.json from the workflows directory, such as upscale.app.json. |
-| `overrides` | `STRING` | Yes | {} |  | Values for the workflow's exposed inputs, as JSON keyed on the input name: {"steps": 30, "text": "a red car"}. Anything left out keeps the value the workflow was saved with, and the widgets below are sent through here. |
-| `input_1` | `*` | No |  |  | Value for the first input the workflow exposes, replacing what it saved; any type. Choosing a workflow renames this socket to the input it feeds, such as red_offset, and narrows it to that input's own type. An input that names a file takes an IMAGE here instead, and the file is not read. |
-| `input_2` | `*` | No |  |  | Value for the second input the workflow exposes, replacing what it saved; any type. Choosing a workflow renames this socket to the input it feeds, such as red_offset, and narrows it to that input's own type. An input that names a file takes an IMAGE here instead, and the file is not read. |
-| `input_3` | `*` | No |  |  | Value for the third input the workflow exposes, replacing what it saved; any type. Choosing a workflow renames this socket to the input it feeds, such as red_offset, and narrows it to that input's own type. An input that names a file takes an IMAGE here instead, and the file is not read. |
-| `input_4` | `*` | No |  |  | Value for the fourth input the workflow exposes, replacing what it saved; any type. Choosing a workflow renames this socket to the input it feeds, such as red_offset, and narrows it to that input's own type. An input that names a file takes an IMAGE here instead, and the file is not read. |
+| `image` | `IMAGE` | Yes |  |  | The image to search for a face in. A batch is searched on its first image and every image is then cut to that same window. |
+| `yunet_model` | `YUNET_MODEL` | Yes |  |  | The detector, from YuNet Model Loader. |
+| `crop_padding_factor` | `FLOAT` | Yes | 0.25 |  | How much room to leave around the detected face, as a fraction of its size. 0.0 crops tight to the detection, 0.25 leaves a quarter of the face size as margin, and 2.0 pulls back far enough to include the shoulders. |
+| `confidence` | `FLOAT` | Yes | 0.6 |  | How sure the detector has to be before a region counts as a face. Lower finds more faces and more false positives: drop towards 0.3 for a small, blurred or heavily stylised face, raise towards 0.9 when a busy background is producing detections that are not faces. |
+| `select` | `COMBO` | Yes |  | `largest`, `highest confidence`, `leftmost`, `rightmost` | Which face to crop when several are found. `largest` takes the one filling the most pixels, which is usually the subject. `highest confidence` takes the one the detector is surest of, which suits a crowd where the subject is not the nearest. `leftmost` and `rightmost` pick by position, for a framing you already know. |
 
 **Outputs**
 
 | Name | Type | What it is |
 |---|---|---|
-| `exposed` | `DICT` | What the workflow offers, as one value; DICT. Holds its exposed input names, its result count and the node count it ran. |
-| `output_1` | `*` | The first result the workflow presents; any type. It carries whatever feeds that node, so a workflow ending in a Preview Image answers the IMAGE itself, and choosing a workflow renames this socket to what it carries. |
-| `output_2` | `*` | The second result the workflow presents; any type. It carries whatever feeds that node, so a workflow ending in a Preview Image answers the IMAGE itself, and choosing a workflow renames this socket to what it carries. |
-| `output_3` | `*` | The third result the workflow presents; any type. It carries whatever feeds that node, so a workflow ending in a Preview Image answers the IMAGE itself, and choosing a workflow renames this socket to what it carries. |
-| `output_4` | `*` | The fourth result the workflow presents; any type. It carries whatever feeds that node, so a workflow ending in a Preview Image answers the IMAGE itself, and choosing a workflow renames this socket to what it carries. |
+| `<output0>` | `IMAGE` | The square face crop, at least 64 pixels on a side. A black 512x512 image when no face was found. |
+| `<output1>` | `CROP_DATA` | The crop window, for Image Paste Face to put the reworked face back in the right place. One window covers a whole batch. False when no face was found. |
+| `faces_found` | `INT` | How many faces the detector reported before one was chosen. 0 means the crop is the black placeholder. |
+| `confidence_score` | `FLOAT` | How sure the detector was about the face it cropped, 0.0 to 1.0. Wire it into a condition node to route a doubtful detection somewhere else. 0.0 when no face was found. |
+
+</details>
+
+### WAS Suite/Loaders
+
+<a id="node-wasyunetmodelloader"></a>
+<details>
+<summary><b>YuNet Model Loader</b></summary>
+
+Load the YuNet face detector for Image Crop Face (YuNet). The weights ship with the pack, so there is nothing to download and nothing to install: connect this to Image Crop Face (YuNet) and run it. The detector runs on whatever device ComfyUI is using.
+
+| | |
+|---|---|
+| Node id | `WASYuNetModelLoader` |
+| Turn off with | `features.yunet: false` in `config.yaml` |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `yunet_model` | `YUNET_MODEL` | The loaded detector, for the yunet_model input of Image Crop Face (YuNet). |
+
+</details>
+
+---
+
+## `legacy.core_dupes`
+
+3 nodes. On in a fresh install: set `legacy.core_dupes: false` in `config.yaml` and restart ComfyUI to leave these out.
+
+### WAS Suite/Image/Masking
+
+<a id="node-convert-masks-to-images"></a>
+<details>
+<summary><b>Convert Masks to Images</b></summary>
+
+Deprecated: use core MaskToImage instead. Converts a batch of masks to greyscale images, one image per mask, with fully masked areas white and unmasked areas black.
+
+| | |
+|---|---|
+| Node id | `Convert Masks to Images` |
+| Turn off with | `legacy.core_dupes: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `masks` | `MASK` | Yes |  |  | The masks to render as pictures, so they can be previewed, saved or fed to a node that only takes images. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `IMAGES` | `IMAGE` | The masks as grey images, one per mask. Fully masked areas come out white and unmasked areas black, with partial strengths in between. |
+
+</details>
+
+<a id="node-image-to-latent-mask"></a>
+<details>
+<summary><b>Image to Latent Mask</b></summary>
+
+Deprecated: use core ImageToMask instead, or ImageColorToMask to key on a colour. Takes one channel of an image as a mask, one mask per image in the batch. `alpha` uses transparency, which is fully opaque everywhere for an image that has none and so gives a solid white mask; `red`, `green` and `blue` each use one colour channel, which is how a mask painted in a single colour is picked up.
+
+| | |
+|---|---|
+| Node id | `Image to Latent Mask` |
+| Turn off with | `legacy.core_dupes: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `images` | `IMAGE` | Yes |  |  | The images to read a channel out of. Each image in the batch produces one mask. |
+| `channel` | `COMBO` | Yes |  | `alpha`, `red`, `green`, `blue` | Which channel supplies the mask, taken at its own brightness so a half-lit channel gives a half-strength mask. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `MASKS` | `MASK` | One mask per input image, taken from the chosen channel, as a batch the same length as the images that came in. |
+
+</details>
+
+### WAS Suite/Number
+
+<a id="node-seed"></a>
+<details>
+<summary><b>Seed (Number Outputs)</b></summary>
+
+Deprecated: use ComfyUI's own Seed node instead. Emits one seed value on a SEED socket and on NUMBER, FLOAT and INT sockets. The SEED socket is read only by the deprecated KSampler (WAS); every core sampler takes a plain INT.
+
+| | |
+|---|---|
+| Node id | `Seed` |
+| Turn off with | `legacy.core_dupes: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `seed` | `INT` | Yes | 0 |  | The seed to hand out. The same seed reproduces the same noise, so an image can be repeated exactly; change it for a different one. Any whole number; `0` is as good a seed as any. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `seed` | `SEED` | The seed in the shape KSampler (WAS) expects on its seed input. |
+| `number` | `NUMBER` | The bare seed on a NUMBER socket, for this pack's number nodes. |
+| `float` | `FLOAT` | The same seed as a float, so 42 leaves here as 42.0. |
+| `int` | `INT` | The same seed as an INT, for a core sampler's seed widget. |
+
+</details>
+
+---
+
+## `legacy.loaders`
+
+5 nodes. On in a fresh install: set `legacy.loaders: false` in `config.yaml` and restart ComfyUI to leave these out.
+
+### WAS Suite/Loaders
+
+<a id="node-checkpoint-loader"></a>
+<details>
+<summary><b>Checkpoint Loader (Advanced)</b></summary>
+
+Deprecated: use ComfyUI's Load Checkpoint instead, which reads the architecture out of the weights rather than asking for a config file. Loads a checkpoint against a chosen model config and returns the model, CLIP and VAE, plus the checkpoint's file name as a string. That name is already on the ckpt_name widget.
+
+| | |
+|---|---|
+| Node id | `Checkpoint Loader` |
+| Turn off with | `legacy.loaders: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `config_name` | `COMBO` | Yes |  |  | The .yaml config in models/configs that describes the checkpoint's architecture. Only original Stable Diffusion 1.x and 2.x weights need one; anything newer loads with ComfyUI's Load Checkpoint instead, which needs no config. |
+| `ckpt_name` | `COMBO` | Yes |  |  | The checkpoint file in models/checkpoints to load. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `MODEL` | `MODEL` | The diffusion model, for a sampler. |
+| `CLIP` | `CLIP` | The text encoder, for the prompt encoding nodes. |
+| `VAE` | `VAE` | The autoencoder that turns a latent into an image. |
+| `NAME_STRING` | `STRING` | The checkpoint's file name without its folder or extension, for captions, file names and log lines. |
+
+</details>
+
+<a id="node-checkpoint-loader-simple"></a>
+<details>
+<summary><b>Checkpoint Loader (Simple, Advanced)</b></summary>
+
+Deprecated: use ComfyUI's Load Checkpoint instead. Loads a checkpoint and returns the model, CLIP and VAE, plus the checkpoint's file name as a string. That name is already on the ckpt_name widget.
+
+| | |
+|---|---|
+| Node id | `Checkpoint Loader (Simple)` |
+| Turn off with | `legacy.loaders: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `ckpt_name` | `COMBO` | Yes |  |  | The checkpoint file in models/checkpoints to load. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `MODEL` | `MODEL` | The diffusion model, for a sampler. |
+| `CLIP` | `CLIP` | The text encoder, for the prompt encoding nodes. |
+| `VAE` | `VAE` | The autoencoder that turns a latent into an image. Empty for a checkpoint that ships no VAE, which then needs a Load VAE node. |
+| `NAME_STRING` | `STRING` | The checkpoint's file name without its folder or extension, for captions, file names and log lines. |
+
+</details>
+
+<a id="node-lora-loader"></a>
+<details>
+<summary><b>Lora Loader (Advanced)</b></summary>
+
+Deprecated: use ComfyUI's Load LoRA instead. Applies a LoRA to a model and a CLIP at separate strengths, and returns the LoRA's file name as a string. That name is already on the lora_name widget.
+
+| | |
+|---|---|
+| Node id | `Lora Loader` |
+| Turn off with | `legacy.loaders: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `model` | `MODEL` | Yes |  |  | The diffusion model the LoRA is applied to. |
+| `clip` | `CLIP` | Yes |  |  | The text encoder the LoRA is applied to. Most LoRAs adjust both halves, so this is wired from the same checkpoint as model. |
+| `lora_name` | `COMBO` | Yes |  |  | The LoRA file in models/loras to apply. 'None' passes the model and CLIP through unchanged. |
+| `strength_model` | `FLOAT` | Yes | 1.0 |  | How strongly the LoRA modifies the diffusion model. 1.0 is the strength it was trained at, 0.0 leaves the model alone, and a negative value applies it in reverse. |
+| `strength_clip` | `FLOAT` | Yes | 1.0 |  | How strongly the LoRA modifies the text encoder. 1.0 is the strength it was trained at; lowering it keeps the LoRA's look while letting the prompt matter more. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `MODEL` | `MODEL` | The model with the LoRA applied. |
+| `CLIP` | `CLIP` | The text encoder with the LoRA applied. |
+| `NAME_STRING` | `STRING` | The LoRA's file name without its folder or extension, for captions, file names and log lines. |
+
+</details>
+
+<a id="node-unclip-checkpoint-loader"></a>
+<details>
+<summary><b>unCLIP Checkpoint Loader (Advanced)</b></summary>
+
+Deprecated: use ComfyUI's unCLIP Checkpoint Loader instead. Loads an unCLIP checkpoint and returns the model, CLIP, VAE and CLIP vision tower, plus the checkpoint's file name as a string. That name is already on the ckpt_name widget.
+
+| | |
+|---|---|
+| Node id | `unCLIP Checkpoint Loader` |
+| Turn off with | `legacy.loaders: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `ckpt_name` | `COMBO` | Yes |  |  | The checkpoint file in models/checkpoints to load. An unCLIP checkpoint is needed for the CLIP_VISION output to carry anything. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `MODEL` | `MODEL` | The diffusion model, for a sampler. |
+| `CLIP` | `CLIP` | The text encoder, for the prompt encoding nodes. |
+| `VAE` | `VAE` | The autoencoder that turns a latent into an image. |
+| `CLIP_VISION` | `CLIP_VISION` | The image encoder an unCLIP conditioning node needs. Empty when the checkpoint is not an unCLIP model. |
+| `NAME_STRING` | `STRING` | The checkpoint's file name without its folder or extension, for captions, file names and log lines. |
+
+</details>
+
+<a id="node-upscale-model-loader"></a>
+<details>
+<summary><b>Upscale Model Loader (Advanced)</b></summary>
+
+Deprecated: use ComfyUI's Load Upscale Model instead. Loads an upscale model and returns it, plus the file name it came from as a string. That name is already on the model_name widget.
+
+| | |
+|---|---|
+| Node id | `Upscale Model Loader` |
+| Turn off with | `legacy.loaders: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `model_name` | `COMBO` | Yes |  |  | The upscale model in models/upscale_models to load. Its own scale factor, usually 2x or 4x, decides how much larger the result is. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `UPSCALE_MODEL` | `UPSCALE_MODEL` | The loaded model, for Upscale Image (using Model). |
+| `MODEL_NAME_TEXT` | `STRING` | The file name as it appears in the widget, extension included, for captions, file names and log lines. |
+
+</details>
+
+---
+
+## `legacy.sampling`
+
+1 nodes. On in a fresh install: set `legacy.sampling: false` in `config.yaml` and restart ComfyUI to leave these out.
+
+### WAS Suite/Sampling
+
+<a id="node-ksampler-was"></a>
+<details>
+<summary><b>KSampler (Seed Socket)</b></summary>
+
+Deprecated: use ComfyUI's KSampler instead, with a Seed node feeding its seed input where the seed arrives on a wire. Samples a latent with the core sampler, taking the seed from a SEED socket rather than from a widget.
+
+| | |
+|---|---|
+| Node id | `KSampler (WAS)` |
+| Turn off with | `legacy.sampling: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `model` | `MODEL` | Yes |  |  | The diffusion model doing the sampling. |
+| `seed` | `SEED` | Yes |  |  | The noise seed, arriving on a wire from a Seed or Number to Seed node rather than as a widget. This socket is the only thing that sets this node apart from ComfyUI's own KSampler. |
+| `steps` | `INT` | Yes | 20 |  | How many sampling steps to run. More steps take longer and resolve more detail, with little to gain past about 30 for most models. |
+| `cfg` | `FLOAT` | Yes | 8.0 |  | How closely the image is held to the prompt. Around 7-8 suits most models; lower is looser and softer, much higher tends to burn contrast and flatten detail. |
+| `sampler_name` | `COMBO` | Yes |  |  | The sampling algorithm. 'euler' is the plain, predictable choice; the 'ancestral' and 'sde' variants add fresh noise as they go; the 'dpmpp' family converges in fewer steps. The list is whatever this ComfyUI offers. |
+| `scheduler` | `COMBO` | Yes |  |  | How the noise level is stepped down over the run. 'normal' and 'karras' are the usual choices, karras spending more steps at low noise where fine detail is decided. |
+| `positive` | `CONDITIONING` | Yes |  |  | Encoded prompt describing what the image should contain. |
+| `negative` | `CONDITIONING` | Yes |  |  | Encoded prompt describing what to keep out of the image. |
+| `latent_image` | `LATENT` | Yes |  |  | The latent to sample: an empty one to generate from scratch, or an encoded image to work from. Its size sets the output size. |
+| `denoise` | `FLOAT` | Yes | 1.0 |  | How much of the latent is redrawn. 1.0 ignores its content and generates from noise; around 0.5 keeps the composition and changes the detail; 0.0 changes nothing. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `LATENT` | The sampled latent. Decode it with a VAE Decode to see the picture. |
+
+</details>
+
+---
+
+## `legacy.switches`
+
+11 nodes. On in a fresh install: set `legacy.switches: false` in `config.yaml` and restart ComfyUI to leave these out.
+
+### WAS Suite/Logic/Switch
+
+<a id="node-clip-input-switch"></a>
+<details>
+<summary><b>CLIP Input Switch</b></summary>
+
+Deprecated: use Model Switch instead. It takes the type of whatever is connected and skips the branch it does not select. This node passes one of two CLIP text encoders on, chosen by a boolean: clip_a when the boolean is true, clip_b when it is false.
+
+| | |
+|---|---|
+| Node id | `CLIP Input Switch` |
+| Turn off with | `legacy.switches: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `clip_a` | `CLIP` | Yes |  |  | The text encoder sent on when boolean is true. |
+| `clip_b` | `CLIP` | Yes |  |  | The text encoder sent on when boolean is false. |
+| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = clip_a, false = clip_b. Toggle it, or wire it from Logic Boolean. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `CLIP` | Whichever of the two text encoders was selected. |
+
+</details>
+
+<a id="node-clip-vision-input-switch"></a>
+<details>
+<summary><b>CLIP Vision Input Switch</b></summary>
+
+Deprecated: use Model Switch instead. It takes the type of whatever is connected and skips the branch it does not select. This node passes one of two CLIP Vision models on, chosen by a boolean: clip_vision_a when the boolean is true, clip_vision_b when it is false.
+
+| | |
+|---|---|
+| Node id | `CLIP Vision Input Switch` |
+| Turn off with | `legacy.switches: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `clip_vision_a` | `CLIP_VISION` | Yes |  |  | The CLIP Vision model sent on when boolean is true. |
+| `clip_vision_b` | `CLIP_VISION` | Yes |  |  | The CLIP Vision model sent on when boolean is false. |
+| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = clip_vision_a, false = clip_vision_b. Toggle it, or wire it from Logic Boolean. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `CLIP_VISION` | Whichever of the two CLIP Vision models was selected. |
+
+</details>
+
+<a id="node-conditioning-input-switch"></a>
+<details>
+<summary><b>Conditioning Input Switch</b></summary>
+
+Deprecated: use Any Input Switch instead. It takes the type of whatever is connected and skips the branch it does not select. This node passes one of two conditionings on, chosen by a boolean: conditioning_a when the boolean is true, conditioning_b when it is false.
+
+| | |
+|---|---|
+| Node id | `Conditioning Input Switch` |
+| Turn off with | `legacy.switches: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `conditioning_a` | `CONDITIONING` | Yes |  |  | The encoded prompt sent on when boolean is true. |
+| `conditioning_b` | `CONDITIONING` | Yes |  |  | The encoded prompt sent on when boolean is false. |
+| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = conditioning_a, false = conditioning_b. Toggle it, or wire it from Logic Boolean. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `CONDITIONING` | Whichever of the two conditionings was selected. |
+
+</details>
+
+<a id="node-control-net-model-input-switch"></a>
+<details>
+<summary><b>Control Net Model Input Switch</b></summary>
+
+Deprecated: use Model Switch instead. It takes the type of whatever is connected and skips the branch it does not select. This node passes one of two ControlNet models on, chosen by a boolean: control_net_a when the boolean is true, control_net_b when it is false.
+
+| | |
+|---|---|
+| Node id | `Control Net Model Input Switch` |
+| Turn off with | `legacy.switches: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `control_net_a` | `CONTROL_NET` | Yes |  |  | The ControlNet model sent on when boolean is true. |
+| `control_net_b` | `CONTROL_NET` | Yes |  |  | The ControlNet model sent on when boolean is false. |
+| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = control_net_a, false = control_net_b. Toggle it, or wire it from Logic Boolean. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `CONTROL_NET` | Whichever of the two ControlNet models was selected. |
+
+</details>
+
+<a id="node-image-input-switch"></a>
+<details>
+<summary><b>Image Input Switch</b></summary>
+
+Deprecated: use Tensor Image Switch instead. It takes the type of whatever is connected, an image, a mask or a latent, and skips the branch it does not select. This node passes one of two images on, chosen by a boolean: image_a when the boolean is true, image_b when it is false.
+
+| | |
+|---|---|
+| Node id | `Image Input Switch` |
+| Turn off with | `legacy.switches: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `image_a` | `IMAGE` | Yes |  |  | The image sent on when boolean is true. |
+| `image_b` | `IMAGE` | Yes |  |  | The image sent on when boolean is false. |
+| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = image_a, false = image_b. Toggle it, or wire it from Logic Boolean. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `IMAGE` | Whichever of the two images was selected. |
+
+</details>
+
+<a id="node-latent-input-switch"></a>
+<details>
+<summary><b>Latent Input Switch</b></summary>
+
+Deprecated: use Tensor Image Switch instead. It takes the type of whatever is connected, an image, a mask or a latent, and skips the branch it does not select. This node passes one of two latents on, chosen by a boolean: latent_a when the boolean is true, latent_b when it is false.
+
+| | |
+|---|---|
+| Node id | `Latent Input Switch` |
+| Turn off with | `legacy.switches: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `latent_a` | `LATENT` | Yes |  |  | The latent sent on when boolean is true. |
+| `latent_b` | `LATENT` | Yes |  |  | The latent sent on when boolean is false. |
+| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = latent_a, false = latent_b. Toggle it, or wire it from Logic Boolean. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `LATENT` | Whichever of the two latents was selected. |
+
+</details>
+
+<a id="node-model-input-switch"></a>
+<details>
+<summary><b>Model Input Switch</b></summary>
+
+Deprecated: use Model Switch instead. It takes the type of whatever is connected and skips the branch it does not select. This node passes one of two diffusion models on, chosen by a boolean: model_a when the boolean is true, model_b when it is false.
+
+| | |
+|---|---|
+| Node id | `Model Input Switch` |
+| Turn off with | `legacy.switches: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `model_a` | `MODEL` | Yes |  |  | The diffusion model sent on when boolean is true. |
+| `model_b` | `MODEL` | Yes |  |  | The diffusion model sent on when boolean is false. |
+| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = model_a, false = model_b. Toggle it, or wire it from Logic Boolean. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `MODEL` | Whichever of the two diffusion models was selected. |
+
+</details>
+
+<a id="node-number-input-switch"></a>
+<details>
+<summary><b>Number Input Switch</b></summary>
+
+Deprecated: use Any Input Switch instead. It takes the type of whatever is connected and skips the branch it does not select. This node passes one of two numbers on, chosen by a boolean: number_a when the boolean is true, number_b when it is false. The selected value also leaves as a float and as a whole number.
+
+| | |
+|---|---|
+| Node id | `Number Input Switch` |
+| Turn off with | `legacy.switches: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `number_a` | `NUMBER,INT,FLOAT` | Yes |  |  | The value sent on when boolean is true. |
+| `number_b` | `NUMBER,INT,FLOAT` | Yes |  |  | The value sent on when boolean is false. |
+| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = number_a, false = number_b. Toggle it, or wire it from Logic Boolean. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `NUMBER` | The selected value, keeping the type it arrived as: a whole number stays whole, 2.5 stays 2.5. |
+| `<output1>` | `FLOAT` | The same value as a float, so 8 leaves here as 8.0. |
+| `<output2>` | `INT` | The same value as a whole number, cut off rather than rounded, so 2.9 leaves here as 2. |
+
+</details>
+
+<a id="node-text-input-switch"></a>
+<details>
+<summary><b>Text Input Switch</b></summary>
+
+Deprecated: use Any Input Switch instead. It takes the type of whatever is connected and skips the branch it does not select. This node passes one of two pieces of text on, chosen by a boolean: text_a when the boolean is true, text_b when it is false.
+
+| | |
+|---|---|
+| Node id | `Text Input Switch` |
+| Turn off with | `legacy.switches: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text_a` | `STRING` | Yes |  |  | Sent out when boolean is true; STRING. |
+| `text_b` | `STRING` | Yes |  |  | Sent out when boolean is false; STRING. |
+| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = text_a, false = text_b. Toggle it, or wire it from Logic Boolean. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `STRING` | Whichever of the two pieces of text was selected. |
+
+</details>
+
+<a id="node-upscale-model-switch"></a>
+<details>
+<summary><b>Upscale Model Switch</b></summary>
+
+Deprecated: use Model Switch instead. It takes the type of whatever is connected and skips the branch it does not select. This node passes one of two upscale models on, chosen by a boolean: upscale_model_a when the boolean is true, upscale_model_b when it is false.
+
+| | |
+|---|---|
+| Node id | `Upscale Model Switch` |
+| Turn off with | `legacy.switches: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `upscale_model_a` | `UPSCALE_MODEL` | Yes |  |  | The upscale model sent on when boolean is true. |
+| `upscale_model_b` | `UPSCALE_MODEL` | Yes |  |  | The upscale model sent on when boolean is false. |
+| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = upscale_model_a, false = upscale_model_b. Toggle it, or wire it from Logic Boolean. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `UPSCALE_MODEL` | Whichever of the two upscale models was selected. |
+
+</details>
+
+<a id="node-vae-input-switch"></a>
+<details>
+<summary><b>VAE Input Switch</b></summary>
+
+Deprecated: use Model Switch instead. It takes the type of whatever is connected and skips the branch it does not select. This node passes one of two VAEs on, chosen by a boolean: vae_a when the boolean is true, vae_b when it is false.
+
+| | |
+|---|---|
+| Node id | `VAE Input Switch` |
+| Turn off with | `legacy.switches: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `vae_a` | `VAE` | Yes |  |  | The VAE sent on when boolean is true. |
+| `vae_b` | `VAE` | Yes |  |  | The VAE sent on when boolean is false. |
+| `boolean` | `BOOLEAN` | Yes | True |  | Which input passes; BOOLEAN. true = vae_a, false = vae_b. Toggle it, or wire it from Logic Boolean. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `VAE` | Whichever of the two VAEs was selected. |
+
+</details>
+
+---
+
+## `legacy.text_type`
+
+2 nodes. On in a fresh install: set `legacy.text_type: false` in `config.yaml` and restart ComfyUI to leave these out.
+
+### WAS Suite/Text/Operations
+
+<a id="node-string-to-text"></a>
+<details>
+<summary><b>String to Text</b></summary>
+
+Deprecated. Nothing replaces it: every text socket is a plain STRING, so a string wires straight into a text input and this node does nothing. Delete it from a workflow and join the two wires it sat between.
+
+| | |
+|---|---|
+| Node id | `String to Text` |
+| Turn off with | `legacy.text_type: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `string` | `STRING` | Yes |  |  | The string to pass on. Nothing is done to it: text inputs accept a string directly, so this node can be deleted from a workflow and its two wires joined. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `STRING` | The input string, unchanged. |
+
+</details>
+
+<a id="node-text-to-string"></a>
+<details>
+<summary><b>Text to String</b></summary>
+
+Deprecated. Nothing replaces it: every text socket is a plain STRING, so a text output wires straight into a string input and this node does nothing. Delete it from a workflow and join the two wires it sat between.
+
+| | |
+|---|---|
+| Node id | `Text to String` |
+| Turn off with | `legacy.text_type: false` in `config.yaml` |
+
+**Inputs**
+
+| Name | Type | Required | Default | Choices | What it does |
+|---|---|---|---|---|---|
+| `text` | `STRING` | Yes |  |  | Text to pass through unchanged; STRING, as `a tabby cat`. String inputs take text outputs directly. |
+
+**Outputs**
+
+| Name | Type | What it is |
+|---|---|---|
+| `<output0>` | `STRING` | The input text, unchanged. |
 
 </details>

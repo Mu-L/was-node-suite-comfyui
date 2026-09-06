@@ -35,7 +35,6 @@ V2_STATE_FILES = (
 # user's file and each needs an answer, carried forward, or dropped with a reason.
 HANDLED = frozenset(
     {
-        "show_startup_junk",
         "show_inspiration_quote",
         "wildcards_path",
         "webui_styles",
@@ -45,6 +44,7 @@ HANDLED = frozenset(
 )
 
 OBSOLETE = {
+    "show_startup_junk": "the loader reports only what failed, so there is nothing to silence",
     "run_requirements": "v3 never pip-installs anything",
     "ffmpeg_bin_path": "video encodes in-process through av, so no binary is located or run",
     "suppress_uncomfy_warnings": "warnings go through the logging block",
@@ -143,8 +143,6 @@ def forward(legacy: Mapping) -> dict:
     def carry(section: str, key: str, value) -> None:
         fragment.setdefault(section, {})[key] = value
 
-    if "show_startup_junk" in legacy:
-        carry("logging", "startup_summary", bool(legacy["show_startup_junk"]))
     if "show_inspiration_quote" in legacy:
         carry("logging", "quotes", bool(legacy["show_inspiration_quote"]))
     if "wildcards_path" in legacy:

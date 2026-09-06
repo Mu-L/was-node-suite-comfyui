@@ -307,6 +307,7 @@ class NodeLoader:
         self.node_ids: set[str] = set()
         self.timings: dict[str, tuple[float, int, Exception | None]] = {}
         self.skipped: dict[str, list[str]] = {}
+        self.dropped: list[str] = []
         self.legacy_prefix = f"{package_name}.nodes.legacy."
         self.groups = group_names()
 
@@ -396,6 +397,7 @@ class NodeLoader:
                     self.short_name(module.__name__), node_cls.__name__, error,
                 )
                 logger.debug("%s", traceback.format_exc())
+                self.dropped.append(f"{self.short_name(module.__name__)}.{node_cls.__name__}")
                 continue
             if self.node_enabled(node_id, group_on):
                 expand_tokens(node_cls)
@@ -506,58 +508,50 @@ class NodeLoader:
             return None
 
     def print_summary(self) -> None:
+        """One line for the whole load, raised to a warning when anything did not make it."""
         failed = sum(1 for _, _, error in self.timings.values() if error is not None)
         elapsed = sum(seconds for seconds, _, _ in self.timings.values())
-        console = log.console
-        if console is not None and self.timings and setting(self.config, "logging", "startup_summary", True):
-            from rich.markup import escape
-            from rich.table import Table
-
-            table = Table(header_style="cyan", border_style="cyan", expand=False)
-            table.add_column("Module", overflow="fold")
-            table.add_column("Time (ms)", justify="right")
-            table.add_column("Nodes", justify="right")
-            table.add_column("Status", justify="center")
-            table.add_column("Error", overflow="fold")
-            for name, (seconds, count, error) in self.timings.items():
-                table.add_row(
-                    self.short_name(name),
-                    f"{seconds * 1000:.1f}",
-                    str(count),
-                    "[green]OK[/green]" if error is None else "[red]FAILED[/red]",
-                    # Cells are parsed as markup, and this one is the exception's own text.
-                    "" if error is None else escape(f"{type(error).__name__}: {error}"),
+        for name, (seconds, count, error) in self.timings.items():
+            if error is None:
+                logger.debug(
+                    "%s loaded %s node(s) in %.1f ms",
+                    self.short_name(name), count, seconds * 1000,
                 )
-            console.print(table)
         summary = "loaded {} node(s) from {} module(s) in {:.0f} ms".format(
             len(self.nodes), len(self.timings), elapsed * 1000
         )
+        if not failed and not self.dropped:
+            logger.info(summary)
+            return
+        trouble = []
         if failed:
-            summary += f", {failed} module(s) failed"
-        logger.info(summary)
+            trouble.append(f"{failed} module(s) failed to import")
+        if self.dropped:
+            trouble.append(f"{len(self.dropped)} node(s) were dropped")
+        logger.warning(
+            "%s. %s. Each one is named in an error above, with the reason it did not load.",
+            summary, " and ".join(trouble),
+        )
 
     def print_disabled(self) -> None:
-        """One block per disabled group, naming every node in it."""
+        """The disabled groups, how to turn one on and what to install. Ids go to debug."""
         if not self.skipped:
             return
         total = sum(len(ids) for ids in self.skipped.values())
         key_width = max(len(key) for key in self.skipped)
-        lines = [
-            f"{len(self.skipped)} group(s) disabled, {total} node(s) not loaded. "
-            f"A workflow naming one of these opens with that node missing."
-        ]
         for key in sorted(self.skipped):
             # The full id list is what connects the node type a workflow reports as missing
             # to the setting that brings it back.
-            ids = sorted(self.skipped[key])
-            lines.append(f"  {key.ljust(key_width)}  {', '.join(ids)}")
-        lines.append("  Set <group>: true in config.yaml to load one, then restart ComfyUI.")
+            logger.debug("%s  %s", key.ljust(key_width), ", ".join(sorted(self.skipped[key])))
+        lines = [
+            f"{total} node(s) are not loaded: {', '.join(sorted(self.skipped))} turned off in "
+            f"config.yaml. A workflow naming one of them opens with that node missing. "
+            f"Set <group>: true and restart ComfyUI to load it."
+        ]
         commands = install_commands(self.skipped)
         if commands:
             lines.append("  Only these need a package installed, one command per group:")
             lines.extend(f"    {command}" for command in commands)
-        else:
-            lines.append("  None of them needs a package installed.")
         lines.append("  What each group needs, and where its models go: docs/CONFIG.md")
         logger.info("\n".join(lines))
 

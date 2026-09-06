@@ -250,7 +250,8 @@ def write_manifest(pack_root: Path) -> list[str]:
         )
         return []
     if found:
-        logger.info("content viewer: %s view extension(s) available, %s", len(found), ", ".join(found))
+        logger.debug("content viewer: the view extensions available are %s", ", ".join(found))
+        logger.info("content viewer: %s view extension(s) available", len(found))
     return found
 
 

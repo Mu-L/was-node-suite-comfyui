@@ -1,7 +1,7 @@
 """Logging for the pack, with optional rich formatting.
 
-:func:`get_logger` returns a logger under the pack's root name. Level, colour and the
-startup summary come from the ``logging`` block of the config.
+:func:`get_logger` returns a logger under the pack's root name. Level and colour come from
+the ``logging`` block of the config.
 """
 
 from __future__ import annotations

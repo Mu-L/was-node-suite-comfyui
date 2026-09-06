@@ -41,7 +41,7 @@ git push -u origin image-crop-face-padding
 Where a node's inputs or outputs changed, say what a user sees when they open a workflow saved
 before the change: which widgets shift, which links drop, what they retype.
 
-Rebase on `main` before opening the pull request.
+Rebase on `main` before opening the pull request, and again if review takes a while:
 
 ```sh
 git pull --rebase upstream main

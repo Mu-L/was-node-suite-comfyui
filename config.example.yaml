@@ -10,8 +10,7 @@ version: 14
 
 logging:
   level: info            # debug | info | warning | error
-  rich: true             # colourised output and tables when rich is installed
-  startup_summary: true  # the per-module load-time table at startup
+  rich: true             # colourised output when rich is installed
   quotes: false          # accepted and has no effect
 
 paths:
@@ -57,6 +56,9 @@ features:                # optional node groups
   preprocessors: true    #  4 nodes: Power Preprocessor, HDR Reconstruct, Image Remove Background
                          #           and its model loader. Every answer runs in torch on weights
                          #           the pack publishes
+  threejs:     true      # 43 nodes: build a Three.js scene on the canvas and render it in
+                         #           the browser. Three.js ships with the pack, and the browser
+                         #           fetches it only when a scene runs
   document_export: false #  0 nodes: lets Save DOC write .docx, .odt and .pdf. The only group
                          #           whose packages ComfyUI does not already require, so it
                          #           starts off and nothing is installed for a fresh install
@@ -65,8 +67,6 @@ features:                # optional node groups
                          #           The (ComfyUI Native) node beside each loads either way
   pssr:        false     #  1 node:  PS-SR video super resolution. Needs a 22 GB checkout
                          #           placed by hand, and diffsynth; see docs/MODELS.md
-  threejs:     false     # 43 nodes: build a Three.js scene on the canvas and render it in
-                         #           the browser. Three.js ships with the pack
 
                          # extras and viewer are the nodes of two other WAS packs. Set either
                          # to false to run the standalone pack instead.

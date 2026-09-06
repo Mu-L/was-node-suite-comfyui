@@ -61,9 +61,8 @@ against.
 
 | Key | Type | Default | Does |
 |---|---|---|---|
-| `logging.level` | `debug` \| `info` \| `warning` \| `error` | `info` | Lowest level the pack's own loggers emit. `debug` adds dependency probes, model resolution and cache eviction. |
-| `logging.rich` | bool | `true` | Colourised output and the startup table, when `rich` is installed. Falls back to a plain stream handler when it is not, or when this is `false`. |
-| `logging.startup_summary` | bool | `true` | The per-module load-time table printed at startup. Needs `logging.rich` as well. |
+| `logging.level` | `debug` \| `info` \| `warning` \| `error` | `info` | Lowest level the pack's own loggers emit. `debug` adds dependency probes, model resolution, cache eviction, per-module load times and the node ids a disabled group holds back. |
+| `logging.rich` | bool | `true` | Colourised output, when `rich` is installed. Falls back to a plain stream handler when it is not, or when this is `false`. |
 | `logging.quotes` | bool | `false` | Accepted and has no effect: no node or loader prints a quote. |
 
 ---
@@ -244,7 +243,7 @@ list. Today that is `document_export` alone.
 | `features.document_export` | `python-docx`, `odfdo`, `xhtml2pdf`<br>`pip install -r requirements/document_export.txt` | off | No nodes. Lets `Save DOC` write `.docx`, `.odt` and `.pdf` |
 | `features.pssr` | four packages, and a 22 GB checkout placed by hand<br>see [`docs/MODELS.md`](MODELS.md) | off | `Video Super Resolution (PS-SR)` |
 | `features.preprocessors` | none. Every answer runs in torch on weights the pack publishes | **on** | `Power Preprocessor`, `Image Remove Background`, `Image Remove Background Model Loader`, `HDR Reconstruct` |
-| `features.threejs` | none. three.js ships with the pack | off | The 43 `Three` nodes |
+| `features.threejs` | none. three.js ships with the pack, and the browser fetches it only when a scene runs | **on** | The 43 `Three` nodes |
 | `features.extras` | none | **on** | The 27 WAS_Extras nodes |
 | `features.viewer` | none | **on** | `Content Viewer` and `CV Canvas Compose Batch`, the two nodes shared with the ComfyUI_Viewer pack |
 
@@ -265,7 +264,7 @@ list. Today that is `document_export` alone.
 |---|---|---|---|
 | `legacy.loaders` | **on** | `Checkpoint Loader (Advanced)`, `Checkpoint Loader (Simple, Advanced)`, `Lora Loader (Advanced)`, `unCLIP Checkpoint Loader (Advanced)`, `Upscale Model Loader (Advanced)` | ComfyUI's own `Load Checkpoint`, `Load LoRA`, `unCLIP Checkpoint Loader`, `Load Upscale Model` |
 | `legacy.text_type` | **on** | `String to Text`, `Text to String` | Nothing: every text socket is a plain `STRING` already |
-| `legacy.core_dupes` | **on** | `Image to Latent Mask`, `Convert Masks to Images`, `Seed` | Core `ImageToMask` and `ImageColorToMask`, core `MaskToImage`, ComfyUI's own `Seed` |
+| `legacy.core_dupes` | **on** | `Image to Latent Mask`, `Convert Masks to Images`, `Seed (Number Outputs)` | Core `ImageToMask` and `ImageColorToMask`, core `MaskToImage`, ComfyUI's own `Seed` |
 | `legacy.dupes` | off | `CLIPSEG2`, listed as **CLIPSeg Tiled Masking** | `CLIPSeg Masking` |
 | `legacy.sampling` | **on** | `KSampler (Seed Socket)` | ComfyUI's `KSampler` with a `Seed` node |
 | `legacy.switches` | **on** | `CLIP Input Switch`, `CLIP Vision Input Switch`, `Conditioning Input Switch`, `Control Net Model Input Switch`, `Image Input Switch`, `Latent Input Switch`, `Model Input Switch`, `Number Input Switch`, `Text Input Switch`, `Upscale Model Switch`, `VAE Input Switch` | `Tensor Image Switch` for images, masks and latents; `Model Switch` for models, VAEs and text encoders; `Any Input Switch` for everything else |

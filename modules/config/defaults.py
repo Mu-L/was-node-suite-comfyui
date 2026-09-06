@@ -208,6 +208,7 @@ FEATURE_DEFAULTS = {
     "diffusers": True,
     "yunet": True,
     "preprocessors": True,
+    "threejs": True,
 }
 
 LEGACY_GROUPS = (
@@ -245,7 +246,6 @@ DEFAULTS = {
     "logging": {
         "level": "info",
         "rich": True,
-        "startup_summary": True,
         "quotes": False,
     },
     "paths": {

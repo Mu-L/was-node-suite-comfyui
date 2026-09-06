@@ -134,7 +134,8 @@ a core ComfyUI node. Only the label changed, and the old names still find them i
 
 # Nodes
 
-**457 nodes** across 47 categories. See [`NODES.md`](NODES.md).
+**457 nodes** across 47 categories. See [`NODES.md`](NODES.md), which also groups them by the
+`config.yaml` switch that gates them: [feature gates](NODES.md#feature-gates).
 
 **28 of them are deprecated**, which ComfyUI marks in the Add Node menu. Each one opens its
 description with the node to use instead.
@@ -250,8 +251,6 @@ the intrinsic maps **Power Preprocessor** answers with.
 # Contributing
 
 Bug reports and feature requests are welcome as issues. For a change to a node, open an issue first, so its inputs and outputs are settled before the code is written. See [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md).
-
-New experiments land in [WAS_Extras](https://github.com/WASasquatch/WAS_Extras) first and graduate here once they settle. The same goes for [ComfyUI_Viewer](https://github.com/WASasquatch/ComfyUI_Viewer). Both packs' nodes carry the same ids here as they do there, so if you run one of them alongside this suite, turn the matching group off with `features: extras: false` or `features: viewer: false`. This suite then registers none of that group's nodes and leaves the other pack to do it. Nothing is renamed, moved or uninstalled.
 
 <a href="https://github.com/WASasquatch/was-node-suite-comfyui/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=WASasquatch/was-node-suite-comfyui" />
