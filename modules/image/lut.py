@@ -690,9 +690,18 @@ def search_directories() -> list[Path]:
     except ImportError:
         folder_names_and_paths = {}
 
-    for registered, _extensions in folder_names_and_paths.values():
+    for value in folder_names_and_paths.values():
+        # The registered paths are read by position, and a value shaped otherwise is skipped.
+        try:
+            registered = list(value[0])
+        except (TypeError, KeyError, IndexError) as error:
+            logger.debug("a folder_paths entry was not a path list (%s)", error)
+            continue
         for entry in registered:
-            path = Path(entry)
+            try:
+                path = Path(entry)
+            except TypeError:
+                continue
             models = path.parent
             if models.name != "models":
                 for ancestor in path.parents:
